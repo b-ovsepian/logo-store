@@ -1,0 +1,1 @@
+import product_card_js from '../components/product-card/index.js'
