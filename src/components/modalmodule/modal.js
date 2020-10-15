@@ -1,25 +1,22 @@
 import '../modalmodule/modal.css';
+import {modalrefs } from '../../refs/index';
 
-const refs = {
-    buttonModal: document.querySelector('.modalbtn'),
-    lightbox: document.querySelector('.lightbox'),
-}
 
 // open modal lightbox
 
-refs.buttonModal.addEventListener('click', (e) => {
+modalrefs.buttonModal.addEventListener('click', (e) => {
     openBackdrop();
 });
 
 
 function openBackdrop() {
-    refs.lightbox.classList.add('is-open');
+    modalrefs.lightbox.classList.add('is-open');
 };
 
 
 // close modal lightbox
 
-refs.lightbox.addEventListener('click', e => {
+modalrefs.lightbox.addEventListener('click', e => {
     console.log(e.target);
     if ((e.target.classList.contains('backdrop')) ||
         (e.target.classList.contains('close-icon')) ||
@@ -32,7 +29,7 @@ refs.lightbox.addEventListener('click', e => {
 
 
 function closeBackdrop() {
-   refs.lightbox.classList.remove('is-open'); 
+   modalrefs.lightbox.classList.remove('is-open'); 
 };
 
 window.addEventListener('keydown', (e) => {
