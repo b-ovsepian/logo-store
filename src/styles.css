@@ -1,23 +1,24 @@
 :root {
+  /* Цвета хедера */
   --header-bg-color: #53535c;
   --header-text-color: #ffffff;
-
+  /* Основные цвета */
   --primary-text-color: #53535c;
   --title-text-color: #000000;
   --second-title-color: #6368e5;
   --primary-bg-color: #ffffff;
-
+  /* Цвета футера */
   --footer-question-color: #ffc390;
   --footer-text-color: #ffffff;
   --footer-bg-color: #53535c;
-
+  /* Цвета акцента */
   --primary-accent-color: #6368e5;
   --second-accent-color: #b884f3;
   --third-accent-color: #ffc390;
-
+  /* Цвета кнопок */
   --btn-text-color: #ffffff;
   --btn-accent-color: #6368e5;
-
+  /* Кубик для анимации */
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -112,7 +113,7 @@ img {
   color: var(--btn-text-color);
 }
 .button.secondary {
-  border: none;
-
+  border: 2px solid var(--btn-accent-color);
   color: var(--btn-accent-color);
+  background-color: var(--btn-text-color);
 }
