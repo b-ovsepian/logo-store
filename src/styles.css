@@ -20,6 +20,8 @@
   /* Цвета кнопок */
   --btn-text-color: #ffffff;
   --btn-accent-color: #6368e5;
+  /* цвет фона для телефонов */
+  --telephone-bc-color: #f1effb;
   /* Кубик для анимации */
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
