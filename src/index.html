@@ -12,7 +12,77 @@
   </head>
   <body>
     <header class="page-header">
-      <div class="container"></div>
+      <div class="container">
+        <div class="header">
+          <a href="#" class="logo">
+            <img src="./components/header/logo.png" alt="logo" width="40" height="40">
+            <p>Lo<span>go</span></p>
+          </a>
+          <ul class="list icon-list">
+            <li>
+              <button>
+                <svg class="nav-icon" width="30" height="30">
+                  <use href="./components/header/sprite.svg#icon-smartphone"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button>
+                <svg class="nav-icon" width="20" height="20">
+                  <use href="./components/header/sprite.svg#icon-search"></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button>
+                <svg class="nav-icon" width="30" height="30">
+                  <use href="./components/header/sprite.svg#icon-cart"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <button class="burger">
+            <svg width="34" height="8">
+              <use href="./components/header/sprite.svg#icon-burger"></use>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="header-modal">
+          <!-- <input type="text" 
+                id="search-modal" 
+                name="search-modal" 
+                placeholder="Поиск"> -->
+          <ul class="list">
+            <li><button>Каталог</button></li>
+            <li><a href="#">SALE &#37;</a></li>
+            <li><button>Информация</button></li>
+            <li>Контакты
+              <ul class="list">
+                <li><button>
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/sprite.svg#icon-smartphone"></use>
+                  </svg>
+                  +38 (050) 333-37-96
+                </button></li>
+                <li><button>
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/sprite.svg#icon-profile"></use>
+                  </svg>
+                  Личный кабинет
+                </button></li>
+                <li><a href="">
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/sprite.svg#icon-likes"></use>
+                  </svg>
+                  Избранное
+                </a></li>
+              </ul>
+            </li>
+          </ul>  
+        </div>
+
+      </div>
     </header>
     <main class="page-main">
       <div class="container">

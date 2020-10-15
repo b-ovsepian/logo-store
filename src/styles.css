@@ -135,3 +135,69 @@ img {
 
   color: var(--btn-text-color);
 }
+
+/* ============== HEADER */
+
+.page-header {
+  background-color: var(--header-bg-color);
+}
+
+.header {
+  display: flex;
+}
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo p {
+  color: var(--header-text-color);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-left: 15px;
+}
+
+.logo span {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* ICONS */
+
+.nav-icon {
+  fill: var(--header-text-color);
+}
+
+/* BUTTONS */
+
+.icon-list {
+  display: flex;
+  align-items: center;
+}
+
+.icon-list button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* BURGER */
+
+.burger {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.burger svg {
+  fill: var(--third-accent-color);
+}
+
+/* HEADER MODAL */
+
+.header-modal {
+  background-color: #e5e5e5;
+}
