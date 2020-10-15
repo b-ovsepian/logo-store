@@ -97,6 +97,7 @@ img {
   min-height: 44px;
 
   border-radius: 10px;
+  border: 2px solid transparent;
 
   font-weight: 500;
   font-size: 18px;
@@ -105,15 +106,32 @@ img {
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+
+  cursor: pointer;
+  transition: color 250ms var(--timing-function),
+    background 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 .button.primary {
   background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
-  border: none;
 
   color: var(--btn-text-color);
+}
+.button.primary:hover,
+.button.primary:focus {
+  border: 2px solid var(--btn-accent-color);
+  color: var(--btn-accent-color);
+  background: none;
+  background-color: var(--btn-text-color);
 }
 .button.secondary {
   border: 2px solid var(--btn-accent-color);
   color: var(--btn-accent-color);
   background-color: var(--btn-text-color);
+}
+.button.secondary:hover,
+.button.secondary:focus {
+  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+
+  color: var(--btn-text-color);
 }
