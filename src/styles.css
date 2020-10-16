@@ -1,23 +1,28 @@
 :root {
+  /* Цвета хедера */
   --header-bg-color: #53535c;
   --header-text-color: #ffffff;
-
+  /* Основные цвета */
   --primary-text-color: #53535c;
   --title-text-color: #000000;
   --second-title-color: #6368e5;
-  --primary-bg-color: #ffffff;
-
+  --primary-bg-color: #f4f4f4;
+  --second-bg-color: #ffffff;
+  --third-text-color: #b3b3b3;
+  /* Цвета футера */
   --footer-question-color: #ffc390;
   --footer-text-color: #ffffff;
   --footer-bg-color: #53535c;
-
+  --footer-phone-color: #c7c7c7;
+  --line-color: #b3b3b3;
+  /* Цвета акцента */
   --primary-accent-color: #6368e5;
   --second-accent-color: #b884f3;
   --third-accent-color: #ffc390;
-
+  /* Цвета кнопок */
   --btn-text-color: #ffffff;
   --btn-accent-color: #6368e5;
-
+  /* Кубик для анимации */
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -34,6 +39,10 @@ html {
 body {
   font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.22;
+
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
   margin: 0;
@@ -43,7 +52,9 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+a {
+  text-decoration: none;
+}
 /* Visually-hidden */
 .visually-hidden {
   position: absolute;
@@ -89,7 +100,6 @@ img {
 }
 
 /* Button */
-
 .button {
   padding: 11px 78px;
 
@@ -97,6 +107,7 @@ img {
   min-height: 44px;
 
   border-radius: 10px;
+  border: 2px solid transparent;
 
   font-weight: 500;
   font-size: 18px;
@@ -105,15 +116,32 @@ img {
   text-align: center;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+
+  cursor: pointer;
+  transition: color 250ms var(--timing-function),
+    background 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 .button.primary {
   background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
-  border: none;
 
   color: var(--btn-text-color);
 }
-.button.secondary {
-  border: none;
-
+.button.primary:hover,
+.button.primary:focus {
+  border: 2px solid var(--btn-accent-color);
   color: var(--btn-accent-color);
+  background: none;
+  background-color: var(--btn-text-color);
+}
+.button.secondary {
+  border: 2px solid var(--btn-accent-color);
+  color: var(--btn-accent-color);
+  background-color: var(--btn-text-color);
+}
+.button.secondary:hover,
+.button.secondary:focus {
+  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+
+  color: var(--btn-text-color);
 }

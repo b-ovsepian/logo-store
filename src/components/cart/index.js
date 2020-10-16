@@ -2,7 +2,9 @@ import css from '../cart/styles.css';
 
 
 
-// 
+//Функция которая считает сумму
+// значение свойтсва цены из  обьекта товара умножить на значение textContent из спана
+
 
 const btnMin = document.querySelector('.decriment-button');
 const btnPlus = document.querySelector('.increment-button');
