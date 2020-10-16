@@ -14,27 +14,28 @@
     <header class="page-header">
       <div class="container"></div>
     </header>
-    <main class="page-main">
-      <!-- <div class="container">
-        <button class="button primary">Start</button>
-        <button class="button secondary">Start</button>
-      </div> -->
-    </main>
     <div class="create-card container">
-      <form class="admin-form-product">
+      <form class="adminFormProduct">
+
           <label class="admin-form-product-label" for="name-product">Название продукта</label>
-          <input class="admin-input-product" type="text" name="name-product" id="name-product" placeholder="Название">
+          <input class="admin-input-product" type="text" name="nameProduct" id="name-product" placeholder="Название">
 
 
           <div class="image-upload">
             <label class="admin-form-product-label" for="photo-product">
+              <img src="#" class="createIMG" alt="image" data-createCard="1">
+              <img src="#" class="createIMG" alt="image" data-createCard="2">
+              <img src="#" class="createIMG" alt="image" data-createCard="3">
+              <img src="#" class="createIMG" alt="image" data-createCard="4">
+              <img src="#" class="createIMG" alt="image" data-createCard="5">
+              <img src="#" class="createIMG" alt="image" data-createCard="6">
               <span class="admin-product-label">+</span>
             </label>
-            <input class="admin-input-product" id="photo-product" type="file" />
+            <input class="admin-input-product" id="photo-product" placeholder="+" name="photoProduct" type="file" />
           </div>
 
           <label class="admin-form-product-label" for="description-product">Описание товара</label>
-          <textarea class="admin-textarea-product" name="" id="description-product" cols="30" rows="10" placeholder="Описание"></textarea>
+          <textarea class="admin-textarea-product" name="textareaProduct" id="description-product" cols="30" rows="10" placeholder="Описание"></textarea>
 
           <label class="admin-form-product-label" for="category-product">Категория товара</label>
           <select name="category-product" id="category-product">
@@ -46,16 +47,18 @@
           </select>
 
           <label class="admin-form-product-label" for="price-product">Цена</label>
-          <input class="admin-input-product" type="text" name="price-product" id="price-product" placeholder="0.00 ₴">
+          <input class="admin-input-product" type="text" name="priceProduct" id="price-product" placeholder="0.00 ₴">
 
           <label class="admin-form-product-label" for="tel-product">Телефон</label>
-          <input class="admin-input-product" type="tel" name="tel-product" id="tel-product" placeholder="+38 (0--) --- -- --">
+          <input class="admin-input-product" type="tel" name="telProduct" id="tel-product" placeholder="+38 (0--) --- -- --">
 
           <button class="button primary admin" type="submit" id="create-btn">СОЗДАТЬ</button>
       </form>
+
     </div>
     <footer class="page-footer">
       <div class="container"></div>
     </footer>
   </body>
 </html>
+

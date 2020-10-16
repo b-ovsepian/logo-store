@@ -1,4 +1,4 @@
-.admin-form-product input {
+.adminFormProduct input {
   color: var( --third-text-color);
   height: 40px;
   border-radius: 10px;
@@ -6,14 +6,14 @@
     font-family: 'Montserrat Alternates',sans-serif;
     padding-left: 20px;
 }
-.admin-form-product input:not(:last-child) {
+.adminFormProduct input:not(:last-child) {
   margin-bottom: 10px;
 }
  .admin-input-product {
    width: 280px;
  }
 
-.admin-form-product select {
+.adminFormProduct select {
   color: var( --third-text-color);
   width: 280px;
   height: 40px;
@@ -27,20 +27,27 @@
   display: block;
   padding-bottom: 20px;
   color: var( --title-text-color);
+    display: flex;
+  flex-flow: row;
 }
 
 .admin-product-label {
+  padding-left: 19px;
   font-size: 58px;
-  font-weight: initial;
    color: var(--third-text-color);
+
+}
+
+.admin-product-label:hover {
+color: var(--btn-accent-color);
+background: none;
+
 }
 
 .create-card {
   display: flex;
   justify-content: center;
 }
-
-
 
 #category-product {
   margin-bottom: 10px;
@@ -63,6 +70,12 @@
  height: 74px;
 }
 
+.image-upload:hover {
+border: 2px solid var(--btn-accent-color);
+color: var(--btn-accent-color);
+background: none;
+background-color: var(--btn-text-color);
+}
 .image-upload>input {
   display: none;
 }
@@ -71,7 +84,9 @@
   width: 80px;
   cursor: pointer;
 }
-
+.createIMG {
+  display: none;
+}
 
 .admin-textarea-product{
   display: block;
