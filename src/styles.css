@@ -22,15 +22,15 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html {
+/* html {
   box-sizing: border-box;
-}
+} */
 
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
+} */
 
 body {
   font-family: 'Montserrat Alternates', sans-serif;
@@ -38,11 +38,11 @@ body {
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
 }
-img {
+/* img {
   display: block;
   max-width: 100%;
   height: auto;
-}
+} */
 
 /* Visually-hidden */
 .visually-hidden {
@@ -69,7 +69,7 @@ img {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 @media screen and (min-width: 320px) {
