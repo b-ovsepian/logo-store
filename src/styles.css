@@ -13,6 +13,8 @@
   --footer-question-color: #ffc390;
   --footer-text-color: #ffffff;
   --footer-bg-color: #53535c;
+  --footer-phone-color: #c7c7c7;
+  --line-color: #b3b3b3;
   /* Цвета акцента */
   --primary-accent-color: #6368e5;
   --second-accent-color: #b884f3;
@@ -49,7 +51,9 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+a {
+  text-decoration: none;
+}
 /* Visually-hidden */
 .visually-hidden {
   position: absolute;

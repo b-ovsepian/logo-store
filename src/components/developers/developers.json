@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Багдасар",
+    "surname": "Овсепян",
+    "image": "./components/developers/images/bagdasar.jpg",
+    "git": "https://github.com/b-ovsepian",
+    "info": ""
+  },
+  {
+    "name": "Валерий",
+    "surname": "Кашпур",
+    "image": "./components/developers/images/valera.jpg",
+    "git": "https://github.com/IC3CLD"
+  },
+  {
+    "name": "Таня",
+    "surname": "",
+    "image": "/components/developers/images/tanya.jpg",
+    "git": "https://github.com/TanyaChichkan"
+  },
+  {
+    "name": "Роман",
+    "surname": "Никитенко",
+    "image": "/components/developers/images/roman.jpg",
+    "git": "https://github.com/RomanNikitenko19"
+  },
+  {
+    "name": "Артем",
+    "surname": "Чернышов",
+    "image": "/components/developers/images/artem.jpg",
+    "git": "https://github.com/cher-art"
+  },
+  {
+    "name": "Andrii",
+    "surname": "Sorokin",
+    "image": "/components/developers/images/andrei.jpg",
+    "git": "https://github.com/AndriiSorokin"
+  },
+  {
+    "name": "Oleh",
+    "surname": "Charupa",
+    "image": "/components/developers/images/oleh.jpg",
+    "git": "https://github.com/OlehCharupa"
+  },
+  {
+    "name": "Igor",
+    "surname": "Kichuk",
+    "image": "/components/developers/images/igor.jpg",
+    "git": "https://github.com/kichman77"
+  },
+  {
+    "name": "Alina",
+    "surname": "Pavliuk",
+    "image": "/components/developers/images/alina.jpg",
+    "git": "http://github.com/Alina-Pavliuk"
+  },
+  {
+    "name": "Богдан",
+    "surname": "Ткаченко",
+    "image": "/components/developers/images/bogdan.jpg",
+    "git": "https://github.com/Korsavabi"
+  },
+  {
+    "name": "Алёна",
+    "surname": "Коломиец",
+    "image": "/components/developers/images/alona.jpg",
+    "git": "https://github.com/AlonaKolomiiets"
+  },
+  {
+    "name": "Анжелика",
+    "surname": "Гончарова",
+    "image": "/components/developers/images/anzhelika.jpg",
+    "git": "https://github.com/redreren"
+  },
+  {
+    "name": "Ilya",
+    "surname": "Nikonenko",
+    "image": "/components/developers/images/ilya.jpg",
+    "git": "https://github.com/Ilya057"
+  },
+  {
+    "name": "Yehor",
+    "surname": "Savin",
+    "image": "/components/developers/images/yegor.jpg",
+    "git": "https://github.com/YehorSavin"
+  },
+  {
+    "name": "Александр",
+    "surname": "Яшин",
+    "image": "/components/developers/images/sasha.jpg",
+    "git": "https://githube.com/n1ke23"
+  },
+  {
+    "name": "Марк",
+    "surname": "",
+    "image": "/components/developers/images/mark.jpg",
+    "git": "https://githube.com/Mark22GitHub"
+  }
+]
