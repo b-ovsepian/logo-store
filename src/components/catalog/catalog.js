@@ -1,41 +1,39 @@
 import css from "./styles.css"
 
 const titleKbt = document.getElementById("kbtTitle")
-console.dir(titleKbt);
 const listKbt = document.getElementById("kbtList")
-console.dir(listKbt);
-
-const span = document.getElementById("titleIcon")
-console.dir(span);
+const titleIt = document.getElementById("itTitle")
+const listIt = document.getElementById("itList")
+const titleHome = document.getElementById("homeTitle")
+const listHome = document.getElementById("homeList")
+const titleKitchen = document.getElementById("inTitle")
+const listKitchen = document.getElementById("inList")
+const span1 = document.querySelector("#titleIcon1")
+const span2 = document.querySelector("#titleIcon2")
+const span3 = document.querySelector("#titleIcon3")
+const span4 = document.querySelector("#titleIcon4")
 
 titleKbt.addEventListener("click", () => {
-  listKbt.classList.toggle('isHidden')
-  span.classList.toggle('rotate')
+  update(listKbt, span1)
 })
 
-const titleIt = document.getElementById("itTitle")
-console.dir(titleIt);
-const listIt = document.getElementById("itList")
-console.dir(listIt);
-
- titleIt.addEventListener("click", () => {
-  listIt.classList.toggle('isHidden')
+titleIt.addEventListener("click", () => {
+  update(listIt, span2)
 })
-
-const titleHome = document.getElementById("homeTitle")
-console.dir(titleHome);
-const listHome = document.getElementById("homeList")
-console.dir(listHome);
 
 titleHome.addEventListener("click", () => {
-  listHome.classList.toggle('isHidden')
+  update(listHome, span3)
 })
-const titleKitchen = document.getElementById("inTitle")
-console.dir(titleKitchen);
-const listKitchen = document.getElementById("inList")
-console.dir(listKitchen);
-
 
 titleKitchen.addEventListener("click", () => {
-  listKitchen.classList.toggle('isHidden')
+  update(listKitchen, span4)
 })
+
+function update(list,el) {
+  list.classList.toggle('isHidden')
+  if (el.textContent === "▼") {
+    el.textContent = "►"
+  } else {
+    el.textContent = "▼"
+  }
+}
