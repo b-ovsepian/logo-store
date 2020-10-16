@@ -1,3 +1,4 @@
+import { ValidateEmail, ValidatePassword} from './validation';
 
 function markUpRendering() {
 
@@ -26,6 +27,8 @@ function markUpRendering() {
 
 const body = document.querySelector('body');
     
+
+
 body.innerHTML = markUpRendering();
 
 const authRefs = {
@@ -35,15 +38,15 @@ const authRefs = {
     buttons:document.querySelector('.authbuttons')
 }
 
-let password;
-let email;
      
 authRefs.form.addEventListener('submit', e => {
     e.preventDefault();
 
-    password = authRefs.form.elements.password.value;
-    email = authRefs.form.elements.email.value;
+    let password = authRefs.form.elements.password.value;
+    let email = authRefs.form.elements.email.value;
 
+    ValidateEmail(email);
+    ValidatePassword(password);
     authRefs.buttons.addEventListener('click', e => { 
         if (e.target.classList.contains('registerAccount') &&
             (authRefs.form.elements.radio.checked===true)){
