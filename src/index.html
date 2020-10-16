@@ -9,6 +9,12 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header class="page-header">
@@ -124,13 +130,28 @@
       
     </header>
     <main class="page-main">
-      <div class="container">
-        <button class="button primary">Start</button>
-        <button class="button secondary">Start</button>
-      </div>
+      <div class="container"></div>
     </main>
     <footer class="page-footer">
-      <div class="container"></div>
+      <div class="container">
+        <h2 class="page-footer__title">Есть к нам вопросы?</h2>
+        <div class="footer-box">
+          <div class="page-footer__phone-box">
+            <h3 class="page-footer__phone">Телефон</h3>
+            <a class="page-footer__link" href="tel:+380503333796"
+              >+38 (050) 333-37-96</a
+            >
+          </div>
+          <address class="page-footer__address">
+            <h3 class="page-footer__phone">График работы CALL-центра</h3>
+            <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
+            <p class="address-text">Сб - Вс: Выходной</p>
+          </address>
+        </div>
+      </div>
+      <div class="copy">
+        <p class="copyright">&copy; 2020 | GoIT</p>
+      </div>
     </footer>
   </body>
 </html>
