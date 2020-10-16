@@ -4,12 +4,22 @@
   display: flex;
   flex-wrap: wrap;
 }
+/* основные стили для карточки  */
+.picture-box {
+  margin: 0 auto 15px auto;
+  height: 80px;
+}
 
+.item-picture {
+  /* width: 100%; */
+  max-height: 80px;
+}
+.item-picture:not(:first-child) {
+  display: none;
+}
 .card-item {
   width: calc((100% - 10px) / 2);
-  /* outline: 1px solid red; */
-  background-color: aliceblue;
-  /* background-color: var(--primary-bg-color); */
+  background-color: #ffffff;
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -17,40 +27,48 @@
   margin-left: 10px;
 }
 .item-box {
+  position: relative;
   padding: 15px;
 }
+/* стили для иконки ИЗБРАННОЕ */
 .favorit-icon {
   position: absolute;
   top: 10px;
   right: 10px;
   width: 20px;
   height: 18px;
+}
+.icon-heard {
+  display: block;
   fill: #ff8a9d;
-  stroke: #ff8a9d;
+  width: 20px;
+  height: 18px;
 }
-.item-box {
-  position: relative;
-}
-.card-item-title,
-.notsale-price,
-.price {
-  margin: 0;
-  padding: 0;
+.icon-heard-full {
+  display: none;
+  fill: #ff8a9d;
+  width: 20px;
+  height: 18px;
 }
 .item-picture {
-  margin: 0 auto 15px auto;
+  margin: 0 auto;
 }
 .card-item-title {
+  margin: 0;
+  padding: 0;
   font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
   text-align: left;
   letter-spacing: 0em;
-
   color: var(--title-text-color);
   margin-bottom: 10px;
 }
-.icon-box {
+/* стили для иконок рейтинг */
+/* .icon-box {
+  display: flex;
+} */
+.icon-box-svg {
   display: flex;
 }
 .icon-star {
@@ -60,23 +78,66 @@
 .icon-star:not(:last-child) {
   margin-right: 5px;
 }
+/* стили для бокска с ценами */
 .item-box-price {
   margin-top: 22px;
 }
 .notsale-price {
+  margin: 0;
+  padding: 0;
   font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
   text-decoration-line: line-through;
-
   color: #b3b3b3;
 }
 .price {
-  font-family: Montserrat Alternates;
-  font-style: normal;
+  margin: 0;
+  padding: 0;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;
-
+  line-height: 1.2;
   color: var(--footer-bg-color);
+}
+@media screen and (min-width: 768px) {
+  .card-item {
+    width: calc((100% - 18px * 2) / 3);
+    margin-bottom: 18px;
+  }
+  .card-item:nth-child(3n) {
+    margin-left: 18px;
+  }
+  .item-box {
+    padding: 20px;
+  }
+  .card-item-title {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .notsale-price {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card-item {
+    width: calc((100% - 18px * 4) / 5);
+    margin-bottom: 18px;
+  }
+  .card-item:nth-child(5n) {
+    margin-left: 18px;
+  }
+  .card-item-title {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .item-box-price {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 26px;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .notsale-price {
+    display: block;
+  }
 }
