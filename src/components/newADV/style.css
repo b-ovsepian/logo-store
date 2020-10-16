@@ -1,0 +1,127 @@
+.admin-form-product input {
+  color: var( --third-text-color);
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #B3B3B3;
+    font-family: 'Montserrat Alternates',sans-serif;
+    padding-left: 20px;
+}
+.admin-form-product input:not(:last-child) {
+  margin-bottom: 10px;
+}
+ .admin-input-product {
+   width: 280px;
+ }
+
+.admin-form-product select {
+  color: var( --third-text-color);
+  width: 280px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #B3B3B3;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding-left: 15px;
+}
+
+.admin-form-product-label {
+  display: block;
+  padding-bottom: 20px;
+  color: var( --title-text-color);
+}
+
+.admin-product-label {
+  font-size: 58px;
+  font-weight: initial;
+   color: var(--third-text-color);
+}
+
+.create-card {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+#category-product {
+  margin-bottom: 10px;
+}
+
+#photo-product {
+  width: 75px;
+  height: 74px;
+}
+
+.image-upload {
+  display: block;
+  text-align: center;
+   display: block;
+ margin-top: 10px;
+ margin-bottom: 20px;
+ border-radius: 10px;
+ border: 2px solid #B3B3B3;
+ width: 75px;
+ height: 74px;
+}
+
+.image-upload>input {
+  display: none;
+}
+
+.image-upload img {
+  width: 80px;
+  cursor: pointer;
+}
+
+
+.admin-textarea-product{
+  display: block;
+  resize: none;
+  border-radius: 10px;
+  border: 2px solid #B3B3B3;
+  font-family: 'Montserrat Alternates',sans-serif;
+  padding-left: 20px;
+  width: 280px;
+  height: 80px;
+  margin-bottom: 20px;
+  padding-top: 12px;
+}
+
+#create-btn{
+width: 215px;
+font-size: 18px;
+font-weight: 600;
+font-family: 'Montserrat Alternates',
+sans-serif;
+padding-left: 60px;
+margin-top: 30px;
+margin-bottom: 60px;
+display: block;
+}
+
+
+@media screen and (min-width: 768px) {
+ .admin-input-product:nth-child(2) {
+  width: 395px;
+ }
+
+ .admin-textarea-product {
+   width: 395px;
+ }
+  .admin-input-product:nth-child(odd) {
+   width: 302px;
+ }
+#category-product {
+   width: 395px;
+ }
+}
+
+
+@media screen and (min-width: 1200px) {
+   .admin-input-product:nth-child(2) {
+   width: 433px;
+ }
+
+ .admin-textarea-product {
+   width: 433px;
+ }
+}
