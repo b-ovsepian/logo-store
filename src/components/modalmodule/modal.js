@@ -5,12 +5,12 @@ import { refs } from "./modalrefs";
        function openBackdrop() {
         refs.lightbox.classList.add('is-open');
     };
-    refs.lightbox.addEventListener('click', e => {
-        console.log(e.target);
-        if ((e.target.classList.contains('backdrop')) ||
-            (e.target.classList.contains('close-icon')) ||
-            (e.target.dataset.action = "close-modal") ||
+     refs.backdrop.addEventListener('click', e => {
+       
+         if ((e.target === e.currentTarget) ||
+             (e.target.classList.contains('close-icon')) ||
             (e.target.classList.contains('icon-wrapper'))) {
+            
             closeBackdrop();
         }
     });
