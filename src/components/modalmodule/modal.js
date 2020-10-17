@@ -1,21 +1,21 @@
 import '../modalmodule/modal.css';
-import {modalrefs } from './modalrefs';
+import { refs } from "./modalrefs";
 
-const modalModule = (markup, listeners) => {
+ export const modalModule = (markup, listeners) => {
        function openBackdrop() {
-        modalrefs.lightbox.classList.add('is-open');
+        refs.lightbox.classList.add('is-open');
     };
-    modalrefs.lightbox.addEventListener('click', e => {
-        console.log(e.target);
-        if ((e.target.classList.contains('backdrop')) ||
-            (e.target.classList.contains('close-icon')) ||
-            (e.target.dataset.action = "close-modal") ||
+        refs.backdrop.addEventListener('click', e => {
+       
+         if ((e.target === e.currentTarget) ||
+             (e.target.classList.contains('close-icon')) ||
             (e.target.classList.contains('icon-wrapper'))) {
+            
             closeBackdrop();
         }
     });
     function closeBackdrop() {
-        modalrefs.lightbox.classList.remove('is-open');
+        refs.lightbox.classList.remove('is-open');
     };
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Escape') {
@@ -28,13 +28,11 @@ const modalModule = (markup, listeners) => {
     listeners(closeBackdrop);
 }
 
-
-// to create your modal copy this fn and insert your markup & elements to open/close it
-
 const modalBTN = document.querySelector('.modalbtn');
 modalBTN.addEventListener('click', product);
 
-    function product(){
+
+function product(){
     function buyGoods() {
         // example for markup
         return `<div>hey<button class="hello">GET</button></div>`
