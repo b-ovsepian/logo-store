@@ -1,5 +1,6 @@
 export default {
   formAdmin: document.querySelector('.adminFormProduct'),
-  createCardImg :document.querySelector('.photo-product')
+  createCardImg: document.querySelector('.photo-product'),
+  createCardContainer : document.querySelector('.create-card')
 
 }
