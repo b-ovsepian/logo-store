@@ -1,11 +1,11 @@
 import '../modalmodule/modal.css';
-import {modalrefs } from '../../refs/index';
+import { refs } from "./modalrefs";
 
-const modalModule = (markup, listeners) => {
+ export const modalModule = (markup, listeners) => {
        function openBackdrop() {
-        modalrefs.lightbox.classList.add('is-open');
+        refs.lightbox.classList.add('is-open');
     };
-    modalrefs.lightbox.addEventListener('click', e => {
+    refs.lightbox.addEventListener('click', e => {
         console.log(e.target);
         if ((e.target.classList.contains('backdrop')) ||
             (e.target.classList.contains('close-icon')) ||
@@ -15,7 +15,7 @@ const modalModule = (markup, listeners) => {
         }
     });
     function closeBackdrop() {
-        modalrefs.lightbox.classList.remove('is-open');
+        refs.lightbox.classList.remove('is-open');
     };
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Escape') {
@@ -31,7 +31,8 @@ const modalModule = (markup, listeners) => {
 const modalBTN = document.querySelector('.modalbtn');
 modalBTN.addEventListener('click', product);
 
-    function product(){
+
+function product(){
     function buyGoods() {
         // example for markup
         return `<div>hey<button class="hello">GET</button></div>`
