@@ -1,12 +1,23 @@
 .authorization{
-    position: absolute;
+position: absolute;
+width: 320px;
+height: 568px;
 top:50%;
 left:50%;
 transform: translate(-50%, -50%);
-width: 342px;
-height: 414px;
 background: #FFFFFF;
 border-radius: 10px;
+padding-top: 20px;
+padding-left: 20px;
+margin-top:0;
+}
+
+@media screen and (min-width:768px){
+    .authorization{
+    width: 342px;
+    height: 450px;
+    }
+
 }
 
 .authtitle {
@@ -18,6 +29,15 @@ margin-bottom: 20px;
 
 .authspan{
     color: red;
+}
+
+.password-hint, .email-hint{
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: 500;
+    margin:0;
+    margin-top: 5px;
 }
 
 .authlabel{
@@ -54,16 +74,20 @@ color: #53535C;
     margin-bottom: 20px;
 }
 
-
+.checkbutton{
+    margin-right: 10px;
+}
 
 .enterAccount, .registerAccount{
     display: block;
     width: 240px;
     height: 44px;
-    color: white;
+    margin: 0 auto;
+    
 }
 
 .enterAccount{
+    color: white;
     background: linear-gradient(47.73deg, #6368E5 15.48%, #B884F3 81.25%);
     margin-bottom:15px;
 }
@@ -72,4 +96,13 @@ color: #53535C;
     border: 2px solid #6368E5;
     background-color:  transparent;
     padding:0;
+    color: #6368E5;
+}
+
+.icon-auth{
+    font-size: 20px;
+}
+
+.auth-icon-wrapper{
+    margin:0;
 }

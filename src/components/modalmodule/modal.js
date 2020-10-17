@@ -6,6 +6,7 @@ import { refs } from "./modalrefs";
         refs.lightbox.classList.add('is-open');
     };
      refs.backdrop.addEventListener('click', e => {
+
        
          if (
              (e.target === e.currentTarget) ||
