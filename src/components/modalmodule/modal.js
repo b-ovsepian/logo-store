@@ -7,7 +7,8 @@ import { refs } from "./modalrefs";
     };
      refs.backdrop.addEventListener('click', e => {
        
-         if ((e.target === e.currentTarget) ||
+         if (
+             (e.target === e.currentTarget) ||
              (e.target.classList.contains('close-icon')) ||
             (e.target.classList.contains('icon-wrapper'))) {
             

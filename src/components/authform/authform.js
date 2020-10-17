@@ -1,38 +1,39 @@
 import { ValidateEmail, ValidatePassword } from './validation';
 import { modalModule } from '../modalmodule/modal';
-import { authRefs } from './formRefs';
-import { refs } from '../modalmodule/modalrefs';
+import '../authform/form.css';
+// import { authRefs } from './formRefs';
 
 
 function markUpRendering() {
 
     return `<div class="authorization">
-                <h2>Авторизация</h2>
+                <h2 class="authtitle">Авторизация</h2>
 
                 <form name="authform" class="auth-form">
                 <div class="email-section">
-                    <label for="email"><span>*</span>E-mail или телефон</label>
-                    <input id="email" placeholder="E-mail или телефон" name="auth-email" value="" required/>
+                    <label class="authlabel" for="email"><span class="authspan">*</span>E-mail или телефон</label>
+                    <input class="authinput" id="email" placeholder="E-mail или телефон" name="auth-email" value="" required/>
                 </div>
                 <div class="password-section">
-                    <label for="password"><span>*</span>Пароль</label>
-                    <input id="password" placeholder="Пароль" name="password" value="" required/>
+                    <label class="authlabel" for="password"><span>*</span>Пароль</label>
+                    <input class="authinput" id="password" placeholder="Пароль" name="password" value="" required/>
                 </div>
-                <label for="checkbox"></label>
+                <div class="radiobutton">
+                <label for="checkbox" class="authradio"></label>
                 <input id="checkbox" type="radio" name="radio"/>Запомнить меня
-
+                </div>
+                
                 <div class="authbuttons">
-                <button class="enterAccount button primary" name="enterAccount">Войти</button>
-                <button class="registerAccount button primary" name="registerAccount">Регистрация</button>
+                <button class="enterAccount button" name="enterAccount">Войти</button>
+                <button class="registerAccount button" name="registerAccount">Регистрация</button>
                 </div>
                 </form> 
             </div>`;
 };
 
-// !!!change an element to open form
+// // !!!change an element to open
 const modalBTN = document.querySelector('.authbtn');
 modalBTN.addEventListener('click', openForm);
-
 
 
 function openForm() {
@@ -48,10 +49,21 @@ function openForm() {
 // const markup=markUpRendering();
 
 // const body = document.querySelector('body');
-// body.insertAdjacentHTML('beforeend', markup);
+// body.insertAdjacentHTML('afterbegin', markup);
     
 // body.innerHTML += markUpRendering();
 
+
+const refs = {
+    lightbox: document.querySelector('.lightbox'),
+}
+
+const authRefs = {
+    form: document.querySelector('.auth-form'),
+    enterAccountBtn: document.querySelector('.enterAccount'),
+    registerAccountBtn: document.querySelector('.registerAccount'),
+    buttons:document.querySelector('.authbuttons')
+}
 
 if (refs.lightbox.classList.contains('is-open')) {
     authRefs.form.addEventListener('submit', e => {
@@ -59,6 +71,8 @@ if (refs.lightbox.classList.contains('is-open')) {
 
         let password = authRefs.form.elements.password.value;
         let email = authRefs.form.elements.email.value;
+
+        console.log(email, password);
 
         // ValidateEmail(email);
         // ValidatePassword(password);
@@ -107,5 +121,4 @@ if (refs.lightbox.classList.contains('is-open')) {
         }
 
     });
-
 }
