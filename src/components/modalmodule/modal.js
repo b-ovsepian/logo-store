@@ -1,5 +1,5 @@
 import '../modalmodule/modal.css';
-import {modalrefs } from '../../refs/index';
+import {modalrefs } from './modalrefs';
 
 const modalModule = (markup, listeners) => {
        function openBackdrop() {
@@ -27,6 +27,9 @@ const modalModule = (markup, listeners) => {
     modalContent.innerHTML = markup();
     listeners(closeBackdrop);
 }
+
+
+// to create your modal copy this fn and insert your markup & elements to open/close it
 
 const modalBTN = document.querySelector('.modalbtn');
 modalBTN.addEventListener('click', product);
