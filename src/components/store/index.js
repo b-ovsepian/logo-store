@@ -20,6 +20,7 @@ export default {
         block: '',
         building: '',
         flat: '',
+        zip: '',
       },
     },
   ],
