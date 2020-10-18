@@ -11,7 +11,6 @@
 }
 
 .item-picture {
-  /* width: 100%; */
   max-height: 80px;
 }
 .item-picture:not(:first-child) {
@@ -31,25 +30,28 @@
   padding: 15px;
 }
 /* стили для иконки ИЗБРАННОЕ */
-.favorit-icon {
+.icon-box-favorit {
   position: absolute;
   top: 10px;
   right: 10px;
   width: 20px;
   height: 18px;
+  background-image: url(./images/icon-heart.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.icon-heard {
+/* .icon-heard {
   display: block;
   fill: #ff8a9d;
   width: 20px;
   height: 18px;
-}
-.icon-heard-full {
+} */
+/* .icon-heard-full {
   display: none;
   fill: #ff8a9d;
   width: 20px;
   height: 18px;
-}
+} */
 .item-picture {
   margin: 0 auto;
 }
@@ -68,12 +70,13 @@
 /* .icon-box {
   display: flex;
 } */
-.icon-box-svg {
-  display: flex;
-}
-.icon-star {
-  width: 8px;
+.icon-box-star {
+  display: block;
+  background-image: url(./images/icon-star.svg);
+  background-repeat: repeat-x;
+  width: 40px;
   height: 8px;
+  background-size: contain;
 }
 .icon-star:not(:last-child) {
   margin-right: 5px;
@@ -109,6 +112,12 @@
   }
   .item-box {
     padding: 20px;
+  }
+  .picture-box {
+    height: 140px;
+  }
+  .item-picture {
+    max-height: 140px;
   }
   .card-item-title {
     font-weight: 500;

@@ -31,6 +31,14 @@ const cardItem = (data) => {
     const item = templateCardItem(data)
     refs.cardList.innerHTML = item
 
+
+
+    // const svgStar = `<svg class="icon-box-svg"><use class="icon-star" href="./images/sprite.svg#icon-icon-star"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use></svg>`
+    // const iconBox = document.querySelector(".icon-box")
+    // iconBox.innerHTML += svgStar
+
+
+
     // const favoritIcon = document.querySelector(".favorit-icon")
     // console.log(favoritIcon);
 
