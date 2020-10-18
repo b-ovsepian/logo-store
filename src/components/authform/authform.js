@@ -12,7 +12,7 @@ function markUpRendering() {
                 <form name="authform" class="auth-form">
                 <div class="email-section">
                     <label class="authlabel" for="email"><span class="authspan">*</span>E-mail или телефон</label>
-                    <input class="authinput input-email" id="email" placeholder="E-mail или телефон" name="auth-email" value="" required/>            
+                    <input class="authinput input-email" id="email" placeholder="E-mail или телефон" name="authMail" value="" required/>            
                     <p class="email-hint">Пожалуйста, введите корректный email</p>
                     </div>
                 <div class="password-section">
@@ -62,7 +62,7 @@ const refs = {
     lightbox: document.querySelector('.lightbox'),
 }
 
-const authRefs = {
+export const authRefs = {
     form: document.querySelector('.auth-form'),
     enterAccountBtn: document.querySelector('.enterAccount'),
     registerAccountBtn: document.querySelector('.registerAccount'),
@@ -78,20 +78,33 @@ console.log(authRefs.form);
         let password = authRefs.form.elements.password.value;
         let email = authRefs.form.elements.email.value;
         
-        ValidateEmail(email);
-        ValidatePassword(password);
 
-        authRefs.buttons.addEventListener('click', e => {
+        function Validation() {
+            if(ValidateEmail(email) &&
+            ValidatePassword(password));
+        }
+
+        Validation();
+        
+        if (Validation) {
+            getToken();
+        }
+
+        function getToken() {
+            authRefs.buttons.addEventListener('click', e => {
             
-            if (e.target.classList.contains('registerAccount') &&
-                (authRefs.form.elements.radio.checked === true)) {
-                apiServiceRegister(email, password);
-            } if (e.target.classList.contains('enterAccount')) {
-                apiServiceEnter(email, password);
+                if (e.target.classList.contains('registerAccount') &&
+                    (authRefs.form.elements.radio.checked === true)) 
+                    
+                {
+                    apiServiceRegister(email, password);
+                } if (e.target.classList.contains('enterAccount')) {
+                    apiServiceEnter(email, password);
             
-            }
-        });
-    
+                }
+            });
+        }
+
         function apiServiceRegister(email, password) {
         
             return fetch('https://goit-store.herokuapp.com/auth/registration',
@@ -101,7 +114,7 @@ console.log(authRefs.form);
                     body: JSON.stringify({ email: email, password: password }),
                 })
                 .then(response => response.json())
-                .catch(error => console.log(error));
+                .catch(error => { console.log(error); openMessageEnt()});
         }
     
         function apiServiceEnter(email, password) {
@@ -115,7 +128,7 @@ console.log(authRefs.form);
                 .then(response => response.json()).then((data) => {
                     console.log(data);
                     storageToken(data.user, data.user.role, data.accces_token)
-                });
+                }).catch(error => { console.log(error); openMessageReg()});
         }
     
         function storageToken(userInfo, role, token) {
@@ -127,3 +140,50 @@ console.log(authRefs.form);
 
     });
 // }
+
+
+
+function openMessageReg() {
+    function messageRendering() {
+        return `<div class="errorModal">
+        <p class="error-icon">&#9888;</p>
+        <p class="error-title">Пользователь с таким именем не найден.</p> 
+        <p class="error-text">Пожалуйста, введите корректный email или пройдите регистрацию в данной форме.</p>
+         <div class="icon-wrapper auth-icon-wrapper">
+                  <div class="close-icon icon-auth">&#10006;</div>
+                </div>
+        </div>`
+    }
+
+    function createListeners(closebackdrop) {
+        
+        const myButton = document.querySelector('.close-icon');
+        myButton.addEventListener("click", closebackdrop);
+    }
+
+    modalModule(messageRendering, createListeners);
+};
+
+function openMessageEnt() {
+    function messageRenderingEnt() {
+        return `<div class="errorModal">
+            <p class="error-icon">&#9888;</p>
+            <p class="error-title">Пользователь с таким именем не найден.</p> 
+            <p class="error-text">Пожалуйста пройдите регистрацию в данной форме.</p>
+            <div class="icon-wrapper auth-icon-wrapper">
+                <div class="close-icon icon-auth">&#10006;</div>
+            </div>
+        </div>`
+    }
+
+    function createListeners(closebackdrop) {
+        
+        const myButton = document.querySelector('.close-icon');
+        myButton.addEventListener("click", closebackdrop);
+    }
+
+    modalModule(messageRenderingEnt, createListeners);
+};
+
+
+
