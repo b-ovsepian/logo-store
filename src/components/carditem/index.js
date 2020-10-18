@@ -25,35 +25,22 @@ setTimeout(() => {
 // renderItem()
 
 
-
 const cardItem = (data) => {
-
     const item = templateCardItem(data)
     refs.cardList.innerHTML = item
-
-
-
-    // const svgStar = `<svg class="icon-box-svg"><use class="icon-star" href="./images/sprite.svg#icon-icon-star"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use><use class="icon-star" href="./components/carditem/images/icon-star.svg"></use></svg>`
-    // const iconBox = document.querySelector(".icon-box")
-    // iconBox.innerHTML += svgStar
-
-
-
-    // const favoritIcon = document.querySelector(".favorit-icon")
-    // console.log(favoritIcon);
-
-
+    let favoritIcon = document.querySelectorAll(".icon-box-favorit")
+    console.log(favoritIcon);
     // favoritIcon.addEventListener("click", () => {
-    //     const iconHeard = favoritIcon.querySelector(".icon-heard")
-    //     const iconHeardFull = favoritIcon.querySelector(".icon-heard-full")
-    //     // console.log(iconHeard);
-    //     // console.log(iconHeardFull);
-    //     if (iconHeard.style.display == "block") {
-    //         iconHeard.style.display = "none"
-    //         iconHeardFull.style.display = "block"
-    //     } else {
-    //         iconHeard.style.display = "block"
-    //         iconHeardFull.style.display = "none"
-    //     }
+    //     favoritIcon.classList.toggle("icon-box-favorit-full")
     // })
+
 }
+
+// favoritIcon.map(favoritIcon => {
+//     favoritIcon.addEventListener("click", () => {
+//         favoritIcon.classList.toggle("icon-box-favorit-full")
+//     })
+
+// })
+
+
