@@ -30,8 +30,8 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
     <div class="dots">
     </div>
     <div class="slider-arrows">
-    <button type="button" class="prev">	&lt;</button>
-    <button type="button" class="next">	&gt;</button>
+    <button type="button" class="prev">&gt</button>
+    <button type="button" class="next">&lt</button>
     </div>
     </div>
     `);
@@ -70,9 +70,10 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
     
         // {функция задаёт размер слайда в зависимости
         //  от количества слайдов в поле зрения слайдера}
-        sliderItems.forEach((item) => {
-            item.style.minWidth = `${itemWidth}px`;
-        });
+
+        // sliderItems.forEach((item) => {
+        //     item.style.minWidth = `${itemWidth}px`;
+        // });
     
     // слушатель кнопки вправо!
         nextButton.addEventListener(`click`, () => {
@@ -106,25 +107,8 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
         const interval = (boolean) => {
 
             if(boolean){
-                setInterval(() => {
-                    position -= itemWidth;
-                    
-                    if(position > -itemCount*itemWidth){
-                        setPosition();
-                        clearActiveDot();
-                        checkBtn();
-                        dots[(position/itemWidth) * -1].classList.add(`is-active`);  
-        
-                    }else{
-                        clearActiveDot();
-                        position = 0;
-                        setPosition()
-                        checkBtn();
-                        dots[position].classList.add(`is-active`);
-
-                    }                   
-                }, 7000);
-            }     
+                
+            }
         }
 
         interval(boolean);
