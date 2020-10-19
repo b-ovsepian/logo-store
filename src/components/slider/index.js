@@ -104,24 +104,29 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
     
         // интервал прокрутки слайдов
         const interval = (boolean) => {
-            setInterval(() => {
-                position -= itemWidth;
-                
-                if(position > -itemCount*itemWidth){
-                    setPosition();
-                    clearActiveDot();
-                    dots[(position/itemWidth) * -1].classList.add(`is-active`);                
-    
-                }else{
-                    clearActiveDot();
-                    position = 0;
-                    setPosition()
-                    dots[position].classList.add(`is-active`);
-                }
-                
-            }, 5000);
 
+            if(boolean){
+                setInterval(() => {
+                    position -= itemWidth;
+                    
+                    if(position > -itemCount*itemWidth){
+                        setPosition();
+                        clearActiveDot();
+                        dots[(position/itemWidth) * -1].classList.add(`is-active`);                
+        
+                    }else{
+                        clearActiveDot();
+                        position = 0;
+                        setPosition()
+                        dots[position].classList.add(`is-active`);
+                    }
+                    
+                }, 5000);
+            }
+            
         }
+
+        interval(boolean)
         
         //  функция задаёт позицию!
         const setPosition = () => {
