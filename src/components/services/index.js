@@ -218,6 +218,7 @@ export default {
       const url = `https://goit-store.herokuapp.com/products/getCategories`;
       const response = await fetch(url, options);
       const data = response.json();
+      await data.then(data => (store.categories = data.categories));
       return data;
     } catch (error) {
       throw error;
