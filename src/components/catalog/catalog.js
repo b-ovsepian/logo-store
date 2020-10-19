@@ -3,7 +3,6 @@ import template from "./template.hbs"
 import categories from './data.js'
 const catalog = document.querySelector(".catalog")
 const item = template(categories)
-console.log(titleKbt);
 catalog.insertAdjacentHTML("beforeend", item)
 
 const titleKbt = document.getElementById("kbtTitle")
