@@ -1,10 +1,12 @@
-{{#each this}}
-<li class="wrapper">
-          <div class="middle-wrapper">
+<ul class="list">
+
+ {{#each this}}
+<li>
+  <div class="middle-wrapper">
             <img class="cart-img" src="./components/cart/image.jpg" alt="" />
             <div class="cart-content">
               <p class="cart-description">Духовой шкаф электрический</p>
-              <p class="cart-sum">8499 ₴</p>
+              <p class="cart-sum">8499₴</p>
             </div>
 
             <button class="delete-button">
@@ -31,7 +33,7 @@
             </button>
           </div>
           <div class="counter-wrapper">
-            <button class="decriment-button">
+            <button class="decriment-button" type="button">
               <svg
                 width="18"
                 height="2"
@@ -48,7 +50,7 @@
               </svg>
             </button>
             <span class="counter-value">1</span>
-            <button class="increment-button">
+            <button class="increment-button" type="button">
               <svg
                 width="18"
                 height="18"
@@ -71,7 +73,8 @@
               </svg>
             </button>
 
-            <p class="counter-sum">8 499 ₴</p>
+            <p class="counter-sum"><span>8499</span> ₴</p>
           </div>
-        </li>
+</li>
 {{/each}}
+</ul>
