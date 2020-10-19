@@ -122,6 +122,19 @@ const dots = document.querySelectorAll(`.dot`);
 
     });
 //  функция задаёт позицию!
+    setInterval(() => {
+        position -= itemWidth;
+
+        if(position > -itemCount*itemWidth){
+            setPosition()
+            console.log(position);
+        }else{
+            position = 0;
+            setPosition()
+        }
+ 
+    }, 3000);
+
 
     const setPosition = () => {
         sliderTrack.style.transform = `translateX(${position}px)`;
