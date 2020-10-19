@@ -5,4 +5,6 @@ export default {
 
   developers: document.querySelector('.developers'),
   developersList: document.querySelector('.developers-list'),
+
+  category: document.querySelector('.category'),
 };
