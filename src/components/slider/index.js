@@ -84,7 +84,7 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
             setPosition();
             checkBtn();
             currentSlide += 1;
-            dots[currentSlide].classList.add(`is-active`);
+            dots[(position/itemWidth) * -1].classList.add(`is-active`);
     
         });
     
@@ -98,8 +98,8 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
             setPosition();
             checkBtn();
             currentSlide -= 1;
-            dots[currentSlide].classList.add(`is-active`);
-    
+            dots[(position/itemWidth) * -1].classList.add(`is-active`);
+
         });
     
         // интервал прокрутки слайдов
@@ -112,21 +112,22 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
                     if(position > -itemCount*itemWidth){
                         setPosition();
                         clearActiveDot();
-                        dots[(position/itemWidth) * -1].classList.add(`is-active`);                
+                        checkBtn();
+                        dots[(position/itemWidth) * -1].classList.add(`is-active`);  
         
                     }else{
                         clearActiveDot();
                         position = 0;
                         setPosition()
+                        checkBtn();
                         dots[position].classList.add(`is-active`);
-                    }
-                    
-                }, 5000);
-            }
-            
+
+                    }                   
+                }, 7000);
+            }     
         }
 
-        interval(boolean)
+        interval(boolean);
         
         //  функция задаёт позицию!
         const setPosition = () => {
