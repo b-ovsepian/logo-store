@@ -80,15 +80,16 @@ export default {
     }
   },
   //   Add favorite product
-  async addFavoriteProduct(productId) {
+  async addFavoriteProduct(product) {
     try {
       const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
           Authorization: store.auth.accces_token,
         },
+        body: JSON.stringify(product)
       };
-      const url = `https://goit-store.herokuapp.com/users/addFavoriteProduct/${productId}`;
+      const url = `https://goit-store.herokuapp.com/users/addFavoriteProduct/`;
       const response = await fetch(url, options);
       return response;
     } catch (error) {
