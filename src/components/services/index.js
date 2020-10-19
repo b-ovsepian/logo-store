@@ -37,6 +37,7 @@ export default {
       const response = await fetch(url, options);
       const data = response.json();
       await data.then(res => {
+        localStorage.setItem('user_token', res.accces_token);
         store.auth.accces_token = res.accces_token;
         store.user = res.user;
       });
