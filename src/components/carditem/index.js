@@ -7,37 +7,38 @@ import store from "../store/index.js"
 
 // поиск элемента куда нужно встроить "ul"
 const divMain = refs.main.querySelector(".container")
+const cardList = document.createElement("ul")
+cardList.classList.add("card-list")
+cardList.classList.add("list")
+divMain.append(cardList)
 
 // авторизация на сайте
 services.loginUser("mango12345@gmail.com", "qwerty12345");
 
 setTimeout(() => {
-    services.getAllProducts().then(data => {
-        cardItem(data, divMain)
-        // console.log(data);
-    })
 }, 1000);
+services.getAllProducts().then(data => {
+    cardItem(data, cardList)
+    console.log(data);
+})
 
 
-// при вызове функции вторым параметром нужно передать 
-// элемент в который нужно встроить список с карточками
-const cardItem = (data, where) => {
-    // создание "ul", для встройки "li" и присвоение классов
-    const cardList = document.createElement("ul")
-    cardList.classList.add("card-list")
-    cardList.classList.add("list")
-    //добавлят "ul" в указаный в параметрах элемент
-    where.append(cardList)
+// при вызове функции:
+// первым параметром нужно передать (data) - промисс полученый в .then
+// вторым параметром нужно передать (where) - элемент в который нужно карточки
+// третий НЕОБЯЗАТЕЛЬНЫЙ (sale) - передать true что бы отобразить цену до скидки
+// export не дефолтный
+export const cardItem = (data, where, sale = false) => {
+    // const saleData = sale ? data.map(item => ({ ...item, sale: item.price + 10 % })) : "";
+
     const item = templateCardItem(data)
-    // место куда нужно вставить "li"
-    cardList.innerHTML = item
+    // место куда нужно вставить where 
+    // where.innerHTML = item
+    where.insertAdjacentHTML('beforeend', item)
     //слушатель на иконку для смены иконки
     // и записи на бек в массив favorit
-    cardList.addEventListener("click", (e) => {
+    where.addEventListener("click", (e) => {
         let id = e.target.dataset.id
-        // console.log(id);
-        // let idCard = e.target.item.id
-        // console.log(idCard);
         if (e.target.classList.contains("icon-box-favorit")) {
             e.target.classList.toggle("icon-box-favorit-full")
         }
@@ -50,6 +51,7 @@ const cardItem = (data, where) => {
             let element = mapArray(data, id)
             services.removeFavoriteProduct(element._id)
         }
+
     }
     )
 }
