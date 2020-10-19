@@ -7,7 +7,7 @@ let bigPhoto = document.querySelector('.product-card-slider-big-photo')
 let sliderList = document.querySelector('.product-card-slider-list')
 let productCart = document.querySelector('.product-card')
 // console.log(images);
-
+console.log(sliderList);
 
 // let images = ['https://coubsecure-s.akamaihd.net/get/b72/p/coub/simple/cw_timeline_pic/876499d30d2/4899de12586e9aa3857a2/med_1577956238_image.jpg', 
 // 'https://www.meme-arsenal.com/memes/58fb3407056df8c46cff07ced4601a4a.jpg', 
@@ -21,27 +21,18 @@ let productCart = document.querySelector('.product-card')
 // console.log(images);
 
 function renderApi(){
-  apiService.fetchImages().then((hits) => createModalImg(hits));
+  apiService.fetchImages().then(hits => renderImages(hits));
 }
-console.log(renderApi());
 
 
 
+// console.log(createModalImg());
 
 function createModalImg(images){
-  // let bigImage = document.createElement('img')
-  // bigImage.setAttribute('class', 'product-cart-main-img')
-  // bigPhoto.append(bigImage)
-  
-  // bigImage.src = images[0]
 
   
-  // sliderList.addEventListener('click', (e) => {
-  //   bigImage.src = e.target.src
-  // })
-  
   // bigImage.addEventListener('click', (e) => {
-  //    bigImage.src = images[0 + 1]
+  //    bigImage.src = images[0]  
   // })
 
   const arr = images.hits
@@ -55,22 +46,38 @@ function createModalImg(images){
     
     let img = document.createElement('img')
     img.setAttribute('class', 'product-card-slider-smallImg')
-    img.src = el.largeImageURL
+    img.src = el.previewURL
     
     li.append(img)
+
     sliderList.append(li)
 
-  })
-  renderImages()
+    renderImages()
 
+  })
+
+  let bigImage = document.createElement('img')
+  bigImage.setAttribute('class', 'product-cart-main-img')
+  bigPhoto.append(bigImage)
+  
+  bigImage.src = images[0]
+
+  
+  sliderList.addEventListener('click', (e) => {
+    bigImage.src = e.target.src
+  })
 }
 
 function renderImages(data){
+  console.log(data);
   const items = template(data)
   productCart.insertAdjacentHTML('beforeend', items)
+  createModalImg(data)
 }
 
-// console.log(renderApi());
+
+
+console.log(renderApi());
 
 
 // comments: 259
