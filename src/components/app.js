@@ -4,10 +4,12 @@ import footer from './footer';
 import services from './services';
 import store from './store';
 import './category/category.js';
+import AuthMenu from './AuthMenu';
 
 // Тянем категории
 services.getCategories();
 setTokenToStore();
+AuthMenu()
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
