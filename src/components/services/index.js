@@ -87,9 +87,11 @@ export default {
         headers: {
           Authorization: store.auth.accces_token,
         },
+        // body: JSON.stringify(product)
       };
       const url = `https://goit-store.herokuapp.com/users/addFavoriteProduct/${productId}`;
       const response = await fetch(url, options);
+      console.log(response);
       return response;
     } catch (error) {
       throw error;
