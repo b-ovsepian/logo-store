@@ -1,0 +1,24 @@
+{{#each this}}
+<li class="card-item" id="{{_id}}">
+    <div class="item-box">
+        <div class="picture-box">
+            {{#each images}}
+            <img class="item-picture" src="{{this}}" alt="имя категории">
+            {{/each}}
+        </div>
+        <div>
+            <h2 class="card-item-title">{{name}}</h2>
+            <div class="icon-box-star">
+            </div>
+        </div>
+        <div class="item-box-price">
+            <p class="notsale-price">{{price}} ₴</p>
+            <p class="price">{{price}} ₴</p>
+        </div>
+        <div class="icon-box-favorit">
+            {{!-- <use class="icon-heard" href="./components/carditem/images/icon-heart.svg"></use>
+            <use class="icon-heard-full" href="./components/carditem/images/icon-heart-full.svg"></use> --}}
+        </div>
+    </div>
+</li>
+{{/each}}
