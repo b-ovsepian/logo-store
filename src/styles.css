@@ -26,14 +26,17 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* html {
+html {
   box-sizing: border-box;
-} */
-
+}
 
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 body {
@@ -46,19 +49,11 @@ body {
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
 }
-/* img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-<<<<<<< HEAD
-}
+
 a {
   text-decoration: none;
 }
-=======
-} */
 
->>>>>>> catalog
 /* Visually-hidden */
 .visually-hidden {
   position: absolute;
