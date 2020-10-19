@@ -2,23 +2,23 @@ import '../modalmodule/modal.css';
 import { refs } from "./modalrefs";
 
  export const modalModule = (markup, listeners) => {
-       function openBackdrop() {
+    function openBackdrop() {
         refs.lightbox.classList.add('is-open');
-    };
-     refs.backdrop.addEventListener('click', e => {
+     };
 
-       
-         if (
-             (e.target === e.currentTarget) ||
-             (e.target.classList.contains('close-icon')) ||
-            (e.target.classList.contains('icon-wrapper'))) {
-            
-            closeBackdrop();
-        }
-    });
     function closeBackdrop() {
         refs.lightbox.classList.remove('is-open');
     };
+     refs.backdrop.addEventListener('click', e => {
+
+    if (
+        (e.target === e.currentTarget) ||
+        (e.target.classList.contains('close-icon')) ||
+        (e.target.classList.contains('icon-wrapper'))) {
+
+            closeBackdrop();
+        }
+    });
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Escape') {
             closeBackdrop();
@@ -42,7 +42,7 @@ function product(){
     function createListeners(closebackdrop) {
         const myButton = document.querySelector('.hello');
         myButton.addEventListener("click", closebackdrop);
-    }  
+    }
     modalModule(buyGoods, createListeners);
 }
 
