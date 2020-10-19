@@ -2,98 +2,113 @@
   {
     "name": "Багдасар",
     "surname": "Овсепян",
-    "image": "./components/developers/images/bagdasar.jpg",
+    "image": "https://ucb711ad42ee49d78f514b864dec.previews.dropboxusercontent.com/p/thumb/AA9K1EeSsWUQsZGS0GQOr8zeai13nnDxt9YEmMV7YTrEaaefbNtIPXAaeG8dGI5BhQSwuNVcnH2FBdegauq1em70GmzEObjnms61i0it0KWUl7_I_fgn8Jw2twtwiBCo-wwiMOp3bX2SF8D46j3CkOtvIr0KNbiY64XLsQY0cMf7crom8doeqTzXJAmELR6JTbfbq_PcJAHzR1w9uFdAXjn1VkT8iu4vmiMpUb2GSl8T0NRLADzBkpXoSvC6T8M0sTk7dS59ZtDF50Yxd82y9JCSMz1x2A4Cjjw_FM-e1Nhth5t2XKNPNZsWroO2kgixsJcg2SeCuqJ6lRRjaGBYWW1I0cTeCXE__d_IdpRl2GKbPQ/p.jpeg?fv_content=true&size_mode=5",
     "git": "https://github.com/b-ovsepian",
-    "info": ""
+    "info": "Team-lead, Information, Services, Footer"
   },
   {
     "name": "Валерий",
     "surname": "Кашпур",
-    "image": "./components/developers/images/valera.jpg",
-    "git": "https://github.com/IC3CLD"
+    "image": "https://uc81c7ca4828f02fdb41bc2e4b15.previews.dropboxusercontent.com/p/thumb/AA8FdSlAc6EXOhc6-ol1q2DbyezPWiRI58Rw6nWJeivU2e8iaan-7WI7qC2oO-tiK4j8LzZhn2WJjzlIf-jGjt8XfLks1r6ym9gToCPMvX4Y6HbgaLATkixD0PTWLzQZJAhrhdSNoQjUhTVfVuo_mZVSUyAhv5HdojLgk1uiiRNxPM0X8P7_UxDiew9QK3zcrFY9_oxajn6eMz0oyM3y8dmDq-mtA0d5YFb-j1-0YKvlsv6Xtc3toPeih7D0QVzqaClu6suH2vGCKsdV18HFYwSf0LRmPxD1EMihqPGKZ0vKgUi60cs8RU8Q5cM28t3mnglZNWXLBf_wiQVLMUwiyuG5NTHVU5Su1ly6E-DtkjzGOA/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/IC3CLD",
+    "info": "SliderModule, Slider"
   },
   {
     "name": "Таня",
     "surname": "",
-    "image": "/components/developers/images/tanya.jpg",
-    "git": "https://github.com/TanyaChichkan"
+    "image": "https://uc901bd505cb0d1cfe09d5002e9b.previews.dropboxusercontent.com/p/thumb/AA_mxt3MhYjmKSZ5LVnuMffhjKDz4UydFREjV0uxhHjCsZsoM631tK4VKYXdfDzJLeluEf1VjjaAjJ2WHdUlhXlY1VvcpQtgc8zzHjPbhJIHN3iY1LSIhYjt4nQLsBZN8i-LatpbJg6YIZymmQXjqL6jNiovWA0kmKQlOohGp4strlzmrCMPY-QoyQlLs2fhlybEf3ixiWaS08xxPkwsKpE87aH4VIefr2asGcVhLUrBVVoyOxD_GAiAyKaXxpONo2jxs0v9nWZvg4YICCAGVJOK753Un7LzncTFs1OhEzdnWzIT91hp6y15yQAG3ZyhK2Eu0Dahjw-5-SdG_sxC55bTtdelAOoJBaIFEgKAlPB3NQ/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/TanyaChichkan",
+    "info": "ModalModule, AuthForm, New"
   },
   {
     "name": "Роман",
     "surname": "Никитенко",
-    "image": "/components/developers/images/roman.jpg",
-    "git": "https://github.com/RomanNikitenko19"
+    "image": "https://uc8ddfda26560fbb5b9ca3893ba0.previews.dropboxusercontent.com/p/thumb/AA_FHif1ny_hPViSkmcpmSnXI6LrztuUvqKlXdMdx8dn98uunFX-eINIxmdxy7vnlKsBlUEeHIcOuJsI9TqD2vnLeHoV74D38rXIIraCRzNs3gd6HoHWh1qkDJ719gzIzc9iamQvWZTjuQ1pp257TF5-oRlvl_3MDye4Zd8FsfcO32lOQUr-VE8LY17T1NCjboeNDq8xZLIVUNbLkqrxwzRpmWnkpSJjzuKa-BycSHnUkk21s0Ur4PB_LRVUqLdVSvGd_WJkWnaIP1obcNGmr011Xd40NpKIdc56RwG7cRkWeidLKDHvh6yCoZpV_VKG7u1m7sXHmskFE55Ne-zUz0TQlDOPQnxXPU107YA7HnMSlQ/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/RomanNikitenko19",
+    "info": "LastSeen"
   },
   {
     "name": "Артем",
     "surname": "Чернышов",
-    "image": "/components/developers/images/artem.jpg",
-    "git": "https://github.com/cher-art"
+    "image": "https://uc2b2c8b1acc8c181dc8545a3d78.previews.dropboxusercontent.com/p/thumb/AA9w09vdvGFoTJOVUL6Z80BKWPxD7TmyR0ybrPfrExKHiR1bOr8aLOGj2W8N2z-GVftWTw4obipdRmg03t846aebsuCGymQvzgBaA3yZwolIyuUD0vEikVpDQKogkJVKuipYh5MDkknRJssqPCn07_899F07Ly2vH2ixZaqG_EWLcHZNsh8zquOmxPo5cSoM91DQKmhSf4ueD-dX9kXV81gfl6vGGFibNsWyU-tGwjTwcYd-DNHADvW24I4q_x9fmO0g-k3xOr0J6X2xYRG_dwgTwpQtBRkQE-J2x0aQ9iRvRP3K3hzBEVVWJ_Sjf5OYfHM8WCkNU8rH_kc9TEyIGdicIydixlK1Bk74euPL4VkTTg/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/cher-art",
+    "info": "Adv"
   },
   {
     "name": "Andrii",
     "surname": "Sorokin",
-    "image": "/components/developers/images/andrei.jpg",
-    "git": "https://github.com/AndriiSorokin"
+    "image": "https://uc7602112f63000795f83068bfde.previews.dropboxusercontent.com/p/thumb/AA9WsDa7dzZCcI7A0w6rXMrnt3AsvDovr4ckptyF8qcoCnMKAUpRQQd3nfLoIqhxqsropeX9spel3H6w4PGH73GgXwF2TPWZCpBqsFVQ8BbVbg3CEcKlsUTYh3tiqeUi5JGKwHyxJLBk5hYiPmLTR2sLF9_Gmi2rwVdo3WkEsr6w1uJW7UtvFZRjT0TN0H8NKDiY_nT_9yInL3d8v9fMrExHPBvb5XfQGFGSFSUMdDrGf90zIKbmjV7dAwxtTc5IpeIaFaEnXV7YJQRtyzFzUYaB2owRdBz4B_PrQIFOWwXraDt05B6O7grLQMxFcjoSUR462wVwzFmHU-heTBqCOkJT73LUv_CxH9xdeZkkKq0dBg/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/AndriiSorokin",
+    "info": "NewADV"
   },
   {
     "name": "Oleh",
     "surname": "Charupa",
-    "image": "/components/developers/images/oleh.jpg",
-    "git": "https://github.com/OlehCharupa"
+    "image": "https://uce5c3433946bdf908b0721ff8f1.previews.dropboxusercontent.com/p/thumb/AA_pana6zDPu11lJ2CGmfhvZHB33AmDBG9VMSaGCHvjTqVCq5G6TGwvy_h8et-4OgEqQdOFJNzJo412fmFLCiz968oDKuy17GrkS2WPVgFhO1swk3beOja1UA6ds-bgLX4FhnPPna9323Hsv69A2RtCxyhsPBGOTHzC8FBZybvhTI41-DIZwg5mTjMAY9w3uZ0G3hh7USlQhicp5ynSoKFcDMKmzKainC9mUR1rAnUuEdsLwP3OvE-eI_CHgKKx_3nSmpp5-nEik4UTVeugUodFEBgjr-PLioguvhr2_xDiDJhl-wJ96CfkGiJDbYNZ76AkxPAs_9dE-FfHUlEvdntD01SgjMABsP7WJl9uieKmDcg/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/OlehCharupa",
+    "info": "CardItem"
   },
   {
     "name": "Igor",
     "surname": "Kichuk",
-    "image": "/components/developers/images/igor.jpg",
-    "git": "https://github.com/kichman77"
+    "image": "https://ucb0b8a84f6cb7579b9d5c55c2de.previews.dropboxusercontent.com/p/thumb/AA_dXV3GKMrTTGk10ot0OGNKLtlQUQNnP3jW5sjmDVNcXEi3Afa1uLG6l1GRTR7jxHwOtXMYYecRUGudUAEmG0J2rUegDeyE8NlODhoRKKaFBJt2qrYSpDq3XaN6lP1WGV7K6k7pPlBbACG3J8bBxVBQlo3-DQNAGUMwrR4rq1NPY06M3LJZMRwIrUjw7XSsngGE_0OrHzrXAdVKTVH8tljReLlvH3ivmq9UH-nIXfr9xNQ2dYtsCLvUlzOvSaWjAB5Y70ni3EU275TSNqBoTeZr2HZ-Q3lsQolld3ItCt9jBMtj4f7E82ToCLkB9fU-LUN8nfRdgo71O8mWLyc3qPRBtTRB4iBOLw7_fv5YjLJ8pA/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/kichman77",
+    "info": "Catalog"
   },
   {
     "name": "Alina",
     "surname": "Pavliuk",
-    "image": "/components/developers/images/alina.jpg",
-    "git": "http://github.com/Alina-Pavliuk"
+    "image": "https://ucf34f2d8e016e448c449146ebae.previews.dropboxusercontent.com/p/thumb/AA8VDs8jOGRKUJPNUlp0Z_sUOVWpZ6ZzHD765qKXLVn6vboDxJh_jQhA0mMX_rExO3Jg9uxk7wfFFWcm_YDeyabh3yjkGN0Co_U_dziun4r2xMJ7ZUopoipKc61b0uqq8thbFy-XqQydMNe_UAJo_573apYuVYWPQ_sPkZJvIF1BZwkhjY0KXJuBajXKUZpUpPuzH_qUuqQnTHWSYLw9hVPcu6Z-CNAN84qlpfoAP7X2WPS4g4QVDtvFnUwPF5fq-wY5D_lNHfxf3vdOMaYA8Y8NQkmYDnKOCwDskF1C0d0Oi1iGCd22LWz_G0yOuXUhz0f6Jp5DufOPel7lCSZ0kcafS8HGyXvgmt97XQiUimcbXg/p.jpeg?fv_content=true&size_mode=5",
+    "git": "http://github.com/Alina-Pavliuk",
+    "info": "Search"
   },
   {
     "name": "Богдан",
     "surname": "Ткаченко",
-    "image": "/components/developers/images/bogdan.jpg",
-    "git": "https://github.com/Korsavabi"
+    "image": "https://ucb2680e8519978be14b9f5d3715.previews.dropboxusercontent.com/p/thumb/AA9DlXuIYHTSXm8p-IG7w2UL_nAH7BPmkh9tkc0fcv-dj8Jxx1TlZSA3CfH6efsn7NJ3b8trfg82Hs_2FlLCoRgOZhAvAkgfYBxLygILTV-c-t5shiYdSZ2zWY0Q1MEL937CzN8vCHeob0h7wNTMotzq7Wz9DOzjbH58-6rwTSeAweDxZH4SYLPx9Xh096vKvevj-xSRjTBcpqLGHl_3pm68g1TpKM4KwFCf1-yYhVNKKwwBhkHFX1HLmBdvqAin9qvl5lJYfaj1WMdh1k59joFPGSJuRYOtooD3kiy_QI1mpxsY5hn5ZZRuBvHRbFhvQdk6NM3tFilsOn1AWI-2iXtV3Ggq28p6gETAbNvtAUTAGg/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/Korsavabi",
+    "info": "Category, Bread crumbs"
   },
   {
     "name": "Алёна",
     "surname": "Коломиец",
-    "image": "/components/developers/images/alona.jpg",
-    "git": "https://github.com/AlonaKolomiiets"
+    "image": "https://uc03fcbf6a1022d092f541978668.previews.dropboxusercontent.com/p/thumb/AA_MXveAFZKxTcbbUcmH06vXQbV5_2aSzKhWdrpBVGPteDqXu8dA86Th1qEXfhRp-hyNzRXEHSQsj8uLaNQU47xqzbUUq-KLwaEsn9u_kHHcAVmU3nicFn8b1utFPxGir2SPZO7N5xlu1EGXG2BUFpbhzChBhnTgqOWBVofRTq6ioyzNs48bnGG4wMRWQgpyfexmYmfEKq_tPu86zc9Y5vC6JbVHhYfjf73ichldR8cI6LgfALMEqu_Ku_OXfwe5M3_DI3-TU5AaDVY6DoLfmhB1YDYKaMRTLesA8g-bqZkeHUNkmhjs83OUWBft0NsV2vpg-d-YWEo2-o2kUnlRD_oh1eWgmJp6wu4rGEO8LM9RKA/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/AlonaKolomiiets",
+    "info": "Contacts, Password, Address, Favorites, Profile"
   },
   {
     "name": "Анжелика",
     "surname": "Гончарова",
-    "image": "/components/developers/images/anzhelika.jpg",
-    "git": "https://github.com/redreren"
+    "image": "https://uc1251ba818b17cdc367d14eb6d4.previews.dropboxusercontent.com/p/thumb/AA_WlBKy8VC7q8oNH62eTAFurylfDnRm7aICIn_ountnaJ2yqA1KZ8JelJ-xg64xDyLevbbhIyUQHNp5l5RoT_vM8E1snvddSQpXvFYgiMvy2ZA0HWIZh3qzc1uv3N_MxZxHHdsCOmDgMvCwe8zrqzbNnyWknp-Wcq1JiSQmqfyW5RWzu0coQ8mt64tcnDQA87vgEOzxfK0lY5R49f7m24f4NCNDANMoiuU3FsFwIQ8Oxs6LIQ7seNPr4rKRV-iCeVqYTuTTBul4xq6N6dcZ5uOcY6MtbB_L4BgYWGX5eynQF6dK_jE8rVoo6XipFFkOZQHJqWrZ5wbAuAhrHDT8IqXkwJcudMXH_DH9HvXgq13LJA/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/redreren",
+    "info": "Header"
   },
   {
     "name": "Ilya",
     "surname": "Nikonenko",
-    "image": "/components/developers/images/ilya.jpg",
-    "git": "https://github.com/Ilya057"
+    "image": "https://uce20619b2ef13460b1091e2aaad.previews.dropboxusercontent.com/p/thumb/AA_TuyurIdeE7s9KzvYmoWGXhAGISlu93gqIzy_CuOn90qAbfgBGAFOesiUWojaJcY2y9qkxHvSL--NAjRNcIpPk-37OK-Z9zlDpshbPuGE-s7VLDF5L7uBgFwoujMIF84rs3p26FdAqgA7GHfRkEKYGD60NS_O9Lix3agjnnVoDBKsDsc4TAOwOArXystjdqwCmQz26mtLvoy5Eix_i--BXTDI9tJE3BNdq1JL2zHTxlOh9rjkHZEx_YSawsNO3kY4OyrIZJhWBlx03fR5gY8t8dJQ-ex-rCFuFBIMmlMaiebUscJldIPHVZlKLq8bBQPDN4eoEUf7UK9oWtdAMgtjhs2hmH-U8RNQOF9dtGKN7Tw/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/Ilya057",
+    "info": "Cart"
   },
   {
     "name": "Yehor",
     "surname": "Savin",
-    "image": "/components/developers/images/yegor.jpg",
-    "git": "https://github.com/YehorSavin"
+    "image": "https://uc8d634a9a655f49440f89b12210.previews.dropboxusercontent.com/p/thumb/AA8E-dUURIP27pnVFz9Ev4Bh7uISTkyU3CcWJa38gOpLR6LJzhQEINr3CUcUFu5XeBge_wU1f0g8VF1xGlFL-9Ka9seCW_DaVaONQ5a3ngfSDagJKU-8UmvZw6qt_UxtEg5Bw_A4YeN3Nsu9GcStd7cjqI4dEx7Ch7sR7u0EPswxzNl0Nc9j6aFcFf0vMlzt-eEMMAKubafW2rbexTsigKfQD7s-LizxUJCKl08VZkUuvuqgYbG_wRl9UE4CRihidU4Lrnnh2FlaSEcLP3crOSD56YGRDjWmxyUK5dLVty6KeDFYlPDQaE37mE7dTifwbH9Zf2MWQsbd6NRddKRKFss1OdVuO_DqfMB_Pt_1nkRRrQ/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://github.com/YehorSavin",
+    "info": ""
   },
   {
     "name": "Александр",
     "surname": "Яшин",
-    "image": "/components/developers/images/sasha.jpg",
-    "git": "https://githube.com/n1ke23"
+    "image": "https://uce60481b9e367b175780e7108ee.previews.dropboxusercontent.com/p/thumb/AA_DhwKCo2FgWwQAk3o-LTwSJAGoPe_tswWfsWOkORJR-w9-92xpU7Qv5-koyFQTkCto9deQ4Oh7LWdF4BfwgVBgtpaTn3AoOQbiGe5RdQinNBMuEpzUvNbv8bMleydWNaOED_ZZ70k3z12CwEVps2sbUkjSmi6AprxIMAlSwI9Cm3kFF0QFYT1p05WPUAzBKOznpJkL0dXgwyqqJYSKxuT-V33KFiSk576KLUBSvWEUNYNWWPqdtzoSeoBl1tfwNdUA4C-1ycbuhz13IRMpS39sTaOOHEPpvg_d04S71y409xPzZWmQ54db9bS2_C9ma3cuXfX38QigG8Q3p00GUt9MM1rxZCJyB_rKp5vnc9chNQ/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://githube.com/n1ke23",
+    "info": "Sale"
   },
   {
     "name": "Марк",
     "surname": "",
-    "image": "/components/developers/images/mark.jpg",
-    "git": "https://githube.com/Mark22GitHub"
+    "image": "https://uc71461c4c31bfb6455ecae05bfa.previews.dropboxusercontent.com/p/thumb/AA89nZ0taI4bwIf0CgeGHFqNZ5RVXPlWmFLBL8B1AeBCvJbPx0pSSX8wJSK13RdIgn_iipvnn6_fTKTT7YNI8uE6rCFTS0yG2bzJUjcuRyEG1KtimUqeHTIIFAP1MpBAwVJGNIjAxPaWBgwdZUwBS6030pXk2NkGMBK9Uqw_a2zNtY-xLgNs-QfiTjrbyQFrV_wt93dFAhVBb58ckXGu70l-cjW1vZkQAPf1wcqU_8mKCwEm19BoNeC1CDiKs8-YGpjV3RNzHdFEfGxQW6AKb2sxZM4g847Q-JIQr4NvH0AWziDf0x-2a5IWzV_OS-U_CTQ8kgoEf0SVnI7yaRcirw6cn3vi0R8zxRREYUyCZlLe3g/p.jpeg?fv_content=true&size_mode=5",
+    "git": "https://githube.com/Mark22GitHub",
+    "info": "PaginationModule"
   }
 ]
