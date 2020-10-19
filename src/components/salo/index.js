@@ -1,7 +1,7 @@
 import css from './style-salo.css'
 
 import refs from "./../../refs/index.js"
-
+import helpers from './../helpers/index.js'
 import services from "./../services/index.js"
 import oleg from './../carditem/index.js'
 const constructor = document.querySelector('.page-main .container');
@@ -31,12 +31,18 @@ function createSale() {
   //  const a = document.querySelectorAll('option');
   //  console.dir(a);
 };
-createSale(a)
 setTimeout(() => {
   let elem, page
+  helpers.viewport.function()
+  if(helpers.viewport.isMobile){
+    elem = 6
+  } else if(helpers.viewport.isTablet){
+    elem = 9
+  } else if (helpers.viewport.isDesktop){
+    elem = 10
+  }
   services.searchProducts("", 'sale', elem, page).then(data => {
-
-     const div = document.querySelector('.sale-page');
+  const div = document.querySelector('.sale-page');
       // return oleg.cardItem(data, div)
   })
 }, 2000);
