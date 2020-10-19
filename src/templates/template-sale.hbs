@@ -1,18 +1,19 @@
 {{#each this}}
-  <h1 class="sale-title">Акции</h1>
-  <div>
-    <label for="sale-sort">Сортировка:</label>
-    <select id="products">
-      <option value="По умолчанию" selected>По умолчанию</option> 
-      <option value="По возрастанию цены">По возрастанию цены</option> 
-      <option value="По убыванию цены">По убыванию цены</option> 
-      <option value="По алфавиту по возрастанию">По алфавиту по возрастанию</option> 
-      <option value="По алфавиту по убыванию">По алфавиту по убыванию</option> 
-    </select>
-  </div>
-  <ul class="sale-sort-list list"></ul>
-  <div class="page"></div>
-  <p class="text-page"></p>
-  {{/each}}
+<h1 class="sale-title">Акции</h1>
+<div>
+  <label for="sale-sort">Сортировка:</label>
+  <select id="products">
+    <option value="По умолчанию" selected>По умолчанию</option>
+    <option value="По возрастанию цены">По возрастанию цены</option>
+    <option value="По убыванию цены">По убыванию цены</option>
+    <option value="По алфавиту по возрастанию">По алфавиту по возрастанию</option>
+    <option value="По алфавиту по убыванию">По алфавиту по убыванию</option>
+  </select>
+</div>
+<ul class="sale-sort-list list"></ul>
+<div class="sale-page">
+  {{!-- тут будет Марка  объект --}}
+  <p class="sale-text-page"></p>
+</div>
 
- 
+{{/each}}

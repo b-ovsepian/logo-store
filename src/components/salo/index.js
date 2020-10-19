@@ -1,23 +1,29 @@
-import template from './../../templates/template-sale.hbs';
+import templateSale from './../../templates/template-sale.hbs';
 
 const a = [
-    {
-    }
+  {
+  }
 ];
-
 const constructor = document.querySelector('.page-main .container');
-const sort = document.querySelector('#sale-sorts');
 
-function createSale (obj){
+function createSale() {
   constructor.innerHTML = "";
-  const data = template(a);
-  constructor.insertAdjacentHTML('beforeend', data)
-//  const options = sort.querySelectorAll('option');
+  const createHtml = templateSale(a);
+  constructor.insertAdjacentHTML('beforeend', createHtml)
+  //  const options = sort.querySelectorAll('option');
   //  console.log(options);
-//  const a = document.querySelectorAll('option');
-//  console.dir(a);
+  //  const a = document.querySelectorAll('option');
+  //  console.dir(a);
 };
 createSale(a)
+function renderImages(data) {
+  const galleryList = document.querySelector('.sale-sort-list')
+  let newData = data.filter(item => item.category === sale)
+  const item = template(newData);
+  galleryList.insertAdjacentHTML('beforeend', item)
+
+  const sort = document.querySelector('#sale-sorts');
+
 // function sortSale (e){
 // let list, i, switching, items, shouldSwitch, dir;
 // let = switchcount = 0;
