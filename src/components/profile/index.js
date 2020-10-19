@@ -64,6 +64,7 @@ const renderProfile = source => {
 
   // Отрисовываю детали меню "Контакты":
   const renderContacts = async () => {
+    profileMenuItemContacts.after(profileSectionsDetails);
     profileSectionsDetails.insertAdjacentHTML(
       'beforeend',
       profileContactsTemplate(),
@@ -71,8 +72,8 @@ const renderProfile = source => {
 
     changeActiveItem(profileMenuItemContacts);
 
-    // Вызываю API (функция getUserInfo) для заполнения деталей меню "Контакты":
-    const result = await services.getUserInfo();
+    // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Контакты":
+    const result = await services.getCurrentUser();
     console.log(result);
 
     // Нахожу форму деталей меню "Контакты":
@@ -98,7 +99,7 @@ const renderProfile = source => {
     event.preventDefault();
     profileSectionsDetails.innerHTML = '';
 
-    // Вызываю функцию для вызова API (функция getUserInfo) чтобы заполнить детали меню "Контакты":
+    // Вызываю функцию для вызова API (функция getCurrentUser) чтобы заполнить детали меню "Контакты":
     renderContacts();
   });
 
@@ -108,6 +109,7 @@ const renderProfile = source => {
     profileSectionsDetails.innerHTML = '';
 
     // Отрисовываю детали меню "Изменить пароль":
+    profileMenuItemChangePassword.after(profileSectionsDetails);
     profileSectionsDetails.insertAdjacentHTML(
       'beforeend',
       profileChangepasswordTemplate(),
@@ -126,14 +128,15 @@ const renderProfile = source => {
       const confirmPassword = changePasswordForm.elements.confirmPassword.value;
 
       if (newPassword === confirmPassword) {
-        // Вызываю API (функция changeUserPassword) для изменения данных из меню "Контакты":
-        await services.changeUserPassword(buildRequestObject(event));
+        // Вызываю API (функция changePassword) для изменения данных из меню "Контакты":
+        await services.changePassword(buildRequestObject(event));
       }
     });
   });
 
   // Отрисовываю детали меню "Мой адрес":
   const renderAddress = async () => {
+    profileMenuItemAddress.after(profileSectionsDetails);
     profileSectionsDetails.insertAdjacentHTML(
       'beforeend',
       profileAddressTemplate(),
@@ -141,8 +144,8 @@ const renderProfile = source => {
 
     changeActiveItem(profileMenuItemAddress);
 
-    // Вызываю API (функция getUserInfo) для заполнения деталей меню "Мой адрес":
-    const result = await services.getUserInfo();
+    // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Мой адрес":
+    const result = await services.getCurrentUser();
     console.log(result);
 
     // Нахожу форму деталей меню "Мой адрес":
@@ -155,7 +158,7 @@ const renderProfile = source => {
     addressForm.elements.place.value = result.address.place;
     addressForm.elements.city.value = result.address.city;
     addressForm.elements.address.value = `${result.address.street}, ${result.address.block}, ${result.address.building}, ${result.address.flat} `;
-    //addressForm.elements.addressadditional.value = address;
+    //addressForm.elements.addressadditional.value = `${result.address.street}, ${result.address.block}, ${result.address.building}, ${result.address.flat} `;
     addressForm.elements.zip.value = result.address.zip;
 
     // Вешаю слушателя на форму деталей меню "Мой адрес":
@@ -172,7 +175,7 @@ const renderProfile = source => {
     event.preventDefault();
     profileSectionsDetails.innerHTML = '';
 
-    // Вызываю функцию для вызова API (функция getUserInfo) чтобы заполнить детали меню "Мой адрес":
+    // Вызываю функцию для вызова API (функция getCurrentUser) чтобы заполнить детали меню "Мой адрес":
     renderAddress();
   });
 
