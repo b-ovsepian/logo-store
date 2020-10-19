@@ -1,19 +1,10 @@
 export default {
-  //
-}
+  header: document.querySelector('.page-header'),
+  main: document.querySelector('.page-main'),
+  footer: document.querySelector('.page-footer'),
 
-// const lastSeen = {
-//   get(){
-//     return localStorage.getItem('lastSeen')
-//     ? JSON.parse(localStorage.getItem('lastSeen'))//[{}, {}, {}] масив обєктов
-//     : [];
-//   },
-//   post(product){ //{}
-//     if(this.get().lenght === 10 ) {
-//       return localStorage.setItem('lastSeen', JSON.stringify([...this.get().shift(), product]))
-//     }else{
-//       return localStorage.setItem('lastSeen', JSON.stringify([...this.get(), product]))}
-//     // преобразуем строку в масив обектов и в виде отдельных значений добавляем в localStorage в виде сасива где
-//   }
-// }
+  developers: document.querySelector('.developers'),
+  developersList: document.querySelector('.developers-list'),
 
+  category: document.querySelector('.category'),
+};

@@ -1,0 +1,50 @@
+.hero{}
+.wripper{
+  width: 600px;
+  margin: 0 auto;
+}
+.slider-container{
+  overflow: hidden;
+  background-color: pink;
+}
+.slider-track{
+  display: flex;
+  background-color: yellow;
+  transition: 2s;
+}
+.slider-item{
+  height: 100px;
+  min-width: 200px;
+}
+.slider-item:nth-child(3n+1){
+  background-color: red;
+}
+.slider-item:nth-child(3n+2){
+  background-color: green;
+}
+.slider-item:nth-child(3n+3){
+  background-color: blue;
+}
+.slider-arrows{
+  text-align: center;
+}
+.prev{}
+.next{}
+.dots{
+  display: flex;
+}
+.dot{
+  display: block;
+  margin: 0 10px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+  outline: none;
+  background-color: cadetblue;
+
+}
+
+.dot.is-active{
+  background-color: blue;
+}
