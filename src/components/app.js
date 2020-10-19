@@ -6,3 +6,4 @@ import footer from './footer';
 import services from './services';
 import store from './store';
 import cardItem from './carditem/index.js';
+import './search/search.js';
