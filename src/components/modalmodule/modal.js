@@ -1,3 +1,4 @@
+import { indexOf } from 'core-js/fn/array';
 import '../modalmodule/modal.css';
 import { refs } from "./modalrefs";
 
@@ -6,11 +7,11 @@ import { refs } from "./modalrefs";
         refs.lightbox.classList.add('is-open');
     };
         refs.backdrop.addEventListener('click', e => {
-       
+
          if ((e.target === e.currentTarget) ||
              (e.target.classList.contains('close-icon')) ||
             (e.target.classList.contains('icon-wrapper'))) {
-            
+
             closeBackdrop();
         }
     });
@@ -28,6 +29,18 @@ import { refs } from "./modalrefs";
     listeners(closeBackdrop);
 }
 
+
+// если вам нужно вставить модалку:
+// 1) скопируйте  ф-цию product и вызовите у себя на своем элементе (в примере это modalBTN, в оригинале - это ваш элемент);
+// 2) если нужно, чтобы модалка закрывалась по крестику, в главном index.html копируем код
+// <!-- <div class="icon-wrapper">
+// <svg class="close-icon">
+//   <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
+// </svg>
+// </div> -->
+// и вставляем в свою функцию, которая рендерит разметку (в примере это функция buyGoods);
+
+
 const modalBTN = document.querySelector('.modalbtn');
 modalBTN.addEventListener('click', product);
 
@@ -40,7 +53,7 @@ function product(){
     function createListeners(closebackdrop) {
         const myButton = document.querySelector('.hello');
         myButton.addEventListener("click", closebackdrop);
-    }  
+    }
     modalModule(buyGoods, createListeners);
 }
 
