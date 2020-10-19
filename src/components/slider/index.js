@@ -1,6 +1,3 @@
-import './styles.css';
-import template from '../../templates/sliderTemplate.hbs';
-
 // // heroSection: document.querySelector(`.hero`)
 // // wriper: document.querySelector(`.wripper`)
 // // sliderContainer: document.querySelector(`.slider-container`)
@@ -22,155 +19,150 @@ import template from '../../templates/sliderTemplate.hbs';
 // // refs.dotsContainer
 // // refs.dots
 
+const getSlider = (arr, section, slideShow, slideScroll) => {
 
-const main = document.querySelector(`main`);
-const container = main.querySelector(`.container`);
-const array = [1,2,3,4,];
-
-container.insertAdjacentHTML('afterbegin', ` <section class="hero">
-<div class="wripper">
-<div class="slider-container">
-<div class="slider-track">
-</div>
-</div>
-<div class="dots">
-<span class="dot is-active" data-src="0"></span>
-</div>
-<div class="slider-arrows">
-<button type="button" class="prev">	&lt;</button>
-<button type="button" class="next">	&gt;</button>
-</div>
-</div>
-</section>
-`)
-
-// const checkInnerWidth = () => {
-//     if(window.innerWidth < 768){
-//         elem = 6
-//        } else if(window.innerWidth < 1200 && window.innerWidth >= 768){
-//         elem = 9
-//        } else if(window.innerWidth >= 1200){
-//         elem = 10
-//        }
-// }
-// checkInnerWidth();
-
-
-const sliderTrack = document.querySelector(`.slider-track`);
-const dotsContainer = document.querySelector(`.dots`);
-
-array.forEach((img, index) => {
-
-sliderTrack.insertAdjacentHTML(`beforeend`,`<div class="slider-item">${index + 1}</div>`);
-if(index !== 0){
-    dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot" data-src="${index}"></span>`);
-}
-});
-
-
-const heroSection = document.querySelector(`.hero`);
-const wriper = document.querySelector(`.wripper`);
-const sliderContainer = document.querySelector(`.slider-container`);
-const sliderItem = document.querySelector(`.slider-item`);
-const sliderItems = document.querySelectorAll(`.slider-item`);
-const sliderArrows = document.querySelector(`.slider-arrows`);
-const prevButton = document.querySelector(`.prev`);
-const nextButton = document.querySelector(`.next`);
-const dots = document.querySelectorAll(`.dot`);
-
-
-
-    let currentSlide = 0;
-    let position = 0;
-    const slidesToShow = 1;  // сколько слайдеров будет в поле зрения
-    const slidesToScroll = 1; // сколько слайдов нужно листать
-    const itemCount = sliderItems.length; // количество слайдов
-    const itemWidth = sliderContainer.clientWidth / slidesToShow; // динамическая ширина слайдов
-    const movePosition = slidesToScroll * itemWidth; // смещения поля зрения по ленте слайдов
-
-    // {функция задаёт размер слайда в зависимости
-    //  от количества слайдов в поле зрения слайдера}
-    sliderItems.forEach((item) => {
-        item.style.minWidth = `${itemWidth}px`;
+    section.insertAdjacentHTML('afterbegin', `
+    <div class="wripper">
+    <div class="slider-container">
+    <div class="slider-track">
+    </div>
+    </div>
+    <div class="dots">
+    </div>
+    <div class="slider-arrows">
+    <button type="button" class="prev">	&lt;</button>
+    <button type="button" class="next">	&gt;</button>
+    </div>
+    </div>
+    `);
+    
+    const sliderTrack = document.querySelector(`.slider-track`);
+    const dotsContainer = document.querySelector(`.dots`);
+    
+    arr.forEach((num, index) => {
+    
+    sliderTrack.insertAdjacentHTML(`beforeend`,`<div class="slider-item">${index + 1}</div>`);
+    if(index === 0){
+        dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot is-active" data-src="${index}"></span>`);
+    }else{
+        dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot" data-src="${index}"></span>`);
+    }
     });
+    
+    const wriper = document.querySelector(`.wripper`);
+    const sliderContainer = document.querySelector(`.slider-container`);
+    const sliderItem = document.querySelector(`.slider-item`);
+    const sliderItems = document.querySelectorAll(`.slider-item`);
+    const sliderArrows = document.querySelector(`.slider-arrows`);
+    const prevButton = document.querySelector(`.prev`);
+    const nextButton = document.querySelector(`.next`);
+    const dots = document.querySelectorAll(`.dot`);
+    
+    
+    
+        let currentSlide = 0;
+        let position = 0;
+        const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
+        const slidesToScroll = slideScroll; // сколько слайдов нужно листать
+        const itemCount = sliderItems.length; // количество слайдов
+        const itemWidth = sliderContainer.clientWidth / slidesToShow; // динамическая ширина слайдов
+        const movePosition = slidesToScroll * itemWidth; // смещения поля зрения по ленте слайдов
+    
+        // {функция задаёт размер слайда в зависимости
+        //  от количества слайдов в поле зрения слайдера}
+        sliderItems.forEach((item) => {
+            item.style.minWidth = `${itemWidth}px`;
+        });
+    
+    // слушатель кнопки вправо!
+        nextButton.addEventListener(`click`, () => {
+            const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+    
+            position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+    
+            clearActiveDot()
+            setPosition();
+            checkBtn();
+            currentSlide += 1;
+            dots[currentSlide].classList.add(`is-active`);
+    
+        });
+    
+    // слушатель кнопки влево!
+        prevButton.addEventListener(`click`, () => {
+            const itemsLeft = itemCount - Math.abs(position) / itemWidth;
+    
+            position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+    
+            clearActiveDot()
+            setPosition();
+            checkBtn();
+            currentSlide -= 1;
+            dots[currentSlide].classList.add(`is-active`);
+    
+        });
+    
+        // интервал прокрутки слайдов
+        setInterval(() => {
+            position -= itemWidth;
+            
+            if(position > -itemCount*itemWidth){
+                setPosition();
+                clearActiveDot();
+                dots[(position/itemWidth) * -1].classList.add(`is-active`);                
 
-// слушатель кнопки вправо!
-    nextButton.addEventListener(`click`, () => {
-        const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
-
-        position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
-
-        clearActiveDot()
-        setPosition();
+            }else{
+                clearActiveDot();
+                position = 0;
+                setPosition()
+                dots[position].classList.add(`is-active`);
+            }
+            
+        }, 5000);
+        
+        //  функция задаёт позицию!
+        const setPosition = () => {
+            sliderTrack.style.transform = `translateX(${position}px)`;
+        };
+    
+        //  {функция проверяет текущую позицию (актуальный слайд)
+        //   и отключает кнопку в зависимости от наличия следюющего или предыдущего слайда}
+        const checkBtn = () => {
+            prevButton.disabled = position === 0;
+            nextButton.disabled = position <= -(itemCount - slidesToShow) * itemWidth;
+        };
+    
+        // функция активации слайдера!
         checkBtn();
-        currentSlide += 1;
-        dots[currentSlide].classList.add(`is-active`);
-
-    });
-
-// слушатель кнопки влево!
-    prevButton.addEventListener(`click`, () => {
-        const itemsLeft = itemCount - Math.abs(position) / itemWidth;
-
-        position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
-
-        clearActiveDot()
-        setPosition();
-        checkBtn();
-        currentSlide -= 1;
-        dots[currentSlide].classList.add(`is-active`);
-
-    });
-//  функция задаёт позицию!
-    setInterval(() => {
-        position -= itemWidth;
-
-        if(position > -itemCount*itemWidth){
-            setPosition()
-            console.log(position);
-        }else{
-            position = 0;
-            setPosition()
+    
+        const activeDot = () => {
+            dotsContainer.addEventListener(`click`, (e) => {
+                clearActiveDot();
+                e.target.classList.add(`is-active`);
+                currentPage(e.target.dataset.src);
+                currentSlide = +e.target.dataset.src;
+    
+            })
+        };
+    
+        const clearActiveDot = () => {
+            dots.forEach(elem => elem.classList.remove(`is-active`));
         }
- 
-    }, 3000);
+    
+        activeDot();
+    
+    // функция задания слайда в вьюпорт!
+        const currentPage = (n) => {
+            position = 0;
+            position -= n*itemWidth;
+            setPosition();
+            checkBtn();
+        }
+    
+    
 
 
-    const setPosition = () => {
-        sliderTrack.style.transform = `translateX(${position}px)`;
-    };
+}
+export default getSlider;
 
-    //  {функция проверяет текущую позицию (актуальный слайд)
-    //   и отключает кнопку в зависимости от наличия следюющего или предыдущего слайда}
-    const checkBtn = () => {
-        prevButton.disabled = position === 0;
-        nextButton.disabled = position <= -(itemCount - slidesToShow) * itemWidth;
-    };
-
-    // функция активации слайдера!
-    checkBtn();
-
-    const activeDot = () => {
-        dotsContainer.addEventListener(`click`, (e) => {
-            clearActiveDot();
-            e.target.classList.add(`is-active`);
-            currentPage(e.target.dataset.src);
-            currentSlide = +e.target.dataset.src;
-
-        })
-    };
-
-    const clearActiveDot = () => {
-        dots.forEach(elem => elem.classList.remove(`is-active`));
-    }
-
-    activeDot();
-
-// функция задания слайда в вьюпорт!
-    const currentPage = (n) => {
-        position = 0;
-        position -= n*itemWidth;
-        setPosition();
-        checkBtn();
-    }
 
