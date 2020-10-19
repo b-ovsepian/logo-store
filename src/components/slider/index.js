@@ -19,7 +19,7 @@
 // // refs.dotsContainer
 // // refs.dots
 
-const getSlider = (arr, section, slideShow, slideScroll) => {
+const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
 
     section.insertAdjacentHTML('afterbegin', `
     <div class="wripper">
@@ -103,22 +103,25 @@ const getSlider = (arr, section, slideShow, slideScroll) => {
         });
     
         // интервал прокрутки слайдов
-        setInterval(() => {
-            position -= itemWidth;
-            
-            if(position > -itemCount*itemWidth){
-                setPosition();
-                clearActiveDot();
-                dots[(position/itemWidth) * -1].classList.add(`is-active`);                
+        const interval = (boolean) => {
+            setInterval(() => {
+                position -= itemWidth;
+                
+                if(position > -itemCount*itemWidth){
+                    setPosition();
+                    clearActiveDot();
+                    dots[(position/itemWidth) * -1].classList.add(`is-active`);                
+    
+                }else{
+                    clearActiveDot();
+                    position = 0;
+                    setPosition()
+                    dots[position].classList.add(`is-active`);
+                }
+                
+            }, 5000);
 
-            }else{
-                clearActiveDot();
-                position = 0;
-                setPosition()
-                dots[position].classList.add(`is-active`);
-            }
-            
-        }, 5000);
+        }
         
         //  функция задаёт позицию!
         const setPosition = () => {
