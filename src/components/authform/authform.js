@@ -148,7 +148,7 @@ function openMessageReg() {
         return `<div class="errorModal">
         <p class="error-icon">&#9888;</p>
         <p class="error-title">Пользователь с таким именем не найден.</p> 
-        <p class="error-text">Пожалуйста, введите корректный email или пройдите регистрацию в данной форме.</p>
+        <p class="error-text">Пожалуйста, введите корректный email/ пароль или пройдите регистрацию в данной форме.</p>
          <div class="icon-wrapper auth-icon-wrapper">
                   <div class="close-icon icon-auth">&#10006;</div>
                 </div>

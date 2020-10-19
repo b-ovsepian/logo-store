@@ -10,6 +10,7 @@ export function ValidateEmail(mail) {
    } else {
      inputEmail.style.borderColor = "red";
      email.style.display = "block";
+     authRefs.form.elements.authMail.reset();
      return false;
    }
 }
@@ -27,7 +28,8 @@ export function ValidatePassword(password) {
 { 
   passwordhint.style.display = "block";
     inputPassword.style.borderColor = "red";
-    authRefs.form.elements.password.value="";
+    authRefs.form.elements.password.value = "";
+    authRefs.form.elements.password.reset();
      return false;
 }
 }
