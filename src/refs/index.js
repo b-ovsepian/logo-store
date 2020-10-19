@@ -1,10 +1,19 @@
 export default {
   //
 }
-{/* <li class="lastSeen-item">
-<!-- <img src="#" alt="#" class="lastSeen-img">
-<svg class="icon"><use href=""></use></svg> -->
-<p class="lastSeen-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-<p class="lastSeen-price">2000</p>
-<p class="lastSeen-newprice">1500</p>
-</li> */}
+
+// const lastSeen = {
+//   get(){
+//     return localStorage.getItem('lastSeen')
+//     ? JSON.parse(localStorage.getItem('lastSeen'))//[{}, {}, {}] масив обєктов
+//     : [];
+//   },
+//   post(product){ //{}
+//     if(this.get().lenght === 10 ) {
+//       return localStorage.setItem('lastSeen', JSON.stringify([...this.get().shift(), product]))
+//     }else{
+//       return localStorage.setItem('lastSeen', JSON.stringify([...this.get(), product]))}
+//     // преобразуем строку в масив обектов и в виде отдельных значений добавляем в localStorage в виде сасива где
+//   }
+// }
+

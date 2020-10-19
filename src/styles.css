@@ -6,7 +6,9 @@
   --primary-text-color: #53535c;
   --title-text-color: #000000;
   --second-title-color: #6368e5;
-  --primary-bg-color: #ffffff;
+  --primary-bg-color: #f4f4f4;
+  --second-bg-color: #ffffff;
+  --third-text-color: #b3b3b3;
   /* Цвета футера */
   --footer-question-color: #ffc390;
   --footer-text-color: #ffffff;
@@ -35,6 +37,10 @@ html {
 body {
   font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.22;
+
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
 }
@@ -73,22 +79,21 @@ img {
 
 @media screen and (min-width: 320px) {
   .container {
-    width: 280px;
+    width: 310px;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    width: 648px;
+    width: 678px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container {
-    width: 1080px;
+    width: 1110px;
   }
 }
 
 /* Button */
-
 .button {
   padding: 11px 78px;
 
