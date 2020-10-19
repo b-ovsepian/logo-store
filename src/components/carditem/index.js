@@ -6,21 +6,21 @@ import store from "../store/index.js"
 
 
 // поиск элемента куда нужно встроить "ul"
-const divMain = refs.main.querySelector(".container")
-const cardList = document.createElement("ul")
-cardList.classList.add("card-list")
-cardList.classList.add("list")
-divMain.append(cardList)
+// const divMain = refs.main.querySelector(".container")
+// const cardList = document.createElement("ul")
+// cardList.classList.add("card-list")
+// cardList.classList.add("list")
+// divMain.append(cardList)
 
 // авторизация на сайте
-services.loginUser("mango12345@gmail.com", "qwerty12345");
+// services.loginUser("mango12345@gmail.com", "qwerty12345");
 
-setTimeout(() => {
-}, 1000);
-services.getAllProducts().then(data => {
-    cardItem(data, cardList)
-    console.log(data);
-})
+// setTimeout(() => {
+// }, 1000);
+// services.getAllProducts().then(data => {
+//     cardItem(data, cardList)
+//     console.log(data);
+// })
 
 
 // при вызове функции:
