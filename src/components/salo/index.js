@@ -1,4 +1,7 @@
 import templateSale from './../../templates/template-sale.hbs';
+import refs from "./../../refs/index.js"
+import templateCardItem from "./../carditem/templateCardItem.hbs"
+import services from "./../services/index.js"
 
 const a = [
   {
@@ -6,23 +9,30 @@ const a = [
 ];
 const constructor = document.querySelector('.page-main .container');
 
-function createSale() {
-  constructor.innerHTML = "";
-  const createHtml = templateSale(a);
-  constructor.insertAdjacentHTML('beforeend', createHtml)
-  //  const options = sort.querySelectorAll('option');
-  //  console.log(options);
-  //  const a = document.querySelectorAll('option');
-  //  console.dir(a);
-};
-createSale(a)
-function renderImages(data) {
-  const galleryList = document.querySelector('.sale-sort-list')
-  let newData = data.filter(item => item.category === sale)
-  const item = template(newData);
-  galleryList.insertAdjacentHTML('beforeend', item)
+setTimeout(() => {
+  services.searchProducts("", "", 6, 2).then(data => {
+     
+      console.log(data);
+  })
+}, 2000);
 
-  const sort = document.querySelector('#sale-sorts');
+// function createSale() {
+//   constructor.innerHTML = "";
+//   const createHtml = templateSale(a);
+//   constructor.insertAdjacentHTML('beforeend', createHtml)
+//   //  const options = sort.querySelectorAll('option');
+//   //  console.log(options);
+//   //  const a = document.querySelectorAll('option');
+//   //  console.dir(a);
+// };
+// createSale(a)
+// function renderImages(data) {
+//   const galleryList = document.querySelector('.sale-sort-list')
+//   // let newData = data.filter(item => item.category === sale)
+//   const item = template(newData);
+//   galleryList.insertAdjacentHTML('beforeend', item)
+
+//   const sort = document.querySelector('#sale-sorts');
 
 // function sortSale (e){
 // let list, i, switching, items, shouldSwitch, dir;
