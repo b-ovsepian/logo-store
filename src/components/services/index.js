@@ -58,6 +58,33 @@ export default {
       throw error;
     }
   },
+  //   Change user email or name
+  async changeUserInfo(newEmail, newName) {
+    newEmail ? '' : (newEmail = store.user.email);
+    newName ? '' : (newName = store.user.name);
+    try {
+      const options = {
+        method: 'PATCH',
+        headers: {
+          Authorization: store.auth.accces_token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: newEmail,
+          name: newName,
+        }),
+      };
+      const url = `https://goit-store.herokuapp.com/users`;
+      const response = await fetch(url, options);
+      const data = response.json();
+      await data.then(res => {
+        store.user = res;
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
   //   Change user password
   async changePassword(newPassword, confirmNewPassword) {
     try {
@@ -111,6 +138,26 @@ export default {
       throw error;
     }
   },
+  //   Change user address
+  async changeUserAddress(newAddress) {
+    try {
+      const options = {
+        method: 'PATCH',
+        headers: {
+          Authorization: store.auth.accces_token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newAddress),
+      };
+      const url = `https://goit-store.herokuapp.com/users/updateAddress`;
+      const response = await fetch(url, options);
+      const data = response.json();
+      await data.then(res => (store.user = res));
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
   // Get current user
   async getCurrentUser() {
     try {
@@ -123,17 +170,7 @@ export default {
       const url = 'https://goit-store.herokuapp.com/users/currentUser';
       const response = await fetch(url, options);
       const data = response.json();
-      await data.then(
-        ({ favorites, lastSeen, role, _id, name, email, password }) => {
-          store.user.favorites = favorites;
-          store.user.lastSeen = lastSeen;
-          store.user.role = role;
-          store.user._id = _id;
-          store.user.name = name;
-          store.user.email = email;
-          store.user.password = password;
-        },
-      );
+      await data.then(data => (store.user = data));
       return data;
     } catch (error) {
       throw error;

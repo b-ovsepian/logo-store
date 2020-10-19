@@ -3,3 +3,4 @@ import developers from './developers';
 import footer from './footer';
 import services from './services';
 import './salo/index.js'
+import store from './store';
