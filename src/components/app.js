@@ -6,6 +6,7 @@ import store from './store';
 import slider from './slider';
 import hero from './hero';
 import './category/category.js';
+import helpers from './helpers';
 
 // Тянем категории
 services.getCategories();
