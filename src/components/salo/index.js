@@ -1,18 +1,31 @@
-import templateSale from './../../templates/template-sale.hbs';
-import refs from "./../../refs/index.js"
-import templateCardItem from "./../carditem/templateCardItem.hbs"
-import services from "./../services/index.js"
+import css from './style-salo.css'
 
-const a = [
-  {
-  }
-];
+import refs from "./../../refs/index.js"
+
+import services from "./../services/index.js"
+import oleg from './../carditem/index.js'
 const constructor = document.querySelector('.page-main .container');
 
 function createSale() {
   constructor.innerHTML = "";
-  const createHtml = templateSale(a);
-  constructor.insertAdjacentHTML('beforeend', createHtml)
+  constructor.insertAdjacentHTML('beforeend', `
+  <h1 class="sale-title">Акции</h1>
+<div>
+  <label for="sale-sort">Сортировка:</label>
+  <select id="products">
+    <option value="По умолчанию" selected>По умолчанию</option>
+    <option value="По возрастанию цены">По возрастанию цены</option>
+    <option value="По убыванию цены">По убыванию цены</option>
+    <option value="По алфавиту по возрастанию">По алфавиту по возрастанию</option>
+    <option value="По алфавиту по убыванию">По алфавиту по убыванию</option>
+  </select>
+</div>
+<ul class="sale-sort-list list"></ul>
+<div class="sale-page">
+  {{!-- тут будет Марка  объект --}}
+  <p class="sale-text-page"></p>
+</div>`);
+
   //  const options = sort.querySelectorAll('option');
   //  console.log(options);
   //  const a = document.querySelectorAll('option');
@@ -22,24 +35,14 @@ createSale(a)
 setTimeout(() => {
   let elem, page
   services.searchProducts("", 'sale', elem, page).then(data => {
-     if(window.innerWidth < 768){
-      elem = 6
-     } else if(window.innerWidth < 1200 && window.innerWidth >= 768){
-      elem = 9
-     } else if(window.innerWidth >= 1200){
-      elem = 10
-     }
-      return renderImages(data)
+
+     const div = document.querySelector('.sale-page');
+      // return oleg.cardItem(data, div)
   })
 }, 2000);
 
-function renderImages(data) {
-  const galleryList = document.querySelector('.sale-sort-list')
-  // let newData = data.filter(item => item.category === sale)
-  console.log(data);
-  const item = templateCardItemy(data);
-  galleryList.insertAdjacentHTML('beforeend', item)
-}
+
+f
 //   const sort = document.querySelector('#sale-sorts');
 
 // function sortSale (e){
