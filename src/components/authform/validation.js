@@ -1,4 +1,13 @@
-import { authRefs } from './formRefs';
+
+
+const authRefs = {
+  form: document.querySelector('.auth-form'),
+  enterAccountBtn: document.querySelector('.enterAccount'),
+  registerAccountBtn: document.querySelector('.registerAccount'),
+  buttons:document.querySelector('.authbuttons')
+}
+
+
 export function ValidateEmail(mail) {
   let inputEmail = document.querySelector('.input-email');
   const email = document.querySelector('.email-hint');

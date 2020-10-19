@@ -26,6 +26,7 @@ margin-top:0;
 
 .error-title{
     font-size: 25px;
+    font-weight: 700;
     color: red;
     margin: 0 auto;
     margin-bottom: 25px;
@@ -36,9 +37,7 @@ margin-top:0;
 .error-text{
     font-size: 25px;
     text-align: center;
-       
         margin: 0 auto;
-
     margin-bottom: 20px;
 
 }
@@ -113,7 +112,7 @@ color: #53535C;
     width: 240px;
     height: 44px;
     margin: 0 auto;
-    
+
 }
 
 .enterAccount{
