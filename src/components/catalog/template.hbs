@@ -1,0 +1,15 @@
+{{#each this}}
+<li class="catalog-item">
+  <img class="catalog-img" src="{{image}}" alt="{{name}}" />
+  <div>
+    <a href="#" class="catalog-title" id="{{titleId}}">
+      <h2>{{name}}</h2><span id="{{spanId}}">▼</span>
+    </a>
+  </div>
+  <ul class="catalog-list" id="{{catList_id}}">
+    {{#each items}}
+    <li class="catalog-list-item">{{this.name}}</li>
+    {{/each}}
+  </ul>
+</li>
+{{/each}}
