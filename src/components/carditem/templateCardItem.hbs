@@ -8,24 +8,16 @@
         </div>
         <div>
             <h2 class="card-item-title">{{name}}</h2>
-            <div class="icon-box">
-                {{!-- <svg class="icon-box-svg">
-                    <use class="icon-star" href="./components/carditem/images/icon-star.svg"></use>
-                    <use class="icon-star" href="./components/carditem/images/icon-star.svg"></use>
-                    <use class="icon-star" href="./components/carditem/images/icon-star.svg"></use>
-                    <use class="icon-star" href="./components/carditem/images/icon-star.svg"></use>
-                    <use class="icon-star" href="./components/carditem/images/icon-star.svg"></use>
-                </svg> --}}
+            <div class="icon-box-star">
             </div>
+            {{!-- иконки звезды --}}
         </div>
         <div class="item-box-price">
-            <p class="notsale-price">{{price}} ₴</p>
+            <p class="notsale-price">{{salePrice}} ₴</p>
             <p class="price">{{price}} ₴</p>
         </div>
-        <svg class="favorit-icon">
-            <use class="icon-heard" href="./components/carditem/images/icon-heart.svg"></use>
-            <use class="icon-heard-full" href="./components/carditem/images/icon-heart-full.svg"></use>
-        </svg>
+        <span class="icon-box-favorit" data-id="{{_id}}">
+        </span>
     </div>
 </li>
 {{/each}}

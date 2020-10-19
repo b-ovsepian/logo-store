@@ -2,50 +2,60 @@ import css from "./style.css"
 import refs from "../../refs/index.js"
 import templateCardItem from "./templateCardItem.hbs"
 import services from "../services/index.js"
+import store from "../store/index.js"
 
 
-services.loginUser("mango12345@gmail.com", "qwerty12345");
+// поиск элемента куда нужно встроить "ul"
+// const divMain = refs.main.querySelector(".container")
+// const cardList = document.createElement("ul")
+// cardList.classList.add("card-list")
+// cardList.classList.add("list")
+// divMain.append(cardList)
 
-setTimeout(() => {
-    services.getAllProducts().then(data => {
-        cardItem(data)
-        console.log(data);
-    })
-}, 2000);
+// авторизация на сайте
+// services.loginUser("mango12345@gmail.com", "qwerty12345");
 
-// const renderItem = () => {
-//     const url = `https://goit-store.herokuapp.com/products?search=&category=ref`
-//     return fetch(url)
-//         .then(data => data.json())
-//         .then((data) => {
-//             cardItem(data)
-//             console.log(data)
-//         })
-// }
-// renderItem()
+// setTimeout(() => {
+// }, 1000);
+// services.getAllProducts().then(data => {
+//     cardItem(data, cardList)
+//     console.log(data);
+// })
 
 
-
-const cardItem = (data) => {
+// при вызове функции:
+// первым параметром нужно передать (data) - промисс полученый в .then
+// вторым параметром нужно передать (where) - элемент в который нужно карточки
+// третий НЕОБЯЗАТЕЛЬНЫЙ (sale) - передать true что бы отобразить цену до скидки
+// export не дефолтный
+export const cardItem = (data, where, sale = false) => {
+    // const saleData = sale ? data.map(item => ({ ...item, sale: item.price + 10 % })) : "";
 
     const item = templateCardItem(data)
-    refs.cardList.innerHTML = item
+    // место куда нужно вставить where 
+    // where.innerHTML = item
+    where.insertAdjacentHTML('beforeend', item)
+    //слушатель на иконку для смены иконки
+    // и записи на бек в массив favorit
+    where.addEventListener("click", (e) => {
+        let id = e.target.dataset.id
+        if (e.target.classList.contains("icon-box-favorit")) {
+            e.target.classList.toggle("icon-box-favorit-full")
+        }
+        if (e.target.classList.contains("icon-box-favorit-full")) {
+            // взяли id объекта
+            let element = mapArray(data, id)
+            services.addFavoriteProduct(element)
+        }
+        if (!e.target.classList.contains("icon-box-favorit-full") && e.target.nodeName === "SPAN") {
+            let element = mapArray(data, id)
+            services.removeFavoriteProduct(element._id)
+        }
 
-    // const favoritIcon = document.querySelector(".favorit-icon")
-    // console.log(favoritIcon);
-
-
-    // favoritIcon.addEventListener("click", () => {
-    //     const iconHeard = favoritIcon.querySelector(".icon-heard")
-    //     const iconHeardFull = favoritIcon.querySelector(".icon-heard-full")
-    //     // console.log(iconHeard);
-    //     // console.log(iconHeardFull);
-    //     if (iconHeard.style.display == "block") {
-    //         iconHeard.style.display = "none"
-    //         iconHeardFull.style.display = "block"
-    //     } else {
-    //         iconHeard.style.display = "block"
-    //         iconHeardFull.style.display = "none"
-    //     }
-    // })
+    }
+    )
+}
+// функция поиска выбранного элемента по сердечку
+function mapArray(ar, id) {
+    return ar.find((elem) => elem._id === id)
 }
