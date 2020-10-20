@@ -86,8 +86,13 @@ background-color: var(--btn-text-color);
   cursor: pointer;
 }
 .createIMG {
-  display: none;
+ width: 65px;
+ height: 70px;
+ display: none;
 }
+
+
+
 
 .admin-textarea-product{
   display: block;

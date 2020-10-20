@@ -1,9 +1,8 @@
 import style from '../newADV/style.css'
 import refs from '../../refs/index.js'
-
+import { data } from 'autoprefixer'
 
 // загружаем изобрадение через форму
-
 const fileForm = document.querySelector('.adminFormProduct')
 
 function toDataUrl(element) {
@@ -14,23 +13,48 @@ function toDataUrl(element) {
   })
 }
 
-const createBase = (e) => {
-  e.preventDefault()
+const createBase = () => {
   const element = fileForm.elements.photoProduct
   const resultIMG = document.querySelector('.createIMG')
+  const newImg = document.createElement('img')
+  newImg.classList.add('newImg')
+
+
   toDataUrl(element).then(data => {
-    resultIMG.src = data
+    // resultIMG.src = data
+    newImg.src = data
+    console.log(newImg.src);
+    let a = document.querySelector('.plusImage')
+
+    a.append(newImg)
+    createBase()
+    return data
   })
 }
 
 
+const baza = {
+  nameProduct: '',
+  photoProduct: []
+}
+console.log(baza.photoProduct);
+
+const onChange = async(e) => {
+  console.log("hello");
+  if (e.target.name = "photoProduct") {
+    baza.photoProduct.push(await toDataUrl(e.target));
+    console.log(baza);
+
+  } else data[e.target.name] = e.target.value
+}
+
+fileForm.addEventListener('input', onChange)
 
 
 // создаем карточку елементов формы создания
-
 fileForm.addEventListener('submit', (event) => {
   event.preventDefault()
-
+console.log(event.target);
   const h2 = document.createElement('h2')
   const imgHeadProduct = document.createElement('img')
   const textArea = document.createElement('p')
@@ -59,15 +83,11 @@ fileForm.addEventListener('submit', (event) => {
   const inputTelP = nameElement.telProduct.value
   telLink.textContent = inputTelP
   telLink.href = inputTelP
+  console.dir(event)
 
   refs.createCardContainer.append(h2,textArea,productLink,priceLink,telLink,imgHeadProduct)
-  createBase()
+
 })
-
-
-
-
-
 
 
 // const fileForm = document.querySelector('.adminFormProduct')
@@ -99,3 +119,6 @@ fileForm.addEventListener('submit', (event) => {
 // }
 
 // fileForm.addEventListener('input', createBase)
+
+
+
