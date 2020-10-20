@@ -3,7 +3,7 @@ import refs from "../../refs/index.js"
 import templateCardItem from "./templateCardItem.hbs"
 import services from "../services/index.js"
 import store from "../store/index.js"
-
+import product-card from"../product-card/index.js"
 
 // поиск элемента куда нужно встроить "ul"
 const divMain = refs.main.querySelector(".container")

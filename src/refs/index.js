@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import product_card_js from '../components/product-card/index.js'
+>>>>>>> product-card
 export default {
     header: document.querySelector('.page-header'),
     main: document.querySelector('.page-main'),
