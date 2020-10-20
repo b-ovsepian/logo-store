@@ -47,8 +47,6 @@ setTimeout(() => {
   })
 }, 2000);
 
-
-f
 //   const sort = document.querySelector('#sale-sorts');
 
 // function sortSale (e){
