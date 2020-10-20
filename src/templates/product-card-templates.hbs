@@ -2,8 +2,8 @@
 
       <div class="container">
         <div class="product-card-name-container">
-          <h2 class="product-card-title">Робот-пылесос Xiaomi RoboRock S5 Max White (S5E02-00)</h2>
-          <p class="product-card-code"><span>Код: </span> 189864298</p>
+          <h2 class="product-card-title">{{name}}</h2>
+          <p class="product-card-code"><span>Код: </span> {{ _id}}</p>
         </div>
         <div class="product-card-main-container">
 
@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="product-card-low-dange">
-            <h3 class="product-card-price">13 999 ₴</h3>
+            <h3 class="product-card-price">{{price}} ₴</h3>
             <div class="product-card-price-button-div">
               <button class="product-card-button-buy" type="button">КУПИТЬ</button>
               <button class="product-card-button-bookmarks" type="button"></button>
@@ -29,7 +29,7 @@
               <h3 class="product-card-item-title">Описание:
               </h3>
               <p class="product-card-item-description">
-                Робот – пылесос RoboRock S5 Max позаботится об идеальной чистоте в вашем доме. Это умное устройство совершает сухую и влажную уборку, не оставляя пыли и грязи ни единого шанса. Оснащенный емкой батареей, пылесос работает до 3 часов без подзарядки, за это время он способен навести порядок в доме площадью 250 м.кв.
+                {{description}}
               </p>
             </li>
             <li class="product-card-item">
