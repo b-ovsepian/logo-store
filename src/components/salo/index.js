@@ -3,7 +3,7 @@ import css from './style-salo.css'
 import refs from "./../../refs/index.js"
 import helpers from './../helpers/index.js'
 import services from "./../services/index.js"
-import oleg from './../carditem/index.js'
+import createList from './../carditem/index.js'
 const constructor = document.querySelector('.page-main .container');
 
 function createSale() {
@@ -42,8 +42,8 @@ setTimeout(() => {
     elem = 10
   }
   services.searchProducts("", 'sale', elem, page).then(data => {
-  const div = document.querySelector('.sale-page');
-      // return oleg.cardItem(data, div)
+  const list = document.querySelector('.sale-sort-list');
+      return createList.cardItem(data, list, true)
   })
 }, 2000);
 
