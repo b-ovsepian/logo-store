@@ -19,7 +19,7 @@ setTimeout(() => {
 }, 1000);
 services.getAllProducts().then(data => {
     cardItem(data, cardList)
-    console.log(data);
+    // console.log(data);
 })
 
 

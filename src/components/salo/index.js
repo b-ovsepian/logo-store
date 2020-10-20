@@ -1,17 +1,19 @@
-import css from './style-salo.css'
+import './style-salo.css'
 
 import refs from "./../../refs/index.js"
 import helpers from './../helpers/index.js'
 import services from "./../services/index.js"
-import createList from './../carditem/index.js'
+import { cardItem }from './../carditem/index.js'
 const constructor = document.querySelector('.page-main .container');
 
+createSale()
 function createSale() {
   constructor.innerHTML = "";
   constructor.insertAdjacentHTML('beforeend', `
+  <section class="sale-section">
+  <div class="sale-div">
   <h1 class="sale-title">Акции</h1>
-<div>
-  <label for="sale-sort">Сортировка:</label>
+  <label id="sale-label" for="sale-sort">Сортировка:</label>
   <select id="products">
     <option value="По умолчанию" selected>По умолчанию</option>
     <option value="По возрастанию цены">По возрастанию цены</option>
@@ -24,8 +26,8 @@ function createSale() {
 <div class="sale-page">
   {{!-- тут будет Марка  объект --}}
   <p class="sale-text-page"></p>
-</div>`);
-
+</div>
+<section class="sale-section">`);
   //  const options = sort.querySelectorAll('option');
   //  console.log(options);
   //  const a = document.querySelectorAll('option');
@@ -33,22 +35,25 @@ function createSale() {
 };
 setTimeout(() => {
   let elem, page
-  helpers.viewport.function()
-  if(helpers.viewport.isMobile){
+  if(helpers.isMobile){
     elem = 6
-  } else if(helpers.viewport.isTablet){
+  } else if(helpers.isTablet){
     elem = 9
-  } else if (helpers.viewport.isDesktop){
+  } else if (helpers.isDesktop){
     elem = 10
   }
   services.searchProducts("", 'sale', elem, page).then(data => {
   const list = document.querySelector('.sale-sort-list');
-      return createList.cardItem(data, list, true)
+      return cardItem(data, list, true)
   })
-}, 2000);
+}, 1000);
+const b = document.querySelector('select')
 
+b.addEventListener('input', (e)=>{
+  
 
-f
+})
+
 //   const sort = document.querySelector('#sale-sorts');
 
 // function sortSale (e){
