@@ -7,7 +7,7 @@ let slider = document.querySelector('.product-card-slider')
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart = document.querySelector('.product-card')
-
+console.log(`y`);
 
 // let images = ['https://coubsecure-s.akamaihd.net/get/b72/p/coub/simple/cw_timeline_pic/876499d30d2/4899de12586e9aa3857a2/med_1577956238_image.jpg', 
 // 'https://www.meme-arsenal.com/memes/58fb3407056df8c46cff07ced4601a4a.jpg', 
