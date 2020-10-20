@@ -9,61 +9,117 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header class="page-header">
-      <div class="container"></div>
+      <div class="container">
+        <button type="button" class="information-btn">Information</button>
+      </div>
     </header>
     <main class="page-main">
       <div class="container">
-        <div class="telephone-trigger">
-          <a
-            href="tel:+380503333796"
-            class="telephone-trigger__link"
-            aria-label="call by vodafone"
-          >
-            <img
-              class="telephone-trigger__logo"
-              src="./components/telephone-trigger/images/vodafone.svg"
-              alt="vodafone"
-              width="14"
-              height="14"
-            />
-            +38 (050) 333-37-96
-          </a>
-          <a
-            href="tel:+380738373737"
-            class="telephone-trigger__link"
-            aria-label="call by lifecell"
-          >
-            <img
-              class="telephone-trigger__logo"
-              src="./components/telephone-trigger/images/lifecell.svg"
-              alt="lifecell"
-              width="14"
-              height="14"
-            />
-            +38 (073) 837-37-37
-          </a>
-          <a
-            href="tel:+380688773737"
-            class="telephone-trigger__link"
-            aria-label="call by kyivstar"
-          >
-            <img
-              class="telephone-trigger__logo"
-              src="./components/telephone-trigger/images/kyivstar.svg"
-              alt="kyivstar"
-              width="14"
-              height="14"
-            />
-            +38 (068) 877-37-37
-          </a>
+        <div class="group">
+          <a href="./index.html" name="home" class="carp">Главная</a>
+        </div>
+        <div class="category">
+          <ul class="category-list list">
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 3.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Крупная бытовая техника</h2>
+              <button name="household" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 4.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Встраиваемая техника</h2>
+              <button name="embedded" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 5.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Уход за домом и одеждой</h2>
+              <button name="home" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 6.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Техника для кухни</h2>
+              <button name="kitchen" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </main>
     <footer class="page-footer">
-      <div class="container"></div>
+      <div class="container">
+        <h2 class="page-footer__title">Есть к нам вопросы?</h2>
+        <div class="footer-box">
+          <div class="page-footer__phone-box">
+            <h3 class="page-footer__phone">Телефон</h3>
+            <a class="page-footer__link" href="tel:+380503333796"
+              >+38 (050) 333-37-96</a
+            >
+          </div>
+          <address class="page-footer__address">
+            <h3 class="page-footer__phone">График работы CALL-центра</h3>
+            <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
+            <p class="address-text">Сб - Вс: Выходной</p>
+          </address>
+        </div>
+      </div>
+      <div class="copy">
+        <p class="copyright">&copy; 2020 | GoIT</p>
+      </div>
     </footer>
+
+    <button class="modalbtn">Press here</button>
+    <button class="authbtn">Form</button>
+
+    <div class="formsection"></div>
+
+    <div class="lightbox">
+      <div class="backdrop">
+        <!-- <div class="icon-wrapper">
+        <svg class="close-icon">
+          <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
+        </svg>
+      </div> -->
+
+        <div class="modal">
+          <div class="modal-wrapper"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
