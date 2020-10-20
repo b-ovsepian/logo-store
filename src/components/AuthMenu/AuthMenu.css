@@ -1,6 +1,53 @@
 .container-first {
   background-color: grey;
 }
-.icon {
+.icon-header-auth {
   margin-left: 1200px;
+}
+.private-account {
+  display: block;
+  /* justify-content: center;
+  align-items: center; */
+  background-color: #fff;
+  width: 204px;
+  padding-top: 1px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-heading {
+  margin: 20px;
+  color: rgba(83, 83, 92, 1)
+}
+
+.user-element {
+  margin-left: 20px;
+}
+
+.user-element:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.button-close{
+  color: rgba(83, 83, 92, 1);
+  outline: none;
+  border: none;
+  width: 204px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-right: 120px;
+  /* text-align: left; */
+}
+
+.user-link {
+  color: rgba(83, 83, 92, 1);
 }

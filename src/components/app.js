@@ -6,12 +6,12 @@ import footer from './footer';
 import services from './services';
 import store from './store';
 import './category/category.js';
-import AuthMenu from './AuthMenu';
+import './AuthMenu/index';
 
 // Тянем категории
 services.getCategories();
 setTokenToStore();
-AuthMenu()
+// AuthMenu()
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
