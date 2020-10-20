@@ -79,7 +79,7 @@
   align-items: center;
 }
 
-.hero .dot {
+.dot {
   display: block;
   margin: 0 10px;
   width: 10px;
@@ -89,7 +89,7 @@
   background-color: rgba(179, 179, 179, 1);
 }
 
-.hero .dot.is-active {
+.dot.is-active {
   background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
 }
 
