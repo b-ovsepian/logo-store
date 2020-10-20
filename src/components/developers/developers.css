@@ -1,0 +1,123 @@
+.developers-item {
+  background: var(--second-bg-color);
+
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  border-radius: 10px;
+
+  transition: border 250ms var(--timing-function);
+}
+.developers-item:hover,
+.developers-item:focus {
+  border: 2px solid var(--primary-accent-color);
+}
+
+.developers-item__link {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 18px;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.developers-item__image-box {
+  margin-right: 15px;
+
+  overflow: hidden;
+
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: teal;
+}
+
+.developers-item__title {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 18px;
+
+  color: var(--primary-text-color);
+}
+.developers-item__about {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .developers-item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .developers-item__person-info {
+    width: 142px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .developers-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -10px;
+  }
+  .developers-item {
+    width: calc((100% - 40px) / 2);
+    margin: 10px;
+  }
+  .developers-item__image-box {
+    width: 96px;
+    height: 96px;
+  }
+  .developers-item__person-info {
+    width: 158px;
+  }
+  .developers-item__link {
+    padding: 32px 20px;
+  }
+  .developers-item__title {
+    text-align: center;
+  }
+  .developers-item__about {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .developers-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -15px;
+  }
+  .developers-item {
+    width: calc((100% - 60px) / 2);
+    margin: 15px;
+  }
+  .developers-item__image-box {
+    width: 160px;
+    height: 160px;
+    margin-right: 33px;
+  }
+  .developers-item__person-info {
+    width: 215px;
+  }
+  .developers-item__link {
+    padding: 55px;
+  }
+  .developers-item__title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
