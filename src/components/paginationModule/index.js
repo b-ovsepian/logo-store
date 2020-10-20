@@ -1,94 +1,76 @@
 import style from "./style.css"
 import refs from "../../refs/index.js"
+import axios from "axios"
+import viewport from "./viewport.js"
 
+// // const pagination = {
+// //     // pagesCount: 0,
+// //     currentPage: 1,
+// //     totalProducts: 30,
+// //     productsPerPage: 6,
+// // }
 
+// const totalProducts = async () => {
+//     return await getProducts()
+// }
 
+// totalProducts()
+// const productsPerPage = () => {
+//     return setTimeout(() => {
+//         let elem, page
+//         viewport.viewport.viewportFunction()
+//         if (viewport.viewport.isMobile) {
+//             elem = 6
+//         } else if (viewport.viewport.isTablet) {
+//             elem = 9
+//         }else if (viewport.viewport.isDesktop) {
+//             elem = 10
+//         }
+           
+//         getProducts(elem , page);
+//     }, 500);
+// }
 
+// const getPagesCount = (totalProducts , productsPerPage) => {
+//     return totalProducts / productsPerPage
+// }
 
+// const getItemMarkup = (pageNumber) => {
+// return `<button class="button" data-page=${pageNumber}>${pageNumber}</button>`
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default {
-//   _query: "",
-//   page: 1,
-//   perPage: 9,
-
-//   async fetchProducts() {
-//     const ApiKey = "";
-//     const baseUrl = ``;
-
-//     let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${ApiKey}`;
-
-//     try {
-//       const response = await fetch(url);
-//       const getResponse = await response.json();
-//       return getResponse.hits;
-//     } catch (error) {
-//       throw error;
+// function getLisItemsMarkup () {
+//     let markup = "";
+//     for (let i = 1; i <= getPagesCount(totalProducts() , productsPerPage()); i += 1) {
+//         markup += getItemMarkup(i)
 //     }
-//   },
-
-//   setPage() {
-//     return this.page++;
-//   },
-//   get query() {
-//     return this._query;
-//   },
-//   set query(newQuery) {
-//     this._query = newQuery;
-//   },
-// };
+//      return markup
+     
+// }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const allElements = 100
-// const elemsPerPage = 9
-// const pagesQuantity = Math.ceil(allElements / elemsPerPage)
-
-// let elements = document.querySelectorAll('#pagination-list');
-// let paginationPage = document.querySelector('')
     
+// //     const list = document.querySelector('.pagination-list');
+// //     console.log(list);
+// //     list.innerHTML = getLisItemsMarkup();
+// //     list.querySelector('.button').classList.add('active');
+
+// //     list.addEventListener('click', (e) => {
+// //     console.log(e.target);
+// //     list.querySelector('.active').classList.remove('active');
+// //         e.target.classList.add('active');
+// //         // console.log(e.target.dataset);
+// //         // getProducts((Number(e.target.dataset)), 6)
+        
+// //     })
+
+// function getProducts (perPage = 100, page = 1, category = 'ref') {
+//     return fetch(`https://goit-store.herokuapp.com/products?itemsPerPage=${perPage}&page=${page}&category=${category}`)
+//         .then(res => res.json())
+//     }
+// getProducts().then(data => data.length)
+//     .then(data => console.log(data))
     
-// for (let element of elements) {
-//     element.
-// }
 
 
 
@@ -99,82 +81,74 @@ import refs from "../../refs/index.js"
 
 
 
+const pagination = {
+    currentPage: 1,
+    pagesCount: 1,
+    countOfProducts: 0,
+    minProducts: 1,
+    maxProducts: 0
+}
+ let elem;
+    if (viewport.isMobile) {
+            elem = 6
+        } else if (viewport.isTablet) {
+            elem = 9
+        }else if (viewport.isDesktop) {
+            elem = 10
+        }
 
 
-// var count = 10; //всего записей
-// var cnt = 5; //сколько отображаем сначала
-// var cnt_page = Math.ceil(count / cnt); //кол-во страниц
+export async function createPagination(category) {
+   
+    
+    const list = document.querySelector('.pagination-list');
 
-// //выводим список страниц
-// var paginator = document.querySelector(".paginator");
-// var page = "";
-// for (var i = 0; i < cnt_page; i++) {
-//   page += "<span data-page=" + i * cnt + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";
-// }
-// paginator.innerHTML = page;
+    list.innerHTML = await getLisItemsMarkup(category);
+    list.querySelector('button').classList.add('active');
 
-// //выводим первые записи {cnt}
-// var div_num = document.querySelectorAll(".num");
-// for (var i = 0; i < div_num.length; i++) {
-//   if (i < cnt) {
-//     div_num[i].style.display = "block";
-//   }
-// }
-
-// var main_page = document.getElementById("page1");
-// main_page.classList.add("paginator_active");
-
-// //листаем
-// function pagination(event) {
-//   var e = event || window.event;
-//   var target = e.target;
-//   var id = target.id;
+    const showQuantity = document.querySelector('.show-quantity')
+    showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${elem} из ${pagination.countOfProducts}`
   
-//   if (target.tagName.toLowerCase() != "span") return;
-  
-//   var num_ = id.substr(4);
-//   var data_page = +target.dataset.page;
-//   main_page.classList.remove("paginator_active");
-//   main_page = document.getElementById(id);
-//   main_page.classList.add("paginator_active");
+    
 
-//   var j = 0;
-//   for (var i = 0; i < div_num.length; i++) {
-//     var data_num = div_num[i].dataset.num;
-//     if (data_num <= data_page || data_num >= data_page)
-//       div_num[i].style.display = "none";
-
-//   }
-//   for (var i = data_page; i < div_num.length; i++) {
-//     if (j >= cnt) break;
-//     div_num[i].style.display = "block";
-//     j++;
-//   }
-// }
+    list.addEventListener('click', async (e) => {
+   
+    list.querySelector('.active').classList.remove('active');
+        e.target.classList.add('active');
+        const data = await getProducts(Number(e.target.dataset.page), ) 
+        console.log(data.data);
+       return data.data;
+    })
+    
+}
 
 
+const getItemMarkup = (pageNumber) => {
+return `<button class="button" data-page=${pageNumber}>${pageNumber}</button>`
+}
+console.log(viewport);
+const getLisItemsMarkup = async (category) => {
+
+ let markup = "";
+    pagination.pagesCount = await countOfProducts(category);
+    for (let i = 1; i <= Math.ceil(pagination.pagesCount / elem); i += 1) {
+        markup += getItemMarkup(i)
+    }
+ 
+    return markup
+}
 
 
+const getProducts = async ( page = 1, perPage = elem, category = 'ref') => {
+   return await axios.get(`https://goit-store.herokuapp.com/products?itemsPerPage=${perPage}&page=${page}&category=${category}`)
+        
+}
+    
+const countOfProducts = async (category)=> {
+    const result = await axios.get(
+        `https://goit-store.herokuapp.com/products/getCategories?category=${category}`);
+    pagination.countOfProducts = result.data.countOfProducts
+    return result.data.countOfProducts
+} 
 
-
-
-
-
-
-
-
-{/* <script>
-    // var inputElem = document.getElementById("episode_paging").getElementsByTagName("a");
-    // for (var i = 0; i < inputElem.length; i++) {
-
-    //     inputElem[i].addEventListener('click', function () {
-    //         if (this.getAttribute("data-page"))
-    //             alert(this.getAttribute("data-page"));
-    //     }, false);
-    // }
-</script> */}
-
-
-
-// export const authMenuMarkUp = function () { return `   <div class=“auth-menu”>   <h4 class=“user-name”> ${userName}</h4 >   <ul class=“auth-menu__list”>     <li class=“auth-menu__list_item privateAccount” date-way=“privateaccount”> Личный кабинет</li>     <li class=“auth-menu__list_item favoritesAccount” date-way=“privatefavorites”> Избранное</li>     ${userData.user.role === “ADMIN” ?          `<li class=“auth-menu__list_item createAdAccount” date-way=“createad”> Создать объявление</li>`   : “”}   </ul>   <p class=“auth-menu__exit exitAccount” date-way=“exit”> Выход</p> </div> `;};
-// export const authMenuMarkUpListener = function () { listenPrivateAccount = document.querySelector(‘.auth-menu__list’)};
+createPagination("ref")

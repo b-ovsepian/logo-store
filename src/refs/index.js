@@ -6,8 +6,4 @@ export default {
   developers: document.querySelector('.developers'),
   developersList: document.querySelector('.developers-list'),
 
-
-
-  // paginationList: document.querySelector('#pagination-list'),
-
 };
