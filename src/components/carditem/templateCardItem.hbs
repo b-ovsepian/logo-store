@@ -3,7 +3,7 @@
     <div class="item-box" data-id="{{_id}}">
         <div class="picture-box" data-id="{{_id}}">
             {{#each images}}
-            <img class="item-picture" src="{{this}}" alt="имя категории">
+            <img class="item-picture" src="{{this}}" alt="изобрвжение товара">
             {{/each}}
         </div>
         <div data-id="{{_id}}">
@@ -13,9 +13,7 @@
             {{!-- иконки звезды --}}
         </div>
         <div class="item-box-price" data-id="{{_id}}">
-            {{#if sale}}
-            <p class="notsale-price">{{salePrice}} ₴</p>
-            {{/if}}
+            <p class="notsale-price">{{price}} ₴</p>
             <p class="price">{{price}} ₴</p>
         </div>
         <span class="icon-box-favorit" data-id="{{_id}}">

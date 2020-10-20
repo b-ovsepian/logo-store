@@ -17,10 +17,9 @@ services.loginUser("mango12345@gmail.com", "qwerty12345");
 
 // setTimeout(() => {
 // }, 1000);
-services.getAllProducts().then(data => {
-    cardItem(data, cardList)
-    // console.log(data);
-})
+// services.searchProducts("", "ref", "5").then(data => {
+//     cardItem(data, cardList)
+// })
 
 
 // при вызове функции:
@@ -30,11 +29,6 @@ services.getAllProducts().then(data => {
 // export не дефолтный
 export const cardItem = (data, where, sale = false) => {
     // const salePrice = sale ? data.map(item => ({ ...item, sale: item.price + 10 % })) : " ";
-    // let salePrice;
-    // if (sale) {
-    //   return salePrice = data.map((item) => ({...item, sale: item.price + 10 % }))
-    // }
-    // console.log(salePrice);
     const item = templateCardItem(data)
     // место куда нужно вставить where 
     // where.innerHTML = item
@@ -43,7 +37,8 @@ export const cardItem = (data, where, sale = false) => {
     // и записи на бек в массив favorit
     where.addEventListener("click", (e) => {
         let id = e.target.dataset.id
-        console.log(id);
+
+        // console.log(id);
         if (e.target.classList.contains("icon-box-favorit")) {
             e.target.classList.toggle("icon-box-favorit-full")
         }
@@ -56,12 +51,7 @@ export const cardItem = (data, where, sale = false) => {
             let element = mapArray(data, id)
             services.removeFavoriteProduct(element._id)
         }
-        // console.dir(!e.target.classList.contains("icon-box-favorit-full"));
-        if (!e.target.classList.contains("icon-box-favorit-full")) {
-            // let element = mapArray(data, id)
-            // console.log(mapArray(data, id));
-            productCard.renderImages(mapArray(data, id))
-        }
+
     }
     )
 }
@@ -69,3 +59,4 @@ export const cardItem = (data, where, sale = false) => {
 function mapArray(ar, id) {
     return ar.find((elem) => elem._id === id)
 }
+
