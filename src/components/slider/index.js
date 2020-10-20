@@ -165,10 +165,6 @@ const getSlider = (arr, section, slideShow, boolean) => {
             setPosition();
             checkBtn();
         }
-    
-    
-
-
 }
 export default getSlider;
 
