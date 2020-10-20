@@ -19,6 +19,7 @@ export default {
       block: '',
       building: '',
       flat: '',
+      zip: '',
     },
   },
   auth: {
@@ -51,4 +52,5 @@ export default {
       ],
     },
   ],
+  categories: [],
 };
