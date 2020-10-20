@@ -8,18 +8,21 @@ const authRefs = {
 }
 
 
-export function ValidateEmail(mail) {
+ export function ValidateEmail(mail) {
   let inputEmail = document.querySelector('.input-email');
   const email = document.querySelector('.email-hint');
 
    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-     inputEmail.style.borderColor = "grey";
+     inputEmail.style.borderColor = "green";
      email.style.display = "none";
      return true;
+   } else if(mail.length < 6){
+    inputEmail.style.borderColor = "grey";
+     email.style.display = "none";
+     return false;
    } else {
      inputEmail.style.borderColor = "red";
      email.style.display = "block";
-     authRefs.form.elements.authMail.reset();
      return false;
    }
 }
@@ -31,14 +34,15 @@ export function ValidatePassword(password) {
 
   if (password.match(passw)) {
       passwordhint.style.display = "none";
-  inputPassword.style.borderColor = "grey";
+  inputPassword.style.borderColor = "green";
     return true;
-} else
-{
+}  if(password.length < 4){
+  inputPassword.style.borderColor = "grey";
+  passwordhint.style.display = "none";
+  return false;
+} else {
   passwordhint.style.display = "block";
     inputPassword.style.borderColor = "red";
-    authRefs.form.elements.password.value = "";
-    authRefs.form.elements.password.reset();
      return false;
 }
 }

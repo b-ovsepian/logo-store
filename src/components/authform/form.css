@@ -1,4 +1,8 @@
-.authorization, .errorModal{
+p{
+    margin: 0px;
+}
+
+.authorization, .modal-form {
 position: absolute;
 width: 320px;
 height: 568px;
@@ -7,45 +11,97 @@ left:50%;
 transform: translate(-50%, -50%);
 background: #FFFFFF;
 border-radius: 10px;
-padding-top: 20px;
-padding-left: 20px;
+padding: 25px;
 margin-top:0;
 }
 
-.errorModal{
+.modal-form{
+    width: 280px;
+    height: 100px;
+}
+
+.error-form{
+    height: 180px;
     padding: 10px;
 }
 
+
+
+
 @media screen and (min-width:768px){
-    .authorization,.errorModal{
+    .authorization{
     width: 342px;
     height: 450px;
     }
 
+    .modal-form{
+        width: 342px;
+        height: 150px;
+    }
+
+}
+
+
+@media screen and (min-width:1200px){
+
+    .modal-form{
+        width: 450px;
+        height: 200px;
+    }
+
+}
+
+
+
+
+.modal-form-title{
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+@media screen and (min-width:768px){
+    .modal-form-title{
+        margin-top: 25px;
+    }
+
+    .error-title{
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (min-width:1200px){
+    .modal-form-title{
+        font-size: 30px;
+        margin-top: 37px;
+    }
+
+    .error-title{
+        margin-top: 20px;
+    }
 }
 
 .error-title{
-    font-size: 25px;
-    font-weight: 700;
     color: red;
-    margin: 0 auto;
-    margin-bottom: 25px;
-        text-align: center;
-
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .error-text{
-    font-size: 25px;
-    text-align: center;
-        margin: 0 auto;
-    margin-bottom: 20px;
+    font-size: 15px;
+}
 
+.modal-form-text{
+    font-size: 15px;
+    text-align: center;
 }
 
 .error-icon{
     text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 20px;
 
 }
 
@@ -121,6 +177,16 @@ color: #53535C;
     margin-bottom:15px;
 }
 
+.enterAccount:disabled{
+    background: grey;
+}
+
+.registerAccount:disabled{
+    background-color: grey;
+    color:white;
+    border:none;
+}
+
 .registerAccount{
     border: 2px solid #6368E5;
     background-color:  transparent;
@@ -134,4 +200,9 @@ color: #53535C;
 
 .auth-icon-wrapper{
     margin:0;
+}
+
+.icon-error{
+top: 2%;
+right: 2%;
 }

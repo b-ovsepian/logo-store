@@ -2,6 +2,7 @@ import { ValidateEmail, ValidatePassword } from './validation';
 import { modalModule } from '../modalmodule/modal';
 import '../authform/form.css';
 import store from '../store';
+import searchObj from '../services/index';
 
 function markUpRendering() {
     return `<div class="authorization">
@@ -9,7 +10,7 @@ function markUpRendering() {
                 <form name="authform" class="auth-form">
                 <div class="email-section">
                     <label class="authlabel" for="email"><span class="authspan">*</span>E-mail или телефон</label>
-                    <input class="authinput input-email" id="email" placeholder="E-mail или телефон" name="authMail" value="" required/>
+                    <input class="authinput input-email" id="email" placeholder="E-mail или телефон" name="email" value="" autocomplete="off" required/>
                     <p class="email-hint">Пожалуйста, введите корректный email</p>
                     </div>
                 <div class="password-section">
@@ -18,12 +19,12 @@ function markUpRendering() {
                     <p class="password-hint">Пожалуйста, введите корректный пароль</p>
                     </div>
                 <div class="radiobutton">
-                <label for="checkbox" class="authradio"></label>
-                <input id="checkbox" type="radio" name="radio" class="checkbutton"/>Запомнить меня
-                </div>
+                    <label for="checkbox" class="authradio"></label>
+                    <input id="checkbox" type="radio" name="radio" class="checkbutton"/>Запомнить меня
+                    </div>
                 <div class="authbuttons">
-                <button class="enterAccount button" name="enterAccount" >Войти</button>
-                <button class="registerAccount button" name="registerAccount" >Регистрация</button>
+                <button class="enterAccount button" name="enterAccount" disabled>Войти</button>
+                <button class="registerAccount button" name="registerAccount" disabled>Регистрация</button>
                 </div>
                 </form>
                  <div class="icon-wrapper auth-icon-wrapper">
@@ -32,8 +33,10 @@ function markUpRendering() {
             </div>`;
 };
 
+
 const modalBTN = document.querySelector('.authbtn');
 modalBTN.addEventListener('click', openForm);
+
 function openForm() {
     function createListeners(closebackdrop) {
         const myButton = document.querySelector('.close-icon');
@@ -46,98 +49,146 @@ function openForm() {
             buttons:document.querySelector('.authbuttons')
         }
 
-        authRefs.form.addEventListener('submit', e => {
-            console.dir(e);
 
-            e.preventDefault();
+        const user={
+            email:"",
+            password: "",
+        }
 
-            let password = authRefs.form.elements.password.value;
-            let email = authRefs.form.elements.email.value;
-
-            function Validation() {
-                if (ValidateEmail(email) &&
-                    ValidatePassword(password));
-            }
-            Validation(email, password);
-
-            if (Validation) {
-                getToken();
+        // validate inputs
+        authRefs.form.addEventListener('input', (event)=>{
+            if(event.target.name==="email" || event.target.name==="password"){
+                user[event.target.name]=event.target.value;
+            if(event.target.name==='email'){
+                ValidateEmail(event.target.value);
+            } if(event.target.name==='password'){
+                ValidatePassword(event.target.value);
             }
 
-            function getToken() {
-                authRefs.buttons.addEventListener('click', e => {
-
-                    if (e.target.classList.contains('registerAccount') &&
-                        (authRefs.form.elements.radio.checked === true)) {
-                        apiServiceRegister(email, password);
-                    } if (e.target.classList.contains('enterAccount')) {
-                        apiServiceEnter(email, password);
-
-                    }
-                });
-            }
-
-            function apiServiceRegister(email, password) {
-                return fetch('https://goit-store.herokuapp.com/auth/registration',
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: email, password: password }),
-                    })
-                    .then(response => response.json())
-                    .catch(error => {console.log(error),openMessage()});
-            }
-
-            function apiServiceEnter(email, password) {
-                return fetch('https://goit-store.herokuapp.com/auth/login',
-
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: email, password: password }),
-                    })
-                    .then(response => response.json()).then((data) => {
-                        console.log(data);
-                        store.auth.accces_token = data.accces_token;
-                        store.user = data.user;
-                        storageToken(data.user, data.user.role, data.accces_token)
-                    }).catch(error => { console.log(error); openMessage() });
-            }
-
-            function storageToken(userInfo, role, token) {
-
-                const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
-                localStorage.setItem('info', infoUser);
-            }
-
+            if(((ValidateEmail(user.email)) && ValidatePassword(user.password))){
+                console.log(user.email);
+                console.log(user.password);
+                   authRefs.enterAccountBtn.disabled=false;
+                   authRefs.registerAccountBtn.disabled=false;
+               }
+        }
         });
+
+
+        authRefs.buttons.addEventListener('click', e => {
+            if ((e.target.classList.contains('registerAccount'))
+            &&(authRefs.form.elements.radio.checked===true)){
+                console.log(user);
+                apiServiceRegister(user);
+
+            } if (e.target.classList.contains('enterAccount')) {
+                console.log(user);
+                apiServiceEnter(user);
+            }
+        });
+
+        const apiServiceRegister= async (obj)=> {
+            try {
+              const options = {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+              };
+              const url = 'https://goit-store.herokuapp.com/auth/registration';
+              const response = await fetch(url, options);
+              successRegisterMessage();
+              return response;
+            } catch (error) {
+                openErrorMessage();
+              throw error;
+
+            }
+          };
+
+          function apiServiceEnter(obj) {
+            return fetch('https://goit-store.herokuapp.com/auth/login',
+
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(user),
+                })
+                .then(response => response.json()).then((data) => {
+                    console.log(data);
+                    store.auth.accces_token = data.accces_token;
+                    store.user = data.user;
+                    storageToken(data.user, data.user.role, data.accces_token);
+                    successEnterMessage();
+                }).catch(error => { console.log(error); openErrorMessage() });
+        }
+
+        function storageToken(userInfo, role, token) {
+            const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
+            localStorage.setItem('info', infoUser);
+        }
+
+
+
+            authRefs.form.addEventListener('submit', e => {
+            e.preventDefault();
+        });
+
     }
 
     modalModule(markUpRendering, createListeners);
 
 };
 
-// =======================================================================
-// const markup=markUpRendering();
 
-// const body = document.querySelector('body');
-// body.insertAdjacentHTML('afterbegin', markup);
+function successEnterMessage(){
+    function openEntMessage() {
+        return `<div class="modal-form">
+        <p class="modal-form-title">Вы успешно авторизированы</p>
+     <div class="icon-wrapper auth-icon-wrapper icon-error">
+              <div class="close-icon icon-auth">&#10006;</div>
+            </div>
+    </div>`
+    }
 
-// body.innerHTML += markUpRendering();
+    function createListeners(closebackdrop) {
 
-// ============================================================================
-const refs = {
-    lightbox: document.querySelector('.lightbox'),
+        const myButton = document.querySelector('.close-icon');
+        myButton.addEventListener("click", closebackdrop);
+    }
+
+    modalModule(openEntMessage, createListeners);
 }
 
 
-    function openMessage() {
+function successRegisterMessage() {
+    function messageRenderingReg() {
+        return `<div class="modal-form">
+    <p class="modal-form-title">Вы успешно зарегистрированы</p>
+     <div class="icon-wrapper auth-icon-wrapper icon-error">
+              <div class="close-icon icon-auth">&#10006;</div>
+            </div>
+    </div>`
+    }
+
+    function createListeners(closebackdrop) {
+
+        const myButton = document.querySelector('.close-icon');
+        myButton.addEventListener("click", closebackdrop);
+    }
+
+    modalModule(messageRenderingReg, createListeners);
+};
+
+
+
+    function openErrorMessage() {
         function messageRenderingEnt() {
-            return `<div class="errorModal">
-        <p class="error-icon">&#9888;</p>
-        <p class="error-title">Пользователь с таким именем не найден.</p>
-        <p class="error-text">Пожалуйста, введите корректный email/ пароль или пройдите регистрацию в данной форме.</p>
-         <div class="icon-wrapper auth-icon-wrapper">
+            return `<div class="modal-form error-form">
+        <p class="modal-form-title error-title">Пользователь с таким именем не найден</p>
+        <p class="modal-form-text error-text">Пожалуйста, введите корректный email/ пароль или пройдите регистрацию в данной форме.</p>
+         <div class="icon-wrapper auth-icon-wrapper icon-error">
                   <div class="close-icon icon-auth">&#10006;</div>
                 </div>
         </div>`
