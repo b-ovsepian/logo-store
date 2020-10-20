@@ -1,5 +1,7 @@
 /* ============== HEADER */
-
+.isHidden {
+  display: none;
+}
 .page-header {
   background-color: var(--header-bg-color);
   color: var(--primary-text-color);
@@ -108,8 +110,8 @@
 }
 
 .icon-close {
-  width: 14;
-  height: 14;
+  width: 14px;
+  height: 14px;
   fill: var(--third-accent-color);
 }
 
