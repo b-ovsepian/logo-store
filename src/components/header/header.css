@@ -217,3 +217,7 @@
   top: -2px;
   left: 20px;
 }
+
+.closed{
+  display: none;
+}

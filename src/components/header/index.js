@@ -1,16 +1,17 @@
 import css from './header.css';
 import refs from './refs';
-// import categories from '../../components/store';
-// const data = categories.categories;
-// console.log(data);
-// refs.catalogBtn.addEventListener('click', () => {
-//   // тут отрисовка списка категорий
-//     // refs.catalog.classList.toggle('isHidden');
-//     if (catBtnIcon.textContent === '▼') {
-//         catBtnIcon.textContent = '►';
-//         refs.catalogBtn.insertAdjacentHTML('afterend', "");
-//     } else {
-//         refs.catalogBtn.insertAdjacentHTML('afterend', refs.catalog);
-//      catBtnIcon.textContent = '▼';
-//    }
-// });
+import template from './template.hbs';
+import { modalModule } from '../modalmodule/modal.js';
+// const product= () => {
+//   // modalModule(template, )
+//   const createListeners = closeBackdrop => {
+//     refs.openModal.classList.toggle('visually-hidden');
+//     refs.closeModal.classList.toggle('visually-hidden');
+//     closeBackdrop();
+//     refs.modalBtn.addEventListener('click', closeBackdrop);
+//   };
+//   if (refs.openModal.classList.contains('visually-hidden')) {
+//     refs.modalBtn.addEventListener('click', product);
+//   }
+//   modalModule(template, createListeners);
+// };
