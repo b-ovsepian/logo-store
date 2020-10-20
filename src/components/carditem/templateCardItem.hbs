@@ -13,7 +13,9 @@
             {{!-- иконки звезды --}}
         </div>
         <div class="item-box-price">
+            {{#if sale}}
             <p class="notsale-price">{{salePrice}} ₴</p>
+            {{/if}}
             <p class="price">{{price}} ₴</p>
         </div>
         <span class="icon-box-favorit" data-id="{{_id}}">
