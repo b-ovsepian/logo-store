@@ -3,9 +3,10 @@ import './style-salo.css'
 import refs from "./../../refs/index.js"
 import helpers from './../helpers/index.js'
 import services from "./../services/index.js"
-import { cardItem }from './../carditem/index.js'
+import { cardItem } from './../carditem/index.js'
 const constructor = document.querySelector('.page-main .container');
-
+let copyData = []
+let defData = []
 createSale()
 function createSale() {
   constructor.innerHTML = "";
@@ -15,11 +16,10 @@ function createSale() {
   <h1 class="sale-title">Акции</h1>
   <label id="sale-label" for="sale-sort">Сортировка:</label>
   <select id="products">
-    <option value="По умолчанию" selected>По умолчанию</option>
-    <option value="По возрастанию цены">По возрастанию цены</option>
-    <option value="По убыванию цены">По убыванию цены</option>
-    <option value="По алфавиту по возрастанию">По алфавиту по возрастанию</option>
-    <option value="По алфавиту по убыванию">По алфавиту по убыванию</option>
+    <option value="default" selected>По умолчанию</option>
+    <option value="ascPrice">По возрастанию цены</option>
+    <option value="desPrice">По убыванию цены</option>
+    <option value="Alph">По алфавиту</option>
   </select>
 </div>
 <ul class="sale-sort-list list"></ul>
@@ -28,31 +28,81 @@ function createSale() {
   <p class="sale-text-page"></p>
 </div>
 <section class="sale-section">`);
-  //  const options = sort.querySelectorAll('option');
-  //  console.log(options);
-  //  const a = document.querySelectorAll('option');
-  //  console.dir(a);
 };
+const list = document.querySelector('.sale-sort-list');
 setTimeout(() => {
   let elem, page
-  if(helpers.isMobile){
+  if (helpers.isMobile) {
     elem = 6
-  } else if(helpers.isTablet){
+  } else if (helpers.isTablet) {
     elem = 9
-  } else if (helpers.isDesktop){
+  } else if (helpers.isDesktop) {
     elem = 10
   }
   services.searchProducts("", 'sale', elem, page).then(data => {
-  const list = document.querySelector('.sale-sort-list');
-      return cardItem(data, list, true)
+    console.log(data);
+    // console.log(data.length);
+    copyData = data
+    defData = data
+    // console.log(copyData[0].price);
+    return cardItem(data, list, true)
   })
 }, 1000);
-const b = document.querySelector('select')
-
-b.addEventListener('input', (e)=>{
-  
-
+let selector = document.querySelector('select')
+selector.addEventListener('input', (e) => {
+  console.log(selector.value);
+  if (selector.value === 'default') {
+    list.innerHTML = ''
+    cardItem(defData, list, true)
+  }
+  if (selector.value === 'ascPrice') {
+    ascPrice()
+  }
+  if (selector.value === 'desPrice') {
+    desPrice()
+  }
+  if (selector.value === 'Alph') {
+    copyData.sort(function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+    list.innerHTML = ''
+    cardItem(copyData, list, true)
+  }
 })
+function ascPrice() {
+  for (let i = 0; i < copyData.length; i++) {
+    for (let j = i; j < copyData.length; j++) {
+      if (+copyData[i].price > +copyData[j].price) { // + защита от дураков
+        let variable = copyData[i]
+        copyData[i] = copyData[j]
+        copyData[j] = variable
+      }
+    }
+  }
+  list.innerHTML = ''
+  cardItem(copyData, list, true)
+}
+function desPrice() {
+  for (let i = 0; i < copyData.length; i++) {
+    for (let j = i; j < copyData.length; j++) {
+      if (+copyData[i].price < +copyData[j].price) { // + защита от дураков
+        let variable = copyData[i]
+        copyData[i] = copyData[j]
+        copyData[j] = variable
+      }
+    }
+  }
+  list.innerHTML = ''
+  cardItem(copyData, list, true)
+}
+
+
 
 //   const sort = document.querySelector('#sale-sorts');
 
