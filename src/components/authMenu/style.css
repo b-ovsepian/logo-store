@@ -1,3 +1,7 @@
+.active:hover {
+  background: #f1effb;
+}
+
 .box-modal {
   border: 1px solid black;
   width: 204px;

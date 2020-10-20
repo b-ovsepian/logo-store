@@ -9,21 +9,93 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header class="page-header">
       <div class="container"></div>
     </header>
     <main class="page-main">
-      <div class="container">
-        <button class="button primary">Start</button>
-        <button class="button secondary">Start</button>
-      </div>
 
-    
-    </main>
-    <footer class="page-footer">
       <div class="container"></div>
-    </footer>
+
+<ul class="pagination-list"></ul>
+
+<ul id="pagination-list">
+  <button type="button" class="button" data-index="1">1</button>
+  <button type="button" class="button" data-index="2">2</button>
+  <button type="button" class="button" data-index="3">3</button>
+  <button type="button" class="button hide" data-index="4">4</button>
+  <button type="button" class="button btn" data-next="next">
+    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+  <button type="button" class="button btn" data-end="end"><svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg></button>
+
+  <p class="show-quantity">Показано с 1 по 20 из 68</p>
+</ul>
+
+
+
+
+<!-- <div class="box-modal">
+  <ul class="auth-menu-list">
+    <li>
+      <h1 class="auth-menu-title">Username</h1>
+    </li>
+
+    <li class="auth-menu-list-item">
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-personal-room">Личный кабинет</a>
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-favorites">Избранное</a>
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-create-adv">Создать объявление</a>
+    </li>
+  </ul>
+
+  <div class="auth-menu-btn-wrapper">
+    <button class="auth-menu-nav auth-menu-exit" id="auth-menu-exit">Выход</button>
+  </div>
+</div> -->
+
+
+
+
+
+
+    </main>
+    <!-- <footer class="page-footer">
+      <div class="container">
+        <h2 class="page-footer__title">Есть к нам вопросы?</h2>
+        <div class="footer-box">
+          <div class="page-footer__phone-box">
+            <h3 class="page-footer__phone">Телефон</h3>
+            <a class="page-footer__link" href="tel:+380503333796"
+              >+38 (050) 333-37-96</a
+            >
+          </div>
+          <address class="page-footer__address">
+            <h3 class="page-footer__phone">График работы CALL-центра</h3>
+            <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
+            <p class="address-text">Сб - Вс: Выходной</p>
+          </address>
+        </div>
+      </div>
+      <div class="copy">
+        <p class="copyright">&copy; 2020 | GoIT</p>
+      </div>
+    </footer> -->
   </body>
 </html>

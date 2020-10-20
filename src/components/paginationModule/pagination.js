@@ -1,11 +1,9 @@
-import style from "./style.css"
-
 //Не забыть подключить axios
-
+import axios from "axios"
 const pagination = {
     pagesCount: 0,
     currentPage: 1,
-    totalProducts: 8,
+    totalProducts: 10,
     productsPerPage: 2,
 }
 
@@ -42,3 +40,4 @@ const getProducts = (perPage = 9, page = 1, category = 'tv') => {
         e.target.classList.add('active');
         getProducts(Number (e.target.dataset.page))
     })
+
