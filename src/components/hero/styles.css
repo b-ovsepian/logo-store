@@ -6,7 +6,7 @@
 }
 .hero .slider-container{
   overflow: hidden;
-  background-color: pink;
+  /* background-color: pink; */
   border-radius: 10px;
 }
 .hero .slider-track{
@@ -22,7 +22,7 @@
   height: 100px;
   min-width: 200px;
 }
-.hero .slider-item:nth-child(3n+1){
+/* .hero .slider-item:nth-child(3n+1){
   background-color: red;
 }
 .hero .slider-item:nth-child(3n+2){
@@ -30,10 +30,33 @@
 }
 .hero .slider-item:nth-child(3n+3){
   background-color: blue;
-}
+} */
 .hero .slider-arrows{
-  text-align: center;
+  text-align: center; 
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 116.3%;
+
 }
+
+.hero .slider-item:nth-child(1){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(2){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(3){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(4){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+
 .prev{
   border-radius: 50%;
   background: #FFFFFF;
