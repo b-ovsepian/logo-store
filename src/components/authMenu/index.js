@@ -9,6 +9,7 @@ const pagination = {
     productsPerPage: 2,
 }
 
+console.log(sdf);
 
 const getPagesCount = () => {
     return pagination.totalProducts/pagination.productsPerPage
