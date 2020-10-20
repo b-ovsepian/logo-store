@@ -74,6 +74,10 @@ body{
   height: 20px;
 }
 
+.product-card-button-bookmarks:hover{
+  
+}
+
 .product-card-list{
   list-style-type: none;
   padding: 0;
