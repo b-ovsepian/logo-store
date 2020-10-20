@@ -20,10 +20,7 @@ function renderInformation() {
       ulList.insertAdjacentHTML('beforeend', markup);
       informationDiv.insertAdjacentElement('beforeend', ulList);
       div.insertAdjacentElement('beforeend', informationDiv);
-      informationDiv.innerHTML += `<div class="icon-wrapper">
-      <svg class="close-icon">
-        <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
-      </svg>
+      informationDiv.innerHTML += `<div class="icon-wrapper">&#10006
       </div>`;
       return div.innerHTML;
     }
