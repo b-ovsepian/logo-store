@@ -7,4 +7,5 @@ export default {
   developersList: document.querySelector('.developers-list'),
 
   category: document.querySelector('.category'),
+  // cardList: document.querySelector(".card-list")
 };
