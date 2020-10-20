@@ -1,15 +1,15 @@
-import { indexOf } from 'core-js/fn/array';
+// import { indexOf } from 'core-js/fn/array';
 import '../modalmodule/modal.css';
 import { refs } from "./modalrefs";
 
- export const modalModule = (markup, listeners) => {
-       function openBackdrop() {
+export const modalModule = (markup, listeners) => {
+    function openBackdrop() {
         refs.lightbox.classList.add('is-open');
     };
-        refs.backdrop.addEventListener('click', e => {
+    refs.backdrop.addEventListener('click', e => {
 
-         if ((e.target === e.currentTarget) ||
-             (e.target.classList.contains('close-icon')) ||
+        if ((e.target === e.currentTarget) ||
+            (e.target.classList.contains('close-icon')) ||
             (e.target.classList.contains('icon-wrapper'))) {
 
             closeBackdrop();
@@ -45,7 +45,7 @@ const modalBTN = document.querySelector('.modalbtn');
 modalBTN.addEventListener('click', product);
 
 
-function product(){
+function product() {
     function buyGoods() {
         // example for markup
         return `<div>hey<button class="hello">GET</button></div>`

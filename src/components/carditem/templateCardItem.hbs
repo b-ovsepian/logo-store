@@ -1,18 +1,18 @@
 {{#each this}}
 <li class="card-item" id="{{_id}}">
-    <div class="item-box">
-        <div class="picture-box">
+    <div class="item-box" data-id="{{_id}}">
+        <div class="picture-box" data-id="{{_id}}">
             {{#each images}}
             <img class="item-picture" src="{{this}}" alt="имя категории">
             {{/each}}
         </div>
-        <div>
+        <div data-id="{{_id}}">
             <h2 class="card-item-title">{{name}}</h2>
             <div class="icon-box-star">
             </div>
             {{!-- иконки звезды --}}
         </div>
-        <div class="item-box-price">
+        <div class="item-box-price" data-id="{{_id}}">
             {{#if sale}}
             <p class="notsale-price">{{salePrice}} ₴</p>
             {{/if}}
