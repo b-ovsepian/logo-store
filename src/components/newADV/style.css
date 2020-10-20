@@ -91,7 +91,10 @@ background-color: var(--btn-text-color);
  display: none;
 }
 
-
+.plusImage {
+   max-width: 75px;
+  height: 75px;
+}
 
 
 .admin-textarea-product{
