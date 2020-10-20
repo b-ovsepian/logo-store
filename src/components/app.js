@@ -1,11 +1,11 @@
 import './modalmodule/modal';
 import './authform/authform';
-
+import services from './services';
 import developers from './developers';
 import header from './header';
 // import information from './information';
 import footer from './footer';
-import services from './services';
+import './salo/index.js'
 import store from './store';
 
 // import slider from './slider';
