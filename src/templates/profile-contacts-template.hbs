@@ -1,13 +1,17 @@
 <form class="contacts-form">
 
-    <label class="profile-label"><span class="required-star">*</span>Имя, отчество
-        <input class="profile-input" type="text" name="name" placeholder="Username" required /></label>
+    <label class="profile-label"><span class="required-star">*</span>Имя
+        <input class="profile-input" type="text" name="name" minlength="2" maxlength="20" pattern="[a-zA-Z\-\s]*"
+            title="Поле может содержать только латинские символы A-Z a-z" placeholder="Username" required /></label>
     <label class="profile-label"><span class="required-star">*</span>Фамилия
-        <input class="profile-input" type="text" name="surname" placeholder="Username2" required /></label>
+        <input class="profile-input" type="text" name="surname" minlength="2" maxlength="20" pattern="[a-zA-Z\-\s]*"
+            title="Поле может содержать только латинские символы A-Z a-z" placeholder="Username2" required /></label>
     <label class="profile-label"><span class="required-star">*</span>E-mail<input class="profile-input" type="email"
-            name="email" placeholder="user@mail.com" required /></label>
+            name="email" placeholder="user@mail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Адрес электронной почты должен быть в формате: user@mail.com" required /></label>
     <label class="profile-label"><span class="required-star">*</span>Телефон<input class="profile-input" type="tel"
-            name="phone" placeholder="+38 (097) 123 45 67" required /></label>
+            name="phone" pattern="[+][0-9]{12}" title="Телефон должен содержать 12 символов в формате: +380631234567"
+            placeholder="+380971234567" required /></label>
 
     <button class="profile-btn button primary">Сохранить</button>
 </form>

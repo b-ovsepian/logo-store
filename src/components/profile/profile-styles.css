@@ -108,7 +108,6 @@
   align-items: center;
 }
 
-
 @media screen and (min-width: 320px) {
   .profile-menu {
     grid-template-columns: 1fr;
@@ -155,4 +154,9 @@
     grid-row: 1/-1;
     padding-left: 11px;
   }
+}
+.notification {
+  color: var(--second-title-color);
+  display: block;
+  padding: 10px;
 }

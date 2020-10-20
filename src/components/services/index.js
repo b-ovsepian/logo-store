@@ -60,35 +60,11 @@ export default {
     }
   },
   //   Change user email or name
-  //   async changeUserInfo(newEmail, newName) {
-  //     newEmail ? '' : (newEmail = store.user.email);
-  //     newName ? '' : (newName = store.user.name);
-  //     try {
-  //       const options = {
-  //         method: 'PATCH',
-  //         headers: {
-  //           Authorization: store.auth.accces_token,
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({
-  //           email: newEmail,
-  //           name: newName,
-  //         }),
-  //       };
-  //       const url = `https://goit-store.herokuapp.com/users`;
-  //       const response = await fetch(url, options);
-  //       const data = response.json();
-  //       await data.then(res => {
-  //         store.user = res;
-  //       });
-  //       return response;
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
+  async changeUserInfo({ name, surname, email, phone }) {
+    console.log(`переменные ${name}, ${surname}, ${email}, ${phone} `);
+    name ? '' : (name = store.user.name);
+    email ? '' : (email = store.user.email);
 
-  //   Change user email, name, surname, phone
-  async changeUserInfo(body) {
     try {
       const options = {
         method: 'PATCH',
@@ -96,23 +72,52 @@ export default {
           Authorization: store.auth.accces_token,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify({
+          name: name,
+          surname: surname,
+          email: email,
+          phone: phone,
+        }),
       };
       const url = `https://goit-store.herokuapp.com/users`;
       const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(res => {
-        store.user = res;
-      });
+
       if (response.status >= 200 && response.status < 300) {
-        return data;
+        const data = response.json();
+        await data.then(res => {
+          store.user = res;
+        });
       }
-      throw response;
+      return response;
     } catch (error) {
-      console.log(error);
       throw error;
     }
   },
+
+  //   Change user email, name, surname, phone
+  // async changeUserInfo(body) {
+  //   try {
+  //     const options = {
+  //       method: 'PATCH',
+  //       headers: {
+  //         Authorization: store.auth.accces_token,
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(body),
+  //     };
+  //     const url = `https://goit-store.herokuapp.com/users`;
+  //     const response = await fetch(url, options);
+  //     if (response.status >= 200 && response.status < 300) {
+  //       const data = response.json();
+  //       await data.then(res => {
+  //         store.user = res;
+  //       });
+  //     }
+  //     return response;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // },
 
   //   Change user password
   async changePassword(body) {
@@ -127,12 +132,7 @@ export default {
       };
       const url = `https://goit-store.herokuapp.com/users/changePassword`;
       const response = await fetch(url, options);
-
-      if (response.status >= 200 && response.status < 300) {
-        return;
-      }
-
-      throw response;
+      return response;
     } catch (error) {
       console.log(error);
       throw error;
@@ -180,14 +180,18 @@ export default {
           Authorization: store.auth.accces_token,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newAddress),
+        body: JSON.stringify({ ...newAddress, zip: '01123' }),
       };
       const url = `https://goit-store.herokuapp.com/users/updateAddress`;
       const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(res => (store.user = res));
+      if (response.status >= 200 && response.status < 300) {
+        const data = response.json();
+        await data.then(res => (store.user = res));
+      }
+
       return response;
     } catch (error) {
+      console.log(error);
       throw error;
     }
   },

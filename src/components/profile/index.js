@@ -31,9 +31,21 @@ const buildRequestObject = event => {
   formData.forEach((value, key) => {
     submittedData[key] = value;
   });
+  console.log(submittedData);
   return submittedData;
 };
 
+// Функция, которая генерирует сообщение нотификацию на форме меню личный кабинет:
+const notificationMessage = (elem, message) => {
+  const oldSpan = document.querySelector('.notification');
+  if (oldSpan !== null) {
+    oldSpan.remove();
+  }
+  let span = document.createElement('span');
+  span.classList.add('notification');
+  span.textContent = message;
+  elem.before(span);
+};
 /**
  * Функция может принимать три значения: personalProfile, favorites, createAd,
  * в зависимости от того с какой кнопки осуществляется переход;
@@ -90,7 +102,17 @@ const renderProfile = source => {
       event.preventDefault();
 
       // Вызываю API (функция changeUserInfo) для изменения данных из меню "Контакты":
-      await services.changeUserInfo(buildRequestObject(event));
+      const response = await services.changeUserInfo(buildRequestObject(event));
+      console.log(response);
+
+      if (response.status >= 200 && response.status < 300) {
+        notificationMessage(contactsForm, 'Данные успешно сохранены!');
+      }
+
+      if (response.status >= 400) {
+        const errorMessage = await response.text();
+        notificationMessage(contactsForm, errorMessage);
+      }
     });
   };
 
@@ -129,7 +151,21 @@ const renderProfile = source => {
 
       if (newPassword === confirmPassword) {
         // Вызываю API (функция changePassword) для изменения данных из меню "Контакты":
-        await services.changePassword(buildRequestObject(event));
+
+        const response = await services.changePassword(
+          buildRequestObject(event),
+        );
+        if (response.status >= 200 && response.status < 300) {
+          console.log(response);
+          notificationMessage(changePasswordForm, 'Пароль успешно сохранен!');
+        }
+        if (response.status >= 400) {
+          const errorMessage = await response.text();
+          console.log(errorMessage);
+          notificationMessage(changePasswordForm, errorMessage);
+        }
+      } else {
+        notificationMessage(changePasswordForm, 'Пароли должны совпадать!');
       }
     });
   });
@@ -155,18 +191,37 @@ const renderProfile = source => {
     addressForm.elements.name.value = result.name;
     addressForm.elements.surname.value = result.surname;
     addressForm.elements.country.value = result.address.country;
+
     addressForm.elements.place.value = result.address.place;
     addressForm.elements.city.value = result.address.city;
-    addressForm.elements.address.value = `${result.address.street}, ${result.address.block}, ${result.address.building}, ${result.address.flat} `;
-    //addressForm.elements.addressadditional.value = `${result.address.street}, ${result.address.block}, ${result.address.building}, ${result.address.flat} `;
-    addressForm.elements.zip.value = result.address.zip;
+    addressForm.elements.street.value = `${result.address.street}, ${result.address.building}, ${result.address.flat}`;
 
     // Вешаю слушателя на форму деталей меню "Мой адрес":
     addressForm.addEventListener('submit', async event => {
       event.preventDefault();
 
+      let { country, city, place, street } = buildRequestObject(event);
+
+      const splitAddress = street.split(',');
+      // console.log(splitAddress);
       // Вызываю API (функция changeUserAddress) для изменения данных из меню "Мой адрес":
-      await services.changeUserAddress(buildRequestObject(event));
+      const response = await services.changeUserAddress({
+        country,
+        city,
+        place,
+        street: splitAddress[0],
+        building: splitAddress[1],
+        flat: splitAddress[2],
+      });
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response);
+        notificationMessage(addressForm, 'Адрес успешно сохранён!');
+      }
+      if (response.status >= 400) {
+        const errorMessage = await response.text();
+        console.log(errorMessage);
+        notificationMessage(addressForm, errorMessage);
+      }
     });
   };
 

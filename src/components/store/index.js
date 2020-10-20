@@ -26,7 +26,7 @@ export default {
   ],
   auth: {
     accces_token:
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODk3MTA4OGZmMTNiMDAxNzkyY2Y0NCIsImlhdCI6MTYwMzEyMTc0MCwiZXhwIjoxNjAzMjA4MTQwfQ.rJwGJoxd0ElGHcEKjixjPiX9oIPiFNROl7lS4YaePUU',
+      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGU4YzcwMmI3Y2M5MDAxNzA1ZTg1MCIsImlhdCI6MTYwMzE4MDIwNiwiZXhwIjoxNjAzMjY2NjA2fQ.LUmasPbJCYwvbCyban77zoJC4Qkr-ynCwRbxUM8cQQg',
   },
   products: [
     {
