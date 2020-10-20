@@ -2,19 +2,32 @@ import css from '../cart/styles.css';
 import apiService from './apiService';
 import template from './templates/shopping-cart-template.hbs';
 import apiServic from './apiService.js';
-console.log(template);
+import items from './items.json';
+const cartList = document.querySelector('.cart-list');
+
+
+console.log(items);
+const array = items.map(item => ({
+  id: item.id,
+  image: item.images[0],
+  price: item.price,
+  totalQuantity: items.totalQuantity}));
+const data = template(array)
+console.log(data);
+cartList.insertAdjacentHTML('beforebegin', data)
+
+// console.log(template);
 
 // let cartList ///= document.querySelector('.cart-list');
 let btnMin = document.querySelector('.decriment-button');
 let btnPlus = document.querySelector('.increment-button');
 let span = document.querySelector('.counter-value');
 let item = document.querySelectorAll('.wrapper');
-const cartList = document.querySelector('.cart-list');
 
 let itemSum = document.querySelector('.counter-sum span');
 let sum = document.querySelector('.sum');
 const result = document.querySelector('.result');
-console.log(result);
+// console.log(result);
 // console.log(btnMin, btnPlus);
 renderApi();
 // function plusMin() {
@@ -65,23 +78,21 @@ const counter = {
     sum.textContent = this.sum;
     result.textContent = this.sum;
 
-    return this.sum
+    return this.sum;
   },
-   sumAll() {
-     const itemSumArr = document.querySelector('.sum');
-     const resultText = document.querySelector('.result-text')
-     itemSumArr.forEach(item => {
-     this.sum = Number.parseInt(item.textContent);
-    resultText.forEach(item =>{
-      this.sum = Number.parseInt(item.textContent)
-      })
-     });
-     result.textContent = this.sum;
-     result.textContent = this.sum;
-   },
+  sumAll() {
+    const itemSumArr = document.querySelector('.sum');
+    const resultText = document.querySelector('.result-text');
+    itemSumArr.forEach(item => {
+      this.sum = Number.parseInt(item.textContent);
+      resultText.forEach(item => {
+        this.sum = Number.parseInt(item.textContent);
+      });
+    });
+    result.textContent = this.sum;
+    result.textContent = this.sum;
+  },
 };
-
-
 
 function renderList(data) {
   const list = template(data);

@@ -8,8 +8,12 @@ body{
   width: 320px;
 }
 
+
 p {
   margin: 0;
+}
+.list-item {
+  list-style: none;
 }
 .wrapper{
   background-color: #F4F4F4;
