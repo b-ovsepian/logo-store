@@ -28,8 +28,8 @@ const getSlider = (arr, section, slideShow, boolean) => {
     </div>
     <div class="dots"></div>
     <div class="slider-arrows">
-      <button type="button" class="prev">&gt</button>
-      <button type="button" class="next">&lt</button>
+      <button type="button" class="prev">&lt</button>
+      <button type="button" class="next">&gt</button>
     </div>
     </div>
     `);

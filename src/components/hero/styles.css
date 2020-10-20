@@ -3,6 +3,7 @@
 
 .hero .wripper{
   margin: 0 auto;
+  position: relative;
 }
 .hero .slider-container{
   overflow: hidden;
@@ -40,23 +41,6 @@
 
 }
 
-.hero .slider-item:nth-child(1){
-  background-image: url(../hero/images/desktop/Rectangle.jpg);
-
-}
-.hero .slider-item:nth-child(2){
-  background-image: url(../hero/images/desktop/Rectangle.jpg);
-
-}
-.hero .slider-item:nth-child(3){
-  background-image: url(../hero/images/desktop/Rectangle.jpg);
-
-}
-.hero .slider-item:nth-child(4){
-  background-image: url(../hero/images/desktop/Rectangle.jpg);
-
-}
-
 .prev{
   border-radius: 50%;
   background: #FFFFFF;
@@ -65,6 +49,12 @@
   border: #FFFFFF;
   width: 40px;
   height: 40px;
+
+  position: absolute;
+  
+  left: 0;
+  top: 185px;
+  transform: translateX(-50%);
 }
 .next{
   border-radius: 50%;
@@ -74,6 +64,11 @@
   border: #FFFFFF;
   width: 40px;
   height: 40px;
+
+  position: absolute;
+  right: 0;
+  top: 185px;
+  transform: translateX(50%);
 }
 .dots{
   display: flex;
@@ -105,7 +100,23 @@
 }
 .hero .slider-item{
   height: 100px;
-  min-width: 280px;
+  /* min-width: 280px; */
+}
+.hero .slider-item:nth-child(1){
+  background-image: url(../hero/images/mobile/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(2){
+  background-image: url(../hero/images/mobile/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(3){
+  background-image: url(../hero/images/mobile/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(4){
+  background-image: url(../hero/images/mobile/Rectangle.jpg);
+
 }
 .hero .slider-arrows{
   display: none;
@@ -121,7 +132,23 @@
 }
 .hero .slider-item{
   height: 400px;
-  min-width: 648px;
+  /* min-width: 648px; */
+}
+.hero .slider-item:nth-child(1){
+  background-image: url(../hero/images/tablet/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(2){
+  background-image: url(../hero/images/tablet/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(3){
+  background-image: url(../hero/images/tablet/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(4){
+  background-image: url(../hero/images/tablet/Rectangle.jpg);
+
 }
 .hero .slider-arrows{
   display: none;
@@ -135,7 +162,23 @@
 }
 .hero .slider-item{
   height: 410px;
-  min-width: 1080px;
+  /* min-width: 1080px; */
+}
+.hero .slider-item:nth-child(1){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(2){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(3){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
+}
+.hero .slider-item:nth-child(4){
+  background-image: url(../hero/images/desktop/Rectangle.jpg);
+
 }
 .hero .slider-arrows{
   display: block;
