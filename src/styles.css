@@ -32,10 +32,13 @@ html {
   box-sizing: border-box;
 }
 
-*,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 body {
@@ -48,14 +51,11 @@ body {
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+
 a {
   text-decoration: none;
 }
+
 /* Visually-hidden */
 .visually-hidden {
   position: absolute;
@@ -81,7 +81,7 @@ a {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 @media screen and (min-width: 320px) {
