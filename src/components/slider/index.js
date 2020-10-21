@@ -19,35 +19,67 @@
 // // refs.dotsContainer
 // // refs.dots
 
-const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
+import { cardItem } from "../carditem";
+
+const getSlider = (arr, section, slideShow, interval, drawOption) => {
+
 
     section.insertAdjacentHTML('afterbegin', `
     <div class="wripper">
     <div class="slider-container">
-    <div class="slider-track">
+      <ul class="slider-track"></ul>
     </div>
-    </div>
-    <div class="dots">
-    </div>
+    <div class="dots"></div>
     <div class="slider-arrows">
-    <button type="button" class="prev">	&lt;</button>
-    <button type="button" class="next">	&gt;</button>
+      <button type="button" class="prev">&lt</button>
+      <button type="button" class="next">&gt</button>
     </div>
     </div>
     `);
     
-    const sliderTrack = document.querySelector(`.slider-track`);
+    const sliderTrack = section.querySelector(`.slider-track`);
     const dotsContainer = document.querySelector(`.dots`);
     
-    arr.forEach((num, index) => {
+    const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
+    const slidesToScroll = slideShow; // сколько слайдов нужно листать
+
+    const dotsNumber = arr.length/slidesToShow;
     
-    sliderTrack.insertAdjacentHTML(`beforeend`,`<div class="slider-item">${index + 1}</div>`);
-    if(index === 0){
-        dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot is-active" data-src="${index}"></span>`);
-    }else{
-        dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot" data-src="${index}"></span>`);
-    }
-    });
+    // ф-я отрисовки слайдов!
+
+    const drawCardItem = (option) => {
+        if(option){
+            cardItem(arr, sliderTrack);
+        }
+    };
+
+    drawCardItem(drawOption);
+
+    // ф-я отрисовки dots!
+
+    const drawSlider = (array) => {
+        
+        array.forEach((elem, index) => { 
+            if(section.className === `hero`){
+                sliderTrack.insertAdjacentHTML(`beforeend`,`<li class="slider-item">${elem}</li>`);
+            };
+            
+            if(index === 0){
+                dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot is-active" data-src="${index}"></span>`);
+            }else{
+                if(index%slidesToShow === 0){
+                    dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot" data-src="${index}"></span>`);
+                }
+            }
+        });
+        
+    };
+    
+    drawSlider(arr);
+
+    const dots = document.querySelectorAll(`.dot`);
+
+
     
     const wriper = document.querySelector(`.wripper`);
     const sliderContainer = document.querySelector(`.slider-container`);
@@ -56,23 +88,21 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
     const sliderArrows = document.querySelector(`.slider-arrows`);
     const prevButton = document.querySelector(`.prev`);
     const nextButton = document.querySelector(`.next`);
-    const dots = document.querySelectorAll(`.dot`);
     
     
     
         let currentSlide = 0;
         let position = 0;
-        const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
-        const slidesToScroll = slideScroll; // сколько слайдов нужно листать
         const itemCount = sliderItems.length; // количество слайдов
         const itemWidth = sliderContainer.clientWidth / slidesToShow; // динамическая ширина слайдов
         const movePosition = slidesToScroll * itemWidth; // смещения поля зрения по ленте слайдов
     
         // {функция задаёт размер слайда в зависимости
         //  от количества слайдов в поле зрения слайдера}
-        sliderItems.forEach((item) => {
-            item.style.minWidth = `${itemWidth}px`;
-        });
+
+            sliderItems.forEach((item) => {
+                item.style.minWidth = `${itemWidth}px`;
+            });
     
     // слушатель кнопки вправо!
         nextButton.addEventListener(`click`, () => {
@@ -103,9 +133,9 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
         });
     
         // интервал прокрутки слайдов
-        const interval = (boolean) => {
+        const intervalFn = (interval) => {
 
-            if(boolean){
+            if(interval){
                 setInterval(() => {
                     position -= itemWidth;
                     
@@ -124,10 +154,10 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
 
                     }                   
                 }, 7000);
-            }     
         }
+    };
 
-        interval(boolean);
+        intervalFn(interval);
         
         //  функция задаёт позицию!
         const setPosition = () => {
@@ -167,9 +197,6 @@ const getSlider = (arr, section, slideShow, slideScroll, boolean) => {
             setPosition();
             checkBtn();
         }
-    
-    
-
 
 }
 export default getSlider;
