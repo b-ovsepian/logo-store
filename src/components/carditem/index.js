@@ -61,19 +61,12 @@ export const cardItem = (data, where, sale = false) => {
             let element = mapArray(data, id)
             return services.removeFavoriteProduct(element._id)
         }
-<<<<<<< HEAD
-        // console.dir(!e.target.classList.contains("icon-box-favorit-full"));
-        if (!e.target.classList.contains("icon-box-favorit-full")) {
-            // let element = mapArray(data, id)
-            // console.log(mapArray(data, id));
-            productCard.renderImages(data)
-=======
+
         if (e.target.nodeName !== "SPAN") {
             const currentItem = data.filter((item) =>
                 item._id === idItem
             )
             productCard.renderImages(currentItem)
->>>>>>> carditem
         }
     }
     )
