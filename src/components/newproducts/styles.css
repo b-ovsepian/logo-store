@@ -35,10 +35,18 @@ margin-bottom: 10px;
   padding-bottom:45px;
 }
 
+.new-products .slider-arrows{
+  visibility:hidden;
+}
+
 @media screen and (min-width: 1200px) {
   .new-products{
     padding-top: 60px;
     padding-bottom:60px;
+  }
+
+  .new-products .slider-arrows{
+    visibility:visible;
   }
 }
 
@@ -48,3 +56,6 @@ margin-bottom: 10px;
   margin: 0;
   margin-bottom: 20px;
 }
+
+
+
