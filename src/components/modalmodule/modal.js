@@ -5,6 +5,8 @@ import { refs } from "./modalrefs";
  export const modalModule = (markup, listeners) => {
        function openBackdrop() {
         refs.lightbox.classList.add('is-open');
+        refs.body.style.overflow = 'hidden';
+        refs.backdrop.style.overflow = 'scroll';
     };
         refs.backdrop.addEventListener('click', e => {
 
@@ -17,6 +19,8 @@ import { refs } from "./modalrefs";
     });
     function closeBackdrop() {
         refs.lightbox.classList.remove('is-open');
+        refs.body.style.overflow = 'visible';
+        refs.backdrop.style.overflow = 'visible';
     };
     window.addEventListener('keydown', (e) => {
         if (e.code === 'Escape') {
@@ -27,6 +31,15 @@ import { refs } from "./modalrefs";
     const modalContent = document.querySelector('.modal-wrapper');
     modalContent.innerHTML = markup();
     listeners(closeBackdrop);
+
+    function noScroll(){
+        if(refs.lightbox.contains('is-open')){
+            body.style.overflow="hidden";
+            refs.backdrop.style.overflow="scroll";
+        }
+    }
+
+    noScroll();
 }
 
 
