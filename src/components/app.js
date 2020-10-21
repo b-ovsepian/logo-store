@@ -1,6 +1,7 @@
 import './modalmodule/modal';
 import './authform/authform';
 // import services from './services';
+
 import developers from './developers';
 import header from './header';
 // import information from './information';
@@ -28,13 +29,28 @@ import { modalModule } from './modalmodule/modal';
 //   localToken ? (store.auth.accces_token = localToken) : '';
 // }
 
+
 import catalog from "./catalog/catalog.js"
+
+function setTokenToStore() {
+  const localToken = localStorage.getItem('user_token');
+  localToken ? (store.auth.accces_token = localToken) : '';
+}
+
 
 // loader.renderLoader();
 
 // Тянем категории
+
 // services.getCategories().then(() => {
 //   renderInformation();
 //   renderTelephoneTrigger();
 //   loader.closeLoader();
 // });
+
+services.getCategories().then(() => {
+  renderInformation();
+  renderTelephoneTrigger();
+  loader.closeLoader();
+});
+
