@@ -8,6 +8,8 @@
 
   padding-left: 15px;
   padding-right: 15px;
+
+  width: 300px;
 }
 .information-item {
   padding-top: 44px;
@@ -80,6 +82,9 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .information {
+    width: 728px;
+  }
   .information-list {
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +101,9 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  .information {
+    width: 1160px;
+  }
   .information-list {
     flex-wrap: nowrap;
   }
