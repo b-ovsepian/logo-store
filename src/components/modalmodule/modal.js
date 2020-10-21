@@ -1,4 +1,4 @@
-import { indexOf } from 'core-js/fn/array';
+
 import '../modalmodule/modal.css';
 import { refs } from "./modalrefs";
 
