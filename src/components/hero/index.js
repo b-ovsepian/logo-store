@@ -9,4 +9,4 @@ const array = ['','','',''];
 container.insertAdjacentHTML(`afterbegin`, `<section class="hero"></section>`);
 const heroSection = document.querySelector(`.hero`);
 
-slider(array, heroSection, 1, false);
+slider(array, heroSection, 1, true, false);
