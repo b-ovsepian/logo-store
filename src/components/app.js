@@ -2,12 +2,12 @@ import './modalmodule/modal';
 import './authform/authform';
 import header from './header';
 import developers from './developers';
-import renderInformation from './information';
-import renderTelephoneTrigger from './telephoneTrigger';
+// import renderInformation from './information';
+// import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
 import store from './store';
-import catalog from './catalog/catalog.js';
+// import catalog from './catalog/catalog.js';
 import slider from './slider';
 import hero from './hero';
 import './category/category.js';
@@ -23,11 +23,11 @@ function setTokenToStore() {
   localToken ? (store.auth.accces_token = localToken) : '';
 }
 
-// loader.renderLoader();
+loader.renderLoader();
 
 // Тянем категории
 services.getCategories().then(() => {
-  renderInformation();
-  renderTelephoneTrigger();
-  // loader.closeLoader();
+  // renderInformation();
+  // renderTelephoneTrigger();
+  loader.closeLoader();
 });
