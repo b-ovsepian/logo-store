@@ -1,0 +1,25 @@
+.sale-sort-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.sale-page{
+    display: flex;
+    justify-content: space-between;
+    justify-content: baseline;
+}
+#sale-label{
+  color: blue;
+}
+#products{
+ border: none;
+ color: blue;
+ background-color: var(--primary-bg-color)
+}
+option{
+  border: none;
+  outline: none;
+  color: blue
+
+}
+

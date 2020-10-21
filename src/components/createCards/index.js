@@ -2,7 +2,7 @@ import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
 
  
-// createSale()
+createSale()
 export function createSale(title) {
   const constructor = document.querySelector('.page-main .container');
 let copyData = []
@@ -37,7 +37,7 @@ const list = document.querySelector('.sale-sort-list');
   } else if (helpers.isDesktop) {
     elem = 10
   }
-  services.searchProducts("", title , elem, page).then(({data}) => {
+  services.searchProducts("", title, elem, page).then(({data}) => {
     console.log(data);
     // console.log(data);
     copyData = data
