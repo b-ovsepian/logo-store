@@ -1,6 +1,3 @@
-
-import salo from'./salo/index.js'
-
 import './modalmodule/modal';
 import './authform/authform';
 import developers from './developers';
@@ -32,4 +29,3 @@ services.getCategories().then(() => {
   renderTelephoneTrigger();
   loader.closeLoader();
 });
-
