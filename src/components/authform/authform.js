@@ -2,6 +2,7 @@ import { ValidateEmail, ValidatePassword } from './validation';
 import { modalModule } from '../modalmodule/modal';
 import '../authform/form.css';
 import store from '../store';
+import Axios from 'axios';
 import searchObj from '../services/index';
 
 function markUpRendering() {
@@ -74,7 +75,6 @@ function openForm() {
         }
         });
 
-
         authRefs.buttons.addEventListener('click', e => {
             if ((e.target.classList.contains('registerAccount'))
             &&(authRefs.form.elements.radio.checked===true)){
@@ -89,15 +89,9 @@ function openForm() {
 
         const apiServiceRegister= async (obj)=> {
             try {
-              const options = {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user),
-              };
               const url = 'https://goit-store.herokuapp.com/auth/registration';
-              const response = await fetch(url, options);
+
+              const response=await Axios.post(url, obj);
               successRegisterMessage();
               return response;
             } catch (error) {
@@ -107,23 +101,24 @@ function openForm() {
             }
           };
 
-          function apiServiceEnter(obj) {
-            return fetch('https://goit-store.herokuapp.com/auth/login',
+          const apiServiceEnter= async(obj) =>{
 
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(user),
-                })
-                .then(response => response.json()).then((data) => {
-                    console.log(data);
+            const url='https://goit-store.herokuapp.com/auth/login';
+            try{
+                const response = await Axios.post(url, obj)
+                .then(({ data }) => {
                     store.auth.accces_token = data.accces_token;
                     store.user = data.user;
                     storageToken(data.user, data.user.role, data.accces_token);
                     successEnterMessage();
-                }).catch(error => { console.log(error); openErrorMessage() });
-        }
+                    return response;
+                });
+            }catch(error) {
+                    console.log(error); openErrorMessage(); throw error;
+                }
+            };
 
+         
         function storageToken(userInfo, role, token) {
             const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
             localStorage.setItem('info', infoUser);
