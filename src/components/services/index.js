@@ -1,7 +1,7 @@
 import { data } from 'autoprefixer';
 import Axios from 'axios';
 import store from '../store';
-Axios.defaults.baseURL = 'https://goit-store.herokuapp.com/';
+Axios.defaults.baseURL = 'https://goit-store1.herokuapp.com/';
 Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
 
 export default {
