@@ -32,11 +32,8 @@
   background-color: blue;
 } */
 .hero .slider-arrows {
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 116.3%;
+  font-size: 32px;
+
 }
 
 .prev {
@@ -82,7 +79,7 @@
   align-items: center;
 }
 
-.hero .dot {
+.dot {
   display: block;
   margin: 0 10px;
   width: 10px;
@@ -92,7 +89,7 @@
   background-color: rgba(179, 179, 179, 1);
 }
 
-.hero .dot.is-active {
+.dot.is-active {
   background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
 }
 
@@ -105,22 +102,22 @@
     /* min-width: 280px; */
   }
   .hero .slider-item:nth-child(1) {
-    background-image: url(../hero/images/mobile/Rectangle.jpg);
+    background-image: url(../hero/images/mobile/hero-1.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(2) {
-    background-image: url(../hero/images/mobile/Rectangle.jpg);
+    background-image: url(../hero/images/mobile/hero-2.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(3) {
-    background-image: url(../hero/images/mobile/Rectangle.jpg);
+    background-image: url(../hero/images/mobile/hero-3.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(4) {
-    background-image: url(../hero/images/mobile/Rectangle.jpg);
+    background-image: url(../hero/images/mobile/hero-4.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -141,22 +138,22 @@
     /* min-width: 648px; */
   }
   .hero .slider-item:nth-child(1) {
-    background-image: url(../hero/images/tablet/Rectangle.jpg);
+    background-image: url(../hero/images/tablet//hero-1.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(2) {
-    background-image: url(../hero/images/tablet/Rectangle.jpg);
+    background-image: url(../hero/images/tablet//hero-2.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(3) {
-    background-image: url(../hero/images/tablet/Rectangle.jpg);
+    background-image: url(../hero/images/tablet//hero-3.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(4) {
-    background-image: url(../hero/images/tablet/Rectangle.jpg);
+    background-image: url(../hero/images/tablet//hero-4.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -174,22 +171,22 @@
     /* min-width: 1080px; */
   }
   .hero .slider-item:nth-child(1) {
-    background-image: url(../hero/images/desktop/Rectangle.jpg);
+    background-image: url(../hero/images/desktop/hero-1.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(2) {
-    background-image: url(../hero/images/desktop/Rectangle.jpg);
+    background-image: url(../hero/images/desktop/hero-2.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(3) {
-    background-image: url(../hero/images/desktop/Rectangle.jpg);
+    background-image: url(../hero/images/desktop/hero-3.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }
   .hero .slider-item:nth-child(4) {
-    background-image: url(../hero/images/desktop/Rectangle.jpg);
+    background-image: url(../hero/images/desktop/hero-4.jpg);
     background-repeat: no-repeat;
     background-size: contain;
   }

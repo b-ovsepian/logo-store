@@ -1,5 +1,6 @@
 /* Information */
 .information {
+  position: relative;
   background: var(--second-bg-color);
 
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
@@ -7,6 +8,8 @@
 
   padding-left: 15px;
   padding-right: 15px;
+
+  width: 300px;
 }
 .information-item {
   padding-top: 44px;
@@ -52,6 +55,26 @@
 .information-item:nth-child(4)::before {
   background-image: url('./images/004-discount.svg');
 }
+.information-close-icon {
+  position: absolute;
+  display: block;
+  content: '';
+
+  width: 25px;
+  height: 25px;
+  top: 5px;
+  right: 5px;
+
+  cursor: pointer;
+  border: 1px solid var(--footer-bg-color);
+  border-radius: 50%;
+  opacity: 0.6;
+
+  background-image: url('../../images/close.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
 
 @media screen and (max-width: 767px) {
   .information-item:not(:last-child) {
@@ -59,6 +82,9 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .information {
+    width: 728px;
+  }
   .information-list {
     display: flex;
     flex-wrap: wrap;
@@ -75,6 +101,9 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  .information {
+    width: 1160px;
+  }
   .information-list {
     flex-wrap: nowrap;
   }

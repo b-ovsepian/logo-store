@@ -19,7 +19,10 @@
 // // refs.dotsContainer
 // // refs.dots
 
-const getSlider = (arr, section, slideShow, boolean) => {
+import { cardItem } from "../carditem";
+
+const getSlider = (arr, section, slideShow, interval, drawOption) => {
+
 
     section.insertAdjacentHTML('afterbegin', `
     <div class="wripper">
@@ -34,7 +37,7 @@ const getSlider = (arr, section, slideShow, boolean) => {
     </div>
     `);
     
-    const sliderTrack = document.querySelector(`.slider-track`);
+    const sliderTrack = section.querySelector(`.slider-track`);
     const dotsContainer = document.querySelector(`.dots`);
     
     const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
@@ -43,12 +46,24 @@ const getSlider = (arr, section, slideShow, boolean) => {
     const dotsNumber = arr.length/slidesToShow;
     
     // ф-я отрисовки слайдов!
-    
+
+    const drawCardItem = (option) => {
+        if(option){
+            cardItem(arr, sliderTrack);
+        }
+    };
+
+    drawCardItem(drawOption);
+
+    // ф-я отрисовки dots!
+
     const drawSlider = (array) => {
         
-        array.forEach((elem, index) => {
+        array.forEach((elem, index) => { 
+            if(section.className === `hero`){
+                sliderTrack.insertAdjacentHTML(`beforeend`,`<li class="slider-item">${elem}</li>`);
+            };
             
-            sliderTrack.insertAdjacentHTML(`beforeend`,`<li class="slider-item">${elem}</li>`);
             if(index === 0){
                 dotsContainer.insertAdjacentHTML(`beforeend`,`<span class="dot is-active" data-src="${index}"></span>`);
             }else{
@@ -118,14 +133,31 @@ const getSlider = (arr, section, slideShow, boolean) => {
         });
     
         // интервал прокрутки слайдов
-        const interval = (boolean) => {
+        const intervalFn = (interval) => {
 
-            if(boolean){
-                
-            }
+            if(interval){
+                setInterval(() => {
+                    position -= itemWidth;
+                    
+                    if(position > -itemCount*itemWidth){
+                        setPosition();
+                        clearActiveDot();
+                        checkBtn();
+                        dots[(position/itemWidth) * -1].classList.add(`is-active`);  
+        
+                    }else{
+                        clearActiveDot();
+                        position = 0;
+                        setPosition()
+                        checkBtn();
+                        dots[position].classList.add(`is-active`);
+
+                    }                   
+                }, 7000);
         }
+    };
 
-        interval(boolean);
+        intervalFn(interval);
         
         //  функция задаёт позицию!
         const setPosition = () => {
@@ -165,6 +197,7 @@ const getSlider = (arr, section, slideShow, boolean) => {
             setPosition();
             checkBtn();
         }
+
 }
 export default getSlider;
 
