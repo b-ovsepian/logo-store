@@ -6,7 +6,7 @@ import developers from './developers';
 import header from './header';
 // import information from './information';
 // import './salo/index.js'
-import renderInformation from './information';
+// import renderInformation from './information';
 import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
@@ -48,9 +48,9 @@ function setTokenToStore() {
 //   loader.closeLoader();
 // });
 
-services.getCategories().then(() => {
-  renderInformation();
-  renderTelephoneTrigger();
-  loader.closeLoader();
-});
+// services.getCategories().then(() => {
+//   renderInformation();
+//   renderTelephoneTrigger();
+//   loader.closeLoader();
+// });
 
