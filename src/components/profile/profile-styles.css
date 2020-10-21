@@ -23,6 +23,7 @@
 .profile-menu {
   width: 100%;
   display: grid;
+  grid-gap: 20px;
 }
 .profile-menu__item {
   grid-column: 1;
@@ -111,7 +112,6 @@
   .profile-menu {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto;
-    grid-gap: 20px;
   }
   .profile-btn {
     margin: 0 auto;
@@ -120,7 +120,6 @@
 @media screen and (min-width: 768px) {
   .profile-menu {
     grid-template-columns: 223px 1fr;
-    grid-gap: 20px;
   }
   .profile-menu__item {
     grid-column: 1;
@@ -143,7 +142,6 @@
   .profile-menu {
     grid-template-columns: 340px 1fr;
     /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
-    grid-gap: 20px;
   }
   .profile-menu__item {
     grid-column: 1;

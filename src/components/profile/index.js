@@ -56,7 +56,6 @@ const renderProfile = source => {
   refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
 
   // Нахожу кнопку "Выход":
-
   const exitLink = document.querySelector('.profile-exit__link');
 
   // Нахожу контейнер, в который буду отрисовывать пункты меню личный кабинет:
@@ -69,22 +68,27 @@ const renderProfile = source => {
     '.profile-menu__item_contacts',
   );
 
-  // Нахожу пукт меню "Изменить пароль" :
+  // Нахожу пукт меню "Изменить пароль":
   const profileMenuItemChangePassword = document.querySelector(
     '.profile-menu__item_change-password',
   );
 
-  // Нахожу пукт меню "Мой адрес" :
+  // Нахожу пукт меню "Мой адрес":
   const profileMenuItemAddress = document.querySelector(
     '.profile-menu__item_address',
   );
 
-  // Нахожу пукт меню "Избранное" :
+  // Нахожу пукт меню "Избранное":
   const profileMenuItemFavorites = document.querySelector(
     '.profile-menu__item_favorites',
   );
 
-  // Вещаю слушателя на кнопку "exitLink":
+  // Нахожу пукт меню "Создать объявление":
+  const profileMenuItemCreateAd = document.querySelector(
+    '.profile-menu__item_create-ad',
+  );
+
+  // Вешаю слушателя на кнопку "exitLink":
 
   exitLink.addEventListener('click', closeProfile);
 
@@ -297,6 +301,8 @@ const renderProfile = source => {
     // Вызываю функцию для вызова API (функция getCurrentUser) чтобы заполнить детали меню "Избранное":
     renderFavorites();
   });
+
+  // Место для слушателя меню 'Создать объявление', кнопку нашла ранее: profileMenuItemCreateAd:
 
   if (source === 'personalProfile') {
     renderContacts();
