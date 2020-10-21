@@ -23,6 +23,18 @@ import { cardItem } from "../carditem";
 
 const getSlider = (arr, section, slideShow, interval, drawOption) => {
 
+    // ф-я проверки ширины в-порта!
+    const checkViewPort = () => {
+        if(window.innerWidth < 768){
+            return 280
+           } else if(window.innerWidth < 1200 && window.innerWidth >= 768){
+            return 648
+           } else if(window.innerWidth >= 1200){
+            return 1080
+           }
+    };
+
+    console.log(checkViewPort());
 
     section.insertAdjacentHTML('afterbegin', `
     <div class="wripper">
@@ -94,16 +106,23 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
         let currentSlide = 0;
         let position = 0;
         const itemCount = sliderItems.length; // количество слайдов
-        const itemWidth = sliderContainer.clientWidth / slidesToShow; // динамическая ширина слайдов
+        const itemWidth = checkViewPort() / slidesToShow; // динамическая ширина слайдов
         const movePosition = slidesToScroll * itemWidth; // смещения поля зрения по ленте слайдов
 
         // {функция задаёт размер слайда в зависимости
         //  от количества слайдов в поле зрения слайдера}
 
+<<<<<<< HEAD
             sliderItems.forEach((item) => {
                 item.style.minWidth = `${itemWidth}px`;
             });
 
+=======
+            // sliderItems.forEach((item) => {
+            //     item.style.minWidth = `${itemWidth}px`;
+            // });
+
+>>>>>>> 2fbe828d1cc0ae71dc1854cfb6f89074935323e5
     // слушатель кнопки вправо!
         nextButton.addEventListener(`click`, () => {
             const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
@@ -116,6 +135,11 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
             currentSlide += 1;
             dots[(position/itemWidth) * -1].classList.add(`is-active`);
 
+<<<<<<< HEAD
+=======
+            console.log(position);
+
+>>>>>>> 2fbe828d1cc0ae71dc1854cfb6f89074935323e5
         });
 
     // слушатель кнопки влево!
@@ -129,6 +153,8 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
             checkBtn();
             currentSlide -= 1;
             dots[(position/itemWidth) * -1].classList.add(`is-active`);
+
+            console.log(position);
 
         });
 
