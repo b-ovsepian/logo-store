@@ -1,8 +1,46 @@
-.np-list{
-  display: flex;
-  width: 100%;
+.new-item{
+margin:0;
+margin-right: 5px;
 }
 
-.new-products .card-item{
-  width: 100px;
+
+
+.slider-track{
+margin-bottom: 10px;
 }
+
+.new-item.card-item{
+  width: 135px;
+}
+
+@media screen and (max-width: 767px) {
+  .new-item.card-item:nth-child(2n) {
+    margin-left: 0;
+  }
+
+  /* .new-item:nth-child(2n){
+    margin-right: 0;
+  } */
+}
+@media screen and (min-width: 768px) {
+  .new-item.card-item{
+    width: 204px;
+    margin-right: 10px;
+  }
+
+  .new-item.card-item:last-child {
+    margin-right: 0;
+  }
+}
+
+/*
+  @media screen and (min-width: 1200px) {
+    .new-item.card-item{
+      width: 204px;
+      margin-right: 15px;
+    }
+
+    .new-item.card-item:last-child {
+      margin-right: 0;
+    } */
+  /* } */
