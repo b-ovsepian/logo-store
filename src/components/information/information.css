@@ -1,0 +1,113 @@
+/* Information */
+.information {
+  position: relative;
+  background: var(--second-bg-color);
+
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  width: 300px;
+}
+.information-item {
+  padding-top: 44px;
+  padding-bottom: 34px;
+}
+.information-item::before {
+  display: block;
+  width: 100%;
+  height: 80px;
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80px;
+
+  margin-top: 0;
+  margin-bottom: 38px;
+}
+.information-item__title {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.16;
+
+  text-align: center;
+
+  color: var(--second-title-color);
+}
+.information-item__text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.information-item:nth-child(1)::before {
+  background-image: url('./images/001-delivery-truck.svg');
+}
+.information-item:nth-child(2)::before {
+  background-image: url('./images/002-credit-card.svg');
+}
+.information-item:nth-child(3)::before {
+  background-image: url('./images/003-open-24-hours.svg');
+}
+.information-item:nth-child(4)::before {
+  background-image: url('./images/004-discount.svg');
+}
+.information-close-icon {
+  position: absolute;
+  display: block;
+  content: '';
+
+  width: 25px;
+  height: 25px;
+  top: 5px;
+  right: 5px;
+
+  cursor: pointer;
+  border: 1px solid var(--footer-bg-color);
+  border-radius: 50%;
+  opacity: 0.6;
+
+  background-image: url('../../images/close.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .information-item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .information {
+    width: 728px;
+  }
+  .information-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .information-item {
+    width: calc((100% - 60px) / 2);
+
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .information {
+    width: 1160px;
+  }
+  .information-list {
+    flex-wrap: nowrap;
+  }
+  .information-item {
+    width: calc((100% - 120px) / 4);
+  }
+}
