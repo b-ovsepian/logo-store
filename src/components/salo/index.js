@@ -9,7 +9,7 @@ let copyData = []
 let defData = []
 createSale()
 function createSale() {
-  constructor.innerHTML = "";
+  constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
   <section class="sale-section">
   <div class="sale-div">
@@ -30,7 +30,7 @@ function createSale() {
 <section class="sale-section">`);
 };
 const list = document.querySelector('.sale-sort-list');
-setTimeout(() => {
+// setTimeout(() => {
   let elem, page
   if (helpers.isMobile) {
     elem = 6
@@ -40,15 +40,15 @@ setTimeout(() => {
     elem = 10
   }
   services.searchProducts("", 'sale', elem, page).then(data => {
-    console.log(data);
+    // console.log(data);
     // console.log(data);
     copyData = data
     defData = data
     // console.log(copyData[0].price);
-    
-    return cardItem(data, list, true)
+    // console.log('вызов олега функции = ' cardItem(data, list, true))
+    return cardItem(data, list, true);
   })
-}, 1000);
+// }, 1000);
 let selector = document.querySelector('select')
 selector.addEventListener('input', (e) => {
   console.log(selector.value);
