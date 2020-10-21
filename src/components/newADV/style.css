@@ -59,7 +59,7 @@ background: none;
   height: 74px;
 }
 
-.image-upload {
+.imageUpload {
   display: block;
   text-align: center;
    display: block;
@@ -69,24 +69,28 @@ background: none;
  height: 74px;
 }
 
-.image-upload:hover {
+.imageUpload:hover {
 border: 2px solid var(--btn-accent-color);
 color: var(--btn-accent-color);
 background: none;
 background-color: var(--btn-text-color);
 }
-.image-upload>input {
+.imageUpload>input {
   display: none;
 }
 
-.image-upload img {
+.imageUpload img {
   width: 80px;
   cursor: pointer;
 }
 .createIMG {
- width: 75px;
+ width: 72px;
  height: 70px;
- /* display: none; */
+  border-radius: 10px;
+}
+
+.createIMG:not(:last-child) {
+   padding-right: 3px;
 }
 
 .plusImage {
@@ -102,6 +106,9 @@ margin-bottom: 20px;
 
 .innerImages {
   display: flex;
+  border: 1px solid #B3B3B3;
+   border-radius: 10px;
+
 }
 .admin-textarea-product{
   display: block;
