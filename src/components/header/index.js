@@ -42,3 +42,7 @@ function openModal() {
   }
   modalModule(template, addListeners);
 }
+
+// if (setViewport.isDesktop) {
+//   refs.headerWrap.innerHTML = '<a href="#" class="logo js-logo"><img src="./components/header/images/logo.png" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>';
+// }

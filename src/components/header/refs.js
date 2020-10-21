@@ -1,4 +1,5 @@
 export default {
+  headerWrap:document.querySelector('.header'),
   logo: document.querySelector('.js-logo'),
   phoneTrigger: document.querySelector('.js-phone'),
   searchHeader: document.querySelector('.js-search'),
