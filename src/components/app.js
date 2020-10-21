@@ -13,6 +13,7 @@ import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
 import { modalModule } from './modalmodule/modal';
+import "../components/AuthMenu/index.js"
 
 setTokenToStore();
 // AuthMenu()
