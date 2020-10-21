@@ -14,6 +14,7 @@ let slider = document.querySelector('.product-card-slider')
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart = document.querySelector('.product-card')
+let buyButton = document.querySelector('.product-card-button-buy')
 
 // createModalImg(images); 
 // console.log(images);
@@ -56,12 +57,12 @@ export default {
     bigImage.setAttribute('class', 'product-cart-main-img')
 
     bigImage.src = img[0].images[0]
-
     bigPhoto.append(bigImage)
-    
+
+    buyButton.addEventListener('click', (e) => {
+      commonRender(img)
+    })
   }
-
-
 }
 
 // export default {
