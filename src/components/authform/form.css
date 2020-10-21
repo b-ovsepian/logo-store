@@ -1,8 +1,12 @@
+p,h2{
+  margin: 0;
+}
+
 .authorization {
-  position: absolute;
+  /* position: absolute;
 top:50%;
 left:50%;
-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%); */
   width: 342px;
   height: 450px;
   background: #ffffff;
@@ -12,6 +16,10 @@ transform: translate(-50%, -50%);
 }
 
 .modal-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 280px;
   height: 100px;
   background: #ffffff;
@@ -43,13 +51,12 @@ transform: translate(-50%, -50%);
 }
 
 .modal-form-title {
-  margin-top: 4px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .modal-form-title {
     margin-top: 25px;
   }
@@ -57,9 +64,9 @@ transform: translate(-50%, -50%);
   .error-title {
     margin-top: 10px;
   }
-}
+} */
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .modal-form-title {
     font-size: 30px;
     margin-top: 37px;
@@ -68,11 +75,11 @@ transform: translate(-50%, -50%);
   .error-title {
     margin-top: 20px;
   }
-}
+} */
 
 .error-title {
   color: red;
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -94,7 +101,7 @@ transform: translate(-50%, -50%);
   font-size: 18px;
   font-weight: 600px;
   line-height: 22px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .authspan {
