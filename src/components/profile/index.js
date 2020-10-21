@@ -102,15 +102,15 @@ const renderProfile = source => {
       event.preventDefault();
 
       // Вызываю API (функция changeUserInfo) для изменения данных из меню "Контакты":
-      const response = await services.changeUserInfo(buildRequestObject(event));
-      console.log(response);
-
-      if (response.status >= 200 && response.status < 300) {
+      try {
+        const response = await services.changeUserInfo(
+          buildRequestObject(event),
+        );
+        console.log(response);
         notificationMessage(contactsForm, 'Данные успешно сохранены!');
-      }
-
-      if (response.status >= 400) {
-        const errorMessage = await response.text();
+      } catch (error) {
+        // debugger;
+        const errorMessage = error.response.data;
         notificationMessage(contactsForm, errorMessage);
       }
     });
@@ -152,16 +152,15 @@ const renderProfile = source => {
       if (newPassword === confirmPassword) {
         // Вызываю API (функция changePassword) для изменения данных из меню "Контакты":
 
-        const response = await services.changePassword(
-          buildRequestObject(event),
-        );
-        if (response.status >= 200 && response.status < 300) {
+        try {
+          const response = await services.changePassword(
+            buildRequestObject(event),
+          );
           console.log(response);
           notificationMessage(changePasswordForm, 'Пароль успешно сохранен!');
-        }
-        if (response.status >= 400) {
-          const errorMessage = await response.text();
-          console.log(errorMessage);
+        } catch (error) {
+          //   debugger;
+          const errorMessage = error.response.data;
           notificationMessage(changePasswordForm, errorMessage);
         }
       } else {
@@ -199,27 +198,25 @@ const renderProfile = source => {
     // Вешаю слушателя на форму деталей меню "Мой адрес":
     addressForm.addEventListener('submit', async event => {
       event.preventDefault();
+      try {
+        let { country, city, place, street } = buildRequestObject(event);
 
-      let { country, city, place, street } = buildRequestObject(event);
-
-      const splitAddress = street.split(',');
-      // console.log(splitAddress);
-      // Вызываю API (функция changeUserAddress) для изменения данных из меню "Мой адрес":
-      const response = await services.changeUserAddress({
-        country,
-        city,
-        place,
-        street: splitAddress[0],
-        building: splitAddress[1],
-        flat: splitAddress[2],
-      });
-      if (response.status >= 200 && response.status < 300) {
+        const splitAddress = street.split(',');
+        // console.log(splitAddress);
+        // Вызываю API (функция changeUserAddress) для изменения данных из меню "Мой адрес":
+        const response = await services.changeUserAddress({
+          country,
+          city,
+          place,
+          street: splitAddress[0],
+          building: splitAddress[1],
+          flat: splitAddress[2],
+        });
         console.log(response);
         notificationMessage(addressForm, 'Адрес успешно сохранён!');
-      }
-      if (response.status >= 400) {
-        const errorMessage = await response.text();
-        console.log(errorMessage);
+      } catch (error) {
+        // debugger;
+        const errorMessage = error.response.data;
         notificationMessage(addressForm, errorMessage);
       }
     });
