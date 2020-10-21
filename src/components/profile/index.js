@@ -6,6 +6,7 @@ import profileAddressTemplate from '../../templates/profile-address-template.hbs
 import services from '../services/index.js';
 import { cardItem } from '../carditem/index.js';
 
+// Функция, которая закрывает меню "Личный кабинет" по кнопке "Выход":
 const closeProfile = () => {
   //вызываю функцию рендеринга главной страницы:
   //...
@@ -21,7 +22,7 @@ const changeActiveItem = element => {
   element.classList.add('profile-menu__item_active');
 };
 
-// Функция, которая собирает значения с формы и создает объект для отправки на бекенд:
+// Функция, которая собирает значения с формы и создает объект для отправки на бек:
 const buildRequestObject = event => {
   const formRef = event.target;
   const formData = new FormData(formRef);
@@ -35,7 +36,7 @@ const buildRequestObject = event => {
   return submittedData;
 };
 
-// Функция, которая генерирует сообщение нотификацию на форме меню личный кабинет:
+// Функция, которая генерит сообщение нотификацию на форме меню личный кабинет:
 const notificationMessage = (elem, message) => {
   let span = document.querySelector('.notification');
   if (span === null) {
@@ -142,11 +143,7 @@ const renderProfile = source => {
     renderContacts();
   });
 
-  // Вешаю слушателя на пункт меню "Изменить пароль":
-  profileMenuItemChangePassword.addEventListener('click', event => {
-    event.preventDefault();
-    profileSectionsDetails.innerHTML = '';
-
+  const renderChangePassword = () => {
     // Отрисовываю детали меню "Изменить пароль":
     profileMenuItemChangePassword.after(profileSectionsDetails);
     profileSectionsDetails.insertAdjacentHTML(
@@ -183,6 +180,14 @@ const renderProfile = source => {
         notificationMessage(changePasswordForm, 'Пароли должны совпадать!');
       }
     });
+  };
+
+  // Вешаю слушателя на пункт меню "Изменить пароль":
+  profileMenuItemChangePassword.addEventListener('click', event => {
+    event.preventDefault();
+    profileSectionsDetails.innerHTML = '';
+
+    renderChangePassword();
   });
 
   // Отрисовываю детали меню "Мой адрес":
