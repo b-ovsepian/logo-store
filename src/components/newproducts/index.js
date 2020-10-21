@@ -15,8 +15,14 @@ searchObj.searchProducts("",'new','100').then(data=>{
 // //   getSlider(itemArr, nprefs.npdiv, 2, false);
 // // });
 
-
-getSlider(newArr, nprefs.npdiv, 2, false, true)
+getSlider(newArr, nprefs.npdiv, 2, false, true);
 
 });
 
+// if(window.innerWidth < 768){
+//   elem = 6
+//  } else if(window.innerWidth < 1200 && window.innerWidth >= 768){
+//   elem = 9
+//  } else if(window.innerWidth >= 1200){
+//   elem = 10
+//  }

@@ -112,17 +112,10 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
         // {функция задаёт размер слайда в зависимости
         //  от количества слайдов в поле зрения слайдера}
 
-<<<<<<< HEAD
-            sliderItems.forEach((item) => {
-                item.style.minWidth = `${itemWidth}px`;
-            });
-
-=======
             // sliderItems.forEach((item) => {
             //     item.style.minWidth = `${itemWidth}px`;
             // });
 
->>>>>>> 2fbe828d1cc0ae71dc1854cfb6f89074935323e5
     // слушатель кнопки вправо!
         nextButton.addEventListener(`click`, () => {
             const itemsLeft = itemCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
@@ -135,11 +128,8 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
             currentSlide += 1;
             dots[(position/itemWidth) * -1].classList.add(`is-active`);
 
-<<<<<<< HEAD
-=======
             console.log(position);
 
->>>>>>> 2fbe828d1cc0ae71dc1854cfb6f89074935323e5
         });
 
     // слушатель кнопки влево!

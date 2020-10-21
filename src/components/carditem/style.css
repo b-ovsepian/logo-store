@@ -1,4 +1,4 @@
-/* пробный список, что бы понять как будут 
+/* пробный список, что бы понять как будут
 стоять две карточки в ряд */
 .card-list {
   display: flex;
@@ -17,7 +17,7 @@
   display: none;
 }
 .card-item {
-  width: calc((100% - 10px) / 2);
+  /* width: calc((100% - 10px) / 2); */
   background-color: #ffffff;
   border-radius: 10px;
   margin-bottom: 10px;
