@@ -98,6 +98,7 @@ export default {
       throw error;
     }
   },
+
   //   Change user address
   async changeUserAddress(newAddress) {
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;

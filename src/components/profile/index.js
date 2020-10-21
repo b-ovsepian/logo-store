@@ -3,13 +3,17 @@ import profileContactsTemplate from '../../templates/profile-contacts-template.h
 import profileChangepasswordTemplate from '../../templates/profile-changepassword-template.hbs';
 import profileAddressTemplate from '../../templates/profile-address-template.hbs';
 import services from '../services/index.js';
+import { cardItem } from '../carditem/index.js';
 
 const mainContainer = document.querySelector('.main-container');
 
 // Функция выхода из меню личный кабинет, затирает токен и вызывает функцию рендеринга главной страницы:
-// const clearAuthenticationToken = () => {
-//   localStorage.removeItem('');
-// };
+const clearAuthenticationToken = () => {
+  // затираю токен:
+  store.auth.accces_token = '';
+  //вызываю функцию рендеринга главной страницы:
+  //...
+};
 
 // Функция, которая проверяет есть ли класс активного меню, для подсвечивания активного пункта меню:
 const changeActiveItem = element => {
@@ -72,6 +76,11 @@ const renderProfile = source => {
   // Нахожу пукт меню "Мой адрес" :
   const profileMenuItemAddress = document.querySelector(
     '.profile-menu__item_address',
+  );
+
+  // Нахожу пукт меню "Избранное" :
+  const profileMenuItemFavorites = document.querySelector(
+    '.profile-menu__item_favorites',
   );
 
   // Отрисовываю детали меню "Контакты":
@@ -231,6 +240,40 @@ const renderProfile = source => {
     renderAddress();
   });
 
+  // Отрисовываю детали меню "Избранное":
+  const renderFavorites = async () => {
+    profileMenuItemFavorites.after(profileSectionsDetails);
+    profileSectionsDetails.insertAdjacentHTML(
+      'beforeend',
+      "<ul class='profile-favorites__list list card-list'></ul>",
+    );
+
+    changeActiveItem(profileMenuItemFavorites);
+
+    // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Избранное":
+    const result = await services.getCurrentUser();
+    console.log(result);
+
+    const products = await services.getAllProducts();
+    const favoriteProducts = products.filter(product =>
+      result.favorites.includes(product._id),
+    );
+    console.log(products);
+    // // Нахожу список деталей меню "Избранное":
+    const profileFavoritesList = document.querySelector(
+      '.profile-favorites__list',
+    );
+
+    cardItem(favoriteProducts, profileFavoritesList);
+  };
+  // Вешаю слушателя на пункт меню "Избранное":
+  profileMenuItemFavorites.addEventListener('click', event => {
+    event.preventDefault();
+    profileSectionsDetails.innerHTML = '';
+
+    // Вызываю функцию для вызова API (функция getCurrentUser) чтобы заполнить детали меню "Избранное":
+    renderFavorites();
+  });
   //renderContacts();
 };
 
