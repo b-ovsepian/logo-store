@@ -10,6 +10,7 @@ import hero from './hero';
 import './category/category.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
+import './newproducts/index';
 
 // Тянем категории
 services.getCategories();
