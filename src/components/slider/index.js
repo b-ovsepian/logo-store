@@ -121,9 +121,26 @@ const getSlider = (arr, section, slideShow, boolean) => {
         const interval = (boolean) => {
 
             if(boolean){
-                
-            }
+                setInterval(() => {
+                    position -= itemWidth;
+                    
+                    if(position > -itemCount*itemWidth){
+                        setPosition();
+                        clearActiveDot();
+                        checkBtn();
+                        dots[(position/itemWidth) * -1].classList.add(`is-active`);  
+        
+                    }else{
+                        clearActiveDot();
+                        position = 0;
+                        setPosition()
+                        checkBtn();
+                        dots[position].classList.add(`is-active`);
+
+                    }                   
+                }, 7000);
         }
+    };
 
         interval(boolean);
         
@@ -165,6 +182,7 @@ const getSlider = (arr, section, slideShow, boolean) => {
             setPosition();
             checkBtn();
         }
+
 }
 export default getSlider;
 
