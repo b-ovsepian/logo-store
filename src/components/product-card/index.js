@@ -19,7 +19,6 @@ let productCart = document.querySelector('.product-card')
 export default {
 
     renderImages(data) {
-        // console.log(data.name);
         const items = template(data)
         productCart.insertAdjacentHTML('beforeend', items)
 

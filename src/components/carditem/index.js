@@ -11,13 +11,13 @@ const cardList = document.createElement("ul")
 cardList.classList.add("card-list")
 cardList.classList.add("list")
 divMain.append(cardList)
-
+// регистрация на сайте
+// services.registerNewUser("oleh1@gmail.com", "oleg12345")
 // авторизация на сайте
-services.loginUser("mango12345@gmail.com", "qwerty12345");
-
-// setTimeout(() => {
-// }, 1000);
-services.searchProducts("", "ref", "5").then(data => {
+services.loginUser("oleh1@gmail.com", "oleg12345");
+// 
+// 
+services.searchProducts("", "ref", "5").then(({ data }) => {
     cardItem(data, cardList)
 })
 
@@ -35,12 +35,16 @@ export const cardItem = (data, where, sale = false) => {
     // where.innerHTML = item
     where.insertAdjacentHTML('beforeend', item)
     // проверка есть ли карточка в избранных
-    store.user.favorites.forEach(({ _id }) => {
-        const span = document.querySelector(`.icon-box-favorit[data-id="${_id}"]`);
-        if (span !== null) {
-            span.classList.toggle("icon-box-favorit-full")
-        }
-    })
+    // если есть то зарисовать сердечко
+    setTimeout(() => {
+        console.dir(store.user)
+        store.user.favorites.forEach(({ _id }) => {
+            const span = document.querySelector(`.icon-box-favorit[data-id="${_id}"]`);
+            if (span !== null) {
+                span.classList.toggle("icon-box-favorit-full")
+            }
+        })
+    }, 500);
     //слушатель на иконку для смены иконки
     // и записи на бек в массив favorit
     where.addEventListener("click", (e) => {
@@ -48,7 +52,6 @@ export const cardItem = (data, where, sale = false) => {
         const idItem = e.target.closest("[data-id]")
             ? e.target.closest("[data-id]").dataset.id
             : null
-        console.log(idItem);
         if (e.target.classList.contains("icon-box-favorit")) {
             e.target.classList.toggle("icon-box-favorit-full")
         }
@@ -65,6 +68,7 @@ export const cardItem = (data, where, sale = false) => {
             const currentItem = data.filter((item) =>
                 item._id === idItem
             )
+            console.log(currentItem);
             productCard.renderImages(currentItem)
         }
     }
