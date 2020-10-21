@@ -2,7 +2,7 @@ import './telephoneTrigger.css';
 import { modalModule } from '../modalmodule/modal';
 
 function renderTelephoneTrigger() {
-  const infoBtn = document.querySelector('.telephoneTrigger-btn');
+  const infoBtn = document.querySelector('.js-phone');
   infoBtn.addEventListener('click', showTelephoneTrigger);
 
   function showTelephoneTrigger() {
