@@ -14,6 +14,8 @@ import './category/category.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
+import authMenu from './authMenu/index.js';
+import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
 setTokenToStore();

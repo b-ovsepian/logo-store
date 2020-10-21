@@ -1,0 +1,83 @@
+.active:hover {
+  background: #f1effb;
+}
+
+.box-modal {
+  border: 1px solid black;
+  width: 204px;
+  height: 194px;
+
+  background: var(--primary-bg-color);
+  border-radius: 10px;
+  padding: 20px;
+  list-style: none;
+
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-menu-list {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background: #f1effb;
+  width: 204px;
+  height: 22px;
+}
+
+.auth-menu-list-item {
+  display: grid;
+}
+
+.auth-menu-title {
+  font-family: Montserrat Alternates;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+
+  margin: 0;
+  margin-bottom: 20px;
+
+  color: var(--primary-text-color);
+}
+
+.auth-menu-nav {
+  font-family: Montserrat Alternates;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: var(--primary-text-color);
+  margin-bottom: 10px;
+}
+
+.auth-menu-btn-wrapper {
+  background: #f4f4f4;
+  border-radius: 0px 0px 10px 10px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 6px;
+  left: 0;
+  cursor: pointer;
+}
+
+/* .auth-menu-exit {
+} */
+
+#auth-menu-exit {
+  background: #f4f4f4;
+  border-radius: 0px 0px 10px 10px;
+  border: none;
+  padding-left: 14px;
+  cursor: pointer;
+}
