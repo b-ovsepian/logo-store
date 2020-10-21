@@ -1,0 +1,75 @@
+.authorization{
+    position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+width: 342px;
+height: 414px;
+background: #FFFFFF;
+border-radius: 10px;
+}
+
+.authtitle {
+font-size:18px;
+font-weight: 600px;
+line-height: 22px;
+margin-bottom: 20px;
+}
+
+.authspan{
+    color: red;
+}
+
+.authlabel{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    margin-bottom: 10px;
+}
+
+.authinput{
+display: block;
+width: 280px;
+height: 40px;
+background: #FFFFFF;
+border: 1px solid #B3B3B3;
+border-radius: 10px;
+}
+
+.email-section, .password-section {
+    margin-bottom: 20px;
+}
+
+.authradio{
+display: block;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+color: #53535C;
+}
+
+.radiobutton{
+    margin-bottom: 20px;
+}
+
+
+
+.enterAccount, .registerAccount{
+    display: block;
+    width: 240px;
+    height: 44px;
+    color: white;
+}
+
+.enterAccount{
+    background: linear-gradient(47.73deg, #6368E5 15.48%, #B884F3 81.25%);
+    margin-bottom:15px;
+}
+
+.registerAccount{
+    border: 2px solid #6368E5;
+    background-color:  transparent;
+    padding:0;
+}

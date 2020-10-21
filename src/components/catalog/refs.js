@@ -1,16 +1,21 @@
-export default{
- titleKbt : document.getElementById("kbtTitle"),
- titleIt : document.getElementById("itTitle"),
- titleHome : document.getElementById("homeTitle"),
- titleKitchen : document.getElementById("inTitle"),
+export default {
+  modalListItem: document.querySelector('.modal-list-item'),
+  catalog: document.querySelector('.catalog'),
+  catalogBtn: document.querySelector('.js-catalog'),
+  catBtnIcon: document.getElementById('catBtnIcon'),
 
- listKbt : document.getElementById("kbtList"),
- listIt : document.getElementById("itList"),
- listHome : document.getElementById("homeList"),
- listKitchen : document.getElementById("inList"),
+  titleKbt: document.getElementById('kbtTitle'),
+  titleIt: document.getElementById('itTitle'),
+  titleHome: document.getElementById('homeTitle'),
+  titleKitchen: document.getElementById('inTitle'),
 
- span1 : document.querySelector("#titleIcon1"),
- span2 : document.querySelector("#titleIcon2"),
- span3 : document.querySelector("#titleIcon3"),
- span4 : document.querySelector("#titleIcon4"),
-}
+  listKbt: document.getElementById('kbtList'),
+  listIt: document.getElementById('itList'),
+  listHome: document.getElementById('homeList'),
+  listKitchen: document.getElementById('inList'),
+
+  span1: document.querySelector('#titleIcon1'),
+  span2: document.querySelector('#titleIcon2'),
+  span3: document.querySelector('#titleIcon3'),
+  span4: document.querySelector('#titleIcon4'),
+};

@@ -37,6 +37,7 @@ export default {
       const response = await fetch(url, options);
       const data = response.json();
       await data.then(res => {
+        localStorage.setItem('user_token', res.accces_token);
         store.auth.accces_token = res.accces_token;
         store.user = res.user;
       });
@@ -114,9 +115,11 @@ export default {
         headers: {
           Authorization: store.auth.accces_token,
         },
+        // body: JSON.stringify(product)
       };
       const url = `https://goit-store.herokuapp.com/users/addFavoriteProduct/${productId}`;
       const response = await fetch(url, options);
+      console.log(response);
       return response;
     } catch (error) {
       throw error;
@@ -218,6 +221,7 @@ export default {
       const url = `https://goit-store.herokuapp.com/products/getCategories`;
       const response = await fetch(url, options);
       const data = response.json();
+      await data.then(data => (store.categories = data.categories));
       return data;
     } catch (error) {
       throw error;

@@ -1,0 +1,10 @@
+.sale-sort-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.sale-page{
+    display: flex;
+    justify-content: space-between;
+    justify-content: baseline;
+}

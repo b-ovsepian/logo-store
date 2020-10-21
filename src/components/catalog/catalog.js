@@ -1,46 +1,96 @@
-import css from "./styles.css"
-import template from "./template.hbs"
-import categories from './data.js'
-const catalog = document.querySelector(".catalog")
-const item = template(categories)
-catalog.insertAdjacentHTML("beforeend", item)
+import css from './styles.css';
 
-const titleKbt = document.getElementById("kbtTitle")
-const titleIt = document.getElementById("itTitle")
-const titleHome = document.getElementById("homeTitle")
-const titleKitchen = document.getElementById("inTitle")
+// import categories from './data.js'
+import store from '../../components/store';
+const categories = store.categories;
+console.log(categories);
 
-const listKbt = document.getElementById("kbtList")
-const listIt = document.getElementById("itList")
-const listHome = document.getElementById("homeList")
-const listKitchen = document.getElementById("inList")
+import templateList from './template.hbs';
+import refs from './refs.js';
+// const catalog = document.querySelector(".catalog")
 
-const span1 = document.querySelector("#titleIcon1")
-const span2 = document.querySelector("#titleIcon2")
-const span3 = document.querySelector("#titleIcon3")
-const span4 = document.querySelector("#titleIcon4")
+const titleKbt = document.getElementById('kbtTitle');
+const titleIt = document.getElementById('itTitle');
+const titleHome = document.getElementById('homeTitle');
+const titleKitchen = document.getElementById('inTitle');
 
-titleKbt.addEventListener("click", () => {
-  update(listKbt, span1)
-})
+const listKbt = document.getElementById('kbtList');
+const listIt = document.getElementById('itList');
+const listHome = document.getElementById('homeList');
+const listKitchen = document.getElementById('inList');
 
-titleIt.addEventListener("click", () => {
-  update(listIt, span2)
-})
+const span1 = document.querySelector('#titleIcon1');
+const span2 = document.querySelector('#titleIcon2');
+const span3 = document.querySelector('#titleIcon3');
+const span4 = document.querySelector('#titleIcon4');
+ refs.catalog.insertAdjacentHTML(
+   'beforeend',
+   createCatalogList(templateList, categories),
+);
 
-titleHome.addEventListener("click", () => {
-  update(listHome, span3)
-})
+document.querySelector('[data-catalog="catalog"]').classList.add('isHidden');
 
-titleKitchen.addEventListener("click", () => {
-  update(listKitchen, span4)
-})
+refs.catalogBtn.addEventListener('click', () => {
 
-function update(list,el) {
-  list.classList.toggle('isHidden')
-  if (el.textContent === "▼") {
-    el.textContent = "►"
+  // // тут отрисовка списка категорий
+  // if (refs.catBtnIcon.textContent === '►') {
+  // //  refs.catalog.insertAdjacentHTML('beforeend', createCatalogList(templateList, categories));
+  //   refs.catBtnIcon.textContent = '▼';
+  // } else {
+  //   refs.catBtnIcon.textContent = '►';
+  // }
+  // // update(refs.catalog, refs.catBtnIcon);
+  //   refs.catalog.classList.toggle('isHidden');
+  update(refs.catalog, refs.catBtnIcon);
+
+const titleKbt = document.getElementById('kbtTitle');
+const titleIt = document.getElementById('itTitle');
+const titleHome = document.getElementById('homeTitle');
+  const titleKitchen = document.getElementById('inTitle');
+  const listKbt = document.getElementById('kbtList');
+  const listIt = document.getElementById('itList');
+  const listHome = document.getElementById('homeList');
+  const listKitchen = document.getElementById('inList');
+
+  const span1 = document.querySelector('#titleIcon1');
+  const span2 = document.querySelector('#titleIcon2');
+  const span3 = document.querySelector('#titleIcon3');
+  const span4 = document.querySelector('#titleIcon4');
+
+titleKbt.addEventListener('click', () => {
+  update(listKbt, span1);
+});
+
+titleIt.addEventListener('click', () => {
+  update(listIt, span2);
+});
+
+titleHome.addEventListener('click', () => {
+  update(listHome, span3);
+});
+
+titleKitchen.addEventListener('click', () => {
+  update(listKitchen, span4);
+});
+});
+
+
+
+function createCatalogList(template, data) {
+
+  const item = template(data);
+  return item
+  // console.log(item);
+  // element.insertAdjacentHTML('beforeend', item);
+}
+// createCatalogList(templateList, categories, refs.catalog);
+
+function update(list, el) {
+  if (el.textContent === '▼') {
+    el.textContent = '►';
   } else {
-    el.textContent = "▼"
+    el.textContent = '▼';
   }
+  list.classList.toggle('isHidden');
+
 }
