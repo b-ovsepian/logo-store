@@ -36,7 +36,7 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
 
     console.log(checkViewPort());
 
-    section.insertAdjacentHTML('afterbegin', `
+    section.insertAdjacentHTML('beforeend', `
     <div class="wripper">
     <div class="slider-container">
       <ul class="slider-track"></ul>
