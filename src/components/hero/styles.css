@@ -1,16 +1,16 @@
 .hero {
 }
 
-.hero .wripper {
+.wripper {
   margin: 0 auto;
   position: relative;
 }
-.hero .slider-container {
+.slider-container {
   overflow: hidden;
   /* background-color: pink; */
   border-radius: 10px;
 }
-.hero .slider-track {
+.slider-track {
   display: flex;
   transition: 1s;
   list-style: none;
@@ -31,7 +31,7 @@
 .hero .slider-item:nth-child(3n+3){
   background-color: blue;
 } */
-.hero .slider-arrows {
+.slider-arrows {
   font-size: 32px;
 
 }
