@@ -4,11 +4,11 @@ import refs from "./../../refs/index.js"
 import helpers from './../helpers/index.js'
 import services from "./../services/index.js"
 import { cardItem } from './../carditem/index.js'
-const constructor = document.querySelector('.page-main .container');
-let copyData = []
-let defData = []
-createSale()
+// createSale()
 function createSale() {
+  const constructor = document.querySelector('.page-main .container');
+  let copyData = []
+  let defData = []
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
   <section class="sale-section">
