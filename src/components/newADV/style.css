@@ -85,13 +85,11 @@ background-color: var(--btn-text-color);
 }
 .createIMG {
  width: 72px;
- height: 70px;
+ height: 74px;
   border-radius: 10px;
+  border: 2px solid #B3B3B3;
 }
 
-.createIMG:not(:last-child) {
-   padding-right: 3px;
-}
 
 .plusImage {
    max-width: 75px;
@@ -106,7 +104,7 @@ margin-bottom: 20px;
 
 .innerImages {
   display: flex;
-  border: 1px solid #B3B3B3;
+
    border-radius: 10px;
 
 }

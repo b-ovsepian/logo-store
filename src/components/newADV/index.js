@@ -55,6 +55,47 @@ fileForm.addEventListener('input', (e) => {
 })
 console.log(productMass);
 
+// создаю импут для выбора категорий
+const productsArr = [
+    { value: "Выберете категорию", name: "Выберете категорию" },
+    { value: "refrigerators", name: "Холодильники" },
+    { value: "washing_machines", name: "Стиральные машины" },
+    { value: "dishwashers", name: "Посудомоечные машины" },
+    { value: "сookers", name: "Кухонные плиты" },
+    { value: "freezers", name: "Морозильные камеры" },
+    { value: "drying_machines", name: "Сушильные машины" },
+    { value: "built_in_ovens", name: "Встраиваемые духовые шкафы" },
+    { value: "built_in_hobs", name: "Встраиваемые варочные поверхности" },
+    { value: "cooker_hoods", name: "Кухонные вытяжки" },
+    { value: "food_waste_disposers", name: "Измельчители пищевых отходов" },
+    { value: "Accessories_for_vbt", name: "Аксессуары к вбт" },
+    { value: "coffee_machines", name: "Кофемашины" },
+    { value: "multicooker", name: "Мультиварки" },
+    { value: "microwave_ovens", name: "Печи СВЧ" },
+    { value: "blenders", name: "Блендеры" },
+    { value: "grills", name: "Грили" },
+    { value: "accessories_for_kitchen_appliances", name: "Аксессуары для кухонной техники" },
+    { value: "other_small_equipment", name: "Прочая мелкая техника" },
+    { value: "vacuum_cleaners", name: "Пылесосы" },
+    { value: "robot_vacuum_cleaners", name: "Роботы-пылесосы" },
+    { value: "irons", name: "Утюги" },
+    { value: "sewing_equipment_and_accessories", name: "Швейная техника и аксессуары" },
+    { value: "steam_cleaners", name: "Пароочистители" },
+    { value: "accessories_for_home_care_and_clothing_products", name: "Аксессуары к товарам по уходу за домом и одеждой" },
+    { value: "sale", name: "Распродажа" },
+    { value: "new", name: "Новые поступления" }
+];
 
+const productSelect = document.querySelector('[name="categoryProduct"]');
+
+const createSelect = (array, place) => {
+    const markup = array.reduce((acc, { name, value }) => {
+      acc += `<option value=${value}'${array[0].value === value ? 'selected' : ''}>${name}</option>`
+        return acc;
+    }, '')
+    place.innerHTML = markup;
+}
+
+createSelect(productsArr, productSelect);
 
 
