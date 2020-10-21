@@ -22,6 +22,8 @@
   /* Цвета кнопок */
   --btn-text-color: #ffffff;
   --btn-accent-color: #6368e5;
+  /* цвет фона для телефонов */
+  --telephone-bc-color: #f1effb;
   /* Кубик для анимации */
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -118,11 +120,13 @@ a {
 
   cursor: pointer;
   transition: color 250ms var(--timing-function),
-    background 250ms var(--timing-function),
+    background-image 250ms var(--timing-function),
     background-color 250ms var(--timing-function);
 }
 .button.primary {
-  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+  background-image: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+  background-position: center;
+  background-size: calc(100% + 4px);
 
   color: var(--btn-text-color);
 }
@@ -130,7 +134,7 @@ a {
 .button.primary:focus {
   border: 2px solid var(--btn-accent-color);
   color: var(--btn-accent-color);
-  background: none;
+  background-image: none;
   background-color: var(--btn-text-color);
 }
 .button.secondary {
@@ -140,7 +144,10 @@ a {
 }
 .button.secondary:hover,
 .button.secondary:focus {
-  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+  background-image: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+  background-position: center;
+  background-size: calc(100% + 4px);
+  border: none;
 
   color: var(--btn-text-color);
 }
