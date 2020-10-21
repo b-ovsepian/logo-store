@@ -2,6 +2,13 @@ import css from './header.css';
 import refs from './refs';
 import template from './template.hbs';
 import { modalModule } from '../modalmodule/modal.js';
+import widthObject from '../helpers';
+import images from './images';
+console.log(images);
+console.log(widthObject.viewport.function);
+const setViewport = widthObject.viewport.function;
+// setViewport()
+
 // const product= () => {
 //   // modalModule(template, )
 //   const createListeners = closeBackdrop => {
@@ -31,7 +38,7 @@ import { modalModule } from '../modalmodule/modal.js';
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
   function addListeners(closeBackdrop) {
-    document.querySelector().addEventListener('click', closeBackdrop);
+    // document.querySelector().addEventListener('click', closeBackdrop);
   }
   modalModule(template, addListeners);
 }

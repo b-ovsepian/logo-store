@@ -1,9 +1,9 @@
 <div class="header-modal">
           <div class="container">
             <div class="input">
-              <svg class="nav-icon" width="20" height="20">
-                <use href="./images/sprite.svg#icon-search"></use>
-              </svg>
+              {{!-- <svg class="nav-icon" width="20" height="20">
+                <use href="./images.sprite.svg#icon-search"></use>
+              </svg> --}}
               <input class="search-modal"
                type="text" id="search-modal"
                name="search-modal" placeholder="Поиск">
@@ -12,7 +12,7 @@
             <ul class="list modal-list">
               <li class="modal-list-item">
                 <button class="modal-inner-button js-catalog">Каталог
-                  <span id="catBtnIcon">►</span>
+                  <span class="arrow" id="catBtnIcon">►</span>
                 </button>
                 <ul class="catalog isHidden" data-catalog="catalog">
                 </ul>
@@ -23,9 +23,10 @@
               <li class="modal-list-item">
                 <button class="modal-inner-button js-info">
                   <span>Информация</span>
-                  <svg class="arrow" width="10" height="8">
+                  <span class="arrow">►</span>
+                  {{!-- <svg class="arrow" width="10" height="8">
                     <use href="./images/sprite.svg#icon-navarrow"></use>
-                  </svg>
+                  </svg> --}}
                 </button>
               </li>
               <li class="modal-list-item">
@@ -33,31 +34,33 @@
               </li>
               <li class="numbers-button modal-list-item">
                 <button class="modal-inner-button js-phone">
-                  <svg class="" width="30" height="30">
+                  {{!-- <svg class="" width="30" height="30">
                     <use href="./images/sprite.svg#icon-smartphone"></use>
-                  </svg>
+                  </svg> --}}
                   <span class="with-icons">+38 (050) 333-37-96</span>
-                  <svg class="arrow" width="10" height="8">
+                  <span class="arrow">►</span>
+                  {{!-- <svg class="arrow" width="10" height="8">
                     <use href="./images/sprite.svg#icon-navarrow"></use>
-                  </svg>
+                  </svg> --}}
                 </button>
               </li>
               <li class="modal-list-item">
                 <button class="modal-inner-button js-profile">
-                  <svg class="" width="30" height="30">
+                  {{!-- <svg class="" width="30" height="30">
                     <use href="./images/sprite.svg#icon-profile"></use>
-                  </svg>
+                  </svg> --}}
                   <span class="with-icons">Личный кабинет</span>
-                  <svg class="arrow" width="10" height="8">
+                  <span class="arrow">►</span>
+                  {{!-- <svg class="arrow" width="10" height="8">
                     <use href="./images/sprite.svg#icon-navarrow"></use>
-                  </svg>
+                  </svg> --}}
                 </button>
               </li>
               <li class="modal-list-item">
                 <a href="#" class="likes-link js-likes">
-                  <svg class="" width="30" height="30">
+                  {{!-- <svg class="" width="30" height="30">
                     <use href="./images/sprite.svg#icon-likes"></use>
-                  </svg>
+                  </svg> --}}
                   <div class="likes-amount amount">0</div>
                   <span class="with-icons">Избранное</span>
                 </a>
