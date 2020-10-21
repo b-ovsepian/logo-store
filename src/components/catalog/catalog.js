@@ -74,7 +74,10 @@ titleKitchen.addEventListener('click', () => {
 });
 });
 
-
+refs.catalog.addEventListener('click', (e) => {
+  console.dir(e.target);
+  console.log(e.target.id);
+})
 
 function createCatalogList(template, data) {
 
