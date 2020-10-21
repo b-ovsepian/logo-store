@@ -6,21 +6,21 @@ import store from "../store/index.js"
 
 
 // поиск элемента куда нужно встроить "ul"
-const divMain = refs.main.querySelector(".container")
-const cardList = document.createElement("ul")
-cardList.classList.add("card-list")
-cardList.classList.add("list")
-divMain.append(cardList)
+// const divMain = refs.main.querySelector(".container")
+// const cardList = document.createElement("ul")
+// cardList.classList.add("card-list")
+// cardList.classList.add("list")
+// divMain.append(cardList)
 
 // авторизация на сайте
-services.loginUser("mango12345@gmail.com", "qwerty12345");
+// services.loginUser("mango12345@gmail.com", "qwerty12345");
 
-setTimeout(() => {
-}, 1000);
-services.getAllProducts().then(data => {
-    cardItem(data, cardList)
-    // console.log(data);
-})
+// setTimeout(() => {
+// }, 1000);
+// services.getAllProducts().then(data => {
+//     cardItem(data, cardList)
+//     console.log(data);
+// })
 
 
 // при вызове функции:
@@ -29,12 +29,8 @@ services.getAllProducts().then(data => {
 // третий НЕОБЯЗАТЕЛЬНЫЙ (sale) - передать true что бы отобразить цену до скидки
 // export не дефолтный
 export const cardItem = (data, where, sale = false) => {
-    // const salePrice = sale ? data.map(item => ({ ...item, sale: item.price + 10 % })) : " ";
-    // let salePrice;
-    // if (sale) {
-    //   return salePrice = data.map((item) => ({...item, sale: item.price + 10 % }))
-    // }
-    // console.log(salePrice);
+    // const saleData = sale ? data.map(item => ({ ...item, sale: item.price + 10 % })) : "";
+
     const item = templateCardItem(data)
     // место куда нужно вставить where 
     // where.innerHTML = item
@@ -55,9 +51,7 @@ export const cardItem = (data, where, sale = false) => {
             let element = mapArray(data, id)
             services.removeFavoriteProduct(element._id)
         }
-        if (e.target.nodeName !== "SPAN") {
-            // вызов функции на отрисовку открытой карточки
-        }
+
     }
     )
 }

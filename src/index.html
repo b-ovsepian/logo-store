@@ -25,8 +25,62 @@
     </header>
     <main class="page-main">
       <div class="container">
-
-       </div>
+        <div class="group">
+          <a href="./index.html" name="home" class="carp">Главная</a>
+        </div>
+        <div class="category">
+          <ul class="category-list list">
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 3.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Крупная бытовая техника</h2>
+              <button name="household" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 4.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Встраиваемая техника</h2>
+              <button name="embedded" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 5.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Уход за домом и одеждой</h2>
+              <button name="home" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 6.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Техника для кухни</h2>
+              <button name="kitchen" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
     <footer class="page-footer">
       <div class="container">
@@ -44,17 +98,29 @@
             <p class="address-text">Сб - Вс: Выходной</p>
           </address>
         </div>
-        <address class="page-footer__address">
-          <h3 class="page-footer__phone">График работы CALL-центра</h3>
-          <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
-          <p class="address-text">Сб - Вс: Выходной</p>
-        </address>
       </div>
-    
-    <div class="copy">
-      <p class="copyright">&copy; 2020 | GoIT</p>
-    </div>
-  </footer>
-</body>
+      <div class="copy">
+        <p class="copyright">&copy; 2020 | GoIT</p>
+      </div>
+    </footer>
 
+    <button class="modalbtn">Press here</button>
+    <button class="authbtn">Form</button>
+
+    <div class="formsection"></div>
+
+    <div class="lightbox">
+      <div class="backdrop">
+        <div class="modal">
+          <div class="modal-wrapper"></div>
+          <!-- <div class="icon-wrapper">
+          <svg class="close-icon">
+            <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
+          </svg>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
 </html>
