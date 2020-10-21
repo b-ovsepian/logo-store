@@ -18,10 +18,61 @@
   </head>
   <body>
     <header class="page-header">
-      <div class="container">
-        <button type="button" class="information-btn">Information</button>
-        <button type="button" class="telephoneTrigger-btn">telephone</button>
-      </div>
+      <nav class="container">
+        <div class="header">
+          <a href="#" class="logo js-logo">
+            <img
+              src="./components/header/images/logo.png"
+              alt="logo"
+              width="40"
+              height="40"
+            />
+            <p>Lo<span>go</span></p>
+          </a>
+          <ul class="list icon-list">
+            <li>
+              <button class="js-phone">
+                <svg class="nav-icon" width="30" height="30">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-smartphone"
+                  ></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button class="js-search">
+                <svg class="nav-icon" width="20" height="20">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-search"
+                  ></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button class="js-cart">
+                <svg class="nav-icon" width="30" height="30">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-cart"
+                  ></use>
+                </svg>
+                <div class="items-amount amount">0</div>
+              </button>
+            </li>
+          </ul>
+          <button type="button" class="burger js-burger">
+            <svg class="icon-burger" width="34" height="34">
+              <use
+                href="./components/header/images/sprite.svg#icon-burger"
+              ></use>
+            </svg>
+            <svg class="icon-close visually-hidden" width="14" height="14">
+              <use
+                href="./components/header/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </nav>
     </header>
     <main class="page-main">
       <div class="container">
@@ -113,11 +164,6 @@
       <div class="backdrop">
         <div class="modal">
           <div class="modal-wrapper"></div>
-          <!-- <div class="icon-wrapper">
-          <svg class="close-icon">
-            <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
-          </svg>
-        </div> -->
         </div>
       </div>
     </div>

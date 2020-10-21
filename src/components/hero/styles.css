@@ -1,16 +1,16 @@
 .hero {
 }
 
-.hero .wripper {
+.wripper {
   margin: 0 auto;
   position: relative;
 }
-.hero .slider-container {
+.slider-container {
   overflow: hidden;
   /* background-color: pink; */
   border-radius: 10px;
 }
-.hero .slider-track {
+.slider-track {
   display: flex;
   transition: 1s;
   list-style: none;
@@ -31,7 +31,7 @@
 .hero .slider-item:nth-child(3n+3){
   background-color: blue;
 } */
-.hero .slider-arrows {
+.slider-arrows {
   font-size: 32px;
 
 }
@@ -99,7 +99,7 @@
   }
   .hero .slider-item {
     height: 400px;
-    /* min-width: 280px; */
+    min-width: 280px;
   }
   .hero .slider-item:nth-child(1) {
     background-image: url(../hero/images/mobile/hero-1.jpg);
@@ -135,7 +135,7 @@
   }
   .hero .slider-item {
     height: 246px;
-    /* min-width: 648px; */
+    min-width: 648px;
   }
   .hero .slider-item:nth-child(1) {
     background-image: url(../hero/images/tablet//hero-1.jpg);
@@ -168,7 +168,7 @@
   }
   .hero .slider-item {
     height: 410px;
-    /* min-width: 1080px; */
+    min-width: 1080px;
   }
   .hero .slider-item:nth-child(1) {
     background-image: url(../hero/images/desktop/hero-1.jpg);
