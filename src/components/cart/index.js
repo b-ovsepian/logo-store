@@ -42,6 +42,7 @@ console.log(items);
   sum = document.querySelector('.sum');
   }
   const array = items.map(item => ({
+    
     id: item.id,
     image: item.images[0],
     price: item.price,
