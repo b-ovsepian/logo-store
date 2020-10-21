@@ -30,12 +30,13 @@ export default {
     },
 
     createModalImg(img) {
+        // console.log(img);
         let bigImage = document.createElement('img')
         bigImage.setAttribute('class', 'product-cart-main-img')
         bigPhoto.append(bigImage)
 
         bigImage.src = img.images
-        // console.log(bigImage);
+        console.log(bigImage);
 
         sliderList.addEventListener('click', (e) => {
             bigImage.src = e.target.src
