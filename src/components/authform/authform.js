@@ -22,23 +22,23 @@ function markUpRendering() {
                 <label for="checkbox" class="authradio"></label>
                 <input id="checkbox" type="radio" name="radio"/>Запомнить меня
                 </div>
-                
+
                 <div class="authbuttons">
                 <button class="enterAccount button" name="enterAccount">Войти</button>
                 <button class="registerAccount button" name="registerAccount">Регистрация</button>
                 </div>
-                </form> 
+                </form>
             </div>`;
 };
 
 // // !!!change an element to open
-const modalBTN = document.querySelector('.authbtn');
+export const modalBTN = document.querySelector('.authbtn');
 modalBTN.addEventListener('click', openForm);
 
 
-function openForm() {
+export function openForm() {
     function createListeners(closebackdrop) {
-        
+
         const myButton = document.querySelector('.close-icon');
         myButton.addEventListener("click", closebackdrop);
     }
@@ -50,7 +50,7 @@ function openForm() {
 
 // const body = document.querySelector('body');
 // body.insertAdjacentHTML('afterbegin', markup);
-    
+
 // body.innerHTML += markUpRendering();
 
 
@@ -83,12 +83,12 @@ if (refs.lightbox.classList.contains('is-open')) {
                 apiServiceRegister(email, password);
             } if (e.target.classList.contains('enterAccount')) {
                 apiServiceEnter(email, password);
-            
+
             }
         });
-    
+
         function apiServiceRegister(email, password) {
-        
+
             return fetch('https://goit-store.herokuapp.com/auth/registration',
                 {
                     method: 'POST',
@@ -98,10 +98,10 @@ if (refs.lightbox.classList.contains('is-open')) {
                 .then(response => response.json())
                 .catch(error => console.log(error));
         }
-    
+
         function apiServiceEnter(email, password) {
             return fetch('https://goit-store.herokuapp.com/auth/login',
-            
+
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -112,9 +112,9 @@ if (refs.lightbox.classList.contains('is-open')) {
                     storageToken(data.user, data.user.role, data.accces_token)
                 });
         }
-    
+
         function storageToken(userInfo, role, token) {
-        
+
             const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
             localStorage.setItem('info', infoUser);
 
