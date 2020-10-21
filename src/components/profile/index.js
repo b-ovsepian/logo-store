@@ -234,7 +234,7 @@ const renderProfile = source => {
     renderAddress();
   });
 
-  renderContacts();
+  //renderContacts();
 };
 
 renderProfile();
