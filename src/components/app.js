@@ -2,6 +2,7 @@ import './modalmodule/modal';
 import './authform/authform';
 import developers from './developers';
 import renderInformation from './information';
+import renderTelephoneTrigger from './telephone-trigger';
 import footer from './footer';
 import services from './services';
 import store from './store';
@@ -21,3 +22,4 @@ function setTokenToStore() {
 }
 
 renderInformation();
+renderTelephoneTrigger();
