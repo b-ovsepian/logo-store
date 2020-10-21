@@ -218,6 +218,13 @@
   left: 20px;
 }
 
-.closed{
+.closed {
   display: none;
+}
+
+/* desktop */
+
+.page-header .desktop-list {
+  display: flex;
+  color: var(--header-text-color);
 }

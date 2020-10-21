@@ -4,11 +4,15 @@ import images from './images';
 import template from './template.hbs';
 import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
-const iconSearch = images.headerImages.iconSearch;
-console.log(iconSearch);
-console.log(template(images));
-
-const a = `
+console.log(widthObject);
+// const iconSearch = images.headerImages.iconSearch;
+// console.log(iconSearch);
+// console.log(template(images));
+// console.log(widthObject.viewport.function);
+// const setViewport = widthObject.viewport.function;
+// setViewport()
+function createA(){
+  const a = `
 <div class="header-modal">
           <div class="container">
             <div class="input">
@@ -70,10 +74,8 @@ const a = `
             </ul>
           </div>
         </div>`;
-// console.log(widthObject.viewport.function);
-// const setViewport = widthObject.viewport.function;
-// setViewport()
-
+  return a
+}
 // const product= () => {
 //   // modalModule(template, )
 //   const createListeners = closeBackdrop => {
@@ -105,9 +107,67 @@ function openModal() {
   function addListeners(closeBackdrop) {
     // document.querySelector().addEventListener('click', closeBackdrop);
   }
-  modalModule(a, addListeners);
+  modalModule(createA, addListeners);
 }
 
-// if (setViewport.isDesktop) {
-//   refs.headerWrap.innerHTML = '<a href="#" class="logo js-logo"><img src="./components/header/images/logo.png" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>';
-// }
+if (widthObject.isDesktop) {
+  refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
+  <ul class="list desktop-list">
+        <li class="a">
+          <button class="modal-inner-button js-phone">
+                  <svg class="" width="30" height="30">
+                    <use href="${images.headerImages.iconPhone}"></use>
+                  </svg>
+                  <span class="with-icons">+38 (050) 333-37-96</span>
+                  <span class="arrow">▼</span>
+          </button>
+        </li>
+        <li class="a">
+          <button class="modal-inner-button js-catalog">Каталог
+              <span id="catBtnIcon">▼</span>
+          </button>
+        </li>
+        <li class="a">
+          <a href="#">Sale &#37;</a>
+        </li>
+        <li class="a">
+          <button class="modal-inner-button js-info">
+                  <span>Информация</span>
+                  <span class="arrow">▼</span>
+                </button>
+        </li>
+        <li class="a">
+          <a href="#">Контакты</a>
+        </li>
+        <li class="a">
+          <button class="js-search">
+            <svg class="nav-icon" width="20" height="20">
+              <use href="${images.headerImages.iconSearch}"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="a">
+          <button class="js-profile">
+            <svg class="nav-icon" width="20" height="20">
+              <use href="${images.headerImages.iconProfile}"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="a">
+          <a href="#" class="likes-link js-likes">
+              <svg class="" width="30" height="30">
+                <use href="${images.headerImages.iconLikes}"></use>
+              </svg>
+            <div class="likes-amount amount">0</div>
+          </a>
+        </li>
+        <li class="a">
+          <button class="js-cart">
+              <svg class="nav-icon" width="30" height="30">
+                <use href="${images.headerImages.iconCart}"></use>
+              </svg>
+            <div class="items-amount amount">0</div>
+          </button>
+        </li>
+      </ul>`;
+}
