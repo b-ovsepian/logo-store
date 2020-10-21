@@ -38,7 +38,7 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     `);
 
     const sliderTrack = section.querySelector(`.slider-track`);
-    const dotsContainer = document.querySelector(`.dots`);
+    const dotsContainer = section.querySelector(`.dots`);
 
     const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
     const slidesToScroll = slideShow; // сколько слайдов нужно листать
@@ -81,13 +81,13 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
 
 
 
-    const wriper = document.querySelector(`.wripper`);
-    const sliderContainer = document.querySelector(`.slider-container`);
-    const sliderItem = document.querySelector(`.slider-item`);
-    const sliderItems = document.querySelectorAll(`.slider-item`);
-    const sliderArrows = document.querySelector(`.slider-arrows`);
-    const prevButton = document.querySelector(`.prev`);
-    const nextButton = document.querySelector(`.next`);
+    const wriper = section.querySelector(`.wripper`);
+    const sliderContainer = section.querySelector(`.slider-container`);
+    const sliderItem = section.querySelector(`.slider-item`);
+    const sliderItems = section.querySelectorAll(`.slider-item`);
+    const sliderArrows = section.querySelector(`.slider-arrows`);
+    const prevButton = section.querySelector(`.prev`);
+    const nextButton = section.querySelector(`.next`);
 
 
 

@@ -5,9 +5,9 @@ import searchObj from '../services';
 import getSlider from '../slider/index';
 
 
-// console.log(nprefs.nplist);
-// searchObj.searchProducts("",'new','100').then(data=>{
-//   let newArr= data.data;
+console.log(nprefs.nplist);
+searchObj.searchProducts("",'new','100').then(data=>{
+  let newArr= data.data;
 // //   cardItem(data, nprefs.nplist);
 // //   const arr=document.querySelectorAll('.card-item');
 // //   const itemArr=[...arr];
@@ -16,7 +16,7 @@ import getSlider from '../slider/index';
 // // });
 
 
-// getSlider(newArr, nprefs.npdiv, 2, false, true)
+getSlider(newArr, nprefs.npdiv, 2, false, true)
 
-// });
+});
 
