@@ -1,19 +1,17 @@
-import './style-salo.css'
-
-import refs from "./../../refs/index.js"
-import helpers from './../helpers/index.js'
-import services from "./../services/index.js"
+import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
-const constructor = document.querySelector('.page-main .container');
+
+ 
+createSale()
+export function createSale(title) {
+  const constructor = document.querySelector('.page-main .container');
 let copyData = []
 let defData = []
-createSale()
-function createSale() {
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
   <section class="sale-section">
   <div class="sale-div">
-  <h1 class="sale-title">Акции</h1>
+  <h1 class="sale-title">${title}</h1>
   <label id="sale-label" for="sale-sort">Сортировка:</label>
   <select id="products">
     <option value="default" selected>По умолчанию</option>
@@ -39,14 +37,16 @@ const list = document.querySelector('.sale-sort-list');
   } else if (helpers.isDesktop) {
     elem = 10
   }
-  services.searchProducts("", 'sale', elem, page).then(({data}) => {
-  
+  services.searchProducts("", '', elem, page).then(({data}) => {
+    console.log(data);
+    // console.log(data);
     copyData = data
     defData = data
-
+    // console.log(copyData[0].price);
+    // console.log('вызов олега функции = ' cardItem(data, list, true))
     return cardItem(data, list, true);
   })
- }, 1000);
+}, 1000);
 let selector = document.querySelector('select')
 selector.addEventListener('input', (e) => {
   console.log(selector.value);
