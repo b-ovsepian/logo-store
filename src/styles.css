@@ -51,14 +51,11 @@ img {
   max-width: 100%;
   height: auto;
 }
-<<<<<<< HEAD
 
-=======
 a {
   text-decoration: none;
 }
-/* Visually-hidden */
->>>>>>> default
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);

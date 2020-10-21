@@ -7,4 +7,7 @@ export default {
   developersList: document.querySelector('.developers-list'),
 
   category: document.querySelector('.category'),
+
+  lastSeenList: document.querySelector('.lastSeen-list'),
+
 };
