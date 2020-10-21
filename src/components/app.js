@@ -2,7 +2,7 @@ import './modalmodule/modal';
 import './authform/authform';
 import developers from './developers';
 import renderInformation from './information';
-import renderTelephoneTrigger from './telephone-trigger';
+import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
 import store from './store';
