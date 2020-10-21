@@ -41,10 +41,11 @@ setTimeout(() => {
   }
   services.searchProducts("", 'sale', elem, page).then(data => {
     console.log(data);
-    // console.log(data.length);
+    // console.log(data);
     copyData = data
     defData = data
     // console.log(copyData[0].price);
+    
     return cardItem(data, list, true)
   })
 }, 1000);
