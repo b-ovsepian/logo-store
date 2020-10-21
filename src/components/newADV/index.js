@@ -1,58 +1,65 @@
 import style from '../newADV/style.css'
 import refs from '../../refs/index.js'
 import { data } from 'autoprefixer'
-
-const fileForm = document.querySelector('.adminFormProduct')
-
-function toDataUrl(element) {
-  return new Promise(resolve => {
-    const reader = new FileReader()
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(element.files[0])
-  })
-}
+import template from './template.hbs'
 
 
-const newImg = document.createElement('img')
-const createBase = () => {
-  const element = fileForm.elements.photoProduct
-  const resultIMG = document.querySelector('.createIMG')
-  newImg.classList.add('newImg')
+// const fileForm = document.querySelector('.adminFormProduct')
 
-  toDataUrl(element).then(data => {
-    resultIMG.src = data
-    newImg.src = data
-    let a = document.querySelector('.plusImage')
-    a.append(newImg)
-    return data
-  })
-}
+// let productMass = {
+//   nameProduct: '',
+//   photoProduct: [],
+//   textareaProduct: '',
+//   categoryProduct: '',
+//   priceProduct: '',
+//   telProduct: '',
+// }
 
-let productMass = {
-  nameProduct: '',
-  photoProduct: [],
-  textareaProduct: '',
-  categoryProduct: '',
-  priceProduct: '',
-  telProduct: '',
-}
+// function toDataUrl(element) {
+//   return new Promise(resolve => {
+//     const reader = new FileReader()
+//     reader.onloadend = () => resolve(reader.result);
+//     reader.readAsDataURL(element.files[0])
+//   })
+// }
 
-const handleChange = async(e) => {
-  if (productMass[e.target.name] !== "photoProduct") {
-    productMass[e.target.name]= e.target.value
-    console.log(productMass);
-  }
-  if (productMass[e.target.name]  === "photoProduct") {
-    productMass.photoProduct.push(await toDataUrl(e.target));
-  }
-}
+// const newImg = document.createElement('img')
+// const createBase = () => {
+//   const element = fileForm.elements.photoProduct
+//   console.log(element);
+//   const resultIMG = document.querySelector('.createIMG')
+//   newImg.classList.add('newImg')
 
-fileForm.addEventListener('input', (e) => {
-  e.preventDefault()
-  handleChange(e)
-   createBase()
-})
-console.log(productMass);
+//   toDataUrl(element).then(data => {
+
+//     resultIMG.src = data
+//     newImg.src = data
+//     let uploadImg = document.querySelector('.plusImage')
+//     uploadImg.append(newImg)
+//   })
+// }
+
+// let a;
+// let b = []
+// b.push(a)
+
+// const handleChange = async(e) => {
+//   if (productMass[e.target.name] !== "photoProduct") {
+//     productMass[e.target.name]= e.target.value
+//     console.log(productMass);
+//   }
+//   if (productMass[e.target.name] === "photoProduct") {
+//      a = await toDataUrl(e.target)
+//     productMass.photoProduct.push(a);
+//   }
+// }
+
+// fileForm.addEventListener('input', (e) => {
+//   e.preventDefault()
+//   handleChange(e)
+//   createBase()
+// })
+// console.log(productMass);
 
 
 
@@ -103,5 +110,59 @@ console.log(productMass);
 //   refs.createCardContainer.append(h2, textArea, productLink, priceLink, telLink, imgHeadProduct)
 
 // })
+
+// // !!!!!!!!!!!!!!!!!
+const fileForm = document.querySelector('.adminFormProduct')
+
+let productMass = {
+  nameProduct: '',
+  photoProduct: [],
+  textareaProduct: '',
+  categoryProduct: '',
+  priceProduct: '',
+  telProduct: '',
+}
+
+function toDataUrl(element) {
+  return new Promise(resolve => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(element.files[0])
+  })
+}
+function getMarkup (array){
+  const ref = document.querySelector('.innerImages')
+const markup = array.reduce((acc, item) => {
+ acc+=`<img src='${item}' class="createIMG" alt="image" width="200" height="200">`
+ return acc
+}, "")
+  console.log(markup);
+  ref.innerHTML = markup;
+}
+
+
+const createBase = async (element) => {
+  productMass.photoProduct.push(await toDataUrl(element));
+  console.log(productMass.photoProduct);
+  getMarkup(productMass.photoProduct)
+}
+
+
+const handleChange = async (e) => {
+  const name = e.target.name;
+  const value = e.target.value;
+  if (name  === "photoProduct") {
+    createBase(e.target)
+  } else productMass[name]= value
+}
+
+fileForm.addEventListener('input', (e) => {
+  e.preventDefault()
+  handleChange(e)
+
+})
+console.log(productMass);
+
+
 
 
