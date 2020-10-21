@@ -1,10 +1,10 @@
 .authorization {
-  /* position: absolute;
+  position: absolute;
 top:50%;
 left:50%;
-transform: translate(-50%, -50%); */
+transform: translate(-50%, -50%);
   width: 342px;
-  height: 414px;
+  height: 450px;
   background: #ffffff;
   border-radius: 10px;
   padding: 25px;
@@ -14,11 +14,13 @@ transform: translate(-50%, -50%); */
 .modal-form {
   width: 280px;
   height: 100px;
+  background: #ffffff;
 }
 
 .error-form {
   height: 180px;
   padding: 10px;
+  background: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
