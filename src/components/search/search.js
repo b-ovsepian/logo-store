@@ -1,11 +1,11 @@
 import './search_styles.css';
 import servicesApi from '../services/index.js';
 import refsSearch from './refsSearch.js';
-import templateCardItem from '../carditem/templateCardItem.hbs';
-import modalRefs from '../modalmodule/modalrefs.js';
+import { cardItem } from '../carditem/index.js';
 import searchTemplate from '../../templates/searchTemplate.hbs';
 import { modalModule } from '../modalmodule/modal.js';
 import store from '../store/index.js';
+import refs from '../../refs/index.js';
 
 const searchButtonHandler = () => {
   const createListeners = closeBackdrop => {
@@ -17,10 +17,15 @@ const searchButtonHandler = () => {
       if (!searchInputValue) return;
 
       servicesApi
-        .searchProducts(searchInputValue, '', 6, 1)
+        .searchProducts(searchInputValue, '', 12, 1)
         .then(searchData => {
           console.log(searchData);
-          templateCardItem(searchData);
+
+          const container = document.querySelector('main .container');
+          container.innerHTML = '<ul class="searchList list card-list"></ul>';
+
+          cardItem(searchData, container.firstChild);
+
           closeBackdrop();
         });
     };

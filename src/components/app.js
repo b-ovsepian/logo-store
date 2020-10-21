@@ -18,5 +18,5 @@ setTokenToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
-  localToken ? (store.auth.accces_token = localToken) : '';
+  localToken ? (store.auth.access_token = localToken) : '';
 }
