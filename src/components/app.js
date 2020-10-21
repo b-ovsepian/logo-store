@@ -11,9 +11,9 @@ import hero from './hero';
 import './category/category.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
+import loader from './loader';
+import { modalModule } from './modalmodule/modal';
 
-// Тянем категории
-services.getCategories();
 setTokenToStore();
 
 function setTokenToStore() {
@@ -21,5 +21,11 @@ function setTokenToStore() {
   localToken ? (store.auth.accces_token = localToken) : '';
 }
 
-renderInformation();
-renderTelephoneTrigger();
+loader.renderLoader();
+
+// Тянем категории
+services.getCategories().then(() => {
+  renderInformation();
+  renderTelephoneTrigger();
+  loader.closeLoader();
+});
