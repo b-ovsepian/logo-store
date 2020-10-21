@@ -1,6 +1,5 @@
 import images from '../image';
 
-
 export default {
   user: {
     favorites: [],
@@ -27,7 +26,7 @@ export default {
   },
   auth: {
     accces_token:
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODliMjAzYmE1OTE4MDAxN2JlNjMxNCIsImlhdCI6MTYwMzI4MTc2OSwiZXhwIjoxNjAzMzY4MTY5fQ.4Ew_aC1oXlme6Rd6XK5yXQL4zC9tEdaGSz8BfjUTfhY',
+      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTA3ZmM0ZTQ3Nzc5MDAxNzhjNTNkOCIsImlhdCI6MTYwMzMwNTQyNywiZXhwIjoxNjAzMzkxODI3fQ.2qsWGTC6OvgJQ1bVPGeeyC_XOQ81pGxUK5reZ-MLk5g',
   },
   products: [
     {

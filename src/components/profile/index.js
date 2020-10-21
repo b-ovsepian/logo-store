@@ -276,11 +276,17 @@ const renderProfile = source => {
         'afterend',
         '<button class="profile-btn button primary buy-all">КУПИТЬ ВСЁ</button>',
       );
+
+      const buyAllBtn = document.querySelector('.buy-all');
+      buyAllBtn.addEventListener('click', () => {
+        // Вызвать функцию добавления товаров или ИД в корзину;
+      });
+    } else {
+      notificationMessage(
+        profileFavoritesList,
+        'У Вас пока нет избранных товаров',
+      );
     }
-    const buyAllBtn = document.querySelector('.buy-all');
-    buyAllBtn.addEventListener('click', () => {
-      // Вызвать функцию добавления товаров или ИД в корзину;
-    });
   };
 
   // Вешаю слушателя на пункт меню "Избранное":
