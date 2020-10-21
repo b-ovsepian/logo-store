@@ -15,3 +15,23 @@ import { modalModule } from '../modalmodule/modal.js';
 //   }
 //   modalModule(template, createListeners);
 // };
+
+// refs.modalBtn.addEventListener('click', method1);
+// function method1() {
+//   refs.openModal.classList.add('visually-hidden');
+//   refs.closeModal.classList.toggle('visually-hidden');
+//   function method2(closebackdrop) {
+//     refs.modalBtn.addEventListener('click', closebackdrop)
+//     refs.openModal.classList.toggle('visually-hidden');
+//     refs.closeModal.classList.add('visually-hidden');
+//   }
+//   modalModule(template, method2)
+// }
+
+refs.modalBtn.addEventListener('click', openModal);
+function openModal() {
+  function addListeners(closeBackdrop) {
+    document.querySelector().addEventListener('click', closeBackdrop);
+  }
+  modalModule(template, addListeners);
+}
