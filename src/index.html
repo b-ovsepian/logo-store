@@ -18,26 +18,26 @@
       <form class="adminFormProduct">
 
           <label class="admin-form-product-label" for="name-product">Название продукта</label>
-          <input class="admin-input-product" type="text" name="nameProduct" id="name-product" placeholder="Название">
+          <input class="admin-input-product" type="text" name="name" id="name-product" placeholder="Название">
 
           <div class="wrapper">
             <div class="imageUpload">
               <label class="admin-form-product-label js-label" for="photo-product">
                 <span class="admin-product-label">+</span>
               </label>
-              <input class="admin-input-product" id="photo-product" placeholder="+" name="photoProduct" type="file" multiple="multiple" size="6" />
+              <input class="admin-input-product" id="photo-product" placeholder="+" name="images" type="file" multiple="multiple" size="6" />
             </div>
             <div class="innerImages"></div>
           </div>
 
           <label class="admin-form-product-label" for="description-product">Описание товара</label>
-          <textarea class="admin-textarea-product" name="textareaProduct" id="description-product" cols="30" rows="10" placeholder="Описание"></textarea>
+          <textarea class="admin-textarea-product" name="description" id="description-product" cols="30" rows="10" placeholder="Описание"></textarea>
 
           <label  class="admin-form-product-label" for="category-product">Категория товара</label>
-          <select name="categoryProduct" id="category-product" onchange=""></select>
+          <select name="category" id="category-product" onchange=""></select>
 
           <label class="admin-form-product-label" for="price-product">Цена</label>
-          <input class="admin-input-product" type="text" name="priceProduct" id="price-product" placeholder="0.00 ₴">
+          <input class="admin-input-product" type="number" name="price" id="price-product" placeholder="0.00 ₴">
 
           <label class="admin-form-product-label" for="tel-product">Телефон</label>
           <input class="admin-input-product" type="tel" name="telProduct" id="tel-product" placeholder="+38 (0--) --- -- --">

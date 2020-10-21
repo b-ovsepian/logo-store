@@ -2,15 +2,16 @@ import style from '../newADV/style.css'
 import refs from '../../refs/index.js'
 import { data } from 'autoprefixer'
 import template from './template.hbs'
+import getObj from '../services/index.js'
 
 const fileForm = document.querySelector('.adminFormProduct')
 
 let productMass = {
-  nameProduct: '',
-  photoProduct: [],
-  textareaProduct: '',
-  categoryProduct: '',
-  priceProduct: '',
+  name: '',
+  images: [],
+  description: '',
+  category: '',
+  price: '',
   telProduct: '',
 }
 
@@ -37,14 +38,14 @@ const markup = array.reduce((acc, item) => {
 
 
 const createBase = async (element) => {
-  productMass.photoProduct.push(await toDataUrl(element));
-  getMarkup(productMass.photoProduct)
+  productMass.images.push(await toDataUrl(element));
+  getMarkup(productMass.images)
 }
 
 const handleChange = async (e) => {
   const name = e.target.name;
   const value = e.target.value;
-  if (name  === "photoProduct") {
+  if (name  === "images") {
     createBase(e.target)
   } else productMass[name]= value
 }
@@ -52,6 +53,7 @@ const handleChange = async (e) => {
 fileForm.addEventListener('input', (e) => {
   e.preventDefault()
   handleChange(e)
+  // alert('Товар создан :)')
 })
 console.log(productMass);
 
@@ -86,7 +88,7 @@ const productsArr = [
     { value: "new", name: "Новые поступления" }
 ];
 
-const productSelect = document.querySelector('[name="categoryProduct"]');
+const productSelect = document.querySelector('[name="category"]');
 
 const createSelect = (array, place) => {
     const markup = array.reduce((acc, { name, value }) => {
@@ -98,4 +100,4 @@ const createSelect = (array, place) => {
 
 createSelect(productsArr, productSelect);
 
-
+// getObj.createNewProduct(productMass)

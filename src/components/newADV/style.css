@@ -95,6 +95,12 @@ background-color: var(--btn-text-color);
    max-width: 75px;
   height: 75px;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .wrapper {
   display: flex;
   align-items: center;
