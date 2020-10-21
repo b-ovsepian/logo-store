@@ -5,27 +5,18 @@ import searchObj from '../services';
 import getSlider from '../slider/index';
 
 
-console.log(nprefs.nplist);
-searchObj.searchProducts("",'new','100').then(data=>{
-  console.log(data);
-  cardItem(data, nprefs.nplist);
-  const arr=document.querySelectorAll('.card-item');
-  const itemArr=[...arr];
-  console.log(itemArr);
-  getSlider(itemArr, nprefs.npdiv, 2, false);
-});
+// console.log(nprefs.nplist);
+// searchObj.searchProducts("",'new','100').then(data=>{
+//   let newArr= data.data;
+// //   cardItem(data, nprefs.nplist);
+// //   const arr=document.querySelectorAll('.card-item');
+// //   const itemArr=[...arr];
+// //   console.log(itemArr);
+// //   getSlider(itemArr, nprefs.npdiv, 2, false);
+// // });
 
 
-  // getSlider(itemArr, nprefs.npdiv, 2, false);
+// getSlider(newArr, nprefs.npdiv, 2, false, true)
 
+// });
 
-
-// const changePerPage=()=>{
-// if (document.documentElement.clientWidth >= 320 && document.documentElement.clientWidth<=767) {
-// return '2';
-// } else if
-//   (document.documentElement.clientWidth >= 768 && document.documentElement.clientWidth<=1199){
-// return '3';
-// } else { return '4'};
-// }
-// console.log(changePerPage())

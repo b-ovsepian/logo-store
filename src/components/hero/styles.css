@@ -10,7 +10,7 @@
   /* background-color: pink; */
   border-radius: 10px;
 }
-.hero .slider-track {
+.slider-track {
   display: flex;
   transition: 1s;
   list-style: none;
