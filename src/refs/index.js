@@ -8,4 +8,5 @@ export default {
 
   category: document.querySelector('.category'),
   // cardList: document.querySelector(".card-list")
+  mainContainer: document.querySelector('.main-container'),
 };

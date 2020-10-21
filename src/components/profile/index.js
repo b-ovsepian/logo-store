@@ -1,3 +1,4 @@
+import refs from '../../refs/index.js';
 import mainContainerTemplate from '../../templates/profile-main-template.hbs';
 import profileContactsTemplate from '../../templates/profile-contacts-template.hbs';
 import profileChangepasswordTemplate from '../../templates/profile-changepassword-template.hbs';
@@ -5,12 +6,7 @@ import profileAddressTemplate from '../../templates/profile-address-template.hbs
 import services from '../services/index.js';
 import { cardItem } from '../carditem/index.js';
 
-const mainContainer = document.querySelector('.main-container');
-
-// Функция выхода из меню личный кабинет, затирает токен и вызывает функцию рендеринга главной страницы:
-const clearAuthenticationToken = () => {
-  // затираю токен:
-  store.auth.accces_token = '';
+const closeProfile = () => {
   //вызываю функцию рендеринга главной страницы:
   //...
 };
@@ -41,22 +37,27 @@ const buildRequestObject = event => {
 
 // Функция, которая генерирует сообщение нотификацию на форме меню личный кабинет:
 const notificationMessage = (elem, message) => {
-  const oldSpan = document.querySelector('.notification');
-  if (oldSpan !== null) {
-    oldSpan.remove();
+  let span = document.querySelector('.notification');
+  if (span === null) {
+    span = document.createElement('span');
+    span.classList.add('notification');
+    elem.before(span);
   }
-  let span = document.createElement('span');
-  span.classList.add('notification');
   span.textContent = message;
-  elem.before(span);
 };
+
 /**
- * Функция может принимать три значения: personalProfile, favorites, createAd,
+ * Функция может принимать три значения: "personalProfile", "favorites", "createAd",
  * в зависимости от того с какой кнопки осуществляется переход;
  */
+
 const renderProfile = source => {
   // Отрисовываю меню:
-  mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
+  refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
+
+  // Нахожу кнопку "Выход":
+
+  const exitLink = document.querySelector('.profile-exit__link');
 
   // Нахожу контейнер, в который буду отрисовывать пункты меню личный кабинет:
   const profileSectionsDetails = document.querySelector(
@@ -82,6 +83,10 @@ const renderProfile = source => {
   const profileMenuItemFavorites = document.querySelector(
     '.profile-menu__item_favorites',
   );
+
+  // Вещаю слушателя на кнопку "exitLink":
+
+  exitLink.addEventListener('click', closeProfile);
 
   // Отрисовываю детали меню "Контакты":
   const renderContacts = async () => {
@@ -118,7 +123,6 @@ const renderProfile = source => {
         console.log(response);
         notificationMessage(contactsForm, 'Данные успешно сохранены!');
       } catch (error) {
-        // debugger;
         const errorMessage = error.response.data;
         notificationMessage(contactsForm, errorMessage);
       }
@@ -168,7 +172,6 @@ const renderProfile = source => {
           console.log(response);
           notificationMessage(changePasswordForm, 'Пароль успешно сохранен!');
         } catch (error) {
-          //   debugger;
           const errorMessage = error.response.data;
           notificationMessage(changePasswordForm, errorMessage);
         }
@@ -259,13 +262,27 @@ const renderProfile = source => {
       result.favorites.includes(product._id),
     );
     console.log(products);
-    // // Нахожу список деталей меню "Избранное":
+    // services.addFavoriteProduct(products[0]._id);
+
+    //  Нахожу список деталей меню "Избранное":
     const profileFavoritesList = document.querySelector(
       '.profile-favorites__list',
     );
 
     cardItem(favoriteProducts, profileFavoritesList);
+
+    if (profileFavoritesList.children.length > 0) {
+      profileFavoritesList.insertAdjacentHTML(
+        'afterend',
+        '<button class="profile-btn button primary buy-all">КУПИТЬ ВСЁ</button>',
+      );
+    }
+    const buyAllBtn = document.querySelector('.buy-all');
+    buyAllBtn.addEventListener('click', () => {
+      // Вызвать функцию добавления товаров или ИД в корзину;
+    });
   };
+
   // Вешаю слушателя на пункт меню "Избранное":
   profileMenuItemFavorites.addEventListener('click', event => {
     event.preventDefault();
@@ -274,7 +291,16 @@ const renderProfile = source => {
     // Вызываю функцию для вызова API (функция getCurrentUser) чтобы заполнить детали меню "Избранное":
     renderFavorites();
   });
-  //renderContacts();
+
+  if (source === 'personalProfile') {
+    renderContacts();
+  }
+  if (source === 'favorites') {
+    renderFavorites();
+  }
+  // if (source === 'createAd') {
+  //   renderCreateAd();
+  // }
 };
 
 renderProfile();
