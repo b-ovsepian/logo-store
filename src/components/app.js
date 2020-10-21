@@ -7,7 +7,7 @@ import header from './header';
 // import './salo/index.js'
 
 import developers from './developers';
-import renderInformation from './information';
+// import renderInformation from './information';
 import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
@@ -34,11 +34,11 @@ function setTokenToStore() {
 }
 import catalog from "./catalog/catalog.js"
 
-loader.renderLoader();
+// loader.renderLoader();
 
 // Тянем категории
-services.getCategories().then(() => {
-  renderInformation();
-  renderTelephoneTrigger();
-  loader.closeLoader();
-});
+// services.getCategories().then(() => {
+//   renderInformation();
+//   renderTelephoneTrigger();
+//   loader.closeLoader();
+// });

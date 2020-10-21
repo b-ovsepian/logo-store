@@ -1,8 +1,9 @@
 import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
+import helpers from './../helpers/index.js'
+import services from './../services/index.js'
 
- 
-createSale()
+// createSale()
 export function createSale(title) {
   const constructor = document.querySelector('.page-main .container');
 let copyData = []

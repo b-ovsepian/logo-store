@@ -4,7 +4,7 @@ import css from './styles.css';
 import store from '../../components/store';
 const categories = store.categories;
 console.log(categories);
-
+import {createSale} from "../createCards/index.js"
 import templateList from './template.hbs';
 import refs from './refs.js';
 // const catalog = document.querySelector(".catalog")
@@ -77,6 +77,12 @@ titleKitchen.addEventListener('click', () => {
 refs.catalog.addEventListener('click', (e) => {
   console.dir(e.target);
   console.log(e.target.id);
+  if (e.target.classList.contains('catalog-list-item')) {
+    // createSale(e.target.id);
+    createSale('sale');
+
+  }
+
 })
 
 function createCatalogList(template, data) {
