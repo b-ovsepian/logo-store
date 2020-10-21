@@ -38,7 +38,7 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     `);
     
     const sliderTrack = section.querySelector(`.slider-track`);
-    const dotsContainer = document.querySelector(`.dots`);
+    const dotsContainer = section.querySelector(`.dots`);
     
     const slidesToShow = slideShow;  // сколько слайдеров будет в поле зрения
     const slidesToScroll = slideShow; // сколько слайдов нужно листать
