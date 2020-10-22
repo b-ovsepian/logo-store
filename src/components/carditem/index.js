@@ -5,23 +5,14 @@ import services from "../services/index.js"
 import store from "../store/index.js"
 import productCard from "../product-card/index.js"
 
-// поиск элемента куда нужно встроить "ul"
-const divMain = refs.main.querySelector(".container")
-const cardList = document.createElement("ul")
-cardList.classList.add("card-list")
-cardList.classList.add("list")
-divMain.append(cardList)
-// регистрация на сайте
-// services.registerNewUser("oleh1@gmail.com", "oleg12345")
-// авторизация на сайте
-services.loginUser("oleh1@gmail.com", "oleg12345");
-// 
-// 
-services.searchProducts("", "ref", "5").then(({ data }) => {
-    cardItem(data, cardList)
-})
-
-
+// ======================================================================================================================
+// ====  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  =====
+// ====  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  =====
+// ==  +++++++  ======  +++++++  ======  +++++++  ======  +++++++  ======  +++++++  ======  +++++++  ======  +++++++  ===
+// ===  +++++  ========  +++++  ========  +++++  ========  +++++  ========  +++++  ========  +++++  ========  +++++  ====
+// ====  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  ==========  +++  =====
+// =====  +  ============  +  ============  +  ============  +  ============  +  ============  +  ============  +  ======
+// ======================================================================================================================
 // при вызове функции:
 // первым параметром нужно передать (data) - промисс полученый в .then
 // вторым параметром нужно передать (where) - элемент в который нужно карточки
@@ -78,3 +69,21 @@ export const cardItem = (data, where, sale = false) => {
 function mapArray(ar, id) {
     return ar.find((elem) => elem._id === id)
 }
+
+
+
+// поиск элемента куда нужно встроить "ul"
+// const divMain = refs.main.querySelector(".container")
+// const cardList = document.createElement("ul")
+// cardList.classList.add("card-list")
+// cardList.classList.add("list")
+// divMain.append(cardList)
+// // регистрация на сайте
+// services.registerNewUser("oleh1@gmail.com", "oleg12345")
+// авторизация на сайте
+// services.loginUser("oleh1@gmail.com", "oleg12345");
+// временной запрос.....
+// services.searchProducts("", "ref", "5").then(({ data }) => {
+//     cardItem(data, cardList)
+// })
+
