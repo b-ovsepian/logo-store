@@ -7,6 +7,7 @@ import getSlider from '../slider/index';
 
 searchObj.searchProducts("",'new','100').then(data=>{
 let newArr= data.data;
+console.log(newArr);
 
 getSlider(newArr, nprefs.npdiv, 2, false, true);
 
