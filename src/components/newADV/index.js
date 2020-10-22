@@ -13,8 +13,8 @@ let productMass = {
   description: '',
   category: '',
   price: '',
-  telProduct: '',
 };
+// telProduct: '',
 
 function toDataUrl(element) {
   return new Promise(resolve => {
