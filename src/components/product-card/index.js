@@ -6,7 +6,7 @@ import obj from '../product-card/obj.json'
 import {commonRender} from '../cart/index.js'
 
 // renderImages(obj)
-let cont = document.querySelector('.main-container')
+
 let main = document.querySelector('.page-main')
 
 // renderImages(obj)
@@ -14,7 +14,7 @@ let main = document.querySelector('.page-main')
 let slider = document.querySelector('.product-card-slider')
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
-let productCart = document.querySelector('.product-card')
+let productCart; //= document.querySelector('.product-card')
 let buyButton; //= document.querySelector('.product-card-button-buy')
 // console.log(productCart);
 
@@ -25,14 +25,15 @@ let buyButton; //= document.querySelector('.product-card-button-buy')
 export default {
   renderImages(data) {
     console.log(data);
-    // main.innerHTML = ''
+    main.innerHTML = ''
     productCart.innerHTML = ''
     productCart.style.paddingTop = '30px'
     productCart.style.paddingBottom = '60px'
     const items = template(data)
-    productCart.insertAdjacentHTML('beforeend', items)
+    main.insertAdjacentHTML('beforeend', items)
     productCart.style.paddingtop = '100px'
     
+    productCart = document.querySelector('.product-card')
     bigPhoto = document.querySelector('.product-card-slider-big-photo')
     sliderList = document.querySelector('.product-card-slider-list')
     buyButton = document.querySelector('.product-card-button-buy')
