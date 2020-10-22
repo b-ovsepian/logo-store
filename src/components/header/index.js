@@ -136,7 +136,7 @@ function openModal() {
 
 if (widthObject.isDesktop) {
   refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
-  <ul class="list desktop-list">
+  <ul class="list desktop-nav-list">
         <li class="a">
           <button class="desktop-button js-phone">
                   <span class="phone-icon"></span>
@@ -150,7 +150,7 @@ if (widthObject.isDesktop) {
           </button>
         </li>
         <li class="a">
-          <a href="#">Sale &#37;</a>
+          <a href="#" class="desktop-link">Sale &#37;</a>
         </li>
         <li class="a">
           <button class="desktop-button js-info">
@@ -159,8 +159,10 @@ if (widthObject.isDesktop) {
                 </button>
         </li>
         <li class="a">
-          <a href="#">Контакты</a>
+          <a href="#" class="desktop-link">Контакты</a>
         </li>
+      </ul>
+      <ul class="list account-list">
         <li class="a">
           <button class="js-search">
             <span class="search-icon"></span>
