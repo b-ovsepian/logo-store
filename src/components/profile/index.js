@@ -33,7 +33,6 @@ const buildRequestObject = event => {
   formData.forEach((value, key) => {
     submittedData[key] = value;
   });
-  console.log(submittedData);
   return submittedData;
 };
 
@@ -113,7 +112,6 @@ const renderProfile = source => {
 
     // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Контакты":
     const result = await services.getCurrentUser();
-    console.log(result);
 
     // Нахожу форму деталей меню "Контакты":
     const contactsForm = document.querySelector('.contacts-form');
@@ -133,7 +131,6 @@ const renderProfile = source => {
         const response = await services.changeUserInfo(
           buildRequestObject(event),
         );
-        console.log(response);
         notificationMessage(contactsForm, 'Данные успешно сохранены!');
       } catch (error) {
         const errorMessage = error.response.data;
@@ -178,7 +175,6 @@ const renderProfile = source => {
           const response = await services.changePassword(
             buildRequestObject(event),
           );
-          console.log(response);
           notificationMessage(changePasswordForm, 'Пароль успешно сохранен!');
         } catch (error) {
           const errorMessage = error.response.data;
@@ -210,7 +206,6 @@ const renderProfile = source => {
 
     // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Мой адрес":
     const result = await services.getCurrentUser();
-    console.log(result);
 
     // Нахожу форму деталей меню "Мой адрес":
     const addressForm = document.querySelector('.address-form');
@@ -231,7 +226,6 @@ const renderProfile = source => {
         let { country, city, place, street } = buildRequestObject(event);
 
         const splitAddress = street.split(',');
-        // console.log(splitAddress);
         // Вызываю API (функция changeUserAddress) для изменения данных из меню "Мой адрес":
         const response = await services.changeUserAddress({
           country,
@@ -241,7 +235,6 @@ const renderProfile = source => {
           building: splitAddress[1],
           flat: splitAddress[2],
         });
-        console.log(response);
         notificationMessage(addressForm, 'Адрес успешно сохранён!');
       } catch (error) {
         // debugger;
@@ -272,14 +265,11 @@ const renderProfile = source => {
 
     // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Избранное":
     const result = await services.getCurrentUser();
-    console.log(result);
 
     const products = await services.getAllProducts();
     const favoriteProducts = products.filter(product =>
       result.favorites.includes(product._id),
     );
-    console.log(products);
-    // services.addFavoriteProduct(products[0]._id);
 
     //  Нахожу список деталей меню "Избранное":
     const profileFavoritesList = document.querySelector(

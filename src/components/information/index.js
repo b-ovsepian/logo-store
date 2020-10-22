@@ -5,7 +5,7 @@ import infoTmpl from '../../templates/information.hbs';
 import { modalModule } from '../modalmodule/modal';
 
 function renderInformation() {
-  const infoBtn = document.querySelector('.information-btn');
+  const infoBtn = document.querySelector('.js-info');
   infoBtn.addEventListener('click', showInfo);
 
   function showInfo() {
@@ -20,7 +20,6 @@ function renderInformation() {
       ulList.insertAdjacentHTML('beforeend', markup);
       informationDiv.insertAdjacentElement('beforeend', ulList);
       informationDiv.innerHTML += `<div class="information-close-icon"></div>`;
-      console.log(informationDiv);
       div.insertAdjacentElement('beforeend', informationDiv);
       return div.innerHTML;
     }

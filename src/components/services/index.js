@@ -1,7 +1,7 @@
 import { data } from 'autoprefixer';
 import Axios from 'axios';
 import store from '../store';
-Axios.defaults.baseURL = 'https://goit-store1.herokuapp.com/';
+Axios.defaults.baseURL = 'https://back24.herokuapp.com/';
 Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
 
 export default {
@@ -44,7 +44,6 @@ export default {
   },
   //    Change user email, name, surname, phone
   async changeUserInfo({ name = '', surname, email, phone }) {
-    console.log(`переменные ${name}, ${surname}, ${email}, ${phone} `);
     const axiosEmail = email ? email : store.user.email;
     const axiosName = name ? name : store.user.name;
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
@@ -60,7 +59,6 @@ export default {
       });
       return response;
     } catch (error) {
-      console.log(error);
       throw error;
     }
   },
@@ -143,6 +141,7 @@ export default {
   },
   // Create new product
   async createNewProduct(object) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
       const response = await Axios('products', {
         method: 'POST',

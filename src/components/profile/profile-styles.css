@@ -141,7 +141,6 @@
   }
   .profile-menu {
     grid-template-columns: 340px 1fr;
-    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   }
   .profile-menu__item {
     grid-column: 1;
