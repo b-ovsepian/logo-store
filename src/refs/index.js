@@ -1,3 +1,4 @@
+import product_card_js from '../components/product-card/index.js';
 export default {
   body: document.querySelector('body'),
 
