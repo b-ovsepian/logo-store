@@ -170,7 +170,7 @@ export default {
   //   Search products
   async searchProducts(search = '', category = '', itemsPerPage = 1, page = 1) {
     try {
-      const url = `https://goit-store.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
+      const url = `https://back24.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
       const response = await Axios.get(url);
       return response;
     } catch (error) {
