@@ -5,10 +5,11 @@ import services from './../services/index.js'
 // createSale('sale')
  
 // createSale()
-export function createSale(nameProduct, nameCategory, bool) {
+export function createSale(nameCategory, nameProduct,  bool) {
   const constructor = document.querySelector('.page-main .container');
 let copyData = []
 let defData = []
+  
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
   <section class="section">
@@ -25,11 +26,22 @@ let defData = []
 <ul class="sale-sort-list list"></ul>
 <div class="sale-page">
   {{!-- тут будет Марка  объект --}}
+  <div class="sale-button"></div>
   <p class="sale-text-page"></p>
 </div>
 <section class="sale-section">`);
 
 const list = document.querySelector('.sale-sort-list');
+// document.querySelector('.sale-page')
+// document.querySelector('.sale-button').append(pages)
+// document.querySelector('.sale-text-page').append(buttons)
+// let data = {} 
+// let buttons = {} 
+// let pages = {}
+// [data, buttons, pages] = funkMark(nameCategory, nameProduct)
+//  copyData = data
+//  defData = data
+// cardItem(data, list, bool)
   let elem, page
   if (helpers.isMobile) {
     elem = 6
@@ -46,7 +58,7 @@ const list = document.querySelector('.sale-sort-list');
 
     return cardItem(data, list, bool);
   })
-
+ // ==============================================================================
 let selector = document.querySelector('select')
 selector.addEventListener('input', (e) => {
   console.log(selector.value);
