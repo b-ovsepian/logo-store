@@ -27,15 +27,14 @@ export const cardItem = (data, where, sale = false) => {
     where.insertAdjacentHTML('beforeend', item)
     // проверка есть ли карточка в избранных
     // если есть то зарисовать сердечко
-    setTimeout(() => {
-        console.dir(store.user)
-        store.user.favorites.forEach(({ _id }) => {
-            const span = document.querySelector(`.icon-box-favorit[data-id="${_id}"]`);
-            if (span !== null) {
-                span.classList.toggle("icon-box-favorit-full")
-            }
-        })
-    }, 500);
+    // setTimeout(() => {
+    store.user.favorites.forEach(({ _id }) => {
+        const span = document.querySelector(`.icon-box-favorit[data-id="${_id}"]`);
+        if (span !== null) {
+            span.classList.toggle("icon-box-favorit-full")
+        }
+    })
+    // }, 500);
     //слушатель на иконку для смены иконки
     // и записи на бек в массив favorit
     where.addEventListener("click", (e) => {
@@ -59,7 +58,6 @@ export const cardItem = (data, where, sale = false) => {
             const currentItem = data.filter((item) =>
                 item._id === idItem
             )
-            console.log(currentItem);
             productCard.renderImages(currentItem)
         }
     }
