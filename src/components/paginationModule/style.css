@@ -23,11 +23,6 @@
   margin-bottom: 15px;
 }
 
-/* .btn {
-  display: flex;
-  justify-content: center;
-} */
-
 .button:not(:last-child) {
   margin-right: 10px;
 }

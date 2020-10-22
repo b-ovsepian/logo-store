@@ -23,7 +23,7 @@ const pagination = {
 
 const countOfProducts = async (category)=> {
     const result = await axios.get(
-        `https://goit-store.herokuapp.com/products/getCategories?category=${category}`);
+        `https://back24.herokuapp.com/products/getCategories?category=${category}`);
     pagination.countOfProducts = result.data.countOfProducts
     return result.data.countOfProducts
 } 
@@ -31,7 +31,6 @@ const countOfProducts = async (category)=> {
 export async function createPagination(category) {
 
     countOfProducts(category).then(() => {
-        // console.log("res");
         const showQuantity = document.querySelector('.show-quantity');
         minAndMaxProducts();
     showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`
@@ -41,20 +40,16 @@ export async function createPagination(category) {
     list.innerHTML = await getListItemsMarkup(category);
     list.querySelector('button').classList.add('active');
     const showQuantity = document.querySelector('.show-quantity')
-    // let quantArr;
 
     list.addEventListener('click', async (e) => {
     list.querySelector('.active').classList.remove('active');
         e.target.classList.add('active');
         const data = await getProducts(Number(e.target.dataset.page)); 
         pagination.currentPage = (Number(e.target.dataset.page));
-        // console.log("page");
-        // console.log(pagination.currentPage);
+
         minAndMaxProducts();
         console.log(data.data);
         showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`
-        // quantArr = data.data.length
-        // console.log(quantArr);
         return data.data;
     })
 }
@@ -80,11 +75,10 @@ const getListItemsMarkup = async (category) => {
 }
 
 const getProducts = async ( page = 1, perPage = elem, category = '') => {
-   return await axios.get(`https://goit-store.herokuapp.com/products?itemsPerPage=${perPage}&page=${page}&category=${category}`)    
+   return await axios.get(`https://back24.herokuapp.com/products?itemsPerPage=${perPage}&page=${page}&category=${category}`)    
 }
 
 createPagination("");
-
 
 
 //=============================================================//

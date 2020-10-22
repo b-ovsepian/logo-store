@@ -1,5 +1,3 @@
-
-
 const viewport = {
     isMobile: false,
     isTablet: false,
@@ -19,4 +17,3 @@ function viewportFunction() {
     }
 
 export default viewportFunction();
-   
