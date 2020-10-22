@@ -41,6 +41,6 @@ const searchButtonHandler = () => {
 };
 
 //это кнопка из хедера должна быть.
-// document
-//   .querySelector('.modalbtn')
-//   .addEventListener('click', searchButtonHandler);
+document
+  .querySelector('.modalbtn')
+  .addEventListener('click', searchButtonHandler);
