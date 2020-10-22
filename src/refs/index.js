@@ -8,6 +8,6 @@ export default {
 
   category: document.querySelector('.category'),
 
-  lastSeenList: document.querySelector('.lastSeen-list'),
+  lastSeenSection: document.querySelector('.lastSeen-section'),
 
 };
