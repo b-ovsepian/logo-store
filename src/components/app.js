@@ -31,6 +31,13 @@ function setTokenToStore() {
     : (store.auth.accces_token = localToken2.token);
 }
 
+function setCartToStore() {
+  const localCart = JSON.parse(localStorage.getItem('cart'));
+  store.cart = localCart;
+}
+
+setCartToStore();
+
 loader.renderLoader();
 
 // Тянем категории

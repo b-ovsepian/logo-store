@@ -6,6 +6,8 @@ import profileChangepasswordTemplate from '../../templates/profile-changepasswor
 import profileAddressTemplate from '../../templates/profile-address-template.hbs';
 import services from '../services/index.js';
 import { cardItem } from '../carditem/index.js';
+import store from '../store/index.js';
+import renderCreateAd from '../newADV/index.js';
 
 // Функция, которая закрывает меню "Личный кабинет" по кнопке "Выход":
 const closeProfile = () => {
@@ -55,13 +57,30 @@ const notificationMessage = (elem, message) => {
 const renderProfile = source => {
   // Отрисовываю меню:
   // Если пользователь админ:
-  //if (storage.getItem('email') === '') {
-  //refs.mainContainer.insertAdjacentHTML('beforeend', profileMainAdminTemplate());
-  //}
-  //else {
-  //Если пользователь не админ:
-  refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
-  //}
+  if (store.user.role === 'ADMIN') {
+    refs.mainContainer.insertAdjacentHTML(
+      'beforeend',
+      profileMainAdminTemplate(),
+    );
+    // Нахожу пукт меню "Создать объявление":
+    const profileMenuItemCreateAd = document.querySelector(
+      '.profile-menu__item_create-ad',
+    );
+    // Вешаю слушателя на пункт меню "Создать объявление":
+    profileMenuItemCreateAd.addEventListener('click', event => {
+      event.preventDefault();
+      profileSectionsDetails.innerHTML = '';
+      profileMenuItemCreateAd.after(profileSectionsDetails);
+      changeActiveItem(profileMenuItemCreateAd);
+      renderCreateAd(profileSectionsDetails);
+    });
+    if (source === 'createAd') {
+      renderCreateAd();
+    }
+  } else {
+    //Если пользователь не админ:
+    refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
+  }
 
   // Нахожу кнопку "Выход":
   const exitLink = document.querySelector('.profile-exit__link');
@@ -89,11 +108,6 @@ const renderProfile = source => {
   // Нахожу пукт меню "Избранное":
   const profileMenuItemFavorites = document.querySelector(
     '.profile-menu__item_favorites',
-  );
-
-  // Нахожу пукт меню "Создать объявление":
-  const profileMenuItemCreateAd = document.querySelector(
-    '.profile-menu__item_create-ad',
   );
 
   // Вешаю слушателя на кнопку "exitLink":
@@ -285,8 +299,28 @@ const renderProfile = source => {
       );
 
       const buyAllBtn = document.querySelector('.buy-all');
+
       buyAllBtn.addEventListener('click', () => {
         // Вызвать функцию добавления товаров или ИД в корзину;
+        if (store.cart === null || store.cart === undefined) {
+          store.cart = [];
+        }
+        // Перебираю массив избранных продуктов:
+        favoriteProducts.forEach(element => {
+          // Проверяю есть ли в store.cart продукт с таким ИД:
+          const existingProduct = store.cart.find(
+            item => item._id === element._id,
+          );
+          //Если есть увеличиваю количество на 1:
+          if (existingProduct) {
+            existingProduct.totalQuantity += 1;
+          } else {
+            //Если нет, добавляю в store.cart объект с ИД и количеством по умолчанию:
+            store.cart.push({ _id: element._id, totalQuantity: 1 });
+          }
+        });
+        //Добавляю store.cart в localStorage:
+        localStorage.setItem('cart', JSON.stringify(store.cart));
       });
     } else {
       notificationMessage(
@@ -305,17 +339,12 @@ const renderProfile = source => {
     renderFavorites();
   });
 
-  // Место для слушателя меню 'Создать объявление', кнопку нашла ранее: profileMenuItemCreateAd:
-
   if (source === 'personalProfile') {
     renderContacts();
   }
   if (source === 'favorites') {
     renderFavorites();
   }
-  // if (source === 'createAd') {
-  //   renderCreateAd();
-  // }
 };
 
 renderProfile();
