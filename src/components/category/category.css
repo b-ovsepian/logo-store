@@ -46,6 +46,7 @@
 width: 100%;
 align-self: baseline; 
 float: left;
+overflow: hidden;
 }
 .category-list-item:not(:last-child){
     margin-bottom: 30px;
@@ -54,6 +55,7 @@ float: left;
 border-radius: 20px;
 }
 .category-title{
+    display: block;
     font-weight: bold;
     font-size: 26px;
     line-height: 1.07;
@@ -93,7 +95,7 @@ border-radius: 20px;
     width: calc((100% - 20px * 3) / 3);
 }
 .category-img{
-    width: 525px;
+    /* width: 525px; */
 }
 .category-title{
     line-height: 1.23;

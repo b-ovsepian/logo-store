@@ -1,0 +1,15 @@
+#breadcrumb{
+    display: none;
+
+}
+#breadcrumb.is-open{
+    display: flex;
+}
+.breadcrumb{
+    display: flex;
+    list-style: none;
+}
+#breadcrumb a::after{
+    content: ' >';
+    margin-right: 5px;
+}
