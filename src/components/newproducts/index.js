@@ -1,5 +1,5 @@
 import nprefs from './nprefs';
-import {cardItem} from '../carditem/index';
+// import {cardItem} from '../carditem/index';
 import searchObj from '../services';
 import css from './styles.css';
 import getSlider from '../slider/index';
