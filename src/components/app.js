@@ -9,6 +9,7 @@ import services from './services';
 import store from './store';
 import profile from './profile';
 // import catalog from './catalog/catalog.js';
+import './search/search.js';
 import slider from './slider';
 import hero from './hero';
 import './category/category.js';
