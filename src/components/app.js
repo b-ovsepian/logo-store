@@ -21,7 +21,7 @@ import newADV from './newADV/index.js';
 // import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
-// setTokenToStore();
+setTokenToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
@@ -31,7 +31,7 @@ function setTokenToStore() {
     : (store.auth.accces_token = localToken2.token);
 }
 
-// loader.renderLoader();
+loader.renderLoader();
 
 // Тянем категории
 services.getCategories().then(() => {
