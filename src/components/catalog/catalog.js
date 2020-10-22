@@ -9,6 +9,8 @@ import templateList from './template.hbs';
 import refs from './refs.js';
 // const catalog = document.querySelector(".catalog")
 
+
+
 const titleKbt = document.getElementById('kbtTitle');
 const titleIt = document.getElementById('itTitle');
 const titleHome = document.getElementById('homeTitle');
@@ -77,6 +79,10 @@ titleKitchen.addEventListener('click', () => {
 refs.catalog.addEventListener('click', (e) => {
   console.dir(e.target);
   console.log(e.target.id);
+  if (e.target.classList.contains('catalog-list-item')) {
+    // createSale(e.target.id);
+    createSale('sale');
+  }
 })
 
 function createCatalogList(template, data) {
@@ -97,3 +103,5 @@ function update(list, el) {
   list.classList.toggle('isHidden');
 
 }
+
+export default createCatalogList()

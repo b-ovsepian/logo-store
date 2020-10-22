@@ -7,7 +7,7 @@ export default {
   cart: document.querySelector('.js-cart'),
   modalBtn: document.querySelector('.js-burger'),
   openModal: document.querySelector('.icon-burger'),
-  closeModal: document.querySelector('.icon-close'),
+  closeModal: document.querySelector('.header-modal-close-btn'),
   catalog: document.querySelector('.catalog'),
   catalogBtn: document.querySelector('.js-catalog'),
   catBtnIcon: document.getElementById('catBtnIcon'),

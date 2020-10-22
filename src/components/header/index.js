@@ -4,6 +4,7 @@ import images from './images';
 import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
 import renderInformation from '../information';
+// import createCatalogList from '../catalog/catalog.js';
 
 function createModalMarkup(){
 //   const a = `
@@ -76,7 +77,9 @@ function createModalMarkup(){
                type="text" id="search-modal"
                name="search-modal" placeholder="Поиск">
             </div>
-
+            <button class="header-modal-close-btn">
+              <span class="close-icon"></span>
+            </button>
             <ul class="list modal-list">
               <li class="modal-list-item">
                 <button class="modal-inner-button js-catalog">Каталог
@@ -86,7 +89,7 @@ function createModalMarkup(){
                 </ul>
               </li>
               <li class="modal-list-item js-sale">
-                <a href="#">SALE &#37;</a>
+                <a href="#" class="modal-list-link">SALE &#37;</a>
               </li>
               <li class="modal-list-item">
                 <button class="modal-inner-button js-info">
@@ -95,25 +98,25 @@ function createModalMarkup(){
                 </button>
               </li>
               <li class="modal-list-item">
-                <a href="#">Контакты</a>
+                <a href="#" class="modal-list-link">Контакты</a>
               </li>
               <li class="numbers-button modal-list-item">
                 <button class="modal-inner-button js-phone">
-                  <span class="phone-icon"></span>
+                  <span class="phone-icon header-icon"></span>
                   <span class="with-icons">+38 (050) 333-37-96</span>
                   <span class="arrow">►</span>
                 </button>
               </li>
               <li class="modal-list-item">
                 <button class="modal-inner-button js-profile">
-                  <span class="profile-icon"></span>
+                  <span class="profile-icon header-icon"></span>
                   <span class="with-icons">Личный кабинет</span>
                   <span class="arrow">►</span>
                 </button>
               </li>
               <li class="modal-list-item">
-                <a href="#" class="likes-link js-likes">
-                  <span class="likes-icon">
+                <a href="#" class="likes-link modal-list-link js-likes">
+                  <span class="likes-icon header-icon">
                   <div class="likes-amount amount">0</div>
                   </span>
                   <span class="with-icons">Избранное</span>
@@ -128,10 +131,13 @@ function createModalMarkup(){
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
   function addListeners(closeBackdrop) {
-    // document.querySelector().addEventListener('click', closeBackdrop);
+    document.querySelector('.header-modal-close-btn').addEventListener('click', closeBackdrop);
   }
   modalModule(createModalMarkup, addListeners);
   renderInformation();
+  // const catalogIgor = document.querySelector('[data-catalog="catalog"]');
+  // catalogIgor.append(createCatalogList.createCatalogList());
+  // createCatalogList.createCatalogList();
 }
 
 if (widthObject.isDesktop) {
@@ -139,7 +145,7 @@ if (widthObject.isDesktop) {
   <ul class="list desktop-nav-list">
         <li class="a">
           <button class="desktop-button js-phone">
-                  <span class="phone-icon"></span>
+                  <span class="phone-icon header-icon"></span>
                   <span class="with-icons">+38 (050) 333-37-96</span>
                   <span class="arrow">▼</span>
           </button>
@@ -164,12 +170,12 @@ if (widthObject.isDesktop) {
       </ul>
       <ul class="list account-list">
         <li class="a">
-          <button class="js-search">
+          <button class="js-search desktop-account-button">
             <span class="search-icon"></span>
           </button>
         </li>
         <li class="a">
-          <button class="js-profile">
+          <button class="js-profile desktop-account-button">
             <span class="profile-icon"></span>
           </button>
         </li>
@@ -188,4 +194,6 @@ if (widthObject.isDesktop) {
           </a>
         </li>
       </ul>`;
+  renderInformation();
+  // createCatalogList();
 }

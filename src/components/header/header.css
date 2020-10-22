@@ -1,17 +1,10 @@
 /* ============== HEADER */
-/* .isHidden {
-  display: none;
-} */
+
 .page-header {
   background-color: var(--header-bg-color);
-  /* color: var(--header-text-color); */
   font-size: 14px;
   font-weight: 500;
 }
-
-/* .page-header a {
-  color: var(--primary-text-color);
-} */
 
 .header {
   display: flex;
@@ -67,11 +60,16 @@
   fill: var(--header-text-color);
 }
 
+.header-icon {
+  margin-right: 10px;
+}
+
 .search-icon {
   display: block;
   width: 20px;
   height: 20px;
   background-image: url(./images/icons/search.svg);
+    background-color: #b884f3;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -82,6 +80,7 @@
   width: 30px;
   height: 30px;
   background-image: url(./images/icons/phone.svg);
+    background-color: #b884f3;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,6 +91,7 @@
   width: 30px;
   height: 30px;
   background-image: url(./images/icons/profile.svg);
+    background-color: #b884f3;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,6 +101,7 @@
   width: 30px;
   height: 30px;
   background-image: url(./images/icons/cart.svg);
+    background-color: #b884f3;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -112,24 +113,26 @@
   width: 30px;
   height: 30px;
   background-image: url(./images/icons/likes.svg);
+    background-color: #b884f3;
 
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
-/* BUTTONS */
+.close-icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-image: url(./images/icons/close.svg);
+    background-color: #b884f3;
 
-.page-header button {
-  background-color: transparent;
-  border-color: transparent;
-  border: 0px;
-  /* color: var(--primary-text-color);
-  font-size: 18px;
-  font-weight: 800; */
-  font-family: inherit;
-  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
+
+/* MOBILE TABLET HEADER BUTTONS */
 
 .icon-list {
   display: flex;
@@ -149,6 +152,46 @@
   border-color: transparent;
 }
 
+/* ИКОНКА С КОЛИЧЕСТВОМ */
+.amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  /*  */
+
+  font-weight: 600;
+  font-size: 8px;
+  color: var(--header-text-color);
+
+  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+}
+
+@media screen and (max-width: 1199px) {
+  .js-cart {
+    position: relative;
+  }
+  .items-amount {
+    top: -2px;
+    right: -1px;
+  }
+  .likes-amount {
+    top: -2px;
+    right: -5px;
+  }
+}
+
+/* ARROW */
+
+.arrow {
+  margin-left: auto;
+  font-size: 8px;
+}
+
 /* BURGER */
 
 .burger {
@@ -160,121 +203,109 @@
   fill: var(--third-accent-color);
 }
 
-/* .icon-close {
-  width: 14px;
-  height: 14px;
-  fill: var(--third-accent-color);
-} */
-
 /* HEADER MODAL */
 
-.header-modal {
-  background-color: #e5e5e5;
-  padding-bottom: 60px;
+@media screen and (max-width: 1199px) {
+  .header-modal {
+    background-color: #e5e5e5;
+    padding-bottom: 60px;
+    width: 100%;
+    position: relative;
+  }
+
+  .header-modal-close-btn{
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+    padding: 0;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-modal {
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+
+    margin: 15px;
+
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .search-modal:focus {
+    outline: none;
+    border-bottom: 1px solid var(--primary-text-color);
+  }
+
+  .modal-list-link {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--primary-text-color);
+  }
+
+  .likes-link {
+    display: flex;
+    align-items: center;
+    /* fill: var(--primary-text-color); */
+  }
+
+  .modal-inner-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--primary-text-color);
+  }
+
+  .modal-list-item:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 
-/* .header-modal svg {
-  fill: var(--primary-text-color);
-} */
 
-.input {
-  display: flex;
-  align-items: center;
-}
-
-.search-modal {
-  background-color: transparent;
-  border-color: transparent;
-  border: 0px;
-
-  margin: 15px;
-
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.search-modal:focus {
-  outline: none;
-  border-bottom: 1px solid var(--primary-text-color);
-}
-
+/*
 .modal-list-item button {
   width: 100%;
 }
 
-.modal-list-item:not(:last-child) {
-  margin-bottom: 15px;
-}
 
-.modal-inner-button {
-  display: flex;
-  align-items: center;
-}
-
-/* .numbers-button button {
-  font-weight: 500;
-  font-size: 14px;
-} */
 
 .likes-link {
   display: flex;
   align-items: center;
   fill: var(--primary-text-color);
-}
-
-.with-icons {
-  margin-left: 10px;
-}
-
-.arrow {
-  margin-left: auto;
-  font-size: 8px;
-  /* transform: rotate(-90deg); */
-}
-
-/* ИКОНКА С КОЛИЧЕСТВОМ */
-
-@media screen and (max-width: 1199px) {
-  .js-cart {
-  position: relative;
-  }
-}
-
-.amount {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  position: absolute;
-  top: -2px;
-  right: -5px;
-
-  font-weight: 600;
-  font-size: 8px;
-  color: var(--header-text-color);
-
-  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
-}
-
-/* .items-amount {
-  top: -2px;
-  right: -5px;
-}
-
-.likes-amount {
-  top: -2px;
-  left: -5px;
 } */
 
-.closed {
-  display: none;
-}
+/* .with-icons {
+  margin-left: 10px;
+} */
 
-/* desktop */
+/* .arrow {
+  margin-left: auto;
+  font-size: 8px;
+} */
+
+/* .closed {
+  display: none;
+} */
+
+/* DESKTOP */
 
 @media screen and (min-width: 1200px) {
   .desktop-nav-list {
@@ -306,12 +337,28 @@
     font-family: inherit;
   }
 
+  .desktop-account-button {
+    padding: 0;
+
+    background-color: transparent;
+    border-color: transparent;
+    border: 0px;
+  }
+
   .desktop-link {
     color: var(--header-text-color);
   }
 
-  .arrow{
+  /* ARROW */
+
+  .arrow {
     margin-left: 10px;
   }
-}
 
+  /* ИКОНКА С КОЛИЧЕСТВОМ */
+
+  .amount {
+    top: -2px;
+    right: -5px;
+  }
+}
