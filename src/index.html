@@ -17,33 +17,43 @@
     />
   </head>
   <body>
-
     <header class="page-header">
       <nav class="container">
         <div class="header">
           <a href="#" class="logo js-logo">
-            <img src="./components/header/images/logo.png" alt="logo" width="40" height="40">
+            <img
+              src="./components/header/images/logo.png"
+              alt="logo"
+              width="40"
+              height="40"
+            />
             <p>Lo<span>go</span></p>
           </a>
           <ul class="list icon-list">
             <li>
               <button class="js-phone">
                 <svg class="nav-icon" width="30" height="30">
-                  <use href="./components/header/images/sprite.svg#icon-smartphone"></use>
+                  <use
+                    href="./components/header/images/sprite.svg#icon-smartphone"
+                  ></use>
                 </svg>
               </button>
             </li>
             <li>
               <button class="js-search">
                 <svg class="nav-icon" width="20" height="20">
-                  <use href="./components/header/images/sprite.svg#icon-search"></use>
+                  <use
+                    href="./components/header/images/sprite.svg#icon-search"
+                  ></use>
                 </svg>
               </button>
             </li>
             <li>
               <button class="js-cart">
                 <svg class="nav-icon" width="30" height="30">
-                  <use href="./components/header/images/sprite.svg#icon-cart"></use>
+                  <use
+                    href="./components/header/images/sprite.svg#icon-cart"
+                  ></use>
                 </svg>
                 <div class="items-amount amount">0</div>
               </button>
@@ -51,7 +61,9 @@
           </ul>
           <button type="button" class="burger js-burger">
             <svg class="icon-burger" width="34" height="34">
-              <use href="./components/header/images/sprite.svg#icon-burger"></use>
+              <use
+                href="./components/header/images/sprite.svg#icon-burger"
+              ></use>
             </svg>
             <!-- <svg class="icon-close visually-hidden" width="14" height="14">
               <use href="./components/header/images/sprite.svg#icon-close"></use>
@@ -131,7 +143,6 @@
         <button type="button" class="telephoneTrigger-btn">telephone</button>
       </div> -->
     </header>
-
     <main class="page-main">
       <div class="container">
         <div class="group">
@@ -189,17 +200,52 @@
             </li>
           </ul>
         </div>
+        <div class="pagination-wrapper">
+          <ul class="pagination-list"></ul>
+          <p class="show-quantity"></p>
+        </div>
+        <!-- <ul id="pagination-list">
+  <button type="button" class="button" data-index="1">1</button>
+  <button type="button" class="button" data-index="2">2</button>
+  <button type="button" class="button" data-index="3">3</button>
+  <button type="button" class="button hide" data-index="4">4</button>
+  <button type="button" class="button btn" data-next="next">
+    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+  <button type="button" class="button btn" data-end="end"><svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg></button>
+
+  <p class="show-quantity">Показано с 1 по 20 из 68</p>
+</ul> -->
+
+        <!-- <div class="box-modal">
+  <ul class="auth-menu-list">
+    <li>
+      <h1 class="auth-menu-title">Username</h1>
+    </li>
+
+    <li class="auth-menu-list-item">
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-personal-room">Личный кабинет</a>
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-favorites">Избранное</a>
+      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-create-adv">Создать объявление</a>
+    </li>
+  </ul>
+
+  <div class="auth-menu-btn-wrapper">
+    <button class="auth-menu-nav auth-menu-exit" id="auth-menu-exit">Выход</button>
+  </div>
+</div> -->
       </div>
     </main>
-    <!-- </header> -->
-    <!-- <main class="page-main">
-
-      <div class="container">
-        <button class="button primary">Start</button>
-        <button class="button secondary">Start</button>
-      </div> -->
-
-
     <footer class="page-footer">
       <div class="container">
         <h2 class="page-footer__title">Есть к нам вопросы?</h2>
@@ -231,11 +277,6 @@
       <div class="backdrop">
         <div class="modal">
           <div class="modal-wrapper"></div>
-          <!-- <div class="icon-wrapper">
-          <svg class="close-icon">
-            <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
-          </svg>
-        </div> -->
         </div>
       </div>
     </div>

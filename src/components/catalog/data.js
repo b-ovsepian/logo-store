@@ -81,6 +81,7 @@ const home = [
 const kitchen = [
   {
     name: 'Пылесосы',
+
     products: []
   },
   {

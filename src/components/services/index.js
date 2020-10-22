@@ -135,6 +135,7 @@ export default {
   },
   // Create new product
   async createNewProduct(object) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
       const response = await Axios('products', {
         method: 'POST',

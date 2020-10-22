@@ -3,6 +3,7 @@ import refs from './refs';
 import images from './images';
 import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
+import renderInformation from '../information';
 
 function createModalMarkup(){
 //   const a = `
@@ -130,6 +131,7 @@ function openModal() {
     // document.querySelector().addEventListener('click', closeBackdrop);
   }
   modalModule(createModalMarkup, addListeners);
+  renderInformation();
 }
 
 if (widthObject.isDesktop) {
