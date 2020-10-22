@@ -1,143 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>LoGo</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <header class="page-header">
-      <nav class="container">
-        <div class="header">
-          <a href="#" class="logo js-logo">
-            <img
-              src="./components/header/images/logo.png"
-              alt="logo"
-              width="40"
-              height="40"
-            />
-            <p>Lo<span>go</span></p>
-          </a>
-          <ul class="list icon-list">
-            <li>
-              <button class="js-phone">
-                <svg class="nav-icon" width="30" height="30">
-                  <use
-                    href="./components/header/images/sprite.svg#icon-smartphone"
-                  ></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button class="js-search">
-                <svg class="nav-icon" width="20" height="20">
-                  <use
-                    href="./components/header/images/sprite.svg#icon-search"
-                  ></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button class="js-cart">
-                <svg class="nav-icon" width="30" height="30">
-                  <use
-                    href="./components/header/images/sprite.svg#icon-cart"
-                  ></use>
-                </svg>
-                <div class="items-amount amount">0</div>
-              </button>
-            </li>
-          </ul>
-          <button type="button" class="burger js-burger">
-            <svg class="icon-burger" width="34" height="34">
-              <use
-                href="./components/header/images/sprite.svg#icon-burger"
-              ></use>
-            </svg>
-            <svg class="icon-close visually-hidden" width="14" height="14">
-              <use
-                href="./components/header/images/sprite.svg#icon-close"
-              ></use>
-            </svg>
-          </button>
-        </div>
-      </nav>
-    </header>
-    <main class="page-main">
-      <div class="container main-container">
-        <nav id="breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="/">Home</a></li>
-          </ol>
-        </nav>
-        <div class="category">
-          <ul class="category-list list">
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 3.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Крупная бытовая техника</h2>
-              <button name="household" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 4.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Встраиваемая техника</h2>
-              <button name="embedded" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 5.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Уход за домом и одеждой</h2>
-              <button name="home" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 6.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">
-                Техника для кухни &#160; &#160;&#160;&#160;
-              </h2>
-              <button name="kitchen" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="pagination-wrapper">
-          <ul class="pagination-list"></ul>
-          <p class="show-quantity"></p>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>LoGo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+    crossorigin="anonymous" />
+</head>
+
+<body>
+  <header class="page-header">
+    <nav class="container">
+      <div class="header">
+        <a href="#" class="logo js-logo">
+          <img src="./components/header/images/logo.png" alt="logo" width="40" height="40" />
+          <p>Lo<span>go</span></p>
+        </a>
+        <ul class="list icon-list">
+          <li>
+            <button class="js-phone">
+              <svg class="nav-icon" width="30" height="30">
+                <use href="./components/header/images/sprite.svg#icon-smartphone"></use>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button class="js-search">
+              <svg class="nav-icon" width="20" height="20">
+                <use href="./components/header/images/sprite.svg#icon-search"></use>
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button class="js-cart">
+              <svg class="nav-icon" width="30" height="30">
+                <use href="./components/header/images/sprite.svg#icon-cart"></use>
+              </svg>
+              <div class="items-amount amount">0</div>
+            </button>
+          </li>
+        </ul>
+        <button type="button" class="burger js-burger">
+          <svg class="icon-burger" width="34" height="34">
+            <use href="./components/header/images/sprite.svg#icon-burger"></use>
+          </svg>
+          <svg class="icon-close visually-hidden" width="14" height="14">
+            <use href="./components/header/images/sprite.svg#icon-close"></use>
+          </svg>
+        </button>
       </div>
-    </main>
-    <!-- <div class="create-card container">
+    </nav>
+  </header>
+  <main class="page-main">
+    <div class="container main-container">
+      <nav id="breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="/">Home</a></li>
+        </ol>
+      </nav>
+      <div class="category">
+        <ul class="category-list list">
+          <li class="category-list-item">
+            <img src="./components/category/images/mobile/Rectangle-3.jpg" class="category-img" alt="Бытовая техника" />
+            <h2 class="category-title">Крупная бытовая техника</h2>
+            <button name="household" class="category-link button primary">
+              Купить
+            </button>
+          </li>
+          <li class="category-list-item">
+            <img src="./components/category/images/mobile/Rectangle-4.jpg" class="category-img" alt="Бытовая техника" />
+            <h2 class="category-title">Встраиваемая техника</h2>
+            <button name="embedded" class="category-link button primary">
+              Купить
+            </button>
+          </li>
+          <li class="category-list-item">
+            <img src="./components/category/images/mobile/Rectangle-5.jpg" class="category-img" alt="Бытовая техника" />
+            <h2 class="category-title">Уход за домом и одеждой</h2>
+            <button name="home" class="category-link button primary">
+              Купить
+            </button>
+          </li>
+          <li class="category-list-item">
+            <img src="./components/category/images/mobile/Rectangle-6.jpg" class="category-img" alt="Бытовая техника" />
+            <h2 class="category-title">
+              Техника для кухни &#160; &#160;&#160;&#160;
+            </h2>
+            <button name="kitchen" class="category-link button primary">
+              Купить
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="pagination-wrapper">
+        <ul class="pagination-list"></ul>
+        <p class="show-quantity"></p>
+      </div>
+    </div>
+  </main>
+  <!-- <div class="create-card container">
       <form class="adminFormProduct">
         <label class="admin-form-product-label" for="name-product"
           >Название продукта</label
@@ -213,40 +179,39 @@
         </button>
       </form>
     </div> -->
-    <footer class="page-footer">
-      <div class="container">
-        <h2 class="page-footer__title">Есть к нам вопросы?</h2>
-        <div class="footer-box">
-          <div class="page-footer__phone-box">
-            <h3 class="page-footer__phone">Телефон</h3>
-            <a class="page-footer__link" href="tel:+380503333796"
-              >+38 (050) 333-37-96</a
-            >
-          </div>
-          <address class="page-footer__address">
-            <h3 class="page-footer__phone">График работы CALL-центра</h3>
-            <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
-            <p class="address-text">Сб - Вс: Выходной</p>
-          </address>
+  <footer class="page-footer">
+    <div class="container">
+      <h2 class="page-footer__title">Есть к нам вопросы?</h2>
+      <div class="footer-box">
+        <div class="page-footer__phone-box">
+          <h3 class="page-footer__phone">Телефон</h3>
+          <a class="page-footer__link" href="tel:+380503333796">+38 (050) 333-37-96</a>
         </div>
-      </div>
-      <div class="copy">
-        <p class="copyright">&copy; 2020 | GoIT</p>
-      </div>
-    </footer>
-
-    <button class="modalbtn">Press here</button>
-    <button class="authbtn">Form</button>
-
-    <div class="formsection"></div>
-
-    <div class="lightbox">
-      <div class="backdrop">
-        <div class="modal">
-          <div class="modal-wrapper"></div>
-        </div>
+        <address class="page-footer__address">
+          <h3 class="page-footer__phone">График работы CALL-центра</h3>
+          <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
+          <p class="address-text">Сб - Вс: Выходной</p>
+        </address>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </body>
+    <div class="copy">
+      <p class="copyright">&copy; 2020 | GoIT</p>
+    </div>
+  </footer>
+
+  <button class="modalbtn">Press here</button>
+  <button class="authbtn">Form</button>
+
+  <div class="formsection"></div>
+
+  <div class="lightbox">
+    <div class="backdrop">
+      <div class="modal">
+        <div class="modal-wrapper"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
 </html>

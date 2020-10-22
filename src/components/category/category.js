@@ -5,7 +5,7 @@ import embedded from './template/embedded.hbs';
 import household from './template/household.hbs';
 import home from './template/dom.hbs';
 import getCategories from '../services/index.js';
-
+// import {createSale} from '../createCards/index.js'; // дома проверить
 
 // import categories from './data.js'
 
@@ -21,21 +21,29 @@ cartClear.addEventListener('click', (e) => {
   if (e.target.name === 'household' || e.target.id === 'household') {//Крупная бытовая техника
     cartClear.innerHTML = ''
     renderHouse()
+  // createSale.createSale(e.target.textContent)
+
   }
   if (e.target.name === 'embedded' || e.target.id === 'embedded') {//Встраиваемая техника
     cartClear.innerHTML = ''
     renderEmbedded()
+  // createSale.createSale(e.target.textContent)
+
   }
   if (e.target.name === 'home' || e.target.id === 'home') {//Уход за домом и одеждой
     cartClear.innerHTML = ''
     renderHome()
-    for (let i = 0; i < 6; i++) {
-      catygoryDom.setAttribute('data-id', i);
-    }
+  // createSale.createSale(e.target.textContent)
+
+    // for (let i = 0; i < renderHome.length; i++) {
+    //   catygoryDom.setAttribute('data-id', i);
+    // }
   }
   if (e.target.name === 'kitchen' || e.target.id === 'kitchen') {//Техника для кухни
     cartClear.innerHTML = ''
     renderKitchen()
+  // createSale.createSale(e.target.textContent)
+
   }
 })
 function renderHouse() {
