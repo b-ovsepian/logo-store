@@ -18,4 +18,6 @@ export default {
   createCardContainer: document.querySelector('.create-card'),
   newProductP: document.querySelector('.admin-input-product'),
   inputLabel: document.querySelector('.js-label'),
+
+  mainContainer: document.querySelector('.main-container'),
 };
