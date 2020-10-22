@@ -7,6 +7,7 @@ import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
 import store from './store';
+import profile from './profile';
 // import catalog from './catalog/catalog.js';
 import slider from './slider';
 import hero from './hero';
@@ -15,15 +16,18 @@ import './breadcrumbs/index.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
-import newADV from './newADV/index.js';
-import paginationModule from './paginationModule/index.js';
+// import newADV from './newADV/index.js';
+// import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
 setTokenToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
-  localToken ? (store.auth.accces_token = localToken) : '';
+  const localToken2 = JSON.parse(localStorage.getItem('info'));
+  localToken
+    ? (store.auth.accces_token = localToken)
+    : (store.auth.accces_token = localToken2.token);
 }
 
 loader.renderLoader();
