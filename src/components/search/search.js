@@ -18,13 +18,13 @@ const searchButtonHandler = () => {
 
       servicesApi
         .searchProducts(searchInputValue, '', 12, 1)
-        .then(searchData => {
-          console.log(searchData);
+        .then(({ data }) => {
+          console.log(data);
 
           const container = document.querySelector('main .container');
           container.innerHTML = '<ul class="searchList list card-list"></ul>';
 
-          cardItem(searchData, container.firstChild);
+          cardItem(data, container.firstChild);
 
           closeBackdrop();
         });

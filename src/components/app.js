@@ -5,7 +5,7 @@ import renderInformation from './information';
 import footer from './footer';
 import services from './services';
 import store from './store';
-import cardItem from './carditem/index.js';
+// import cardItem from './carditem/index.js';
 import './search/search.js';
 import slider from './slider';
 import hero from './hero';
