@@ -30,7 +30,7 @@ import { modalModule } from './modalmodule/modal';
 // }
 
 
-import catalog from "./catalog/catalog.js"
+// import catalog from "./catalog/catalog.js"
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
