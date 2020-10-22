@@ -89,7 +89,7 @@ function openForm() {
 
         const apiServiceRegister= async (obj)=> {
             try {
-              const url = 'https://goit-store.herokuapp.com/auth/registration';
+              const url = 'https://back24.herokuapp.com//auth/registration';
 
               const response=await Axios.post(url, obj);
               successRegisterMessage();
@@ -103,7 +103,7 @@ function openForm() {
 
           const apiServiceEnter= async(obj) =>{
 
-            const url='https://goit-store.herokuapp.com/auth/login';
+            const url = 'https://back24.herokuapp.com//auth/login';
             try{
                 const response = await Axios.post(url, obj)
                 .then(({ data }) => {
@@ -118,7 +118,7 @@ function openForm() {
                 }
             };
 
-         
+
         function storageToken(userInfo, role, token) {
             const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
             localStorage.setItem('info', infoUser);
