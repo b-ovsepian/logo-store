@@ -19,46 +19,70 @@
   <body>
     <header class="page-header">
       <div class="container">
+        <button type="button" class="information-btn">Information</button>
       </div>
     </header>
     <main class="page-main">
       <div class="container">
         <div class="group">
-         <a href="./index.html" name="home" class="carp">Главная</a>
+          <a href="./index.html" name="home" class="carp">Главная</a>
         </div>
-         <div class="category">
-           <ul class="category-list list">
-             <li class="category-list-item">
-               <img src="./components/category/images/desktop/Rectangle 3.jpg" alt="Бытовая техника" width="525"
-                 height="270">
-               <h2 class="category-title">Крупная бытовая техника</h2>
-               <button name="household" class="category-link button primary">Купить</button>
-             </li>
-             <li class="category-list-item">
-               <img src="./components/category/images/desktop/Rectangle 4.jpg" alt="Бытовая техника" width="525"
-                 height="270">
-               <h2 class="category-title">Встраиваемая техника</h2>
-               <button name="embedded" class="category-link button primary">Купить</button>
-             </li>
-             <li class="category-list-item">
-               <img src="./components/category/images/desktop/Rectangle 5.jpg" alt="Бытовая техника" width="525"
-                 height="270">
-               <h2 class="category-title">Уход за домом и одеждой</h2>
-               <button name="home" class=" category-link button primary">Купить</button>
-             </li>
-             <li class="category-list-item">
-               <img src="./components/category/images/desktop/Rectangle 6.jpg" alt="Бытовая техника" width="525"
-                 height="270">
-               <h2 class="category-title">Техника для кухни</h2>
-               <button name="kitchen" class="category-link button primary">Купить</button>
-             </li>
-           </ul>
-         </div>
-
+        <div class="category">
+          <ul class="category-list list">
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 3.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Крупная бытовая техника</h2>
+              <button name="household" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 4.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Встраиваемая техника</h2>
+              <button name="embedded" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 5.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Уход за домом и одеждой</h2>
+              <button name="home" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+            <li class="category-list-item">
+              <img
+                src="./components/category/images/desktop/Rectangle 6.jpg"
+                alt="Бытовая техника"
+                width="525"
+                height="270"
+              />
+              <h2 class="category-title">Техника для кухни</h2>
+              <button name="kitchen" class="category-link button primary">
+                Купить
+              </button>
+            </li>
+          </ul>
         </div>
-           <section class="product-card">
-            <ul class="product-card-slider-list"></ul>
-           </section>
+      </div>
+      <section class="product-card">
+        <ul class="product-card-slider-list"></ul>
+      </section>
 
     </main>
     <footer class="page-footer">
@@ -82,6 +106,56 @@
         <p class="copyright">&copy; 2020 | GoIT</p>
       </div>
     </footer>
+    <section class="cart">
+
+    <div class="container">
+      <button class="cart-button">Open cart</button>
+      <div class="upper-wrapper">
+        <h2>Корзина</h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            fill="#53535C
+          "
+          />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </div>
+    <ul class="cart-list">
+
+    </ul>
+
+      <p class="sum-text">Сумма <span class="sum">8499</span>₴</p>
+
+      <div class="result-wrapper">
+        <p class="result-text">Итого
+        <span class="result">8499</span>₴</p>
+      </div>
+      <div class="buttons">
+        <button class="order-button button">Оформить заказ</button>
+        <button class="back-button button">
+          <svg
+            class="back-icon"
+            width="27"
+            height="16"
+            viewBox="0 0 27 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M26 7C26.5523 7 27 7.44772 27 8C27 8.55228 26.5523 9 26 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM26 9H1V7H26V9Z"
+              fill="#6368E5"
+            />
+          </svg>
+          к покупкам
+        </button>
+        </div>
+      </section>
 
 
     <button class="modalbtn">Press here</button>
@@ -89,19 +163,18 @@
 
     <div class="formsection"></div>
 
-   <div class="lightbox">
-    <div class="backdrop">
-      <!-- <div class="icon-wrapper">
+    <div class="lightbox">
+      <div class="backdrop">
+        <!-- <div class="icon-wrapper">
         <svg class="close-icon">
           <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
         </svg>
       </div> -->
-      
-      <div class="modal">
-        <div class="modal-wrapper"></div>
+
+        <div class="modal">
+          <div class="modal-wrapper"></div>
+        </div>
       </div>
     </div>
-    </div>
-
   </body>
 </html>
