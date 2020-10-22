@@ -15,4 +15,5 @@ export default {
   information: document.querySelector('.js-info'),
   account: document.querySelector('.js-profile'),
   likes: document.querySelector('.js-likes'),
+  modalHeader: document.querySelector('.modal')
 };

@@ -4,73 +4,10 @@ import images from './images';
 import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
 import renderInformation from '../information';
-// import createCatalogList from '../catalog/catalog.js';
+import createCatalogList from '../catalog/catalog.js';
 
 function createModalMarkup(){
-//   const a = `
-// <div class="header-modal">
-//           <div class="container">
-//             <div class="input">
-//               <svg class="nav-icon" width="20" height="20">
-//                 <use href="${images.headerImages.iconSearch}"></use>
-//               </svg>
-//               <input class="search-modal"
-//                type="text" id="search-modal"
-//                name="search-modal" placeholder="Поиск">
-//             </div>
-
-//             <ul class="list modal-list">
-//               <li class="modal-list-item">
-//                 <button class="modal-inner-button js-catalog">Каталог
-//                   <span class="arrow" id="catBtnIcon">►</span>
-//                 </button>
-//                 <ul class="catalog isHidden" data-catalog="catalog">
-//                 </ul>
-//               </li>
-//               <li class="modal-list-item js-sale">
-//                 <a href="#">SALE &#37;</a>
-//               </li>
-//               <li class="modal-list-item">
-//                 <button class="modal-inner-button js-info">
-//                   <span>Информация</span>
-//                   <span class="arrow">►</span>
-//                 </button>
-//               </li>
-//               <li class="modal-list-item">
-//                 <a href="#">Контакты</a>
-//               </li>
-//               <li class="numbers-button modal-list-item">
-//                 <button class="modal-inner-button js-phone">
-//                   <svg class="" width="30" height="30">
-//                     <use href="${images.headerImages.iconPhone}"></use>
-//                   </svg>
-//                   <span class="with-icons">+38 (050) 333-37-96</span>
-//                   <span class="arrow">►</span>
-//                 </button>
-//               </li>
-//               <li class="modal-list-item">
-//                 <button class="modal-inner-button js-profile">
-//                   <svg class="" width="30" height="30">
-//                     <use href="${images.headerImages.iconProfile}"></use>
-//                   </svg>
-//                   <span class="with-icons">Личный кабинет</span>
-//                   <span class="arrow">►</span>
-//                 </button>
-//               </li>
-//               <li class="modal-list-item">
-//                 <a href="#" class="likes-link js-likes">
-//                   <svg class="" width="30" height="30">
-//                     <use href="${images.headerImages.iconLikes}"></use>
-//                   </svg>
-//                   <div class="likes-amount amount">0</div>
-//                   <span class="with-icons">Избранное</span>
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>`;
   const modalMarkup = `<div class="header-modal">
-          <div class="container">
             <div class="input">
               <span class="search-icon"></span>
               <input class="search-modal"
@@ -123,22 +60,28 @@ function createModalMarkup(){
                 </a>
               </li>
             </ul>
-          </div>
         </div>`;
   return modalMarkup;
 }
 
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
+  // refs.modalHeader.classList.add('change-modal');
   function addListeners(closeBackdrop) {
-    document.querySelector('.header-modal-close-btn').addEventListener('click', closeBackdrop);
+    document.querySelector('.header-modal-close-btn').addEventListener('click', () => {
+      closeBackdrop;
+      // refs.modalHeader.classList.remove('change-modal');
+    }
+  );
   }
   modalModule(createModalMarkup, addListeners);
   renderInformation();
+  createCatalogList();
   // const catalogIgor = document.querySelector('[data-catalog="catalog"]');
   // catalogIgor.append(createCatalogList.createCatalogList());
   // createCatalogList.createCatalogList();
 }
+
 
 if (widthObject.isDesktop) {
   refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
@@ -194,6 +137,24 @@ if (widthObject.isDesktop) {
           </a>
         </li>
       </ul>`;
+
   renderInformation();
+
+  const catalogBtn = document.querySelector('.js-catalog');
+  function createCatalogMarkup() {
+    const catalogMarkup = `<ul class="catalog isHidden" data-catalog="catalog">`;
+    return catalogMarkup;
+  }
+  catalogBtn.addEventListener('click', openCatalog);
+  function openCatalog() {
+    function addListeners(closeBackdrop) {
+      // document.querySelector('.header-modal-close-btn').addEventListener('click', closeBackdrop);
+    }
+    modalModule(createCatalogMarkup, addListeners);
+    // renderInformation();
+    createCatalogList();
+  }
+
+  // createCatalogList();
   // createCatalogList();
 }
