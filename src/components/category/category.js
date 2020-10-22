@@ -5,85 +5,64 @@ import embedded from './template/embedded.hbs';
 import household from './template/household.hbs';
 import home from './template/dom.hbs';
 import getCategories from '../services/index.js';
+
+
+// import categories from './data.js'
+
 //сделать localStoredje
-const group = document.querySelector('.group');
-const p = document.createElement('p');
-const a = document.createElement('a');
+// const group = document.querySelector('.group');
 
-const url = 'https://goit-store.herokuapp.com/products/getCategories';
-const cartClear = refs.category
+const cartClear = refs.category;
+const catygoryDom = document.querySelector('.catygory-dom');
 
-cartClear.addEventListener('click', (e, i)=>{
+cartClear.addEventListener('click', (e) => {
   e.preventDefault()
-const res = cartClear.childNodes[1].firstElementChild.children[1].textContent
-  if(e.target.name === 'household'){//Крупная бытовая техника
+  // const res = cartClear.childNodes[1].firstElementChild.children[1].textContent
+  if (e.target.name === 'household' || e.target.id === 'household') {//Крупная бытовая техника
     cartClear.innerHTML = ''
     renderHouse()
-
-    p.textContent = ' > ';
-    a.textContent = res;
-    a.href = '#';
-    p.classList.add('carp')
-    a.classList.add('carp')
-    group.append(p,a);
-    group.style.dis
   }
-  if(e.target.name === 'embedded'){//Встраиваемая техника
+  if (e.target.name === 'embedded' || e.target.id === 'embedded') {//Встраиваемая техника
     cartClear.innerHTML = ''
     renderEmbedded()
-
-    p.textContent = ' > ';
-    a.textContent = 'Встраиваемая техника';
-    a.href = '#';
-    p.classList.add('carp')
-    a.classList.add('carp')
-    group.append(p,a);
   }
-  if(e.target.name === 'home'){//Уход за домом и одеждой
+  if (e.target.name === 'home' || e.target.id === 'home') {//Уход за домом и одеждой
     cartClear.innerHTML = ''
     renderHome()
-
-    p.textContent = ' > ';
-    a.textContent = 'Уход за домом и одеждой';
-    a.href = '#';
-    p.classList.add('carp')
-    a.classList.add('carp')
-    group.append(p,a);
+    for (let i = 0; i < 6; i++) {
+      catygoryDom.setAttribute('data-id', i);
+    }
   }
-  if(e.target.name === 'kitchen'){//Техника для кухни
+  if (e.target.name === 'kitchen' || e.target.id === 'kitchen') {//Техника для кухни
     cartClear.innerHTML = ''
     renderKitchen()
-
-    p.textContent = ' > ';
-    a.textContent = 'Техника для кухни';
-    a.href = '#';
-    p.classList.add('carp')
-    a.classList.add('carp')
-    group.append(p,a);
   }
 })
-function renderHouse(){
+function renderHouse() {
   getCategories.getCategories()
-  .then(data => house(data.categories))
+    .then(data => house(data))
 }
-function renderEmbedded(){
+function renderEmbedded() {
   getCategories.getCategories()
-  .then(data => embed(data.categories))
+    .then(data => embed(data))
 }
-function renderHome(){
+function renderHome() {
   getCategories.getCategories()
-  .then(data => hom(data.categories))
+    .then(data => hom(data))
 }
-function renderKitchen(){
+function renderKitchen() {
   getCategories.getCategories()
-  .then(data => kitche(data.categories))
+    .then(data => kitche(data))
 }
+
+
+
 function house(data) {
   const item = household(data.slice(0, 6));
   refs.category.insertAdjacentHTML('beforeend', item);
 }
 function embed(data) {
-  const item =  embedded(data.slice(6, 11));
+  const item = embedded(data.slice(6, 11));
   refs.category.insertAdjacentHTML('beforeend', item);
 }
 function hom(data) {
