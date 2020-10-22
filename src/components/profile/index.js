@@ -1,5 +1,6 @@
 import refs from '../../refs/index.js';
 import mainContainerTemplate from '../../templates/profile-main-template.hbs';
+import profileMainAdminTemplate from '../../templates/profile-main-admin-template.hbs';
 import profileContactsTemplate from '../../templates/profile-contacts-template.hbs';
 import profileChangepasswordTemplate from '../../templates/profile-changepassword-template.hbs';
 import profileAddressTemplate from '../../templates/profile-address-template.hbs';
@@ -54,7 +55,14 @@ const notificationMessage = (elem, message) => {
 
 const renderProfile = source => {
   // Отрисовываю меню:
+  // Если пользователь админ:
+  //if (storage.getItem('email') === '') {
+  //refs.mainContainer.insertAdjacentHTML('beforeend', profileMainAdminTemplate());
+  //}
+  //else {
+  //Если пользователь не админ:
   refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
+  //}
 
   // Нахожу кнопку "Выход":
   const exitLink = document.querySelector('.profile-exit__link');
