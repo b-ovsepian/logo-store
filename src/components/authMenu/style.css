@@ -21,7 +21,7 @@
   list-style: none;
 }
 
-a {
+/* a {
   text-decoration: none;
 }
 
@@ -29,7 +29,7 @@ a:hover {
   background: #f1effb;
   width: 204px;
   height: 22px;
-}
+} */
 
 .auth-menu-list-item {
   display: grid;
