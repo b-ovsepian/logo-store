@@ -13,4 +13,9 @@ export default {
 
   category: document.querySelector('.category'),
   // cardList: document.querySelector(".card-list")
+  formAdmin: document.querySelector('.adminFormProduct'),
+  createCardImg: document.querySelector('.photo-product'),
+  createCardContainer: document.querySelector('.create-card'),
+  newProductP: document.querySelector('.admin-input-product'),
+  inputLabel: document.querySelector('.js-label'),
 };

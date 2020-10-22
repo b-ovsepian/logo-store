@@ -15,6 +15,7 @@ import './breadcrumbs/index.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
+import newADV from './newADV/index.js';
 import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
