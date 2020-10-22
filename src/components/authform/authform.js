@@ -2,6 +2,7 @@ import { ValidateEmail, ValidatePassword } from './validation';
 import { modalModule } from '../modalmodule/modal';
 import '../authform/form.css';
 import store from '../store';
+import Axios from 'axios';
 import searchObj from '../services/index';
 
 function markUpRendering() {
