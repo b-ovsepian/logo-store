@@ -7,11 +7,12 @@ const exclusiveArreyItems = [];
 function getSessionStorage() {
   return JSON.parse(localStorage.getItem('lastSeen'))
 };
-function setSessionStorage(arrey) {
-    return localStorage.setItem('lastSeen', JSON.stringify(arrey))
-};
+// function setSessionStorage(arrey) {
+//     return localStorage.setItem('lastSeen', JSON.stringify(arrey))
+// };
 getSessionStorage('lastSeen');
 const arrItemsSessionStorage = getSessionStorage('lastSeen');
+
 function exclusiveArr(arr, ...elem) {
 const longitude = arr.length //длина масива
 
@@ -28,17 +29,24 @@ const longitude = arr.length //длина масива
     return arr //нет элемента и длина больше 10
   };
 };
+
 exclusiveArr(exclusiveArreyItems, arrItemsSessionStorage);//принимает масив и елемент на котором кликнули
+
 function setLocalStorage(arrey) {
   return localStorage.setItem('lastSeen', JSON.stringify(arrey))
 };
+
 function getLocalStorage() {
   return JSON.parse(localStorage.getItem('lastSeen'))
 };
+
 setLocalStorage(exclusiveArreyItems);
+
 getLocalStorage('lastSeen');
 const lastSeenArr = getLocalStorage('lastSeen');
+
 getSlider(lastSeenArr, lastSeenSection, 2, false, true);
+
 const sliderTrack = nprefs.npdiv.querySelector('.slider-track');
   function trackWidth() {
     let trackWidth;
