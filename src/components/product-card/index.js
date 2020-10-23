@@ -11,7 +11,7 @@ let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart = document.querySelector('.product-card')
 
-// createModalImg(images); 
+// createModalImg(images);
 
 // console.log(images);
 
