@@ -13,7 +13,7 @@ import './search/search.js';
 import slider from './slider';
 import hero from './hero';
 import './category/category.js';
-import './breadcrumbs/index.js';
+// import './breadcrumbs/index.js';
 import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
