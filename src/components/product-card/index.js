@@ -6,12 +6,13 @@ import obj from '../product-card/obj.json'
 
 
 // renderImages(obj)
+let main = document.querySelector('.page-main')
 let slider = document.querySelector('.product-card-slider')
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
-let productCart = document.querySelector('.product-card')
+let productCart; //= document.querySelector('.product-card')
 
-// createModalImg(images); 
+// createModalImg(images);
 
 // console.log(images);
 
@@ -20,8 +21,10 @@ export default {
 
     renderImages(data) {
         const items = template(data)
-        productCart.insertAdjacentHTML('beforeend', items)
+        main.innerHTML = ''
+        main.insertAdjacentHTML('beforeend', items)
 
+        productCart = document.querySelector('.product-card')
         bigPhoto = document.querySelector('.product-card-slider-big-photo')
         sliderList = document.querySelector('.product-card-slider-list')
 
@@ -34,7 +37,7 @@ export default {
         bigImage.setAttribute('class', 'product-cart-main-img')
         bigPhoto.append(bigImage)
 
-        bigImage.src = img.images
+        bigImage.src = img[0].images[0]
         console.log(bigImage);
 
         sliderList.addEventListener('click', (e) => {

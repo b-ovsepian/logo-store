@@ -3,6 +3,7 @@ import nprefs from './nprefs';
 import searchObj from '../services';
 import css from './styles.css';
 import getSlider from '../slider/index';
+import renderFn from '../product-card/index';
 
 
 searchObj.searchProducts("",'new','100').then(data=>{
@@ -29,6 +30,11 @@ const sliderItem=sliderTrack.querySelectorAll('.card-item');
 sliderItem.forEach(el=>{
   console.log(el);
   el.classList.add('new-item');
+  el.addEventListener('click',()=>{
+    renderFn.renderImages(el);
+  })
+
 });
+
 
 });
