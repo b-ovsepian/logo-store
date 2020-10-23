@@ -2,20 +2,14 @@ import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
 import helpers from './../helpers/index.js'
 import services from './../services/index.js'
-<<<<<<< HEAD
+// createSale('sale')
 
 // createSale()
-export function createSale(title) {
-=======
-// createSale('sale')
- 
-// createSale()
 export function createSale(nameCategory, nameProduct,  bool) {
->>>>>>> default
   const constructor = document.querySelector('.page-main .container');
 let copyData = []
 let defData = []
-  
+
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
   <section class="section">
@@ -41,8 +35,8 @@ const list = document.querySelector('.sale-sort-list');
 // document.querySelector('.sale-page')
 // document.querySelector('.sale-button').append(pages)
 // document.querySelector('.sale-text-page').append(buttons)
-// let data = {} 
-// let buttons = {} 
+// let data = {}
+// let buttons = {}
 // let pages = {}
 // [data, buttons, pages] = funkMark(nameCategory, nameProduct)
 //  copyData = data

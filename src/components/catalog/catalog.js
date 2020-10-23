@@ -6,7 +6,10 @@ const categories = store.categories;
 
 import {createSale} from "../createCards/index.js"
 import templateList from './template.hbs';
-import refs from './refs.js';
+// import catRefs from './refs.js';
+import { refs } from '../modalmodule/modalrefs.js'
+// import close from '../modalmodule/modal.js'
+// console.log(close);
 
 // refs.catalog.insertAdjacentHTML(
 //    'beforeend',
@@ -89,7 +92,6 @@ function showCatalog() {
 
   catalogBtn.addEventListener('click', () => {
     update(catalog, catBtnIcon);
-    // catalog.classList.toggle('isHidden');
 
     const titleKbt = document.getElementById('kbtTitle');
     const titleIt = document.getElementById('itTitle');
@@ -123,13 +125,19 @@ function showCatalog() {
     });
   });
 
-  catalog.addEventListener('click', e => {
+  catalog.addEventListener('click', (e) => {
     console.dir(e.target);
     console.log(e.target.id);
     if (e.target.classList.contains('catalog-list-item')) {
       createSale('sale');
+      setTimeout(() => {
+        refs.lightbox.classList.remove('is-open');
+        refs.body.style.overflow = 'visible';
+        refs.backdrop.style.overflow = 'visible';
+      }, 500)
     }
   });
+
 
   function createCatalogList(template, data) {
     const item = template(data);

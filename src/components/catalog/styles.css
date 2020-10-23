@@ -8,6 +8,11 @@ ul {
 a {
   text-decoration: none;
 }
+
+.isHidden {
+  display: none;
+}
+
 .catalog-title {
   display: flex;
   flex-flow: row;
@@ -67,9 +72,9 @@ a {
     display: flex;
     flex-flow: column;
   }
-  .isHidden {
+  /* .isHidden {
     display: none;
-  }
+  } */
   .catalog-img {
     display: none;
   }

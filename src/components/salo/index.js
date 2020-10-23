@@ -32,49 +32,6 @@ function createSale() {
 <section class="sale-section">`,
   );
 
-<<<<<<< HEAD
-const list = document.querySelector('.sale-sort-list');
- setTimeout(() => {
-  let elem, page
-  if (helpers.isMobile) {
-    elem = 6
-  } else if (helpers.isTablet) {
-    elem = 9
-  } else if (helpers.isDesktop) {
-    elem = 10
-  }
-  services.searchProducts("", 'sale', elem, page).then(({data}) => {
-
-    copyData = data
-    defData = data
-
-//   const sort = document.querySelector('#sale-sorts');
-    return cardItem(data, list, true);
-  })
- }, 1000);
-let selector = document.querySelector('select')
-selector.addEventListener('input', (e) => {
-  console.log(selector.value);
-  if (selector.value === 'default') {
-    list.innerHTML = ''
-    cardItem(defData, list, true)
-  }
-  if (selector.value === 'ascPrice') {
-    ascPrice()
-  }
-  if (selector.value === 'desPrice') {
-    desPrice()
-  }
-  if (selector.value === 'Alph') {
-    copyData.sort(function (a, b) {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-=======
   const list = document.querySelector('.sale-sort-list');
   setTimeout(() => {
     let elem, page;
@@ -90,7 +47,6 @@ selector.addEventListener('input', (e) => {
       defData = data;
 
       return cardItem(data, list, true);
->>>>>>> default
     });
   }, 1000);
   let selector = document.querySelector('select');
@@ -149,9 +105,3 @@ selector.addEventListener('input', (e) => {
     cardItem(copyData, list, true);
   }
 }
-<<<<<<< HEAD
-
-};
-
-=======
->>>>>>> default
