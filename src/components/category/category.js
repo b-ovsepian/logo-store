@@ -4,79 +4,80 @@ import kitchen from './template/kitchen.hbs';
 import embedded from './template/embedded.hbs';
 import household from './template/household.hbs';
 import home from './template/home.hbs';
-import images from './image.js';
+// import images from './image';
 import getCategories from '../services/index.js';
 import { createSale } from '../createCards/index.js'; // дома проверить
-
-
+import store from '../../components/store';
+const categories = store.categories;
 const cartClear = refs.category;
-const catygoryDom = document.querySelector('.catygory-dom');
-
+console.log(categories);
 cartClear.addEventListener('click', (e) => {
   e.preventDefault()
 
   if (e.target.name === 'household' || e.target.id === 'household') {//Крупная бытовая техника
     cartClear.innerHTML = ''
-    renderHouse()
+    // renderHouse()
+    house()
   }
   if (e.target.name === 'embedded' || e.target.id === 'embedded') {//Встраиваемая техника
     cartClear.innerHTML = ''
-    renderEmbedded()
+    embed()
   }
   if (e.target.name === 'home' || e.target.id === 'home') {//Уход за домом и одеждой
     cartClear.innerHTML = ''
-    renderHome()
+    hom()
 
   }
   if (e.target.name === 'kitchen' || e.target.id === 'kitchen') {//Техника для кухни
     cartClear.innerHTML = ''
-    renderKitchen()
+    kitche()
   }
 })
 
-function renderHouse() {
-  getCategories.getCategories()
-    .then(data => house(data))
-}
-function renderEmbedded() {
-  getCategories.getCategories()
-    .then(data => embed(data))
-}
-function renderHome() {
-  getCategories.getCategories()
-    .then(data => hom(data))
-}
-function renderKitchen() {
-  getCategories.getCategories()
-    .then(data => kitche(data))
-}
+// function renderHouse() {//Крупная бытовая техника
+//   getCategories.getCategories()
+//     .then(data => house(data))
+// }
+// function renderEmbedded() {//Встраиваемая техника
+//   getCategories.getCategories()
+//     .then(data => embed(data))
+// }
+// function renderHome() {//Уход за домом и одеждой
+//   getCategories.getCategories()
+//     .then(data => hom(data))
+// }
+// function renderKitchen() {//Техника для кухни
+//   getCategories.getCategories()
+//     .then(data => kitche(data))
+// }
+//=======================================================================================
 
-function house(data) {
-  const item = household(data.slice(0, 6));
+function house() {//Крупная бытовая техника //kbt
+  const item = household(categories[0].items);
   refs.category.insertAdjacentHTML('beforeend', item);
 
   document.getElementById('cart-list').addEventListener('click', (e) => {
     createSale(e.target.textContent)
   })
 }
-function embed(data) {
-  const item = embedded(data.slice(6, 11), images);
+function embed() {//Встраиваемая техника //it
+  const item = embedded(categories[1].items);
   refs.category.insertAdjacentHTML('beforeend', item);
 
   document.getElementById('cart-list').addEventListener('click', (e) => {
     createSale(e.target.textContent)
   })
 }
-function hom(data) {
-  const item = home(data.slice(11, 17), images);
+function hom() {//Уход за домом и одеждой //home
+  const item = home(categories[2].items);
   refs.category.insertAdjacentHTML('beforeend', item);
 
   document.getElementById('cart-list').addEventListener('click', (e) => {
     createSale(e.target.textContent)
   })
 }
-function kitche(data) {
-  const item = kitchen(data.slice(18), images);
+function kitche() {//Техника для кухни //kitchen
+  const item = kitchen(categories[3].items);
   refs.category.insertAdjacentHTML('beforeend', item);
 
   document.getElementById('cart-list').addEventListener('click', (e) => {
