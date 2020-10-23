@@ -51,10 +51,10 @@ titleKitchen.addEventListener('click', () => {
 });
 
 refs.catalog.addEventListener('click', (e) => {
-  console.dir(e.target);
-  console.log(e.target.id);
+  // console.dir(e.target);
+  // console.log(e.target.id);
   if (e.target.classList.contains('catalog-list-item')) {
-    createSale('sale');
+    createSale(e.target.id);
   }
 })
 
