@@ -196,9 +196,11 @@ const renderProfile = source => {
     addressForm.elements.place.value = result.address.place;
     addressForm.elements.city.value = result.address.city;
     //addressForm.elements.street.value = `${result.address.street}, ${result.address.building}, ${result.address.flat}`;
-    addressForm.elements.street.value = `[
-      ${result.address.street}, ${result.address.building}, ${result.address.flat},
-    ]`
+    addressForm.elements.street.value = [
+      result.address.street,
+      result.address.building,
+      result.address.flat,
+    ]
       .filter(elem => !!elem)
       .join(',');
     // Вешаю слушателя на форму деталей меню "Мой адрес":
