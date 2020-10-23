@@ -1,60 +1,85 @@
-import css from './styles.css';
-import store from '../../components/store';
-const categories = store.categories;
-// console.log(categories);
-import {createSale} from "../createCards/index.js"
-import templateList from './template.hbs';
-import refs from './refs.js';
+import css from './category.css';
+import refs from '../../refs/index.js';
+import kitchen from './template/kitchen.hbs';
+import embedded from './template/embedded.hbs';
+import household from './template/household.hbs';
+import home from './template/home.hbs';
+import images from './image.js';
+import getCategories from '../services/index.js';
+import { createSale } from '../createCards/index.js'; // дома проверить
 
-refs.catalog.insertAdjacentHTML(
-   'beforeend',
-   createCatalogList(templateList, categories),
-);
-document.querySelector('[data-catalog="catalog"]').classList.add('isHidden');
-refs.catalogBtn.addEventListener('click', () => {
-  update(refs.catalog, refs.catBtnIcon);
-  const titleKbt = document.getElementById('kbtTitle');
-  const titleIt = document.getElementById('itTitle');
-  const titleHome = document.getElementById('homeTitle');
-  const titleKitchen = document.getElementById('inTitle');
-  const listKbt = document.getElementById('kbtList');
-  const listIt = document.getElementById('itList');
-  const listHome = document.getElementById('homeList');
-  const listKitchen = document.getElementById('inList');
-  const span1 = document.querySelector('#titleIcon1');
-  const span2 = document.querySelector('#titleIcon2');
-  const span3 = document.querySelector('#titleIcon3');
-  const span4 = document.querySelector('#titleIcon4');
-titleKbt.addEventListener('click', () => {
-  update(listKbt, span1);
-});
-titleIt.addEventListener('click', () => {
-  update(listIt, span2);
-});
-titleHome.addEventListener('click', () => {
-  update(listHome, span3);
-});
-titleKitchen.addEventListener('click', () => {
-  update(listKitchen, span4);
-});
-});
-refs.catalog.addEventListener('click', (e) => {
-  console.dir(e.target);
-  console.log(e.target.id);
-  if (e.target.classList.contains('catalog-list-item')) {
-    createSale('sale');
+
+const cartClear = refs.category;
+const catygoryDom = document.querySelector('.catygory-dom');
+
+cartClear.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  if (e.target.name === 'household' || e.target.id === 'household') {//Крупная бытовая техника
+    cartClear.innerHTML = ''
+    renderHouse()
+  }
+  if (e.target.name === 'embedded' || e.target.id === 'embedded') {//Встраиваемая техника
+    cartClear.innerHTML = ''
+    renderEmbedded()
+  }
+  if (e.target.name === 'home' || e.target.id === 'home') {//Уход за домом и одеждой
+    cartClear.innerHTML = ''
+    renderHome()
+
+  }
+  if (e.target.name === 'kitchen' || e.target.id === 'kitchen') {//Техника для кухни
+    cartClear.innerHTML = ''
+    renderKitchen()
   }
 })
-function createCatalogList(template, data) {
-  const item = template(data);
-  return item
+
+function renderHouse() {
+  getCategories.getCategories()
+    .then(data => house(data))
 }
-function update(list, el) {
-  if (el.textContent === '▼') {
-    el.textContent = '►';
-  } else {
-    el.textContent = '▼';
-  }
-  list.classList.toggle('isHidden');
+function renderEmbedded() {
+  getCategories.getCategories()
+    .then(data => embed(data))
 }
-export default createCatalogList()
+function renderHome() {
+  getCategories.getCategories()
+    .then(data => hom(data))
+}
+function renderKitchen() {
+  getCategories.getCategories()
+    .then(data => kitche(data))
+}
+
+function house(data) {
+  const item = household(data.slice(0, 6));
+  refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
+}
+function embed(data) {
+  const item = embedded(data.slice(6, 11), images);
+  refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
+}
+function hom(data) {
+  const item = home(data.slice(11, 17), images);
+  refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
+}
+function kitche(data) {
+  const item = kitchen(data.slice(18), images);
+  refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
+}
