@@ -1,9 +1,9 @@
 import style from '../newADV/style.css';
 import refs from '../../refs/index.js';
 import { data } from 'autoprefixer';
-import template from './template.hbs';
 import profileAdminAdTemplate from '../../templates/profile-admin-ad-template.hbs';
 import getObj from '../services/index.js';
+import { modalModule } from '../modalmodule/modal';
 import services from '../services/index.js';
 
 export default profileSectionsDetails => {
@@ -21,7 +21,6 @@ export default profileSectionsDetails => {
     category: '',
     price: '',
   };
-  // telProduct: '',
 
   function toDataUrl(element) {
     return new Promise(resolve => {
@@ -63,7 +62,26 @@ export default profileSectionsDetails => {
   fileForm.addEventListener('submit', e => {
     e.preventDefault();
     services.createNewProduct(productMass);
+    fileForm.reset()
+    successAdCreation();
   });
+
+
+  function successAdCreation() {
+  function messageRenderingReg() {
+    return `<div class="modal-form">
+    <p class="modal-form-title">Товар добавлен</p>
+     <div class="icon-wrapper auth-icon-wrapper icon-error">
+              <div class="close-icon icon-auth">&#10006;</div>
+            </div>
+    </div>`;
+  }
+  function createListeners(closebackdrop) {
+    const myButton = document.querySelector('.close-icon');
+    myButton.addEventListener('click', closebackdrop);
+  }
+  modalModule(messageRenderingReg, createListeners);
+}
 
   // создаю импут для выбора категорий
   const productsArr = [
@@ -118,6 +136,4 @@ export default profileSectionsDetails => {
   };
 
   createSelect(productsArr, productSelect);
-
-  // getObj.createNewProduct(productMass)
 };
