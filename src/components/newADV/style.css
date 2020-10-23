@@ -1,0 +1,161 @@
+.adminFormProduct input {
+  color: var(--third-text-color);
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding-left: 20px;
+}
+.adminFormProduct input:not(:last-child) {
+  margin-bottom: 10px;
+}
+.admin-input-product {
+  width: 280px;
+}
+
+.adminFormProduct select {
+  color: var(--third-text-color);
+  width: 280px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding-left: 15px;
+}
+
+.admin-form-product-label {
+  display: block;
+  padding-bottom: 20px;
+  color: var(--title-text-color);
+  display: flex;
+  flex-flow: row;
+}
+
+.admin-product-label {
+  padding-left: 19px;
+  font-size: 58px;
+
+  color: var(--third-text-color);
+}
+
+.admin-product-label:hover {
+  color: var(--btn-accent-color);
+  background: none;
+}
+
+.create-card {
+  display: flex;
+  justify-content: center;
+}
+
+#category-product {
+  margin-bottom: 10px;
+}
+
+#photo-product {
+  width: 75px;
+  height: 74px;
+}
+
+.imageUpload {
+  display: block;
+  text-align: center;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+  width: 75px;
+  height: 74px;
+}
+
+.imageUpload:hover {
+  border: 1px solid var(--btn-accent-color);
+  color: var(--btn-accent-color);
+  background: none;
+  background-color: var(--btn-text-color);
+}
+.imageUpload > input {
+  display: none;
+}
+
+.imageUpload img {
+  width: 80px;
+  cursor: pointer;
+}
+.createIMG {
+  width: 72px;
+  height: 74px;
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+}
+
+.plusImage {
+  max-width: 75px;
+  height: 75px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.innerImages {
+  display: flex;
+
+  border-radius: 10px;
+}
+.admin-textarea-product {
+  display: block;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding-left: 20px;
+  width: 280px;
+  height: 80px;
+  margin-bottom: 20px;
+  padding-top: 12px;
+}
+
+#create-btn {
+  width: 215px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding-left: 60px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .admin-input-product:nth-child(2) {
+    width: 395px;
+  }
+
+  .admin-textarea-product {
+    width: 395px;
+  }
+  .admin-input-product:nth-child(odd) {
+    width: 302px;
+  }
+  #category-product {
+    width: 395px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .admin-input-product:nth-child(2) {
+    width: 433px;
+  }
+
+  .admin-textarea-product {
+    width: 433px;
+  }
+}

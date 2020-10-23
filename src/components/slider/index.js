@@ -34,7 +34,7 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
   };
 
   section.insertAdjacentHTML(
-    'afterbegin',
+    'beforeend',
     `
     <div class="wripper">
     <div class="slider-container">
@@ -55,7 +55,7 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
   const slidesToShow = slideShow; // сколько слайдеров будет в поле зрения
   const slidesToScroll = slideShow; // сколько слайдов нужно листать
 
-  // const dotsNumber = arr.length/slidesToShow;
+  const dotsNumber = arr.length / slidesToShow;
 
   // ф-я отрисовки слайдов!
 
@@ -132,8 +132,6 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     checkBtn();
     currentSlide += 1;
     dots[(position / itemWidth) * -1].classList.add(`is-active`);
-
-    console.log(position);
   });
 
   // слушатель кнопки влево!
@@ -148,8 +146,6 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     checkBtn();
     currentSlide -= 1;
     dots[(position / itemWidth) * -1].classList.add(`is-active`);
-
-    console.log(position);
   });
 
   // интервал прокрутки слайдов

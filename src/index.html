@@ -16,6 +16,7 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <header class="page-header">
       <nav class="container">
@@ -141,18 +142,19 @@
       </div> -->
     </header>
     <main class="page-main">
-      <div class="container">
-        <div class="group">
-          <a href="./index.html" name="home" class="carp">Главная</a>
-        </div>
+      <div class="container main-container">
+        <!-- <nav id="breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+          </ol>
+        </nav> -->
         <div class="category">
           <ul class="category-list list">
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 3.jpg"
+                src="./components/category/images/desktop/Rectangle-3.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Крупная бытовая техника</h2>
               <button name="household" class="category-link button primary">
@@ -161,10 +163,9 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 4.jpg"
+                src="./components/category/images/desktop/Rectangle-4.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Встраиваемая техника</h2>
               <button name="embedded" class="category-link button primary">
@@ -173,10 +174,9 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 5.jpg"
+                src="./components/category/images/desktop/Rectangle-5.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Уход за домом и одеждой</h2>
               <button name="home" class="category-link button primary">
@@ -185,62 +185,27 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 6.jpg"
+                src="./components/category/images/desktop/Rectangle-6.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
-              <h2 class="category-title">Техника для кухни</h2>
+              <h2 class="category-title">
+                Техника для кухни &#160; &#160;&#160;&#160;
+              </h2>
               <button name="kitchen" class="category-link button primary">
                 Купить
               </button>
             </li>
           </ul>
         </div>
-        <div class="pagination-wrapper">
-          <ul class="pagination-list"></ul>
-          <p class="show-quantity"></p>
+
+        <div class="new-products">
+          <h2 class="np-title">Новые поступления</h2>
         </div>
-        <!-- <ul id="pagination-list">
-  <button type="button" class="button" data-index="1">1</button>
-  <button type="button" class="button" data-index="2">2</button>
-  <button type="button" class="button" data-index="3">3</button>
-  <button type="button" class="button hide" data-index="4">4</button>
-  <button type="button" class="button btn" data-next="next">
-    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg>
-  </button>
-  <button type="button" class="button btn" data-end="end"><svg width="10" height="16" viewBox="0 0 10 16" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 0.999999L9 8L0.999998 15" stroke="#53535C" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg></button>
-
-  <p class="show-quantity">Показано с 1 по 20 из 68</p>
-</ul> -->
-
-        <!-- <div class="box-modal">
-  <ul class="auth-menu-list">
-    <li>
-      <h1 class="auth-menu-title">Username</h1>
-    </li>
-
-    <li class="auth-menu-list-item">
-      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-personal-room">Личный кабинет</a>
-      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-favorites">Избранное</a>
-      <a href="http://" target="_blank" class="auth-menu-nav" id="auth-menu-create-adv">Создать объявление</a>
-    </li>
-  </ul>
-
-  <div class="auth-menu-btn-wrapper">
-    <button class="auth-menu-nav auth-menu-exit" id="auth-menu-exit">Выход</button>
-  </div>
-</div> -->
+      </div>
+      <div class="pagination-wrapper">
+        <ul class="pagination-list"></ul>
+        <p class="show-quantity"></p>
       </div>
     </main>
     <footer class="page-footer">
@@ -269,6 +234,7 @@
     <button class="authbtn">Form</button>
 
     <div class="formsection"></div>
+
 
     <div class="lightbox">
       <div class="backdrop">

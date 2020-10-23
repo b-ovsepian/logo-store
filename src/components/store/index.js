@@ -1,6 +1,5 @@
 import images from '../image';
 
-
 export default {
   user: {
     favorites: [],
