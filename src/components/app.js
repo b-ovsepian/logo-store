@@ -24,7 +24,6 @@ import { modalModule } from './modalmodule/modal';
 
 loader.renderLoader();
 setTokenToStore();
-services.getCurrentUser();
 setCartToStore();
 
 function setTokenToStore() {
@@ -33,8 +32,10 @@ function setTokenToStore() {
 
   if (localToken) {
     store.auth.accces_token = localToken;
+    services.getCurrentUser();
   } else if (localToken2) {
     store.auth.accces_token = localToken2.token;
+    services.getCurrentUser();
   } else {
     console.log('Нет токина, нужно залогиниться');
     store.auth.accces_token = '';
@@ -47,8 +48,12 @@ function setCartToStore() {
 }
 
 // Тянем категории
-services.getCategories().then(() => {
-  // renderInformation();
-  renderTelephoneTrigger();
-  loader.closeLoader();
-});
+services
+  .getCategories()
+  .then(() => {
+    // renderInformation();
+    renderTelephoneTrigger();
+  })
+  .finally(() => {
+    loader.closeLoader();
+  });
