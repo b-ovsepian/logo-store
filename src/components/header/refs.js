@@ -1,4 +1,7 @@
 export default {
+  headerWrap: document.querySelector('.header'),
+  mobileNav: document.querySelector('#mobileNav'),
+  burgerBtn: document.querySelector('#burgerBtn'),
   logo: document.querySelector('.js-logo'),
   phoneTrigger: document.querySelector('.js-phone'),
   searchHeader: document.querySelector('.js-search'),
@@ -6,7 +9,7 @@ export default {
   cart: document.querySelector('.js-cart'),
   modalBtn: document.querySelector('.js-burger'),
   openModal: document.querySelector('.icon-burger'),
-  closeModal: document.querySelector('.icon-close'),
+  closeModal: document.querySelector('.header-modal-close-btn'),
   catalog: document.querySelector('.catalog'),
   catalogBtn: document.querySelector('.js-catalog'),
   catBtnIcon: document.getElementById('catBtnIcon'),
@@ -14,4 +17,6 @@ export default {
   information: document.querySelector('.js-info'),
   account: document.querySelector('.js-profile'),
   likes: document.querySelector('.js-likes'),
+  modalHeader: document.querySelector('.modal'),
+  modalBackdrop: document.querySelector('.backdrop'),
 };

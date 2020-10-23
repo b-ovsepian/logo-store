@@ -2,17 +2,25 @@ import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
 import helpers from './../helpers/index.js'
 import services from './../services/index.js'
+<<<<<<< HEAD
 
 // createSale()
 export function createSale(title) {
+=======
+// createSale('sale')
+ 
+// createSale()
+export function createSale(nameCategory, nameProduct,  bool) {
+>>>>>>> default
   const constructor = document.querySelector('.page-main .container');
 let copyData = []
 let defData = []
+  
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
-  <section class="sale-section">
+  <section class="section">
   <div class="sale-div">
-  <h1 class="sale-title">${title}</h1>
+  <h1 class="sale-title">${nameCategory}</h1>
   <label id="sale-label" for="sale-sort">Сортировка:</label>
   <select id="products">
     <option value="default" selected>По умолчанию</option>
@@ -24,12 +32,22 @@ let defData = []
 <ul class="sale-sort-list list"></ul>
 <div class="sale-page">
   {{!-- тут будет Марка  объект --}}
+  <div class="sale-button"></div>
   <p class="sale-text-page"></p>
 </div>
 <section class="sale-section">`);
 
 const list = document.querySelector('.sale-sort-list');
- setTimeout(() => {
+// document.querySelector('.sale-page')
+// document.querySelector('.sale-button').append(pages)
+// document.querySelector('.sale-text-page').append(buttons)
+// let data = {} 
+// let buttons = {} 
+// let pages = {}
+// [data, buttons, pages] = funkMark(nameCategory, nameProduct)
+//  copyData = data
+//  defData = data
+// cardItem(data, list, bool)
   let elem, page
   if (helpers.isMobile) {
     elem = 6
@@ -38,22 +56,21 @@ const list = document.querySelector('.sale-sort-list');
   } else if (helpers.isDesktop) {
     elem = 10
   }
-  services.searchProducts("", title, elem, page).then(({data}) => {
+  services.searchProducts(nameProduct, nameCategory, elem, page).then(({data}) => {
     console.log(data);
-    // console.log(data);
+
     copyData = data
     defData = data
-    // console.log(copyData[0].price);
-    // console.log('вызов олега функции = ' cardItem(data, list, true))
-    return cardItem(data, list, true);
+
+    return cardItem(data, list, bool);
   })
-}, 1000);
+ // ==============================================================================
 let selector = document.querySelector('select')
 selector.addEventListener('input', (e) => {
   console.log(selector.value);
   if (selector.value === 'default') {
     list.innerHTML = ''
-    cardItem(defData, list, true)
+    cardItem(defData, list, boole)
   }
   if (selector.value === 'ascPrice') {
     ascPrice()
@@ -72,7 +89,7 @@ selector.addEventListener('input', (e) => {
       return 0;
     });
     list.innerHTML = ''
-    cardItem(copyData, list, true)
+    cardItem(copyData, list, bool)
   }
 })
 function ascPrice() {
@@ -99,7 +116,7 @@ function desPrice() {
     }
   }
   list.innerHTML = ''
-  cardItem(copyData, list, true)
+  cardItem(copyData, list, bool)
 }
 
 };
