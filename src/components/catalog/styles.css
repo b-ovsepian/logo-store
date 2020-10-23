@@ -34,6 +34,9 @@ a {
 
 .catalog {
   padding: 0 20px;
+  padding-top: 20px;
+  background-color: var(--second-bg-color);
+  border-radius: 10px;
 }
 
 .catalog-title span {
