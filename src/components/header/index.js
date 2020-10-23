@@ -5,8 +5,9 @@ import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
 import renderInformation from '../information';
 import createCatalogList from '../catalog/catalog.js';
+import searchButtonHandler from '../search/search.js';
 
-function createModalMarkup(){
+function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
             <div class="input">
               <span class="search-icon"></span>
@@ -64,15 +65,18 @@ function createModalMarkup(){
   return modalMarkup;
 }
 
+refs.searchHeader.addEventListener('click', searchButtonHandler);
+
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
   // refs.modalHeader.classList.add('change-modal');
   function addListeners(closeBackdrop) {
-    document.querySelector('.header-modal-close-btn').addEventListener('click', () => {
-      closeBackdrop;
-      // refs.modalHeader.classList.remove('change-modal');
-    }
-  );
+    document
+      .querySelector('.header-modal-close-btn')
+      .addEventListener('click', () => {
+        closeBackdrop;
+        // refs.modalHeader.classList.remove('change-modal');
+      });
   }
   modalModule(createModalMarkup, addListeners);
   renderInformation();
@@ -81,7 +85,6 @@ function openModal() {
   // catalogIgor.append(createCatalogList.createCatalogList());
   // createCatalogList.createCatalogList();
 }
-
 
 if (widthObject.isDesktop) {
   console.dir(refs.headerWrap.childNodes);
@@ -207,13 +210,15 @@ if (widthObject.isDesktop) {
   }
   catalogBtn.addEventListener('click', openCatalog);
   function openCatalog() {
-    function addListeners(closeBackdrop) {
-    }
+    function addListeners(closeBackdrop) {}
     modalModule(createCatalogMarkup, addListeners);
     // renderInformation();
     createCatalogList();
   }
 
+  document
+    .querySelector('.js-search')
+    .addEventListener('click', searchButtonHandler);
   // createCatalogList();
   // createCatalogList();
 }
