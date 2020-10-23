@@ -332,11 +332,11 @@
     margin-bottom: 15px;
   }
 
-  /* .modal.change-modal{
+  .modal.change-modal{
     top:0;
     left:0;
     transform: translate(0,0);
-  } */
+  }
 }
 
 /*
@@ -386,9 +386,12 @@
 
   .account-list {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 155px;
+  }
+
+  .search-item-desktop{
+    align-self: center;
   }
 
   .desktop-button {

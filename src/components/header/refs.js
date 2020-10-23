@@ -18,5 +18,6 @@ export default {
   account: document.querySelector('.js-profile'),
   likes: document.querySelector('.js-likes'),
   modalHeader: document.querySelector('.modal'),
+  modalWrapper: document.querySelector('.modal-wrapper'),
   modalBackdrop: document.querySelector('.backdrop'),
 };
