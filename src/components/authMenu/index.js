@@ -4,6 +4,7 @@ import refs from '../../refs';
 import { modalModule } from '../modalmodule/modal';
 import { openForm } from '../authform/authform.js';
 import renderProfile from '../profile';
+import webfunc from '../webfunc';
 
 function renderAuthMenu() {
   if (store.user.email === 'admin@gmail.com') {
@@ -35,7 +36,7 @@ function renderAuthMenu() {
                 : ''
             }
 
-            <button class="button-close data-link="exit"">Выход</button>
+            <button class="button-close" data-link="exit" type="button">Выход</button>
         </ul>
     </div>`;
   }
@@ -48,7 +49,6 @@ function renderAuthMenu() {
       event.preventDefault();
 
       if (event.target.dataset) {
-        refs.mainContainer.innerHTML = '';
         refs.lightbox.classList.remove('is-open');
         refs.body.style.overflow = 'visible';
         refs.backdrop.style.overflow = 'visible';
@@ -56,14 +56,21 @@ function renderAuthMenu() {
 
         switch (event.target.dataset.link) {
           case 'profile':
+            refs.mainContainer.innerHTML = '';
             renderProfile('personalProfile');
             break;
           case 'favorites':
+            refs.mainContainer.innerHTML = '';
             renderProfile('favorites');
             break;
           case 'createAd':
+            refs.mainContainer.innerHTML = '';
             renderProfile('createAd');
             break;
+          case 'exit':
+            webfunc();
+            break;
+
           default:
             break;
         }
