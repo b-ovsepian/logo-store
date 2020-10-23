@@ -22,7 +22,10 @@ import './newproducts/index';
 // import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
+loader.renderLoader();
 setTokenToStore();
+services.getCurrentUser();
+setCartToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
@@ -36,10 +39,6 @@ function setCartToStore() {
   const localCart = JSON.parse(localStorage.getItem('cart'));
   store.cart = localCart;
 }
-
-setCartToStore();
-
-loader.renderLoader();
 
 // Тянем категории
 services.getCategories().then(() => {
