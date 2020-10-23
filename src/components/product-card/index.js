@@ -8,10 +8,6 @@ import {commonRender} from '../cart/index.js'
 // renderImages(obj)
 
 let main = document.querySelector('.page-main')
-
-// renderImages(obj)
-
-let slider = document.querySelector('.product-card-slider')
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart; //= document.querySelector('.product-card')
