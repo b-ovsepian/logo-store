@@ -262,11 +262,11 @@
     position: relative;
   }
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     .header-modal {
       width: 374px;
     }
-  }
+  } */
 
   .header-modal-close-btn {
     background-color: transparent;

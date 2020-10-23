@@ -5,6 +5,7 @@ import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
 // import renderTelephoneTrigger from '../telephoneTrigger';
 import createCatalogList from '../catalog/catalog.js';
+import { createSale } from '../salo';
 import renderInformation from '../information';
 import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
@@ -70,43 +71,59 @@ function createModalMarkup() {
 refs.searchHeader.addEventListener('click', searchButtonHandler);
 
 refs.modalBtn.addEventListener('click', openModal);
+
 function openModal() {
-  refs.modalHeader.classList.add('change-modal');
+  // refs.modalHeader.classList.add('change-modal');
   // console.dir(e.currentTarget)
   // refs.modalWrapper.addEventListener('click')
   function addListeners(closeBackdrop) {
-    document.querySelector('.header-modal-close-btn').addEventListener('click', () => {
-        closeBackdrop;
-        refs.modalHeader.classList.remove('change-modal');
-    });
-    window.addEventListener('keydown', e => {
-      if (e.code === 'Escape') {
-        refs.modalHeader.classList.remove('change-modal');
+    document
+      .querySelector('.header-modal-close-btn')
+      .addEventListener('click', (e) => {
         closeBackdrop();
-      }
-    });
-    refs.modalBackdrop.addEventListener('click', e => {
-      if (
-        e.target === e.currentTarget ||
-        e.target.classList.contains('close-icon') ||
-        e.target.classList.contains('icon-wrapper') ||
-        e.target.classList.contains('js-sale') ||
-        e.target.classList.contains('js-contacts') ||
-        e.target.classList.contains('js-likes')
-      ) {
-        refs.modalHeader.classList.remove('change-modal');
-        closeBackdrop();
-      }
-      if (e.target.classList.contains('js-info')) {
-        refs.modalHeader.classList.remove('change-modal');
-      }
-    });
-
+        // refs.modalHeader.classList.remove('change-modal');
+        renderInformation(e.target);
+      });
+    // refs.modalBackdrop.addEventListener('click', e => {
+      // if (
+      //   e.target === e.currentTarget ||
+      //   e.target.classList.contains('close-icon') ||
+      //   e.target.classList.contains('icon-wrapper') ||
+      //   e.target.classList.contains('js-sale') ||
+      //   e.target.classList.contains('js-contacts') ||
+      //   e.target.classList.contains('js-likes')
+      //   // e.target.classList.contains('js-info')
+      // ) {
+      //   // refs.modalHeader.classList.remove('change-modal');
+      //   closeBackdrop();
+      // }
+      // if (e.target.classList.contains('js-info')) {
+      //   // closeBackdrop();
+      //   document
+      //     .querySelector('.header-modal')
+      //     .classList.add('visually-hidden');
+      //   renderInformation();
+      // //   // refs.modalHeader.classList.remove('change-modal');
+      // }
+    // });
+    // document.querySelector('.modal-list').addEventListener('click', e => {
+    //   console.log(e.target);
+    //   if (e.target.classList.contains('js-info')) {
+    //     // closeBackdrop();
+    //     // document.querySelector('.header-modal').classList.add('visually-hidden');
+    //     //   // refs.modalHeader.classList.remove('change-modal');
+    //   }
+    // });
   }
+
+
   modalModule(createModalMarkup, addListeners);
   renderInformation();
   createCatalogList();
-  // renderTelephoneTrigger();
+
+  document
+    .querySelector('.js-sale')
+    .addEventListener('click', () => createSale('sale'));
 }
 
 if (widthObject.isDesktop) {
@@ -181,6 +198,10 @@ if (widthObject.isDesktop) {
     modalModule(createCatalogMarkup, addListeners);
     createCatalogList();
   }
+
+  document
+    .querySelector('.js-sale')
+    .addEventListener('click', () => createSale('sale'));
 
   document
     .querySelector('.js-search')

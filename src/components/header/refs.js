@@ -1,4 +1,5 @@
 export default {
+  headerModalWrap: document.querySelector('.header-modal'),
   headerWrap: document.querySelector('.header'),
   mobileNav: document.querySelector('#mobileNav'),
   burgerBtn: document.querySelector('#burgerBtn'),
@@ -20,4 +21,5 @@ export default {
   modalHeader: document.querySelector('.modal'),
   modalWrapper: document.querySelector('.modal-wrapper'),
   modalBackdrop: document.querySelector('.backdrop'),
+  modalList: document.querySelector('.modal-list')
 };

@@ -5,7 +5,8 @@ import helpers from './../helpers/index.js';
 import services from './../services/index.js';
 import { cardItem } from './../carditem/index.js';
 // createSale()
-function createSale() {
+
+export function createSale() {
   const constructor = document.querySelector('.page-main .container');
   let copyData = [];
   let defData = [];
