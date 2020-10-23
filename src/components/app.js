@@ -17,7 +17,7 @@ import './category/category.js';
 import helpers from './helpers';
 // import cardItem from './carditem/index.js';
 import loader from './loader';
-import authMenu from './authMenu/index.js';
+// import authMenu from './authMenu/index.js';
 import newADV from './newADV/index.js';
 import './newproducts/index';
 // import paginationModule from './paginationModule/index.js';
