@@ -15,6 +15,7 @@ let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart; //= document.querySelector('.product-card')
 let buyButton; //= document.querySelector('.product-card-button-buy')
 let checkButton;// console.log(productCart);
+let exit;
 
 // createModalImg(images); 
 // console.log(images);
@@ -35,6 +36,7 @@ export default {
     sliderList = document.querySelector('.product-card-slider-list')
     buyButton = document.querySelector('.product-card-button-buy')
     checkButton = document.querySelector('.product-card-button-bookmarks')
+    exit = document.querySelector('.btn-exit')
 
     this.createModalImg(data)
   },
@@ -88,10 +90,21 @@ export default {
     bigImage.src = img[0].images[0]
     bigPhoto.append(bigImage)
 
+    setSessionStorage(img[0])
+
+    function setSessionStorage(arrey) {
+      return localStorage.setItem('lastSeen', JSON.stringify(arrey))
+    };
 
     buyButton.addEventListener('click', (e) => {
-      commonRender(img)
+      console.log(img[0]);
     })
+    
+    exit.addEventListener('click', (e) => {
+      main.innerHTML = ''
+    })
+
+    console.log(store.user.lastSeen);
   }
 }
 

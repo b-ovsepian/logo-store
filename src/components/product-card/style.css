@@ -2,6 +2,17 @@ body{
   margin: 0;
 }
 
+.btn-exit{
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: underline;
+}
+
+.exit{
+  font-size: 20px;
+  color: black;
+}
+
 .product-card{
   font-family: Montserrat Alternates;
   background: #E5E5E5;
