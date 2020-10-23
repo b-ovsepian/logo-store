@@ -16,7 +16,10 @@ function markUpRendering() {
                     <p class="email-hint">Пожалуйста, введите корректный email</p>
                     </div>
                 <div class="password-section">
+                    <div class="passw-label-wrapper">
                     <label class="authlabel" for="password"><span class="authspan">*</span>Пароль</label>
+                    <span class="passw-valid-text">Пароль должен включать от 6 до 20 символов: 1й заглавной буквы, не менее 5 цифр и мин 3х маленьких букв</span>
+                    </div>
                     <input class="authinput input-password" id="password" placeholder="Пароль" name="password" value="" type="password" required/>
                     <p class="password-hint">Пожалуйста, введите корректный пароль</p>
                     </div>
@@ -48,14 +51,26 @@ function openForm() {
             form: document.querySelector('.auth-form'),
             enterAccountBtn: document.querySelector('.enterAccount'),
             registerAccountBtn: document.querySelector('.registerAccount'),
-            buttons:document.querySelector('.authbuttons')
-        }
+            buttons:document.querySelector('.authbuttons'),
+            spanText: document.querySelector('.passw-valid-text'),
 
+        }
 
         const user={
             email:"",
             password: "",
         }
+
+        authRefs.form.elements.password.addEventListener('focus', ()=>{
+          authRefs.spanText.classList.add('is-open');
+        });
+
+        authRefs.form.elements.password.addEventListener('blur', ()=>{
+          authRefs.spanText.classList.remove('is-open');
+        });
+
+
+
 
         // validate inputs
         authRefs.form.addEventListener('input', (event)=>{

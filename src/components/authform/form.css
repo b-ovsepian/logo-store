@@ -200,3 +200,19 @@ transform: translate(-50%, -50%); */
   top: 2%;
   right: 2%;
 }
+
+
+.passw-label-wrapper{
+  display: flex;
+}
+
+.passw-valid-text{
+  font-size: 10px;
+    color: green;
+    margin-left: 10px;
+    display: none;
+}
+
+.passw-valid-text.is-open{
+  display: block;
+}
