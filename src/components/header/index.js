@@ -84,11 +84,17 @@ function openModal() {
 
 
 if (widthObject.isDesktop) {
-  refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
-  <ul class="list desktop-nav-list">
+  console.dir(refs.headerWrap.childNodes);
+  console.dir(refs.mobileNav);
+  console.dir(refs.burgerBtn);
+  refs.headerWrap.removeChild(refs.mobileNav);
+  refs.headerWrap.removeChild(refs.burgerBtn);
+  refs.headerWrap.insertAdjacentHTML(
+    'beforeend',
+    `<ul class="list desktop-nav-list">
         <li class="a">
           <button class="desktop-button js-phone">
-                  <span class="phone-icon header-icon"></span>
+                  <span class="phone-desktop-icon header-icon"></span>
                   <span class="with-icons">+38 (050) 333-37-96</span>
                   <span class="arrow">▼</span>
           </button>
@@ -114,17 +120,17 @@ if (widthObject.isDesktop) {
       <ul class="list account-list">
         <li class="a">
           <button class="js-search desktop-account-button">
-            <span class="search-icon"></span>
+            <span class="search-desktop-icon"></span>
           </button>
         </li>
         <li class="a">
           <button class="js-profile desktop-account-button">
-            <span class="profile-icon"></span>
+            <span class="profile-desktop-icon"></span>
           </button>
         </li>
         <li class="a">
           <a href="#" class="likes-link js-likes">
-              <span class="likes-icon">
+              <span class="likes-desktop-icon">
               <div class="likes-amount amount">0</div>
               </span>
           </a>
@@ -136,7 +142,61 @@ if (widthObject.isDesktop) {
               </span>
           </a>
         </li>
-      </ul>`;
+      </ul>`,
+  );
+  // refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
+  // <ul class="list desktop-nav-list">
+  //       <li class="a">
+  //         <button class="desktop-button js-phone">
+  //                 <span class="phone-icon header-icon"></span>
+  //                 <span class="with-icons">+38 (050) 333-37-96</span>
+  //                 <span class="arrow">▼</span>
+  //         </button>
+  //       </li>
+  //       <li class="a">
+  //         <button class="desktop-button js-catalog">Каталог
+  //             <span class="arrow" id="catBtnIcon">▼</span>
+  //         </button>
+  //       </li>
+  //       <li class="a">
+  //         <a href="#" class="desktop-link">Sale &#37;</a>
+  //       </li>
+  //       <li class="a">
+  //         <button class="desktop-button js-info">
+  //                 <span>Информация</span>
+  //                 <span class="arrow">▼</span>
+  //               </button>
+  //       </li>
+  //       <li class="a">
+  //         <a href="#" class="desktop-link">Контакты</a>
+  //       </li>
+  //     </ul>
+  //     <ul class="list account-list">
+  //       <li class="a">
+  //         <button class="js-search desktop-account-button">
+  //           <span class="search-icon"></span>
+  //         </button>
+  //       </li>
+  //       <li class="a">
+  //         <button class="js-profile desktop-account-button">
+  //           <span class="profile-icon"></span>
+  //         </button>
+  //       </li>
+  //       <li class="a">
+  //         <a href="#" class="likes-link js-likes">
+  //             <span class="likes-icon">
+  //             <div class="likes-amount amount">0</div>
+  //             </span>
+  //         </a>
+  //       </li>
+  //       <li class="a">
+  //         <a href="#" class="js-cart">
+  //             <span class="cart-icon">
+  //             <div class="items-amount amount">0</div>
+  //             </span>
+  //         </a>
+  //       </li>
+  //     </ul>`;
 
   renderInformation();
 
@@ -148,7 +208,6 @@ if (widthObject.isDesktop) {
   catalogBtn.addEventListener('click', openCatalog);
   function openCatalog() {
     function addListeners(closeBackdrop) {
-      // document.querySelector('.header-modal-close-btn').addEventListener('click', closeBackdrop);
     }
     modalModule(createCatalogMarkup, addListeners);
     // renderInformation();

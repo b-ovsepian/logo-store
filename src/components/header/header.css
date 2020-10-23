@@ -68,19 +68,41 @@
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url(./images/icons/search.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/search-dark.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 20px;
+}
+
+.search-desktop-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('./images/icons/search-light.svg');
+  /* background-color: #b884f3; */
+
+  background-repeat: no-repeat;
+  background-size: 20px;
 }
 
 .phone-icon {
   display: block;
   width: 30px;
   height: 30px;
-  background-image: url(./images/icons/phone.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/smartphone-dark.svg');
+  /* background-color: #b884f3; */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.phone-desktop-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url('./images/icons/smartphone-light.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -90,18 +112,30 @@
   display: block;
   width: 30px;
   height: 30px;
-  background-image: url(./images/icons/profile.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/profile-dark.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.profile-desktop-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url('./images/icons/profile-light.svg');
+  /* background-color: #b884f3; */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .cart-icon {
   display: block;
   width: 30px;
   height: 30px;
-  background-image: url(./images/icons/cart.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/cart.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -112,8 +146,20 @@
   display: block;
   width: 30px;
   height: 30px;
-  background-image: url(./images/icons/likes.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/likes-dark.svg');
+  /* background-color: #b884f3; */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.likes-desktop-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url('./images/icons/likes-light.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -124,8 +170,8 @@
   display: block;
   width: 12px;
   height: 12px;
-  background-image: url(./images/icons/close.svg);
-  background-color: #b884f3;
+  background-image: url('./images/icons/close.svg');
+  /* background-color: #b884f3; */
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -211,9 +257,15 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 60px;
-    width: 374px;
+    width: 100%;
     height: 100%;
     position: relative;
+  }
+
+  @media screen and (min-width: 768px) {
+    .header-modal {
+      width: 374px;
+    }
   }
 
   .header-modal-close-btn {

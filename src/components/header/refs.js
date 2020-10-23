@@ -1,5 +1,7 @@
 export default {
   headerWrap: document.querySelector('.header'),
+  mobileNav: document.querySelector('#mobileNav'),
+  burgerBtn: document.querySelector('#burgerBtn'),
   logo: document.querySelector('.js-logo'),
   phoneTrigger: document.querySelector('.js-phone'),
   searchHeader: document.querySelector('.js-search'),
@@ -15,5 +17,6 @@ export default {
   information: document.querySelector('.js-info'),
   account: document.querySelector('.js-profile'),
   likes: document.querySelector('.js-likes'),
-  modalHeader: document.querySelector('.modal')
+  modalHeader: document.querySelector('.modal'),
+  modalBackdrop: document.querySelector('.backdrop'),
 };

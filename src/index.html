@@ -20,7 +20,7 @@
     <header class="page-header">
       <nav class="container">
         <div class="header">
-          <a href="#" class="logo js-logo">
+          <a href="./index.html" class="logo js-logo">
             <img
               src="./components/header/images/logo.png"
               alt="logo"
@@ -29,7 +29,7 @@
             />
             <p>Lo<span>go</span></p>
           </a>
-          <ul class="list icon-list">
+          <ul class="list icon-list" id="mobileNav">
             <li>
               <button class="js-phone">
                 <svg class="nav-icon" width="30" height="30">
@@ -59,15 +59,12 @@
               </button>
             </li>
           </ul>
-          <button type="button" class="burger js-burger">
+          <button type="button" class="burger js-burger" id="burgerBtn">
             <svg class="icon-burger" width="34" height="34">
               <use
                 href="./components/header/images/sprite.svg#icon-burger"
               ></use>
             </svg>
-            <!-- <svg class="icon-close visually-hidden" width="14" height="14">
-              <use href="./components/header/images/sprite.svg#icon-close"></use>
-            </svg> -->
           </button>
         </div>
       </nav>
