@@ -40,7 +40,4 @@ const searchButtonHandler = () => {
   modalModule(searchTemplate, createListeners);
 };
 
-//это кнопка из хедера должна быть.
-document
-  .querySelector('.modalbtn')
-  .addEventListener('click', searchButtonHandler);
+export default searchButtonHandler;

@@ -37,7 +37,7 @@ function markUpRendering() {
 const modalBTN = document.querySelector('.authbtn');
 modalBTN.addEventListener('click', openForm);
 
-function openForm() {
+export function openForm() {
   function createListeners(closebackdrop) {
     const myButton = document.querySelector('.close-icon');
     myButton.addEventListener('click', closebackdrop);

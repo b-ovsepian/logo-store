@@ -11,7 +11,6 @@ export default {
     email: '',
     password: '',
     phone: '',
-    role: '',
     address: {
       _id: '',
       country: '',

@@ -6,8 +6,10 @@ import widthObject from '../helpers';
 // import renderTelephoneTrigger from '../telephoneTrigger';
 import createCatalogList from '../catalog/catalog.js';
 import renderInformation from '../information';
+import searchButtonHandler from '../search/search.js';
+import renderAuthMenu from '../AuthMenu';
 
-function createModalMarkup(){
+function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
             <div class="input">
               <span class="search-icon"></span>
@@ -16,7 +18,7 @@ function createModalMarkup(){
                name="search-modal" placeholder="Поиск">
             </div>
             <button class="header-modal-close-btn">
-              <span class="close-icon"></span>
+              <span class="header-close-icon"></span>
             </button>
             <ul class="list modal-list">
               <li class="modal-list-item">
@@ -65,6 +67,8 @@ function createModalMarkup(){
   return modalMarkup;
 }
 
+refs.searchHeader.addEventListener('click', searchButtonHandler);
+
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
   refs.modalHeader.classList.add('change-modal');
@@ -104,7 +108,6 @@ function openModal() {
   createCatalogList();
   // renderTelephoneTrigger();
 }
-
 
 if (widthObject.isDesktop) {
   refs.headerWrap.removeChild(refs.mobileNav);
@@ -174,9 +177,30 @@ if (widthObject.isDesktop) {
   }
   catalogBtn.addEventListener('click', openCatalog);
   function openCatalog() {
-    function addListeners(closeBackdrop) {
-    }
+    function addListeners(closeBackdrop) {}
     modalModule(createCatalogMarkup, addListeners);
     createCatalogList();
   }
+
+  document
+    .querySelector('.js-search')
+    .addEventListener('click', searchButtonHandler);
+
+  document
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
+
+  // createCatalogList();
+  // createCatalogList();
 }
+
+/*
+function userIgor() {
+  function div() {
+    return checkAuto();
+  }
+
+  modalModule(div, createListeners);
+}
+
+*/

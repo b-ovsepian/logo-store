@@ -2,7 +2,6 @@ import './modalmodule/modal';
 import './authform/authform';
 import header from './header';
 import developers from './developers';
-// import renderInformation from './information';
 import renderTelephoneTrigger from './telephoneTrigger';
 import footer from './footer';
 import services from './services';
@@ -13,11 +12,9 @@ import './search/search.js';
 import slider from './slider';
 import hero from './hero';
 import './category/category.js';
-// import './breadcrumbs/index.js';
 import helpers from './helpers';
 // import cardItem from './carditem/index.js';
 import loader from './loader';
-// import authMenu from './authMenu/index.js';
 import newADV from './newADV/index.js';
 import './newproducts/index';
 // import paginationModule from './paginationModule/index.js';
@@ -52,7 +49,6 @@ function setCartToStore() {
 services
   .getCategories()
   .then(() => {
-    // renderInformation();
     renderTelephoneTrigger();
   })
   .finally(() => {
