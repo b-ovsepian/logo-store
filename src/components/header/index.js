@@ -122,7 +122,7 @@ if (widthObject.isDesktop) {
         </li>
       </ul>
       <ul class="list account-list">
-        <li class="a">
+        <li class="a" style="align-self: center">
           <button class="js-search desktop-account-button">
             <span class="search-desktop-icon"></span>
           </button>
