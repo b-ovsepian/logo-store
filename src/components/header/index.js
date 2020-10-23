@@ -6,6 +6,7 @@ import widthObject from '../helpers';
 import renderInformation from '../information';
 import createCatalogList from '../catalog/catalog.js';
 import searchButtonHandler from '../search/search.js';
+import renderAuthMenu from '../AuthMenu';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -16,7 +17,7 @@ function createModalMarkup() {
                name="search-modal" placeholder="Поиск">
             </div>
             <button class="header-modal-close-btn">
-              <span class="close-icon"></span>
+              <span class="header-close-icon"></span>
             </button>
             <ul class="list modal-list">
               <li class="modal-list-item">
@@ -219,6 +220,22 @@ if (widthObject.isDesktop) {
   document
     .querySelector('.js-search')
     .addEventListener('click', searchButtonHandler);
+
+  document
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
+
   // createCatalogList();
   // createCatalogList();
 }
+
+/*
+function userIgor() {
+  function div() {
+    return checkAuto();
+  }
+
+  modalModule(div, createListeners);
+}
+
+*/
