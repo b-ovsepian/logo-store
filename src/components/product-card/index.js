@@ -22,14 +22,13 @@ export default {
   renderImages(data) {
     console.log(data);
     main.innerHTML = ''
-    productCart.innerHTML = ''
-    productCart.style.paddingTop = '30px'
-    productCart.style.paddingBottom = '60px'
     const items = template(data)
     main.insertAdjacentHTML('beforeend', items)
-    productCart.style.paddingtop = '100px'
+    // productCart.style.paddingtop = '100px'
     
     productCart = document.querySelector('.product-card')
+    productCart.style.paddingTop = '30px'
+    productCart.style.paddingBottom = '60px'
     bigPhoto = document.querySelector('.product-card-slider-big-photo')
     sliderList = document.querySelector('.product-card-slider-list')
     buyButton = document.querySelector('.product-card-button-buy')
