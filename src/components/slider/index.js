@@ -33,8 +33,6 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     }
   };
 
-  console.log(checkViewPort());
-
   section.insertAdjacentHTML(
     'beforeend',
     `
@@ -134,8 +132,6 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     checkBtn();
     currentSlide += 1;
     dots[(position / itemWidth) * -1].classList.add(`is-active`);
-
-    console.log(position);
   });
 
   // слушатель кнопки влево!
@@ -150,8 +146,6 @@ const getSlider = (arr, section, slideShow, interval, drawOption) => {
     checkBtn();
     currentSlide -= 1;
     dots[(position / itemWidth) * -1].classList.add(`is-active`);
-
-    console.log(position);
   });
 
   // интервал прокрутки слайдов
