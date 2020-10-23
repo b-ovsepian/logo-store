@@ -4,6 +4,8 @@ import { refs } from './modalrefs';
 export const modalModule = (markup, listeners) => {
   function openBackdrop() {
     refs.lightbox.classList.add('is-open');
+    refs.body.style.overflow = 'hidden';
+    refs.backdrop.style.overflow = 'scroll';
   }
   refs.backdrop.addEventListener('click', e => {
     if (
@@ -16,6 +18,8 @@ export const modalModule = (markup, listeners) => {
   });
   function closeBackdrop() {
     refs.lightbox.classList.remove('is-open');
+    refs.body.style.overflow = 'visible';
+    refs.backdrop.style.overflow = 'visible';
   }
   window.addEventListener('keydown', e => {
     if (e.code === 'Escape') {
@@ -38,14 +42,15 @@ export const modalModule = (markup, listeners) => {
 // </div> -->
 // и вставляем в свою функцию, которая рендерит разметку (в примере это функция buyGoods);
 
-const modalBTN = document.querySelector('.modalbtn');
-modalBTN.addEventListener('click', product);
+// const modalBTN = document.querySelector('.modalbtn');
+// modalBTN.addEventListener('click', product);
 
 function product() {
   function buyGoods() {
     // example for markup
     return `<div>hey<button class="hello">GET</button></div>`;
   }
+
   function createListeners(closebackdrop) {
     const myButton = document.querySelector('.hello');
     myButton.addEventListener('click', closebackdrop);

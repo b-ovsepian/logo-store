@@ -16,25 +16,79 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <header class="page-header">
-      <div class="container">
-        <button type="button" class="information-btn">Information</button>
-      </div>
+      <nav class="container">
+        <div class="header">
+          <a href="#" class="logo js-logo">
+            <img
+              src="./components/header/images/logo.png"
+              alt="logo"
+              width="40"
+              height="40"
+            />
+            <p>Lo<span>go</span></p>
+          </a>
+          <ul class="list icon-list">
+            <li>
+              <button class="js-phone">
+                <svg class="nav-icon" width="30" height="30">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-smartphone"
+                  ></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button class="js-search">
+                <svg class="nav-icon" width="20" height="20">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-search"
+                  ></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button class="js-cart">
+                <svg class="nav-icon" width="30" height="30">
+                  <use
+                    href="./components/header/images/sprite.svg#icon-cart"
+                  ></use>
+                </svg>
+                <div class="items-amount amount">0</div>
+              </button>
+            </li>
+          </ul>
+          <button type="button" class="burger js-burger">
+            <svg class="icon-burger" width="34" height="34">
+              <use
+                href="./components/header/images/sprite.svg#icon-burger"
+              ></use>
+            </svg>
+            <svg class="icon-close visually-hidden" width="14" height="14">
+              <use
+                href="./components/header/images/sprite.svg#icon-close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </nav>
     </header>
     <main class="page-main">
-      <div class="container">
-        <div class="group">
-          <a href="./index.html" name="home" class="carp">Главная</a>
-        </div>
+      <div class="container main-container">
+        <nav id="breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+          </ol>
+        </nav>
         <div class="category">
           <ul class="category-list list">
             <li class="category-list-item">
               <img
                 src="./components/category/images/desktop/Rectangle 3.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Крупная бытовая техника</h2>
               <button name="household" class="category-link button primary">
@@ -45,8 +99,7 @@
               <img
                 src="./components/category/images/desktop/Rectangle 4.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Встраиваемая техника</h2>
               <button name="embedded" class="category-link button primary">
@@ -57,8 +110,7 @@
               <img
                 src="./components/category/images/desktop/Rectangle 5.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
               <h2 class="category-title">Уход за домом и одеждой</h2>
               <button name="home" class="category-link button primary">
@@ -69,16 +121,25 @@
               <img
                 src="./components/category/images/desktop/Rectangle 6.jpg"
                 alt="Бытовая техника"
-                width="525"
-                height="270"
+                width="100%"
               />
-              <h2 class="category-title">Техника для кухни</h2>
+              <h2 class="category-title">
+                Техника для кухни &#160; &#160;&#160;&#160;
+              </h2>
               <button name="kitchen" class="category-link button primary">
                 Купить
               </button>
             </li>
           </ul>
         </div>
+
+        <div class="new-products">
+          <h2 class="np-title">Новые поступления</h2>
+        </div>
+      </div>
+      <div class="pagination-wrapper">
+        <ul class="pagination-list"></ul>
+        <p class="show-quantity"></p>
       </div>
 
 
@@ -155,24 +216,19 @@
         </div>
       </section>
 
-
     <button class="modalbtn">Press here</button>
     <button class="authbtn">Form</button>
 
     <div class="formsection"></div>
 
+
     <div class="lightbox">
       <div class="backdrop">
-        <!-- <div class="icon-wrapper">
-        <svg class="close-icon">
-          <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
-        </svg>
-      </div> -->
-
         <div class="modal">
           <div class="modal-wrapper"></div>
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>

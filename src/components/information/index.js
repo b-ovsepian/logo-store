@@ -5,7 +5,7 @@ import infoTmpl from '../../templates/information.hbs';
 import { modalModule } from '../modalmodule/modal';
 
 function renderInformation() {
-  const infoBtn = document.querySelector('.information-btn');
+  const infoBtn = document.querySelector('.js-info');
   infoBtn.addEventListener('click', showInfo);
 
   function showInfo() {
@@ -19,17 +19,13 @@ function renderInformation() {
       const markup = infoTmpl(infoData);
       ulList.insertAdjacentHTML('beforeend', markup);
       informationDiv.insertAdjacentElement('beforeend', ulList);
+      informationDiv.innerHTML += `<div class="information-close-icon"></div>`;
       div.insertAdjacentElement('beforeend', informationDiv);
-      informationDiv.innerHTML += `<div class="icon-wrapper">
-      <svg class="close-icon">
-        <use href="./components/modalmodule/symbol-defs.svg#iconVector-16"></use>
-      </svg>
-      </div>`;
       return div.innerHTML;
     }
 
     function createListeners(closebackdrop) {
-      const myButton = document.querySelector('.icon-wrapper');
+      const myButton = document.querySelector('.information-close-icon');
       myButton.addEventListener('click', closebackdrop);
     }
     modalModule(infoMarkup, createListeners);

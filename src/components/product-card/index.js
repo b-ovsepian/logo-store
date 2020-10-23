@@ -59,6 +59,7 @@ export default {
     bigImage.src = img[0].images[0]
     bigPhoto.append(bigImage)
 
+
     buyButton.addEventListener('click', (e) => {
       commonRender(img)
     })

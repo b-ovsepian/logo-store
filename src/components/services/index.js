@@ -1,45 +1,33 @@
+import { data } from 'autoprefixer';
+import Axios from 'axios';
 import store from '../store';
+Axios.defaults.baseURL = 'https://back24.herokuapp.com/';
+Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
+
 export default {
   // Register new user
   async registerNewUser(userEmail, userPassword) {
     try {
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          password: userPassword,
-        }),
-      };
-      const url = 'https://goit-store.herokuapp.com/auth/registration';
-      const response = await fetch(url, options);
+      const response = await Axios.post('auth/registration', {
+        email: userEmail,
+        password: userPassword,
+      });
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   // Login user
   async loginUser(userEmail, userPassword) {
     try {
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          password: userPassword,
-        }),
-      };
-      const url = 'https://goit-store.herokuapp.com/auth/login';
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(res => {
-        localStorage.setItem('user_token', res.accces_token);
-        store.auth.accces_token = res.accces_token;
-        store.user = res.user;
+      const response = await Axios.post('auth/login', {
+        email: userEmail,
+        password: userPassword,
+      }).then(({ data }) => {
+        localStorage.setItem('user_token', data.accces_token);
+        store.auth.accces_token = data.accces_token;
+        store.user = data.user;
       });
     } catch (error) {
       throw error;
@@ -48,78 +36,49 @@ export default {
   // Get all users
   async getAllUsers() {
     try {
-      const options = {
-        method: 'GET',
-      };
-      const url = 'https://goit-store.herokuapp.com/users';
-      const response = await fetch(url, options);
-      const data = response.json();
-      return data;
+      const response = await Axios.get('users');
+      return response;
     } catch (error) {
       throw error;
     }
   },
-  //   Change user email or name
-  async changeUserInfo(newEmail, newName) {
-    newEmail ? '' : (newEmail = store.user.email);
-    newName ? '' : (newName = store.user.name);
+  //    Change user email, name, surname, phone
+  async changeUserInfo({ name = '', surname, email, phone }) {
+    const axiosEmail = email ? email : store.user.email;
+    const axiosName = name ? name : store.user.name;
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'PATCH',
-        headers: {
-          Authorization: store.auth.accces_token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: newEmail,
-          name: newName,
-        }),
-      };
-      const url = `https://goit-store.herokuapp.com/users`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(res => {
-        store.user = res;
+      const response = await Axios.patch('users', {
+        name: axiosName,
+        surname: surname,
+        email: axiosEmail,
+        phone: phone,
+      }).then(response => {
+        store.user = response.data;
+        return response;
       });
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   //   Change user password
-  async changePassword(newPassword, confirmNewPassword) {
+  async changePassword(body) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'PATCH',
-        headers: {
-          Authorization: store.auth.accces_token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          password: newPassword,
-          confirmPassword: confirmNewPassword,
-        }),
-      };
-      const url = `https://goit-store.herokuapp.com/users/changePassword`;
-      const response = await fetch(url, options);
+      const response = await Axios.patch('users/changePassword', body);
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   //   Add favorite product
   async addFavoriteProduct(productId) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          Authorization: store.auth.accces_token,
-        },
-        // body: JSON.stringify(product)
-      };
-      const url = `https://goit-store.herokuapp.com/users/addFavoriteProduct/${productId}`;
-      const response = await fetch(url, options);
-      console.log(response);
+      const response = await Axios.get(`users/addFavoriteProduct/${productId}`);
       return response;
     } catch (error) {
       throw error;
@@ -127,87 +86,72 @@ export default {
   },
   //   Remove favorite product
   async removeFavoriteProduct(productId) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'DELETE',
-        headers: {
-          Authorization: store.auth.accces_token,
-        },
-      };
-      const url = `https://goit-store.herokuapp.com/users/removeFavoriteProduct/${productId}`;
-      const response = await fetch(url, options);
+      const response = await Axios.delete(
+        `users/removeFavoriteProduct/${productId}`,
+      );
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   //   Change user address
   async changeUserAddress(newAddress) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'PATCH',
-        headers: {
-          Authorization: store.auth.accces_token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newAddress),
-      };
-      const url = `https://goit-store.herokuapp.com/users/updateAddress`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(res => (store.user = res));
+      const response = await Axios.patch('users/updateAddress', {
+        ...newAddress,
+        zip: '01123',
+      }).then(response => {
+        store.user = response.data;
+        return response;
+      });
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   // Get current user
   async getCurrentUser() {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          Authorization: store.auth.accces_token,
-        },
-      };
-      const url = 'https://goit-store.herokuapp.com/users/currentUser';
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(data => (store.user = data));
-      return data;
+      const response = await Axios.get('users/currentUser').then(response => {
+        store.user = response.data;
+        return response;
+      });
+      return response.data;
     } catch (error) {
       throw error;
     }
   },
+
   //   Get all products
   async getAllProducts() {
     try {
-      const options = {
-        method: 'GET',
-      };
-      const url = `https://goit-store.herokuapp.com/products`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(data => (store.products = data));
-      return data;
+      const response = await Axios.get('products').then(
+        ({ data }) => (store.products = data),
+      );
+      return response;
     } catch (error) {
       throw error;
     }
   },
   // Create new product
   async createNewProduct(object) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
+      const response = await Axios('products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(object),
-      };
-      const url = 'https://goit-store.herokuapp.com/products';
-      const response = await fetch(url, options);
-      const data = response.json();
-      return data;
+        data: JSON.stringify(object),
+      });
+
+      return response;
     } catch (error) {
       throw error;
     }
@@ -215,14 +159,10 @@ export default {
   //   Get categories
   async getCategories() {
     try {
-      const options = {
-        method: 'GET',
-      };
-      const url = `https://goit-store.herokuapp.com/products/getCategories`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(data => (store.categories = data.categories));
-      return data;
+      const response = await Axios.get('products/getCategories').then(
+        ({ data }) => (store.categories = data.categories),
+      );
+      return response;
     } catch (error) {
       throw error;
     }
@@ -230,32 +170,21 @@ export default {
   //   Search products
   async searchProducts(search = '', category = '', itemsPerPage = 1, page = 1) {
     try {
-      const options = {
-        method: 'GET',
-      };
-      const url = `https://goit-store.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      return data;
+      const url = `https://back24.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
+      const response = await Axios.get(url);
+      return response;
     } catch (error) {
       throw error;
     }
   },
   //   Get all orders
   async getAllOrders() {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          Authorization: store.auth.accces_token,
-        },
-      };
-      const url = `https://goit-store.herokuapp.com/orders`;
-      const response = await fetch(url, options);
-      const data = response.json();
-      await data.then(data => (store.orders = data));
-      console.dir(store.orders);
-      return data;
+      const response = await Axios.get('orders').then(
+        data => (store.orders = data),
+      );
+      return response;
     } catch (error) {
       throw error;
     }
@@ -266,21 +195,17 @@ export default {
       address: store.user.address,
       productList: productList,
     };
-    console.dir(order);
     try {
-      const options = {
+      const response = await Axios({
+        url: 'orders',
         method: 'POST',
         headers: {
           Authorization: store.auth.accces_token,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(order),
-      };
-      console.log(JSON.stringify(order));
-      const url = 'https://goit-store.herokuapp.com/orders';
-      const response = await fetch(url, options);
-      const data = response.json();
-      return data;
+        data: JSON.stringify(order),
+      });
+      return response;
     } catch (error) {
       throw error;
     }

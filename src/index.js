@@ -1,4 +1,5 @@
 import './styles.css';
+import './components/profile/profile-styles.css';
 import app from './components/app.js';
-import product_card_js from './components/product-card/index.js'
-import './components/cart/index.js';
+import './components/profile/icons/sprite.svg';
+import profile from './components/profile/index.js';
