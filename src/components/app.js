@@ -18,6 +18,7 @@ import helpers from './helpers';
 import cardItem from './carditem/index.js';
 import loader from './loader';
 import newADV from './newADV/index.js';
+import './newproducts/index';
 // import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
