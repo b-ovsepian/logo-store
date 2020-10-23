@@ -135,14 +135,12 @@ if (widthObject.isDesktop) {
         <li class="a">
           <a href="#" class="likes-link js-likes">
               <span class="likes-desktop-icon">
-              <div class="likes-amount amount">0</div>
               </span>
           </a>
         </li>
         <li class="a">
           <a href="#" class="js-cart">
               <span class="cart-icon">
-              <div class="items-amount amount">0</div>
               </span>
           </a>
         </li>
