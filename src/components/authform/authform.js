@@ -4,6 +4,7 @@ import '../authform/form.css';
 import store from '../store';
 import Axios from 'axios';
 import searchObj from '../services/index';
+import { data } from 'autoprefixer';
 
 function markUpRendering() {
     return `<div class="authorization">
@@ -76,8 +77,9 @@ function openForm() {
         });
 
         authRefs.buttons.addEventListener('click', e => {
-            if ((e.target.classList.contains('registerAccount'))
-            &&(authRefs.form.elements.radio.checked===true)){
+
+            if (e.target.classList.contains('registerAccount')){
+            // &&(authRefs.form.elements.radio.checked===true))
                 console.log(user);
                 apiServiceRegister(user);
 
@@ -89,13 +91,21 @@ function openForm() {
 
         const apiServiceRegister= async (obj)=> {
             try {
-              const url = 'https://back24.herokuapp.com//auth/registration';
+              const url = 'https://back24.herokuapp.com/auth/registration';
+              let response=await Axios.post(url, obj).then((info)=>{
+                console.log(info);
+                successRegisterMessage();
 
-              const response=await Axios.post(url, obj);
-              successRegisterMessage();
+                }).then((data)=> {
+                  authRefs.form.elements.radio.checked=true;
+
+                  setTimeout(()=>{
+                  apiServiceEnter(user)})
+                },2000);
+
               return response;
             } catch (error) {
-                openErrorMessage();
+              openErrorMessage();
               throw error;
 
             }
@@ -103,29 +113,37 @@ function openForm() {
 
           const apiServiceEnter= async(obj) =>{
 
-            const url = 'https://back24.herokuapp.com//auth/login';
+            const url = 'https://back24.herokuapp.com/auth/login';
+
             try{
                 const response = await Axios.post(url, obj)
                 .then(({ data }) => {
+
                     store.auth.accces_token = data.accces_token;
                     store.user = data.user;
-                    storageToken(data.user, data.user.role, data.accces_token);
+                    if(authRefs.form.elements.radio.checked===true){
+                    storageToken(data.user, data.accces_token);
+                    }
+
+
+                    setTimeout(()=>{
                     successEnterMessage();
+                    },1000);
                     return response;
-                });
-            }catch(error) {
-                    console.log(error); openErrorMessage(); throw error;
+                  });
+
+            } catch(error) {
+                    console.log(error);
+                    openErrorMessage();
+                    throw error;
                 }
             };
 
 
-        function storageToken(userInfo, role, token) {
-            const infoUser = JSON.stringify({ token: token, role: role, info: userInfo });
+        function storageToken(userInfo, token) {
+            const infoUser = JSON.stringify({ token: token, info: userInfo });
             localStorage.setItem('info', infoUser);
         }
-
-
-
             authRefs.form.addEventListener('submit', e => {
             e.preventDefault();
         });
