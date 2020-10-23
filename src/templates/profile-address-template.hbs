@@ -1,0 +1,40 @@
+<form class="address-form">
+        <div class="input-wrapper">
+                <div class="input-wrapper__column input-wrapper__column-left"><label class="profile-label"><span
+                                        class="required-star">*</span>Имя
+                                <input class="profile-input" type="text" name="name" minlength="2" maxlength="20"
+                                        pattern="[a-zA-Zа-яА-Я\-\s\0-9]*"
+                                        title="Поле может содержать только латинские символы: A-Z a-z"
+                                        placeholder="Username" required /></label>
+                        <label class="profile-label"><span class="required-star">*</span>Фамилия
+                                <input class="profile-input" type="text" name="surname" minlength="2" maxlength="20"
+                                        pattern="[a-zA-Zа-яА-Я\-\s\0-9]*"
+                                        title="Поле может содержать только латинские символы A-Z a-z"
+                                        placeholder="Username2" required /></label>
+                        <label class="profile-label"><span class="required-star">*</span>Страна<input
+                                        class="profile-input" type="text" name="country" minlength="2" maxlength="20"
+                                        pattern="[a-zA-Zа-яА-Я\-\s]*"
+                                        title="Поле может содержать от 2-х до 20-ти символов латинского алфавита или кириллицу"
+                                        placeholder="Украина" required /></label>
+                        <label class="profile-label"><span class="required-star">*</span>Регион / Область<input
+                                        class="profile-input" type="text" name="place" minlength="2" maxlength="20"
+                                        pattern="[a-zA-Zа-яА-Я\-\s]*"
+                                        title="Поле может содержать от 2-х до 20-ти символов латинского алфавита или кириллицу"
+                                        placeholder="Киевская" required /></label></div>
+                <div class="input-wrapper__column"> <label class="profile-label"><span
+                                        class="required-star">*</span>Город<input class="profile-input" type="text"
+                                        name="city" minlength="2" maxlength="20" pattern="[a-zA-Zа-яА-Я\-\s]*"
+                                        title="Поле может содержать от 2-х до 20-ти символов латинского алфавита или кириллицу"
+                                        placeholder="город" required /></label>
+                        <label class="profile-label"><span class="required-star">*</span>Адрес<input
+                                        class="profile-input" type="text" name="street" minlength="2" maxlength="40"
+                                        pattern:"[a-zA-Zа-яА-я0-9._%+-]+\,[a-zA-Zа-яА-я0-9.-]+\,[a-zA-Z]{2,}$"
+                                        placeholder="Улица, дом, квартира"
+                                        title="Поле может содержать от 2-х до 40-ка символов. Заполните в формате: Улица, дом, квартира"
+                                        required /></label>
+                </div>
+        </div>
+
+
+        <button class="profile-btn button primary">СОХРАНИТЬ</button>
+</form>

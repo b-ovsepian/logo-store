@@ -1,6 +1,7 @@
+import { data } from 'autoprefixer';
 import Axios from 'axios';
 import store from '../store';
-Axios.defaults.baseURL = 'https://goit-store.herokuapp.com/';
+Axios.defaults.baseURL = 'https://back24.herokuapp.com/';
 Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
 
 export default {
@@ -41,36 +42,38 @@ export default {
       throw error;
     }
   },
-  //   Change user email or name
-  async changeUserInfo(newEmail, newName = '') {
-    const axiosEmail = newEmail ? newEmail : store.user.email;
-    const axiosName = newName ? newName : store.user.name;
+  //    Change user email, name, surname, phone
+  async changeUserInfo({ name = '', surname, email, phone }) {
+    const axiosEmail = email ? email : store.user.email;
+    const axiosName = name ? name : store.user.name;
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
       const response = await Axios.patch('users', {
-        email: axiosEmail,
         name: axiosName,
-      }).then(({ data }) => {
-        store.user = data;
+        surname: surname,
+        email: axiosEmail,
+        phone: phone,
+      }).then(response => {
+        store.user = response.data;
+        return response;
       });
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   //   Change user password
-  async changePassword(newPassword, confirmNewPassword) {
+  async changePassword(body) {
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const response = await Axios.patch('users/changePassword', {
-        password: newPassword,
-        confirmPassword: confirmNewPassword,
-      });
+      const response = await Axios.patch('users/changePassword', body);
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   //   Add favorite product
   async addFavoriteProduct(productId) {
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
@@ -93,35 +96,38 @@ export default {
       throw error;
     }
   },
+
   //   Change user address
   async changeUserAddress(newAddress) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const response = await Axios({
-        url: 'users/updateAddress',
-        method: 'PATCH',
-        headers: {
-          Authorization: store.auth.accces_token,
-          'Content-Type': 'application/json',
-        },
-        data: JSON.stringify(newAddress),
-      }).then(({ data }) => (store.user = data));
+      const response = await Axios.patch('users/updateAddress', {
+        ...newAddress,
+        zip: '01123',
+      }).then(response => {
+        store.user = response.data;
+        return response;
+      });
       return response;
     } catch (error) {
       throw error;
     }
   },
+
   // Get current user
   async getCurrentUser() {
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
-      const response = await Axios.get('users/currentUser').then(
-        ({ data }) => (store.user = data),
-      );
-      return response;
+      const response = await Axios.get('users/currentUser').then(response => {
+        store.user = response.data;
+        return response;
+      });
+      return response.data;
     } catch (error) {
       throw error;
     }
   },
+
   //   Get all products
   async getAllProducts() {
     try {
@@ -135,6 +141,7 @@ export default {
   },
   // Create new product
   async createNewProduct(object) {
+    Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
     try {
       const response = await Axios('products', {
         method: 'POST',
@@ -163,7 +170,7 @@ export default {
   //   Search products
   async searchProducts(search = '', category = '', itemsPerPage = 1, page = 1) {
     try {
-      const url = `https://goit-store.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
+      const url = `https://back24.herokuapp.com/products?itemsPerPage=${itemsPerPage}&page=${page}&search=${search}&category=${category}`;
       const response = await Axios.get(url);
       return response;
     } catch (error) {
