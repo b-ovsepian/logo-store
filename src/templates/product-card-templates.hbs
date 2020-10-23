@@ -1,6 +1,5 @@
-{{#each this}}
-  <section class="product-card">
-
+{{#each this}} 
+<section class="product-card">
       <div class="container">
         <div class="product-card-name-container">
           <h2 class="product-card-title">{{name}}</h2>
@@ -11,14 +10,15 @@
           <div class="product-card-slider">
             <div class="product-card-slider-big-photo"></div>
             <div class="product-card-small-photo">
-              <ul class="product-card-slider-list"></ul>
+              <ul class="product-card-slider-list">
+              </ul>
             </div>
           </div>
           <div class="product-card-low-dange">
             <h3 class="product-card-price">{{price}} ₴</h3>
             <div class="product-card-price-button-div">
               <button class="product-card-button-buy" type="button">КУПИТЬ</button>
-              <button class="product-card-button-bookmarks" type="button"></button>
+              <button class="product-card-button-bookmarks" type="button" data-id='{{_id}}'></button>
               <p class="product-card-none">В избранное</p>
             </div>
           </div>
@@ -45,6 +45,7 @@
           </ul>
         </div>
       </div>
+    </section>
 
   </section>
 {{/each}}

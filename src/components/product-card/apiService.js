@@ -14,7 +14,8 @@ export default {
     console.dir(url);
     try {
       const res = await fetch(url);
-      return await res.json();
+      const arr = await res.json();
+      return await createModalImg(arr)
     } catch (error) {
       return displayError(error);
     }

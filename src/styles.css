@@ -50,6 +50,7 @@ body {
 
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
+  margin: 0;
 }
 
 a {

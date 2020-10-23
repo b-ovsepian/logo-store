@@ -5,36 +5,27 @@ import css from './styles.css';
 import getSlider from '../slider/index';
 import renderFn from '../product-card/index';
 
+searchObj.searchProducts('', 'new', '100').then(data => {
+  let newArr = data.data;
 
-searchObj.searchProducts("",'new','100').then(data=>{
-let newArr= data.data;
-console.log(newArr);
+  getSlider(newArr, nprefs.npdiv, 2, false, true);
 
-getSlider(newArr, nprefs.npdiv, 2, false, true);
+  const sliderTrack = nprefs.npdiv.querySelector('.slider-track');
 
-const sliderTrack=nprefs.npdiv.querySelector('.slider-track');
+  function trackWidth() {
+    let trackWidth;
+    return window.innerWidth < 768
+      ? (trackWidth = 135 * newArr.length + (newArr.length - 1) * 10 + 100)
+      : (trackWidth = 204 * newArr.length + (newArr.length - 1) * 15 + 250);
+  }
 
-function trackWidth(){
-  let trackWidth;
- return window.innerWidth < 768 ?
- trackWidth=135*newArr.length+(newArr.length-1)*10+100 :
-trackWidth=204*newArr.length+(newArr.length-1)*15+250;
-}
+  let widthList = trackWidth();
 
-let widthList=trackWidth();
+  sliderTrack.style.width = `${widthList}px`;
 
-sliderTrack.style.width=`${widthList}px`;
+  const sliderItem = sliderTrack.querySelectorAll('.card-item');
 
-const sliderItem=sliderTrack.querySelectorAll('.card-item');
-
-sliderItem.forEach(el=>{
-  console.log(el);
-  el.classList.add('new-item');
-  el.addEventListener('click',()=>{
-    renderFn.renderImages(el);
-  })
-
-});
-
-
+  sliderItem.forEach(el => {
+    el.classList.add('new-item');
+  });
 });

@@ -22,24 +22,29 @@ import './newproducts/index';
 // import paginationModule from './paginationModule/index.js';
 import { modalModule } from './modalmodule/modal';
 
+loader.renderLoader();
 setTokenToStore();
+services.getCurrentUser();
+setCartToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
   const localToken2 = JSON.parse(localStorage.getItem('info'));
-  localToken
-    ? (store.auth.accces_token = localToken)
-    : (store.auth.accces_token = localToken2.token);
+
+  if (localToken) {
+    store.auth.accces_token = localToken;
+  } else if (localToken2) {
+    store.auth.accces_token = localToken2.token;
+  } else {
+    console.log('Нет токина, нужно залогиниться');
+    store.auth.accces_token = '';
+  }
 }
 
 function setCartToStore() {
   const localCart = JSON.parse(localStorage.getItem('cart'));
   store.cart = localCart;
 }
-
-setCartToStore();
-
-loader.renderLoader();
 
 // Тянем категории
 services.getCategories().then(() => {
