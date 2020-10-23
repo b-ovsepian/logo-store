@@ -30,9 +30,15 @@ setCartToStore();
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
   const localToken2 = JSON.parse(localStorage.getItem('info'));
-  localToken
-    ? (store.auth.accces_token = localToken)
-    : (store.auth.accces_token = localToken2.token);
+
+  if (localToken) {
+    store.auth.accces_token = localToken;
+  } else if (localToken2) {
+    store.auth.accces_token = localToken2.token;
+  } else {
+    console.log('Нет токина, нужно залогиниться');
+    store.auth.accces_token = '';
+  }
 }
 
 function setCartToStore() {
