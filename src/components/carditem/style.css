@@ -6,11 +6,15 @@
 }
 /* основные стили для карточки  */
 .picture-box {
+  display: flex;
+  width: 105px;
   margin: 0 auto 15px auto;
   height: 80px;
 }
-
 .item-picture {
+  margin: auto auto;
+  border-radius: 10px;
+  max-width: 100%;
   max-height: 80px;
 }
 .item-picture:not(:first-child) {
@@ -22,7 +26,6 @@
   border-radius: 10px;
   margin-bottom: 10px;
 }
-
 .item-box {
   position: relative;
   padding: 15px;
@@ -30,8 +33,8 @@
 /* стили для иконки ИЗБРАННОЕ */
 .icon-box-favorit {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 7px;
+  right: 5px;
   width: 20px;
   height: 18px;
   display: block;
@@ -41,9 +44,6 @@
 }
 .icon-box-favorit-full {
   background-image: url(./images/icon-heart-full.svg);
-}
-.item-picture {
-  margin: 0 auto;
 }
 .card-item-title {
   margin: 0;
@@ -57,9 +57,6 @@
   margin-bottom: 10px;
 }
 /* стили для иконок рейтинг */
-/* .icon-box {
-  display: flex;
-} */
 .icon-box-star {
   display: block;
   background-image: url(./images/icon-star.svg);
@@ -111,9 +108,14 @@
     padding: 20px;
   }
   .picture-box {
+    display: flex;
+    width: 164px;
     height: 140px;
   }
   .item-picture {
+    margin: auto auto;
+    border-radius: 10px;
+    max-width: 100%;
     max-height: 140px;
   }
   .card-item-title {
