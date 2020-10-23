@@ -2,13 +2,20 @@ import './../salo/style-salo.css'
 import { cardItem } from './../carditem/index.js'
 import helpers from './../helpers/index.js'
 import services from './../services/index.js'
-// createSale('sale')
+
  
 // createSale()
-export function createSale(nameCategory, nameProduct,  bool) {
+export function createSale(nameCategory, array,  bool) {
   const constructor = document.querySelector('.page-main .container');
-let copyData = []
-let defData = []
+  if (nameCategory){
+    alinaFunvtion()
+  }
+  if (array){
+    createItems(array)
+  }
+
+};
+function createItems (array) {
   
   constructor.innerHTML = '';
   constructor.insertAdjacentHTML('beforeend', `
@@ -17,54 +24,44 @@ let defData = []
   <h1 class="sale-title">${nameCategory}</h1>
   <label id="sale-label" for="sale-sort">Сортировка:</label>
   <select id="products">
-    <option value="default" selected>По умолчанию</option>
-    <option value="ascPrice">По возрастанию цены</option>
-    <option value="desPrice">По убыванию цены</option>
-    <option value="Alph">По алфавиту</option>
+  <option value="default" selected>По умолчанию</option>
+  <option value="ascPrice">По возрастанию цены</option>
+  <option value="desPrice">По убыванию цены</option>
+  <option value="Alph">По алфавиту</option>
   </select>
-</div>
-<ul class="sale-sort-list list"></ul>
-<div class="sale-page">
+  </div>
+  <ul class="sale-sort-list list"></ul>
+  <div class="sale-page">
   {{!-- тут будет Марка  объект --}}
   <div class="sale-button"></div>
   <p class="sale-text-page"></p>
-</div>
-<section class="sale-section">`);
-
-const list = document.querySelector('.sale-sort-list');
-// document.querySelector('.sale-page')
-// document.querySelector('.sale-button').append(pages)
-// document.querySelector('.sale-text-page').append(buttons)
-// let data = {} 
-// let buttons = {} 
-// let pages = {}
-// [data, buttons, pages] = funkMark(nameCategory, nameProduct)
-//  copyData = data
-//  defData = data
-// cardItem(data, list, bool)
-  let elem, page
-  if (helpers.isMobile) {
-    elem = 6
-  } else if (helpers.isTablet) {
-    elem = 9
-  } else if (helpers.isDesktop) {
-    elem = 10
+  </div>
+  <section class="sale-section">`);
+  if (!nameCategory) {
+    document.querySelector('.sale-title').textContent = 'Ваш поиск:'
   }
-  services.searchProducts(nameProduct, nameCategory, elem, page).then(({data}) => {
-    console.log(data);
-
-    copyData = data
-    defData = data
-
-    return cardItem(data, list, bool);
-  })
- // ==============================================================================
-let selector = document.querySelector('select')
-selector.addEventListener('input', (e) => {
-  console.log(selector.value);
+  const list = document.querySelector('.sale-sort-list');
+  cardItem(array, list, bool)
+  function mark(array){
+   document.querySelector('.sale-button').append(pages)
+   document.querySelector('.sale-text-page').append(buttons)
+  // let data = {} 
+  // let buttons = {} 
+  // let pages = {}
+  [data, buttons, pages] = funkMark(array)
+  //  copyData = data
+  //  defData = data
+  cardItem(data, list, bool)
+  }
+  
+  
+ 
+  let defData = array;
+  let selector = document.querySelector('select')
+  selector.addEventListener('input', (e) => {
   if (selector.value === 'default') {
     list.innerHTML = ''
-    cardItem(defData, list, boole)
+    mark(defData)
   }
   if (selector.value === 'ascPrice') {
     ascPrice()
@@ -83,35 +80,35 @@ selector.addEventListener('input', (e) => {
       return 0;
     });
     list.innerHTML = ''
-    cardItem(copyData, list, bool)
+    mark(array)
   }
 })
-function ascPrice() {
-  for (let i = 0; i < copyData.length; i++) {
-    for (let j = i; j < copyData.length; j++) {
-      if (+copyData[i].price > +copyData[j].price) { // + защита от дураков
-        let variable = copyData[i]
-        copyData[i] = copyData[j]
-        copyData[j] = variable
+
+  function ascPrice() {
+    for (let i = 0; i < copyData.length; i++) {
+      for (let j = i; j < copyData.length; j++) {
+        if (+copyData[i].price > +copyData[j].price) { // + защита от дураков
+          let variable = copyData[i]
+          copyData[i] = copyData[j]
+          copyData[j] = variable
+        }
       }
     }
+    list.innerHTML = ''
+    mark(array)
   }
-  list.innerHTML = ''
-  cardItem(copyData, list, true)
-}
-function desPrice() {
-  for (let i = 0; i < copyData.length; i++) {
-    for (let j = i; j < copyData.length; j++) {
-      if (+copyData[i].price < +copyData[j].price) { // + защита от дураков
-        let variable = copyData[i]
-        copyData[i] = copyData[j]
-        copyData[j] = variable
+
+  function desPrice() {
+    for (let i = 0; i < copyData.length; i++) {
+      for (let j = i; j < copyData.length; j++) {
+        if (+copyData[i].price < +copyData[j].price) { // + защита от дураков
+          let variable = copyData[i]
+          copyData[i] = copyData[j]
+          copyData[j] = variable
+        }
       }
     }
+    list.innerHTML = ''
+    mark(array)
   }
-  list.innerHTML = ''
-  cardItem(copyData, list, bool)
 }
-
-};
-
