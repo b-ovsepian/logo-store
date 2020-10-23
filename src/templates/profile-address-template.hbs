@@ -28,8 +28,7 @@
                                         placeholder="город" required /></label>
                         <label class="profile-label"><span class="required-star">*</span>Адрес<input
                                         class="profile-input" type="text" name="street" minlength="2" maxlength="40"
-                                        pattern:"[a-zA-Zа-яА-я0-9._%+-]+\,[a-zA-Zа-яА-я0-9.-]+\,[a-zA-Z]{2,}$"
-                                        placeholder="Улица, дом, квартира"
+                                        pattern="[a-zA-Zа-яА-Я\-\s\0-9]*" placeholder="Улица, дом, квартира"
                                         title="Поле может содержать от 2-х до 40-ка символов. Заполните в формате: Улица, дом, квартира"
                                         required /></label>
                 </div>

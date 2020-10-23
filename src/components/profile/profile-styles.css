@@ -107,6 +107,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.notification {
+  color: var(--second-title-color);
+  display: block;
+  padding: 10px;
+}
 
 @media screen and (min-width: 320px) {
   .profile-menu {
@@ -116,7 +121,11 @@
   .profile-btn {
     margin: 0 auto;
   }
+  .profile-favorites__list li {
+    width: 135px;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .profile-menu {
     grid-template-columns: 223px 1fr;
@@ -132,6 +141,9 @@
 
   .profile-btn {
     margin: 0;
+  }
+  .profile-favorites__list li {
+    width: 204px;
   }
 }
 
@@ -150,9 +162,7 @@
     grid-row: 1/-1;
     padding-left: 11px;
   }
-}
-.notification {
-  color: var(--second-title-color);
-  display: block;
-  padding: 10px;
+  .profile-favorites__list li {
+    width: 204px;
+  }
 }

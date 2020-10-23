@@ -62,7 +62,7 @@ const renderProfile = source => {
       'beforeend',
       profileMainAdminTemplate(),
     );
-    // Нахожу пукт меню "Создать объявление":
+    // Нахожу пункт меню "Создать объявление":
     const profileMenuItemCreateAd = document.querySelector(
       '.profile-menu__item_create-ad',
     );
@@ -75,7 +75,10 @@ const renderProfile = source => {
       renderCreateAd(profileSectionsDetails);
     });
     if (source === 'createAd') {
-      renderCreateAd();
+      profileSectionsDetails.innerHTML = '';
+      profileMenuItemCreateAd.after(profileSectionsDetails);
+      changeActiveItem(profileMenuItemCreateAd);
+      renderCreateAd(profileSectionsDetails);
     }
   } else {
     //Если пользователь не админ:
@@ -231,7 +234,14 @@ const renderProfile = source => {
 
     addressForm.elements.place.value = result.address.place;
     addressForm.elements.city.value = result.address.city;
-    addressForm.elements.street.value = `${result.address.street}, ${result.address.building}, ${result.address.flat}`;
+    //addressForm.elements.street.value = `${result.address.street}, ${result.address.building}, ${result.address.flat}`;
+    addressForm.elements.street.value = [
+      result.address.street,
+      result.address.building,
+      result.address.flat,
+    ]
+      .filter(elem => !!elem)
+      .join(',');
 
     // Вешаю слушателя на форму деталей меню "Мой адрес":
     addressForm.addEventListener('submit', async event => {
