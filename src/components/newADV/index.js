@@ -6,7 +6,7 @@ import profileAdminAdTemplate from '../../templates/profile-admin-ad-template.hb
 import getObj from '../services/index.js';
 import services from '../services/index.js';
 
-export default profileSectionsDetails => {
+export default (profileSectionsDetails) => {
   profileSectionsDetails.insertAdjacentHTML(
     'beforeend',
     profileAdminAdTemplate(),
