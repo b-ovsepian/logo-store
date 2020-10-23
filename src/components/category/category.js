@@ -3,21 +3,18 @@ import refs from '../../refs/index.js';
 import kitchen from './template/kitchen.hbs';
 import embedded from './template/embedded.hbs';
 import household from './template/household.hbs';
-import home from './template/dom.hbs';
+import home from './template/home.hbs';
+import images from './image.js';
 import getCategories from '../services/index.js';
+import { createSale } from '../createCards/index.js'; // дома проверить
 
-
-// import categories from './data.js'
-
-//сделать localStoredje
-// const group = document.querySelector('.group');
 
 const cartClear = refs.category;
 const catygoryDom = document.querySelector('.catygory-dom');
 
 cartClear.addEventListener('click', (e) => {
   e.preventDefault()
-  // const res = cartClear.childNodes[1].firstElementChild.children[1].textContent
+
   if (e.target.name === 'household' || e.target.id === 'household') {//Крупная бытовая техника
     cartClear.innerHTML = ''
     renderHouse()
@@ -29,15 +26,14 @@ cartClear.addEventListener('click', (e) => {
   if (e.target.name === 'home' || e.target.id === 'home') {//Уход за домом и одеждой
     cartClear.innerHTML = ''
     renderHome()
-    for (let i = 0; i < 6; i++) {
-      catygoryDom.setAttribute('data-id', i);
-    }
+
   }
   if (e.target.name === 'kitchen' || e.target.id === 'kitchen') {//Техника для кухни
     cartClear.innerHTML = ''
     renderKitchen()
   }
 })
+
 function renderHouse() {
   getCategories.getCategories()
     .then(data => house(data))
@@ -55,21 +51,35 @@ function renderKitchen() {
     .then(data => kitche(data))
 }
 
-
-
 function house(data) {
   const item = household(data.slice(0, 6));
   refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
 }
 function embed(data) {
-  const item = embedded(data.slice(6, 11));
+  const item = embedded(data.slice(6, 11), images);
   refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
 }
 function hom(data) {
-  const item = home(data.slice(11, 17));
+  const item = home(data.slice(11, 17), images);
   refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
 }
 function kitche(data) {
-  const item = kitchen(data.slice(18));
+  const item = kitchen(data.slice(18), images);
   refs.category.insertAdjacentHTML('beforeend', item);
+
+  document.getElementById('cart-list').addEventListener('click', (e) => {
+    createSale(e.target.textContent)
+  })
 }

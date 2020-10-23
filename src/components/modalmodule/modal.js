@@ -45,15 +45,15 @@ export const modalModule = (markup, listeners) => {
 // const modalBTN = document.querySelector('.modalbtn');
 // modalBTN.addEventListener('click', product);
 
-function product() {
-  function buyGoods() {
-    // example for markup
-    return `<div>hey<button class="hello">GET</button></div>`;
-  }
+// function product() {
+//   function buyGoods() {
+//     // example for markup
+//     return `<div>hey<button class="hello">GET</button></div>`;
+//   }
 
-  function createListeners(closebackdrop) {
-    const myButton = document.querySelector('.hello');
-    myButton.addEventListener('click', closebackdrop);
-  }
-  modalModule(buyGoods, createListeners);
-}
+//   function createListeners(closebackdrop) {
+//     const myButton = document.querySelector('.hello');
+//     myButton.addEventListener('click', closebackdrop);
+//   }
+//   modalModule(buyGoods, createListeners);
+// }

@@ -26,14 +26,18 @@ export const cardItem = (data, where, sale = false) => {
   where.insertAdjacentHTML('beforeend', item);
   // проверка есть ли карточка в избранных
   // если есть то зарисовать сердечко
-  // setTimeout(() => {
-  store.user.favorites.forEach(({ _id }) => {
-    const span = document.querySelector(`.icon-box-favorit[data-id="${_id}"]`);
-    if (span !== null) {
-      span.classList.toggle('icon-box-favorit-full');
-    }
-  });
-  // }, 500);
+  setTimeout(() => {
+    store.user.favorites.forEach(_id => {
+      const span = document.querySelectorAll(
+        `.icon-box-favorit[data-id="${_id}"]`,
+      );
+      span.forEach(item => {
+        if (item !== null) {
+          item.classList.add('icon-box-favorit-full');
+        }
+      });
+    });
+  }, 1000);
   //слушатель на иконку для смены иконки
   // и записи на бек в массив favorit
   where.addEventListener('click', e => {
@@ -66,18 +70,3 @@ export const cardItem = (data, where, sale = false) => {
 function mapArray(ar, id) {
   return ar.find(elem => elem._id === id);
 }
-
-// поиск элемента куда нужно встроить "ul"
-// const divMain = refs.main.querySelector(".container")
-// const cardList = document.createElement("ul")
-// cardList.classList.add("card-list")
-// cardList.classList.add("list")
-// divMain.append(cardList)
-// // регистрация на сайте
-// services.registerNewUser("oleh1@gmail.com", "oleg12345")
-// авторизация на сайте
-// services.loginUser("oleh1@gmail.com", "oleg12345");
-// временной запрос.....
-// services.searchProducts("", "ref", "5").then(({ data }) => {
-//     cardItem(data, cardList)
-// })

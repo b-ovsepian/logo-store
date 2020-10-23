@@ -68,6 +68,8 @@ const renderProfile = source => {
       renderCreateAd(profileSectionsDetails);
     });
   };
+
+
   if (store.user.role === 'ADMIN' || source === 'createAd') {
     renderAdminMenu();
   } else {
@@ -296,6 +298,12 @@ const renderProfile = source => {
   }
   if (source === 'favorites') {
     renderFavorites();
+  }
+  if (source === 'createAd') {
+    profileSectionsDetails.innerHTML = '';
+    profileMenuItemCreateAd.after(profileSectionsDetails);
+    changeActiveItem(profileMenuItemCreateAd);
+    renderCreateAd(profileSectionsDetails);
   }
 };
 

@@ -21,7 +21,7 @@
     <header class="page-header">
       <nav class="container">
         <div class="header">
-          <a href="#" class="logo js-logo">
+          <a href="./index.html" class="logo js-logo">
             <img
               src="./components/header/images/logo.png"
               alt="logo"
@@ -30,7 +30,7 @@
             />
             <p>Lo<span>go</span></p>
           </a>
-          <ul class="list icon-list">
+          <ul class="list icon-list" id="mobileNav">
             <li>
               <button class="js-phone">
                 <svg class="nav-icon" width="30" height="30">
@@ -60,34 +60,100 @@
               </button>
             </li>
           </ul>
-          <button type="button" class="burger js-burger">
+          <button type="button" class="burger js-burger" id="burgerBtn">
             <svg class="icon-burger" width="34" height="34">
               <use
                 href="./components/header/images/sprite.svg#icon-burger"
               ></use>
             </svg>
-            <svg class="icon-close visually-hidden" width="14" height="14">
-              <use
-                href="./components/header/images/sprite.svg#icon-close"
-              ></use>
-            </svg>
           </button>
         </div>
       </nav>
+      <!-- <div class="header-modal">
+          <div class="container">
+            <div class="input">
+              <svg class="nav-icon" width="20" height="20">
+                <use href="./components/header/images/sprite.svg#icon-search"></use>
+              </svg>
+              <input class="search-modal"
+               type="text" id="search-modal"
+               name="search-modal" placeholder="Поиск">
+            </div>
+
+            <ul class="list modal-list">
+              <li class="modal-list-item">
+                <button class="modal-inner-button js-catalog">Каталог
+                  <span class="arrow" id="catBtnIcon">►</span>
+                </button>
+                <ul class="catalog isHidden" data-catalog="catalog">
+                </ul>
+              </li>
+              <li class="modal-list-item js-sale">
+                <a href="#">SALE &#37;</a>
+              </li>
+              <li class="modal-list-item">
+                <button class="modal-inner-button js-info">
+                  <span>Информация</span>
+                  <svg class="arrow" width="10" height="8">
+                    <use href="./components/header/images/sprite.svg#icon-navarrow"></use>
+                  </svg>
+                </button>
+              </li>
+              <li class="modal-list-item">
+                <a href="#">Контакты</a>
+              </li>
+              <li class="numbers-button modal-list-item">
+                <button class="modal-inner-button js-phone">
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/images/sprite.svg#icon-smartphone"></use>
+                  </svg>
+                  <span class="with-icons">+38 (050) 333-37-96</span>
+                  <svg class="arrow" width="10" height="8">
+                    <use href="./components/header/images/sprite.svg#icon-navarrow"></use>
+                  </svg>
+                </button>
+              </li>
+              <li class="modal-list-item">
+                <button class="modal-inner-button js-profile">
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/images/sprite.svg#icon-profile"></use>
+                  </svg>
+                  <span class="with-icons">Личный кабинет</span>
+                  <svg class="arrow" width="10" height="8">
+                    <use href="./components/header/images/sprite.svg#icon-navarrow"></use>
+                  </svg>
+                </button>
+              </li>
+              <li class="modal-list-item">
+                <a href="#" class="likes-link js-likes">
+                  <svg class="" width="30" height="30">
+                    <use href="./components/header/images/sprite.svg#icon-likes"></use>
+                  </svg>
+                  <div class="likes-amount amount">0</div>
+                  <span class="with-icons">Избранное</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      <!-- <div class="container">
+        <button type="button" class="information-btn">Information</button>
+        <button type="button" class="telephoneTrigger-btn">telephone</button>
+      </div> -->
     </header>
     <main class="page-main">
       <div class="container main-container">
-
         <nav id="breadcrumb">
           <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
           </ol>
         </nav>
+        -->
         <div class="category">
           <ul class="category-list list">
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 3.jpg"
+                src="./components/category/images/desktop/Rectangle-3.jpg"
                 alt="Бытовая техника"
                 width="100%"
               />
@@ -98,7 +164,7 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 4.jpg"
+                src="./components/category/images/desktop/Rectangle-4.jpg"
                 alt="Бытовая техника"
                 width="100%"
               />
@@ -109,7 +175,7 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 5.jpg"
+                src="./components/category/images/desktop/Rectangle-5.jpg"
                 alt="Бытовая техника"
                 width="100%"
               />
@@ -120,7 +186,7 @@
             </li>
             <li class="category-list-item">
               <img
-                src="./components/category/images/desktop/Rectangle 6.jpg"
+                src="./components/category/images/desktop/Rectangle-6.jpg"
                 alt="Бытовая техника"
                 width="100%"
               />
@@ -132,6 +198,10 @@
               </button>
             </li>
           </ul>
+        </div>
+
+        <div class="new-products">
+          <h2 class="np-title">Новые поступления</h2>
         </div>
       </div>
       <div class="pagination-wrapper">
@@ -160,12 +230,8 @@
         <p class="copyright">&copy; 2020 | GoIT</p>
       </div>
     </footer>
-
-    <button class="modalbtn">Press here</button>
     <button class="authbtn">Form</button>
-
     <div class="formsection"></div>
-
     <div class="lightbox">
       <div class="backdrop">
         <div class="modal">
