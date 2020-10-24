@@ -1,9 +1,12 @@
 import style from './style.css';
-import refs from '../../refs/index.js';
+import refs from '../../refs';
 import axios from 'axios';
-import viewport from './viewport.js';
+import viewport from '../helpers';
+import services from '../services';
+import templateCardItem from '../carditem/templateCardItem.hbs';
 
 const pagination = {
+  query: '',
   currentPage: 1,
   pagesCount: 1,
   countOfProducts: 0,
@@ -20,37 +23,41 @@ if (viewport.isMobile) {
   elem = 10;
 }
 
-const countOfProducts = async category => {
-  const result = await axios.get(
-    `https://back24.herokuapp.com/products/getCategories?category=${category}`,
-  );
-  pagination.countOfProducts = result.data.countOfProducts;
-  return result.data.countOfProducts;
+const countOfProducts = function (Object) {
+  pagination.countOfProducts = Object.length;
+  return Object.length;
 };
 
-export async function createPagination(category) {
-  countOfProducts(category).then(() => {
+const createPagination = function (Object, query) {
+  if (countOfProducts(Object) > 0) {
+    pagination.query = query;
     const showQuantity = document.querySelector('.show-quantity');
     minAndMaxProducts();
     showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`;
-  });
 
-  const list = document.querySelector('.pagination-list');
-  list.innerHTML = await getListItemsMarkup(category);
-  list.querySelector('[data-btn="btn"]').classList.add('active');
-  const showQuantity = document.querySelector('.show-quantity');
+    const list = document.querySelector('.pagination-list');
+    list.innerHTML = getListItemsMarkup(Object);
+    list.querySelector('[data-btn="btn"]').classList.add('active');
 
-  list.addEventListener('click', async e => {
-    list.querySelector('.active').classList.remove('active');
-    e.target.classList.add('active');
-    const data = await getProducts(Number(e.target.dataset.page));
-    pagination.currentPage = Number(e.target.dataset.page);
-
-    minAndMaxProducts();
-    showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`;
-    return data.data;
-  });
-}
+    list.addEventListener('click', e => {
+      list.querySelector('.active').classList.remove('active');
+      e.target.classList.add('active');
+      const page = Number(e.target.dataset.page);
+      services
+        .searchProducts(pagination.query, '', elem, page)
+        .then(({ data }) => {
+          const searchList = document.querySelector('.searchList');
+          searchList.innerHTML = '';
+          pagination.currentPage = page;
+          const markup = templateCardItem(data);
+          searchList.insertAdjacentHTML('beforeend', markup);
+          //           createPagination(data, pagination.query);
+          minAndMaxProducts();
+          showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`;
+        });
+    });
+  }
+};
 
 function minAndMaxProducts() {
   pagination.minProducts = pagination.currentPage * elem - elem + 1;
@@ -65,22 +72,13 @@ const getItemMarkup = pageNumber => {
   return `<button class="pagination-button" data-btn="btn" data-page=${pageNumber}>${pageNumber}</button>`;
 };
 
-const getListItemsMarkup = async category => {
+const getListItemsMarkup = function (Object) {
   let markup = '';
-  pagination.pagesCount = await countOfProducts(category);
-  console.log(pagination.pagesCount);
+  pagination.pagesCount = countOfProducts(Object);
   for (let i = 1; i <= Math.ceil(pagination.pagesCount / elem); i += 1) {
     markup += getItemMarkup(i);
   }
   return markup;
 };
 
-const getProducts = async (page = 1, perPage = elem, category = 'ref') => {
-  return await axios.get(
-    `https://back24.herokuapp.com/products?itemsPerPage=${perPage}&page=${page}&category=${category}`,
-  );
-};
-
-createPagination('');
-
-//=============================================================//
+export default createPagination;
