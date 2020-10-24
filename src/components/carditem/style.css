@@ -1,6 +1,7 @@
 /* пробный список, что бы понять как будут
 стоять две карточки в ряд */
 .card-list {
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
 }
