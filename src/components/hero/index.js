@@ -1,11 +1,17 @@
 import './styles.css';
 import slider from '../slider';
+import refs from '../../refs';
 
-const main = document.querySelector(`main`);
-const container = main.querySelector(`.container`);
-const array = ['', '', '', ''];
+function renderHero() {
+  const array = ['', '', '', ''];
 
-container.insertAdjacentHTML(`afterbegin`, `<section class="hero"></section>`);
-const heroSection = document.querySelector(`.hero`);
+  refs.mainContainer.insertAdjacentHTML(
+    `afterbegin`,
+    `<section class="hero"></section>`,
+  );
+  const heroSection = document.querySelector(`.hero`);
 
-slider(array, heroSection, 1, true, false);
+  slider(array, heroSection, 1, true, false);
+}
+
+export default renderHero;

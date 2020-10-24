@@ -7,6 +7,7 @@ import renderInformation from '../information';
 import createCatalogList from '../catalog/catalog.js';
 import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
+import renderDevelopers from '../developers';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -82,9 +83,6 @@ function openModal() {
   modalModule(createModalMarkup, addListeners);
   renderInformation();
   createCatalogList();
-  // const catalogIgor = document.querySelector('[data-catalog="catalog"]');
-  // catalogIgor.append(createCatalogList.createCatalogList());
-  // createCatalogList.createCatalogList();
 }
 
 if (widthObject.isDesktop) {
@@ -109,7 +107,7 @@ if (widthObject.isDesktop) {
           </button>
         </li>
         <li class="a">
-          <a href="#" class="desktop-link">Sale &#37;</a>
+          <a href="#" class="desktop-link js-sale">Sale &#37;</a>
         </li>
         <li class="a">
           <button class="desktop-button js-info">
@@ -118,7 +116,7 @@ if (widthObject.isDesktop) {
                 </button>
         </li>
         <li class="a">
-          <a href="#" class="desktop-link">Контакты</a>
+          <a href="#" class="desktop-link js-developers">Контакты</a>
         </li>
       </ul>
       <ul class="list account-list">
@@ -146,61 +144,9 @@ if (widthObject.isDesktop) {
         </li>
       </ul>`,
   );
-  // refs.headerWrap.innerHTML = `<a href="#" class="logo js-logo"><img src="${images.headerImages.logo}" alt="logo" width="40" height="40"><p>Lo<span>go</span></p></a>
-  // <ul class="list desktop-nav-list">
-  //       <li class="a">
-  //         <button class="desktop-button js-phone">
-  //                 <span class="phone-icon header-icon"></span>
-  //                 <span class="with-icons">+38 (050) 333-37-96</span>
-  //                 <span class="arrow">▼</span>
-  //         </button>
-  //       </li>
-  //       <li class="a">
-  //         <button class="desktop-button js-catalog">Каталог
-  //             <span class="arrow" id="catBtnIcon">▼</span>
-  //         </button>
-  //       </li>
-  //       <li class="a">
-  //         <a href="#" class="desktop-link">Sale &#37;</a>
-  //       </li>
-  //       <li class="a">
-  //         <button class="desktop-button js-info">
-  //                 <span>Информация</span>
-  //                 <span class="arrow">▼</span>
-  //               </button>
-  //       </li>
-  //       <li class="a">
-  //         <a href="#" class="desktop-link">Контакты</a>
-  //       </li>
-  //     </ul>
-  //     <ul class="list account-list">
-  //       <li class="a">
-  //         <button class="js-search desktop-account-button">
-  //           <span class="search-icon"></span>
-  //         </button>
-  //       </li>
-  //       <li class="a">
-  //         <button class="js-profile desktop-account-button">
-  //           <span class="profile-icon"></span>
-  //         </button>
-  //       </li>
-  //       <li class="a">
-  //         <a href="#" class="likes-link js-likes">
-  //             <span class="likes-icon">
-  //             <div class="likes-amount amount">0</div>
-  //             </span>
-  //         </a>
-  //       </li>
-  //       <li class="a">
-  //         <a href="#" class="js-cart">
-  //             <span class="cart-icon">
-  //             <div class="items-amount amount">0</div>
-  //             </span>
-  //         </a>
-  //       </li>
-  //     </ul>`;
 
   renderInformation();
+  renderDevelopers();
 
   const catalogBtn = document.querySelector('.js-catalog');
   function createCatalogMarkup() {
@@ -211,7 +157,6 @@ if (widthObject.isDesktop) {
   function openCatalog() {
     function addListeners(closeBackdrop) {}
     modalModule(createCatalogMarkup, addListeners);
-    // renderInformation();
     createCatalogList();
   }
 
@@ -222,18 +167,4 @@ if (widthObject.isDesktop) {
   document
     .querySelector('.js-profile')
     .addEventListener('click', renderAuthMenu);
-
-  // createCatalogList();
-  // createCatalogList();
 }
-
-/*
-function userIgor() {
-  function div() {
-    return checkAuto();
-  }
-
-  modalModule(div, createListeners);
-}
-
-*/

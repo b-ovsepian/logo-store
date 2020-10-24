@@ -1,24 +1,22 @@
-import './modalmodule/modal';
-import './authform/authform';
-import header from './header';
-import developers from './developers';
-import renderTelephoneTrigger from './telephoneTrigger';
-import footer from './footer';
 import services from './services';
 import store from './store';
-import profile from './profile';
-// import catalog from './catalog/catalog.js';
-import './search/search.js';
-import slider from './slider';
-import hero from './hero';
-import './category/category.js';
 import helpers from './helpers';
-// import cardItem from './carditem/index.js';
+import slider from './slider';
+import modalModule from './modalmodule/modal.js';
+
+import header from './header';
+import authForm from './authform/authform.js';
+import profile from './profile';
+import newADV from './newADV';
+import searh from './search/search.js';
+
+import footer from './footer';
+
 import loader from './loader';
-import newADV from './newADV/index.js';
-import './newproducts/index';
+import renderMainPage from './mainPage';
+
+import category from './category/category.js';
 // import paginationModule from './paginationModule/index.js';
-import { modalModule } from './modalmodule/modal';
 
 loader.renderLoader();
 setTokenToStore();
@@ -45,11 +43,10 @@ function setCartToStore() {
   store.cart = localCart;
 }
 
-// Тянем категории
 services
   .getCategories()
   .then(() => {
-    renderTelephoneTrigger();
+    renderMainPage();
   })
   .finally(() => {
     loader.closeLoader();
