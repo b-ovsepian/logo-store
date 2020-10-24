@@ -5,10 +5,10 @@ import { userSetter } from 'core-js/fn/symbol';
 
 const exclusiveArreyItems = [];
 function getSessionStorage() {
-  return JSON.parse(localStorage.getItem('lastSeen'))
+  return JSON.parse(sessionStorage.getItem('lastSeen'))
 };
 // function setSessionStorage(arrey) {
-//     return localStorage.setItem('lastSeen', JSON.stringify(arrey))
+//     return sessionStorage.setItem('lastSeen', JSON.stringify(arrey))
 // };
 getSessionStorage('lastSeen');
 const arrItemsSessionStorage = getSessionStorage('lastSeen');
