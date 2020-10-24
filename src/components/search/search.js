@@ -6,6 +6,17 @@ import searchTemplate from '../../templates/searchTemplate.hbs';
 import { modalModule } from '../modalmodule/modal.js';
 import store from '../store/index.js';
 import refs from '../../refs/index.js';
+import viewport from '../helpers';
+import createPagination from '../paginationModule/index.js';
+
+let elem;
+if (viewport.isMobile) {
+  elem = 6;
+} else if (viewport.isTablet) {
+  elem = 9;
+} else if (viewport.isDesktop) {
+  elem = 10;
+}
 
 const searchButtonHandler = () => {
   const createListeners = closeBackdrop => {
@@ -17,15 +28,19 @@ const searchButtonHandler = () => {
       if (!searchInputValue) return;
 
       servicesApi
-        .searchProducts(searchInputValue, '', 12, 1)
+        .searchProducts(searchInputValue, '', '', 1)
         .then(({ data }) => {
-          console.log(data);
-
           const container = document.querySelector('main .container');
           container.innerHTML = '<ul class="searchList list card-list"></ul>';
-
-          cardItem(data, container.firstChild);
-
+          const paginationDiv = document.createElement('div');
+          paginationDiv.innerHTML = `<div class="pagination-wrapper">
+      <ul class="pagination-list"></ul>
+      <p class="show-quantity"></p>
+    </div>`;
+          container.insertAdjacentElement('beforeend', paginationDiv);
+          const tenObjects = data.filter((value, index) => index < elem);
+          cardItem(tenObjects, container.firstChild);
+          createPagination(data, searchInputValue);
           closeBackdrop();
         });
     };
