@@ -4,7 +4,7 @@ import refs from '../../refs';
 import { modalModule } from '../modalmodule/modal';
 import { openForm } from '../authform/authform.js';
 import renderProfile from '../profile';
-import webfunc from '../webfunc';
+import { exitUser } from '../helpers';
 
 function renderAuthMenu() {
   if (store.user.email === 'admin@gmail.com') {
@@ -68,7 +68,7 @@ function renderAuthMenu() {
             renderProfile('createAd');
             break;
           case 'exit':
-            webfunc();
+            exitUser();
             break;
 
           default:

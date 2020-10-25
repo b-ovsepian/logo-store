@@ -19,4 +19,5 @@ export default {
   likes: document.querySelector('.js-likes'),
   modalHeader: document.querySelector('.modal'),
   modalBackdrop: document.querySelector('.backdrop'),
+  mainContainer: document.querySelector('.main-container'),
 };

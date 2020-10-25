@@ -8,10 +8,12 @@ import services from '../services/index.js';
 import { cardItem } from '../carditem/index.js';
 import store from '../store/index.js';
 import renderCreateAd from '../newADV/index.js';
+import renderMainPage from '../mainPage';
+
 // Функция, которая закрывает меню "Личный кабинет" по кнопке "Выход":
 const closeProfile = () => {
   //вызываю функцию рендеринга главной страницы:
-  //...
+  renderMainPage();
 };
 // Функция, которая проверяет есть ли класс активного меню, для подсвечивания активного пункта меню:
 const changeActiveItem = element => {
@@ -47,6 +49,7 @@ const notificationMessage = (elem, message) => {
  * в зависимости от того с какой кнопки осуществляется переход;
  */
 const renderProfile = source => {
+  let profileMenuItemCreateAd;
   // Отрисовываю меню:
   // Если пользователь админ:
   if (store.user.role === 'ADMIN') {
@@ -55,24 +58,17 @@ const renderProfile = source => {
       profileMainAdminTemplate(),
     );
     // Нахожу пункт меню "Создать объявление":
-    const profileMenuItemCreateAd = document.querySelector(
+    profileMenuItemCreateAd = document.querySelector(
       '.profile-menu__item_create-ad',
     );
     // Вешаю слушателя на пункт меню "Создать объявление":
     profileMenuItemCreateAd.addEventListener('click', event => {
       event.preventDefault();
-
       profileSectionsDetails.innerHTML = '';
       profileMenuItemCreateAd.after(profileSectionsDetails);
       changeActiveItem(profileMenuItemCreateAd);
       renderCreateAd(profileSectionsDetails);
     });
-    if (source === 'createAd') {
-      profileSectionsDetails.innerHTML = '';
-      profileMenuItemCreateAd.after(profileSectionsDetails);
-      changeActiveItem(profileMenuItemCreateAd);
-      renderCreateAd(profileSectionsDetails);
-    }
   } else {
     //Если пользователь не админ:
     refs.mainContainer.insertAdjacentHTML('beforeend', mainContainerTemplate());
@@ -100,7 +96,10 @@ const renderProfile = source => {
     '.profile-menu__item_favorites',
   );
   // Вешаю слушателя на кнопку "exitLink":
-  exitLink.addEventListener('click', closeProfile);
+  exitLink.addEventListener('click', event => {
+    event.preventDefault();
+    closeProfile();
+  });
   // Отрисовываю детали меню "Контакты":
   const renderContacts = async () => {
     profileMenuItemContacts.after(profileSectionsDetails);
@@ -300,6 +299,11 @@ const renderProfile = source => {
   if (source === 'favorites') {
     renderFavorites();
   }
+  if (source === 'createAd') {
+    //  profileSectionsDetails.innerHTML = '';
+    profileMenuItemCreateAd.after(profileSectionsDetails);
+    changeActiveItem(profileMenuItemCreateAd);
+    renderCreateAd(profileSectionsDetails);
+  }
 };
-
 export default renderProfile;
