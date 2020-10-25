@@ -1,98 +1,20 @@
-.lastSeen-section {
-  /* padding-top: 45px; только у Тани*/
-  padding-left: 20px;
+.lastSeen {
   padding-bottom: 45px;
-  /* border: 1px solid violet; */
+}
+
+.lastSeen .slider-arrows {
+  visibility: hidden;
 }
 
 .lastSeen-title {
-  font-weight: 700;
-  font-style: normal;
   font-size: 26px;
-  line-height: 1.21;
-
-  color: var(--title-text-color);
-  text-align: left;
+  line-height: 1.23;
+  margin: 0;
   margin-bottom: 20px;
 }
 
-/* .lastSeen-list {
-    display: flex;
-} */
-
-  /* .lastSeen-item {
-    border-radius: 10px;
+@media screen and (min-width: 1200px) {
+  .lastSeen {
+    padding-bottom: 60px;
   }
-
-  .lastSeen-item:not(last-child) {
-    margin-right: 10px;
-  }
-
-  @media screen and (min-width: 320px) {
-    .lastSeen-item {
-      max-width: 135px;
-    }
-  } */
-
-  /* @media screen and (min-width: 768px) {
-
-    .lastSeen-section {
-      padding-bottom: 60px;
-    }
-
-    .lastSeen-list {
-      justify-content: flex-start
-    }
-
-    .lastSeen-item {
-      max-width: 204px;
-    }
-
-    .lastSeen-item:not(last-child) {
-      margin-right: 15px;
-    }
-  } */
-
-.new-item{
-  margin:0;
-  margin-right: 5px;
-  }
-  .slider-track{
-  margin-bottom: 10px;
-  }
-  .new-item.card-item{
-    width: 135px;
-  }
-  @media screen and (max-width: 767px) {
-    .new-item.card-item:nth-child(2n) {
-      margin-left: 0;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    .new-item.card-item{
-      width: 204px;
-      margin-right: 10px;
-    }
-    .new-item.card-item:last-child {
-      margin-right: 0;
-    }
-  }
-  .new-products{
-    padding-top: 45px;
-    padding-bottom:45px;
-  }
-  .new-products .slider-arrows{
-    visibility:hidden;
-  }
-  @media screen and (min-width: 1200px) {
-    .new-products{
-      padding-top: 60px;
-      padding-bottom:60px;
-    }
-  }
-  .np-title{
-    font-size: 26px;
-    line-height: 1.23;
-    margin: 0;
-    margin-bottom: 20px;
-  }
+}
