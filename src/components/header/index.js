@@ -9,6 +9,8 @@ import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
 import renderDevelopers from '../developers';
 import renderMainPage from '../mainPage';
+import { createSale } from '../createCards';
+import renderProfile from '../profile';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -167,6 +169,20 @@ if (widthObject.isDesktop) {
   document
     .querySelector('.js-search')
     .addEventListener('click', searchButtonHandler);
+
+  document.querySelector('.js-sale').addEventListener('click', event => {
+    event.preventDefault();
+    createSale('sale');
+  });
+
+  document.querySelector('.js-likes').addEventListener('click', event => {
+    event.preventDefault();
+    const local = localStorage.getItem('info');
+    if (local) {
+      refs.mainContainer.innerHTML = '';
+      renderProfile('favorites');
+    }
+  });
 
   document.querySelector('.js-logo').addEventListener('click', event => {
     event.preventDefault();
