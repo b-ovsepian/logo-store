@@ -22,6 +22,12 @@ export default {
     main.innerHTML = '';
     const items = template(data);
     main.insertAdjacentHTML('beforeend', items);
+
+    window.scroll({
+      top: 60,
+      left: 0,
+      behavior: 'smooth',
+    });
     // productCart.style.paddingtop = '100px'
 
     const localSeen = JSON.parse(localStorage.getItem('lastSeen'));
