@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/b-ovsepian/logo-store/issues"
   },
-  "homepage": "#",
+  "homepage": "https://b-ovsepian.github.io/logo-store/",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
