@@ -7,6 +7,7 @@ ul {
 }
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 .isHidden {
@@ -72,9 +73,9 @@ a {
     display: flex;
     flex-flow: column;
   }
-  /* .isHidden {
+  .isHidden {
     display: none;
-  } */
+  }
   .catalog-img {
     display: none;
   }
