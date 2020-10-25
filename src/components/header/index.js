@@ -11,6 +11,10 @@ import renderDevelopers from '../developers';
 import renderMainPage from '../mainPage';
 import { createSale } from '../createCards';
 import renderProfile from '../profile';
+import { renderArray } from '../cart';
+import { createListeners } from '../cart';
+import { setCartToStore } from '../cart';
+import store from '../store';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -173,6 +177,19 @@ if (widthObject.isDesktop) {
   document.querySelector('.js-sale').addEventListener('click', event => {
     event.preventDefault();
     createSale('sale');
+  });
+  document.querySelector('.js-cart').addEventListener('click', event => {
+    event.preventDefault();
+    setCartToStore();
+    if (store.cart.length > 0) {
+      modalModule(renderArray, createListeners);
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Корзина пустая</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    }
   });
 
   document.querySelector('.js-likes').addEventListener('click', event => {
