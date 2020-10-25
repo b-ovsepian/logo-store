@@ -9,7 +9,7 @@ const cart = {
 };
 export function renderArray() {
   setCartToStore();
-  console.log(store.cart);
+  console.dir(store.cart);
   cart.products = [
     ...store.cart.map(elem => ({
       id: elem._id,
@@ -55,7 +55,7 @@ export function createListeners(close) {
     switch (event.target.closest('[data-button]').dataset.button) {
       case 'delete-button':
         cart.products = [...cart.products.filter(product => product.id !== id)];
-        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart.products));
         items = template(cart.products);
         getTotalSum();
         cartList.innerHTML = template(cart.products);
@@ -170,11 +170,8 @@ ${template(cart.products)}
   `;
 }
 export function setCartToStore() {
-  console.dir(store);
-  if (store.cart.length <= 0) {
-    if (localStorage.getItem('cart')) {
-      const localCart = JSON.parse(localStorage.getItem('cart'));
-      store.cart = [...localCart];
-    }
+  if (localStorage.getItem('cart')) {
+    const localCart = JSON.parse(localStorage.getItem('cart'));
+    store.cart = [...localCart];
   }
 }
