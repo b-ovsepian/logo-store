@@ -16,17 +16,25 @@ let buyButton; //= document.querySelector('.product-card-button-buy')
 let checkButton; // console.log(productCart);
 let exit;
 
-// createModalImg(images);
-// console.log(images);
-// renderApi();
-
 export default {
   renderImages(data) {
-    console.log(data);
     main.innerHTML = '';
     const items = template(data);
     main.insertAdjacentHTML('beforeend', items);
     // productCart.style.paddingtop = '100px'
+
+    const localSeen = JSON.parse(localStorage.getItem('lastSeen'));
+    console.dir(localSeen);
+    const productId = data[0]._id;
+    console.log(productId);
+
+    if (localSeen) {
+      const lastSeenArr = [...localSeen];
+      lastSeenArr.filter(item => productId !== item._id);
+      lastSeenArr.unshift(data[0]);
+      console.dir(lastSeenArr);
+      localStorage.setItem('lastSeen', JSON.stringify(lastSeenArr));
+    } else localStorage.setItem('lastSeen', JSON.stringify(data[0]));
 
     productCart = document.querySelector('.product-card');
     productCart.style.paddingTop = '30px';
@@ -86,16 +94,6 @@ export default {
 
     bigImage.src = img[0].images[0];
     bigPhoto.append(bigImage);
-
-    setSessionStorage(img[0]);
-
-    function setSessionStorage(arrey) {
-      return localStorage.setItem('lastSeen', JSON.stringify(arrey));
-    }
-
-    buyButton.addEventListener('click', e => {
-      console.log(img[0]);
-    });
 
     exit.addEventListener('click', event => {
       event.preventDefault();
