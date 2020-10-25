@@ -273,7 +273,7 @@ const renderProfile = source => {
             existingProduct.totalQuantity += 1;
           } else {
             //Если нет, добавляю в store.cart объект с ИД и количеством по умолчанию:
-            store.cart.push({ _id: element._id, totalQuantity: 1 });
+            store.cart.push(element);
           }
         });
         //Добавляю store.cart в localStorage:
