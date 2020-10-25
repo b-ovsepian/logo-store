@@ -8,6 +8,7 @@ import store from '../store/index.js';
 import refs from '../../refs/index.js';
 import viewport from '../helpers';
 import createPagination from '../paginationModule/index.js';
+import { createItems } from '../createCards';
 
 let elem;
 if (viewport.isMobile) {
@@ -17,7 +18,27 @@ if (viewport.isMobile) {
 } else if (viewport.isDesktop) {
   elem = 10;
 }
-
+export function getSearch(searchInputValue) {
+  servicesApi.searchProducts('', searchInputValue, '', 1).then(({ data }) => {
+    const container = document.querySelector('main .container');
+    container.innerHTML = '';
+    container.insertAdjacentHTML(
+      'beforeend',
+      '<ul class="searchList list card-list"></ul>',
+    );
+    const paginationDiv = document.createElement('div');
+    paginationDiv.innerHTML = `<div class="pagination-wrapper">
+      <ul class="pagination-list"></ul>
+      <p class="show-quantity"></p>
+    </div>`;
+    container.insertAdjacentElement('beforeend', paginationDiv);
+    const tenObjects = data.filter((value, index) => index < elem);
+    createItems(tenObjects, searchInputValue);
+    cardItem(tenObjects, document.querySelector('.searchList'));
+    createPagination(data, '', searchInputValue);
+    return tenObjects;
+  });
+}
 const searchButtonHandler = () => {
   const createListeners = closeBackdrop => {
     const submitHandler = event => {
@@ -31,6 +52,8 @@ const searchButtonHandler = () => {
         .searchProducts(searchInputValue, '', '', 1)
         .then(({ data }) => {
           const container = document.querySelector('main .container');
+          container.innerHTML = '';
+
           container.innerHTML = '<ul class="searchList list card-list"></ul>';
           const paginationDiv = document.createElement('div');
           paginationDiv.innerHTML = `<div class="pagination-wrapper">
@@ -39,7 +62,8 @@ const searchButtonHandler = () => {
     </div>`;
           container.insertAdjacentElement('beforeend', paginationDiv);
           const tenObjects = data.filter((value, index) => index < elem);
-          cardItem(tenObjects, container.firstChild);
+          createItems(tenObjects, searchInputValue);
+          cardItem(tenObjects, document.querySelector('.searchList'));
           createPagination(data, searchInputValue);
           closeBackdrop();
         });

@@ -4,6 +4,8 @@ import axios from 'axios';
 import viewport from '../helpers';
 import services from '../services';
 import templateCardItem from '../carditem/templateCardItem.hbs';
+import { getSearch } from './../search/search.js';
+import { cardItem } from './../carditem/index.js';
 
 const pagination = {
   query: '',
@@ -28,7 +30,7 @@ const countOfProducts = function (Object) {
   return Object.length;
 };
 
-const createPagination = function (Object, query) {
+const createPagination = function (Object, query, category = '') {
   if (countOfProducts(Object) > 0) {
     pagination.query = query;
     const showQuantity = document.querySelector('.show-quantity');
@@ -44,14 +46,12 @@ const createPagination = function (Object, query) {
       e.target.classList.add('active');
       const page = Number(e.target.dataset.page);
       services
-        .searchProducts(pagination.query, '', elem, page)
+        .searchProducts(pagination.query, category, elem, page)
         .then(({ data }) => {
           const searchList = document.querySelector('.searchList');
           searchList.innerHTML = '';
           pagination.currentPage = page;
-          const markup = templateCardItem(data);
-          searchList.insertAdjacentHTML('beforeend', markup);
-          //           createPagination(data, pagination.query);
+          createItems(data, pagination.query);
           minAndMaxProducts();
           showQuantity.innerHTML = `Показано с ${pagination.minProducts} по ${pagination.maxProducts} из ${pagination.countOfProducts}`;
         });
@@ -82,3 +82,97 @@ const getListItemsMarkup = function (Object) {
 };
 
 export default createPagination;
+
+function createItems(array, nameCategory, bool = false) {
+  const list = document.querySelector('.searchList');
+  let data = array;
+
+  function render(array) {
+    cardItem(array, list, bool);
+  }
+
+  let copyData = data;
+  let defData = data;
+
+  let selector = document.querySelector('select');
+
+  if (selector.value === 'default') {
+    list.innerHTML = '';
+    render(defData);
+  }
+  if (selector.value === 'ascPrice') {
+    ascPrice();
+  }
+  if (selector.value === 'desPrice') {
+    desPrice();
+  }
+  if (selector.value === 'Alph') {
+    copyData.sort(function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+    list.innerHTML = '';
+    render(copyData);
+  }
+
+  selector.addEventListener('input', e => {
+    if (selector.value === 'default') {
+      list.innerHTML = '';
+      render(defData);
+    }
+    if (selector.value === 'ascPrice') {
+      ascPrice();
+    }
+    if (selector.value === 'desPrice') {
+      desPrice();
+    }
+    if (selector.value === 'Alph') {
+      copyData.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;
+      });
+      list.innerHTML = '';
+      render(copyData);
+    }
+  });
+
+  function ascPrice() {
+    for (let i = 0; i < copyData.length; i++) {
+      for (let j = i; j < copyData.length; j++) {
+        if (+copyData[i].price > +copyData[j].price) {
+          // + защита от дураков
+          let variable = copyData[i];
+          copyData[i] = copyData[j];
+          copyData[j] = variable;
+        }
+      }
+    }
+    list.innerHTML = '';
+    render(copyData);
+  }
+
+  function desPrice() {
+    for (let i = 0; i < copyData.length; i++) {
+      for (let j = i; j < copyData.length; j++) {
+        if (+copyData[i].price < +copyData[j].price) {
+          // + защита от дураков
+          let variable = copyData[i];
+          copyData[i] = copyData[j];
+          copyData[j] = variable;
+        }
+      }
+    }
+    list.innerHTML = '';
+    render(copyData);
+  }
+}

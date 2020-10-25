@@ -6,19 +6,14 @@ import { getSearch } from './../search/search.js';
 
 // createSale()
 export function createSale(nameCategory = '', array, bool = false) {
-  const constructor = document.querySelector('.page-main .container');
   if (nameCategory) {
-    getSerch('', nameCategory, true);
-    createItems(array);
-  }
-  if (array.constructor.name === 'Object') {
-    createItems(array, bool);
+    getSearch(nameCategory);
   }
 }
-function createItems(array, bool = false) {
-  constructor.innerHTML = '';
+export function createItems(array, nameCategory, bool = false) {
+  const constructor = document.querySelector('main .container');
   constructor.insertAdjacentHTML(
-    'beforeend',
+    'afterbegin',
     `
   <section class="section">
   <div class="sale-div">
@@ -33,32 +28,22 @@ function createItems(array, bool = false) {
   </div>
   <ul class="sale-sort-list list"></ul>
   <div class="sale-page">
-  {{!-- тут будет Марка  объект --}}
   <div class="sale-button"></div>
   <p class="sale-text-page"></p>
   </div>
   <section class="sale-section">`,
   );
-  if (!nameCategory) {
-    document.querySelector('.sale-title').textContent = 'Ваш поиск:';
-  }
 
-  const list = document.querySelector('.sale-sort-list');
-  let data = {};
-  let buttons = {};
-  let pages = {};
+  const list = document.querySelector('.searchList');
+  let data = array;
 
-  render(array);
   function render(array) {
-    document.querySelector('.sale-button').append(pages);
-    document.querySelector('.sale-text-page').append(buttons)[
-      (data, buttons, pages)
-    ] = funkMark(array);
-    cardItem(data, list, bool);
+    cardItem(array, list, bool);
   }
 
   let copyData = data;
   let defData = data;
+
   let selector = document.querySelector('select');
   selector.addEventListener('input', e => {
     if (selector.value === 'default') {

@@ -100,7 +100,7 @@ function renderCategories() {
     document.querySelector('.category').insertAdjacentHTML('beforeend', item);
 
     document.getElementById('cart-list').addEventListener('click', e => {
-      createSale(e.target.textContent);
+      createSale(e.target.dataset.category);
     });
   }
   function embed() {
@@ -109,7 +109,7 @@ function renderCategories() {
     document.querySelector('.category').insertAdjacentHTML('beforeend', item);
 
     document.getElementById('cart-list').addEventListener('click', e => {
-      createSale(e.target.textContent);
+      createSale(e.target.dataset.category);
     });
   }
   function hom() {
@@ -118,7 +118,7 @@ function renderCategories() {
     document.querySelector('.category').insertAdjacentHTML('beforeend', item);
 
     document.getElementById('cart-list').addEventListener('click', e => {
-      createSale(e.target.textContent);
+      createSale(e.target.dataset.category);
     });
   }
   function kitche() {
@@ -127,7 +127,7 @@ function renderCategories() {
     document.querySelector('.category').insertAdjacentHTML('beforeend', item);
 
     document.getElementById('cart-list').addEventListener('click', e => {
-      createSale(e.target.textContent);
+      createSale(e.target.dataset.category);
     });
   }
 }
