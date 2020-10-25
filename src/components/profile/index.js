@@ -8,10 +8,12 @@ import services from '../services/index.js';
 import { cardItem } from '../carditem/index.js';
 import store from '../store/index.js';
 import renderCreateAd from '../newADV/index.js';
+import renderMainPage from '../mainPage';
+
 // Функция, которая закрывает меню "Личный кабинет" по кнопке "Выход":
 const closeProfile = () => {
   //вызываю функцию рендеринга главной страницы:
-  //...
+  renderMainPage();
 };
 // Функция, которая проверяет есть ли класс активного меню, для подсвечивания активного пункта меню:
 const changeActiveItem = element => {
@@ -94,7 +96,10 @@ const renderProfile = source => {
     '.profile-menu__item_favorites',
   );
   // Вешаю слушателя на кнопку "exitLink":
-  exitLink.addEventListener('click', closeProfile);
+  exitLink.addEventListener('click', event => {
+    event.preventDefault();
+    closeProfile();
+  });
   // Отрисовываю детали меню "Контакты":
   const renderContacts = async () => {
     profileMenuItemContacts.after(profileSectionsDetails);

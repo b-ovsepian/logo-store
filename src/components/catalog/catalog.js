@@ -1,7 +1,7 @@
 import css from './styles.css';
 
 import store from '../../components/store';
-const categories = store.categories;
+const categories = store.localCategories;
 
 import templateList from './template.hbs';
 import refs from './refs.js';

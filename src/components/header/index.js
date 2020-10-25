@@ -8,6 +8,7 @@ import createCatalogList from '../catalog/catalog.js';
 import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
 import renderDevelopers from '../developers';
+import renderMainPage from '../mainPage';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -66,6 +67,10 @@ function createModalMarkup() {
         </div>`;
   return modalMarkup;
 }
+document.querySelector('.js-logo').addEventListener('click', event => {
+  event.preventDefault();
+  renderMainPage();
+});
 
 refs.searchHeader.addEventListener('click', searchButtonHandler);
 
@@ -86,9 +91,6 @@ function openModal() {
 }
 
 if (widthObject.isDesktop) {
-  console.dir(refs.headerWrap.childNodes);
-  console.dir(refs.mobileNav);
-  console.dir(refs.burgerBtn);
   refs.headerWrap.removeChild(refs.mobileNav);
   refs.headerWrap.removeChild(refs.burgerBtn);
   refs.headerWrap.insertAdjacentHTML(
@@ -159,12 +161,15 @@ if (widthObject.isDesktop) {
     modalModule(createCatalogMarkup, addListeners);
     createCatalogList();
   }
-
+  document
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
   document
     .querySelector('.js-search')
     .addEventListener('click', searchButtonHandler);
 
-  document
-    .querySelector('.js-profile')
-    .addEventListener('click', renderAuthMenu);
+  document.querySelector('.js-logo').addEventListener('click', event => {
+    event.preventDefault();
+    renderMainPage();
+  });
 }
