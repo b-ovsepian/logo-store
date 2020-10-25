@@ -14,6 +14,7 @@ import renderProfile from '../profile';
 import { renderArray } from '../cart';
 import { createListeners } from '../cart';
 import { setCartToStore } from '../cart';
+import { closeBackdrop } from '../helpers';
 import store from '../store';
 
 function createModalMarkup() {
@@ -45,7 +46,7 @@ function createModalMarkup() {
                 </button>
               </li>
               <li class="modal-list-item">
-                <a href="#" class="modal-list-link">Контакты</a>
+                <a href="#" class="modal-list-link js-developers">Контакты</a>
               </li>
               <li class="numbers-button modal-list-item">
                 <button class="modal-inner-button js-phone">
@@ -77,23 +78,52 @@ document.querySelector('.js-logo').addEventListener('click', event => {
   event.preventDefault();
   renderMainPage();
 });
-
+document.querySelector('.js-cart').addEventListener('click', event => {
+  event.preventDefault();
+  setCartToStore();
+  if (store.cart.length > 0) {
+    modalModule(renderArray, createListeners);
+  } else {
+    const markup = function () {
+      return `<div class='js-modal-info'><p>Корзина пустая</p></div>`;
+    };
+    const addListeners = function () {};
+    modalModule(markup, addListeners);
+  }
+});
 refs.searchHeader.addEventListener('click', searchButtonHandler);
 
 refs.modalBtn.addEventListener('click', openModal);
 function openModal() {
   // refs.modalHeader.classList.add('change-modal');
-  function addListeners(closeBackdrop) {
-    document
-      .querySelector('.header-modal-close-btn')
-      .addEventListener('click', () => {
-        closeBackdrop;
-        // refs.modalHeader.classList.remove('change-modal');
-      });
-  }
+  function addListeners(closeBackdrop) {}
   modalModule(createModalMarkup, addListeners);
   renderInformation();
   createCatalogList();
+  renderDevelopers();
+
+  document.querySelector('.js-sale').addEventListener('click', event => {
+    event.preventDefault();
+    createSale('sale');
+    closeBackdrop();
+  });
+  document
+    .querySelector('.header-modal-close-btn')
+    .addEventListener('click', event => {
+      event.preventDefault();
+      closeBackdrop();
+    });
+  document
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
+  document.querySelector('.js-likes').addEventListener('click', event => {
+    event.preventDefault();
+    const local = localStorage.getItem('info');
+    if (local) {
+      refs.mainContainer.innerHTML = '';
+      renderProfile('favorites');
+    }
+  });
 }
 
 if (widthObject.isDesktop) {
