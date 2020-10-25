@@ -1,4 +1,5 @@
 import images from '../image';
+import img from '../category/image';
 
 export default {
   user: {
@@ -11,7 +12,6 @@ export default {
     email: '',
     password: '',
     phone: '',
-    role: '',
     address: {
       _id: '',
       country: '',
@@ -54,7 +54,8 @@ export default {
       ],
     },
   ],
-  categories: [
+  categories: [],
+  localCategories: [
     {
       name: 'Крупная бытовая техника',
       image: images.catalogImages.img1,
@@ -64,26 +65,38 @@ export default {
       items: [
         {
           name: 'Холодильники',
+          category: 'refrigerators',
+          images: img.kbt.xol1,
           products: [],
         },
         {
           name: 'Посудомоечные машины',
+          category: 'dishwashers',
+          images: img.kbt.xol2,
           products: [],
         },
         {
           name: 'Кухонные плиты',
+          category: 'сookers',
+          images: img.kbt.xol3,
           products: [],
         },
         {
           name: 'Морозильные камеры',
+          category: 'freezers',
+          images: img.kbt.xol4,
           products: [],
         },
         {
           name: 'Стиральные машины',
+          category: 'Стиральные машины',
+          images: img.kbt.xol5,
           products: [],
         },
         {
           name: 'Сушильные машины',
+          category: 'drying_machines',
+          images: img.kbt.xol6,
           products: [],
         },
       ],
@@ -97,26 +110,38 @@ export default {
       items: [
         {
           name: 'Встраиваемые духовые шкафы',
+          category: 'built_in_ovens',
+          images: img.it.itImg1,
           products: [],
         },
         {
-          name: 'посудомоечные машины',
+          name: 'Посудомоечные машины',
+          category: 'dishwashers',
+          images: img.it.itImg2,
           products: [],
         },
         {
           name: 'Встраиваемые варочные поверхности',
+          category: 'built_in_hobs',
+          images: img.it.itImg3,
           products: [],
         },
         {
           name: 'Кухонные вытяжки',
+          category: 'cooker_hoods',
+          images: img.it.itImg4,
           products: [],
         },
         {
           name: 'Измельчители пищевых отходов',
+          category: 'food_waste_disposers',
+          images: img.it.itImg5,
           products: [],
         },
         {
           name: 'Аксессуары к вбт',
+          category: 'Accessories_for_vbt',
+          images: img.it.itImg6,
           products: [],
         },
       ],
@@ -130,30 +155,44 @@ export default {
       items: [
         {
           name: 'Кофемашины',
+          category: 'coffee_machines',
+          images: img.home.homeImg1,
           products: [],
         },
         {
           name: 'Мультиварки',
+          category: 'multicooker',
+          images: img.home.homeImg2,
           products: [],
         },
         {
           name: 'Печи СВЧ',
+          category: 'microwave_ovens',
+          images: img.home.homeImg3,
           products: [],
         },
         {
           name: 'Блендеры',
+          category: 'blenders',
+          images: img.home.homeImg4,
           products: [],
         },
         {
           name: 'Грили',
+          category: 'grills',
+          images: img.home.homeImg5,
           products: [],
         },
         {
           name: 'Аксессуары для кухонной техники',
+          category: 'accessories_for_kitchen_appliances',
+          images: img.home.homeImg6,
           products: [],
         },
         {
           name: 'Прочая мелкая техника',
+          category: 'other_small_equipment',
+          images: img.home.homeImg7,
           products: [],
         },
       ],
@@ -167,29 +206,42 @@ export default {
       items: [
         {
           name: 'Пылесосы',
+          category: 'vacuum_cleaners',
+          images: img.kitchen.kitchenImg1,
           products: [],
         },
         {
           name: 'Роботы-пылесосы',
+          category: 'robot_vacuum_cleaners',
+          images: img.kitchen.kitchenImg2,
           products: [],
         },
         {
           name: 'Утюги',
+          category: 'irons',
+          images: img.kitchen.kitchenImg3,
           products: [],
         },
         {
           name: 'Швейная техника и аксессуары',
+          category: 'sewing_equipment_and_accessories',
+          images: img.kitchen.kitchenImg4,
           products: [],
         },
         {
           name: 'Пароочистители',
+          category: 'steam_cleaners',
+          images: img.kitchen.kitchenImg5,
           products: [],
         },
         {
           name: 'Аксессуары к товарам по уходу за домом и одеждой',
+          category: 'accessories_for_home_care_and_clothing_products',
+          images: img.kitchen.kitchenImg6,
           products: [],
         },
       ],
     },
   ],
+  cart: [],
 };

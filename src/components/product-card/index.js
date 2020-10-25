@@ -1,152 +1,128 @@
 import css from './style.css';
-import apiService from './apiService.js'
-import template from '../../templates/product-card-templates.hbs'
-import searchProducts from '../services/index.js'
-import obj from '../product-card/obj.json'
-import {commonRender} from '../cart/index.js'
-import services from '../services/index.js'
-import store from '../store/index.js'
- 
-// renderImages(obj)
+import template from '../../templates/product-card-templates.hbs';
+import refs from '../../refs';
+import searchProducts from '../services/index.js';
+import { commonRender } from '../cart/index.js';
+import services from '../services/index.js';
+import store from '../store/index.js';
+import renderMainPage from '../mainPage';
+import { modalModule } from '../modalmodule/modal.js';
 
-let main = document.querySelector('.page-main')
+let main = refs.mainContainer;
+
 let bigPhoto; //= document.querySelector('.product-card-slider-big-photo')
 let sliderList; //= document.querySelector('.product-card-slider-list')
 let productCart; //= document.querySelector('.product-card')
 let buyButton; //= document.querySelector('.product-card-button-buy')
-let checkButton;// console.log(productCart);
+let checkButton; // console.log(productCart);
 let exit;
-
-// createModalImg(images); 
-// console.log(images);
-// renderApi();
 
 export default {
   renderImages(data) {
-    console.log(data);
-    main.innerHTML = ''
-    const items = template(data)
-    main.insertAdjacentHTML('beforeend', items)
-    // productCart.style.paddingtop = '100px'
-    
-    productCart = document.querySelector('.product-card')
-    productCart.style.paddingTop = '30px'
-    productCart.style.paddingBottom = '60px'
-    bigPhoto = document.querySelector('.product-card-slider-big-photo')
-    sliderList = document.querySelector('.product-card-slider-list')
-    buyButton = document.querySelector('.product-card-button-buy')
-    checkButton = document.querySelector('.product-card-button-bookmarks')
-    exit = document.querySelector('.btn-exit')
+    main.innerHTML = '';
+    const items = template(data);
+    main.insertAdjacentHTML('beforeend', items);
 
-    this.createModalImg(data)
+    window.scroll({
+      top: 60,
+      left: 0,
+      behavior: 'smooth',
+    });
+    // productCart.style.paddingtop = '100px'
+
+    const localSeen = JSON.parse(localStorage.getItem('lastSeen'));
+    const productId = data[0]._id;
+
+    if (localSeen) {
+      const lastSeenArr = [...localSeen];
+      const existingProduct = lastSeenArr.find(item => productId === item._id);
+      if (!existingProduct) {
+        lastSeenArr.unshift(data[0]);
+      }
+      localStorage.setItem('lastSeen', JSON.stringify(lastSeenArr));
+    } else localStorage.setItem('lastSeen', JSON.stringify(data[0]));
+
+    productCart = document.querySelector('.product-card');
+    productCart.style.paddingTop = '30px';
+    productCart.style.paddingBottom = '60px';
+    bigPhoto = document.querySelector('.product-card-slider-big-photo');
+    sliderList = document.querySelector('.product-card-slider-list');
+    buyButton = document.querySelector('.product-card-button-buy');
+    checkButton = document.querySelector('.product-card-button-bookmarks');
+    exit = document.querySelector('.btn-exit');
+
+    this.createModalImg(data);
   },
 
-  createModalImg(img){
-    
+  createModalImg(img) {
     img.forEach(el => {
-      console.log(el.category);
       for (const imageItem of el.images) {
-        let li = document.createElement('li')
-        li.setAttribute('class', 'product-card-slider-item')
-        let img = document.createElement('img')
-        img.setAttribute('class', 'product-card-slider-smallImg')
-        img.src = imageItem
-        li.append(img)
-        sliderList.append(li)
+        let li = document.createElement('li');
+        li.setAttribute('class', 'product-card-slider-item');
+        let img = document.createElement('img');
+        img.setAttribute('class', 'product-card-slider-smallImg');
+        img.src = imageItem;
+        li.append(img);
+        sliderList.append(li);
       }
-    })
-    sliderList.addEventListener('click', (e) => {
-      bigImage.src = e.target.src
-    })
+    });
+    sliderList.addEventListener('click', e => {
+      bigImage.src = e.target.src;
+    });
 
     setTimeout(() => {
-      store.user.favorites.forEach( _id => {
-        const heard = document.querySelector(`.product-card-button-bookmarks[data-id = "${_id}"]`)
-        if(heard){
-          heard.classList.add('product-card-button-bookmarks-full')
+      store.user.favorites.forEach(_id => {
+        const heard = document.querySelector(
+          `.product-card-button-bookmarks[data-id = "${_id}"]`,
+        );
+        if (heard) {
+          heard.classList.add('product-card-button-bookmarks-full');
         }
-      })
+      });
     }, 1000);
 
-    checkButton.addEventListener('click', (e) => {
-      if(e.target.classList.contains('product-card-button-bookmarks')){
-        e.target.classList.toggle('product-card-button-bookmarks-full')
-        return services.addFavoriteProduct(e.target.dataset.id)
-      } 
-
-      if(e.target.classList.contains('product-card-button-bookmarks-full')){
-        e.target.classList.toggle('product-card-button-bookmarks')
-        return services.removeFavoriteProduct(e.target.dataset.id)
+    checkButton.addEventListener('click', e => {
+      if (e.target.classList.contains('product-card-button-bookmarks')) {
+        e.target.classList.toggle('product-card-button-bookmarks-full');
+        return services.addFavoriteProduct(e.target.dataset.id);
       }
-    })
 
+      if (e.target.classList.contains('product-card-button-bookmarks-full')) {
+        e.target.classList.toggle('product-card-button-bookmarks');
+        return services.removeFavoriteProduct(e.target.dataset.id);
+      }
+    });
 
+    let bigImage = document.createElement('img');
+    bigImage.setAttribute('class', 'product-cart-main-img');
+    bigImage.style.display = 'flex';
 
+    bigImage.src = img[0].images[0];
+    bigPhoto.append(bigImage);
 
-    let bigImage = document.createElement('img')
-    bigImage.setAttribute('class', 'product-cart-main-img')
-    bigImage.style.display = "flex"
+    exit.addEventListener('click', event => {
+      event.preventDefault();
+      renderMainPage();
+    });
+    buyButton.addEventListener('click', event => {
+      event.preventDefault();
+      addProductToCart(img);
 
-    bigImage.src = img[0].images[0]
-    bigPhoto.append(bigImage)
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Товар добавлен в корзину!</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    });
+  },
+};
 
-    setSessionStorage(img[0])
+function addProductToCart(data) {
+  const localCart = JSON.parse(localStorage.getItem('cart'));
 
-    function setSessionStorage(arrey) {
-      return localStorage.setItem('lastSeen', JSON.stringify(arrey))
-    };
-
-    buyButton.addEventListener('click', (e) => {
-      console.log(img[0]);
-    })
-    
-    exit.addEventListener('click', (e) => {
-      main.innerHTML = ''
-    })
-
-    console.log(store.user.lastSeen);
-  }
+  if (localCart) {
+    const cartArr = [...localCart];
+    cartArr.unshift(data[0]);
+    localStorage.setItem('cart', JSON.stringify(cartArr));
+  } else localStorage.setItem('cart', JSON.stringify(data));
 }
-
-// export default {
-
-//     renderImages(data) {
-//         // console.log(data.name);
-//         const items = template(data)
-//         productCart.insertAdjacentHTML('beforeend', items)
-
-//         bigPhoto = document.querySelector('.product-card-slider-big-photo')
-//         sliderList = document.querySelector('.product-card-slider-list')
-
-//         this.createModalImg(data)
-//     },
-
-//     createModalImg(img) {
-//         // console.log(img);
-//         let bigImage = document.createElement('img')
-//         bigImage.setAttribute('class', 'product-cart-main-img')
-//         bigPhoto.append(bigImage)
-
-//         bigImage.src = img.images
-//         console.log(bigImage);
-
-//         sliderList.addEventListener('click', (e) => {
-//             bigImage.src = e.target.src
-//         })
-//         img.forEach(el => {
-//             for (const imageItem of el.images) {
-//                 let li = document.createElement('li')
-//                 li.setAttribute('class', 'product-card-slider-list')
-
-//                 let img = document.createElement('img')
-//                 img.setAttribute('class', 'product-card-slider-smallImg')
-//                 img.src = imageItem
-//                 li.append(img)
-
-//                 sliderList.append(li)
-
-//             }
-//         })
-//     }
-// }
-

@@ -25,7 +25,7 @@
 .cart__list-item{
     width: 100%;
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .cart__list-item a{
     display: block;
@@ -43,16 +43,18 @@
     margin: 0 auto;
 }
 .category-list-item{
-width: 100%;
-align-self: baseline; 
-float: left;
-overflow: hidden;
+    width: 100%;
+    align-self: baseline; 
+    float: left;
+    overflow: hidden;
 }
 .category-list-item:not(:last-child){
     margin-bottom: 30px;
 }
 .category-img{
-border-radius: 20px;
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
 }
 .category-title{
     display: block;
@@ -93,9 +95,6 @@ border-radius: 20px;
 }
 .cart__list-item{
     width: calc((100% - 20px * 3) / 3);
-}
-.category-img{
-    /* width: 525px; */
 }
 .category-title{
     line-height: 1.23;

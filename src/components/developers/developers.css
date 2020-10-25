@@ -1,3 +1,7 @@
+.developers {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .developers-item {
   background: var(--second-bg-color);
 
@@ -35,7 +39,6 @@
   width: 85px;
   height: 85px;
   border-radius: 50%;
-  background-color: teal;
 }
 
 .developers-item__title {

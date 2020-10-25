@@ -12,6 +12,9 @@ export default {
   developersList: document.querySelector('.developers-list'),
 
   category: document.querySelector('.category'),
+
+  lastSeenSection: document.querySelector('.lastSeen-section'),
+
   // cardList: document.querySelector(".card-list")
   formAdmin: document.querySelector('.adminFormProduct'),
   createCardImg: document.querySelector('.photo-product'),

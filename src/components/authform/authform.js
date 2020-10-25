@@ -4,6 +4,7 @@ import '../authform/form.css';
 import store from '../store';
 import Axios from 'axios';
 import searchObj from '../services/index';
+import { data } from 'autoprefixer';
 
 function markUpRendering() {
   return `<div class="authorization">
@@ -15,7 +16,10 @@ function markUpRendering() {
                     <p class="email-hint">Пожалуйста, введите корректный email</p>
                     </div>
                 <div class="password-section">
+                    <div class="passw-label-wrapper">
                     <label class="authlabel" for="password"><span class="authspan">*</span>Пароль</label>
+                    <span class="passw-valid-text">Пароль должен включать от 6 до 20 символов: 1й заглавной буквы, не менее 5 цифр и мин 3х маленьких букв</span>
+                    </div>
                     <input class="authinput input-password" id="password" placeholder="Пароль" name="password" value="" type="password" required/>
                     <p class="password-hint">Пожалуйста, введите корректный пароль</p>
                     </div>
@@ -34,10 +38,7 @@ function markUpRendering() {
             </div>`;
 }
 
-const modalBTN = document.querySelector('.authbtn');
-modalBTN.addEventListener('click', openForm);
-
-function openForm() {
+export function openForm() {
   function createListeners(closebackdrop) {
     const myButton = document.querySelector('.close-icon');
     myButton.addEventListener('click', closebackdrop);
@@ -47,12 +48,21 @@ function openForm() {
       enterAccountBtn: document.querySelector('.enterAccount'),
       registerAccountBtn: document.querySelector('.registerAccount'),
       buttons: document.querySelector('.authbuttons'),
+      spanText: document.querySelector('.passw-valid-text'),
     };
 
     const user = {
       email: '',
       password: '',
     };
+
+    authRefs.form.elements.password.addEventListener('focus', () => {
+      authRefs.spanText.classList.add('is-open');
+    });
+
+    authRefs.form.elements.password.addEventListener('blur', () => {
+      authRefs.spanText.classList.remove('is-open');
+    });
 
     // validate inputs
     authRefs.form.addEventListener('input', event => {
@@ -75,10 +85,8 @@ function openForm() {
     });
 
     authRefs.buttons.addEventListener('click', e => {
-      if (
-        e.target.classList.contains('registerAccount') &&
-        authRefs.form.elements.radio.checked === true
-      ) {
+      if (e.target.classList.contains('registerAccount')) {
+        // &&(authRefs.form.elements.radio.checked===true))
         console.log(user);
         apiServiceRegister(user);
       }
@@ -90,16 +98,20 @@ function openForm() {
 
     const apiServiceRegister = async obj => {
       try {
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(user),
-        };
         const url = 'https://back24.herokuapp.com/auth/registration';
-        const response = await fetch(url, options);
-        successRegisterMessage();
+        let response = await Axios.post(url, obj)
+          .then(info => {
+            console.log(info);
+            successRegisterMessage();
+          })
+          .then(data => {
+            authRefs.form.elements.radio.checked = true;
+
+            setTimeout(() => {
+              apiServiceEnter(user);
+            });
+          }, 2000);
+
         return response;
       } catch (error) {
         openErrorMessage();
@@ -107,39 +119,33 @@ function openForm() {
       }
     };
 
-    function apiServiceEnter(obj) {
-      return fetch(
-        'https://back24.herokuapp.com/auth/login',
+    const apiServiceEnter = async obj => {
+      const url = 'https://back24.herokuapp.com/auth/login';
 
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(user),
-        },
-      )
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
+      try {
+        const response = await Axios.post(url, obj).then(({ data }) => {
           store.auth.accces_token = data.accces_token;
           store.user = data.user;
-          storageToken(data.user, data.user.role, data.accces_token);
-          successEnterMessage();
-        })
-        .catch(error => {
-          console.log(error);
-          openErrorMessage();
-        });
-    }
+          if (authRefs.form.elements.radio.checked === true) {
+            storageToken(data.user, data.accces_token);
+          }
 
-    function storageToken(userInfo, role, token) {
-      const infoUser = JSON.stringify({
-        token: token,
-        role: role,
-        info: userInfo,
-      });
+          setTimeout(() => {
+            successEnterMessage();
+          }, 1000);
+          return response;
+        });
+      } catch (error) {
+        console.log(error);
+        openErrorMessage();
+        throw error;
+      }
+    };
+
+    function storageToken(userInfo, token) {
+      const infoUser = JSON.stringify({ token: token, info: userInfo });
       localStorage.setItem('info', infoUser);
     }
-
     authRefs.form.addEventListener('submit', e => {
       e.preventDefault();
     });

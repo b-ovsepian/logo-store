@@ -28,12 +28,14 @@ export const cardItem = (data, where, sale = false) => {
   // если есть то зарисовать сердечко
   setTimeout(() => {
     store.user.favorites.forEach(_id => {
-      const span = document.querySelector(
+      const span = document.querySelectorAll(
         `.icon-box-favorit[data-id="${_id}"]`,
       );
-      if (span !== null) {
-        span.classList.toggle('icon-box-favorit-full');
-      }
+      span.forEach(item => {
+        if (item !== null) {
+          item.classList.add('icon-box-favorit-full');
+        }
+      });
     });
   }, 1000);
   //слушатель на иконку для смены иконки

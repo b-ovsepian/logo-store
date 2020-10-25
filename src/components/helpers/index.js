@@ -1,12 +1,18 @@
-import store from '../store/index.js';
-// Функция выхода из меню личный кабинет, затирает токен и вызывает функцию рендеринга главной страницы:
+import store from '../store';
+import refs from '../../refs';
 
-export const logOut = () => {
-  // затираю токен:
-  store.auth.accces_token = '';
-  //вызываю функцию рендеринга главной страницы:
-  //...
-};
+export function exitUser() {
+  localStorage.clear();
+  store.user = {};
+  closeBackdrop();
+}
+
+export function closeBackdrop() {
+  refs.lightbox.classList.remove('is-open');
+  refs.body.style.overflow = 'visible';
+  refs.backdrop.style.overflow = 'visible';
+}
+
 const viewport = {
   isMobile: false,
   isTablet: false,

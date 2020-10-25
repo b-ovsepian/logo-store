@@ -1,0 +1,15 @@
+{{#each this}}
+<li class="developers-item">
+    <a href="{{git}}" target="_blank" class="developers-item__link" aria-label="github link">
+        <div class="developers-item__image-box">
+            <img class="image-box-photo" src="{{{image}}}" alt="photo" width="160" height="160" />
+        </div>
+        <div class="developers-item__person-info">
+            <h3 class="developers-item__title">{{name}} {{surname}}</h3>
+            <p class="developers-item__about">
+                {{info}}
+            </p>
+        </div>
+    </a>
+</li>
+{{/each}}

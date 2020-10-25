@@ -1,7 +1,6 @@
 import style from '../newADV/style.css';
 import refs from '../../refs/index.js';
 import { data } from 'autoprefixer';
-import template from './template.hbs';
 import profileAdminAdTemplate from '../../templates/profile-admin-ad-template.hbs';
 import getObj from '../services/index.js';
 import services from '../services/index.js';

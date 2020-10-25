@@ -16,12 +16,11 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
     <header class="page-header">
       <nav class="container">
         <div class="header">
-          <a href="#" class="logo js-logo">
+          <a href="./index.html" class="logo js-logo">
             <img
               src="./components/header/images/logo.png"
               alt="logo"
@@ -30,7 +29,7 @@
             />
             <p>Lo<span>go</span></p>
           </a>
-          <ul class="list icon-list">
+          <ul class="list icon-list" id="mobileNav">
             <li>
               <button class="js-phone">
                 <svg class="nav-icon" width="30" height="30">
@@ -56,19 +55,13 @@
                     href="./components/header/images/sprite.svg#icon-cart"
                   ></use>
                 </svg>
-                <div class="items-amount amount">0</div>
               </button>
             </li>
           </ul>
-          <button type="button" class="burger js-burger">
+          <button type="button" class="burger js-burger" id="burgerBtn">
             <svg class="icon-burger" width="34" height="34">
               <use
                 href="./components/header/images/sprite.svg#icon-burger"
-              ></use>
-            </svg>
-            <svg class="icon-close visually-hidden" width="14" height="14">
-              <use
-                href="./components/header/images/sprite.svg#icon-close"
               ></use>
             </svg>
           </button>
@@ -76,86 +69,20 @@
       </nav>
     </header>
     <main class="page-main">
-      <div class="container main-container">
-        <nav id="breadcrumb">
-          <ol class="breadcrumb">
-            <li><a href="/">Home</a></li>
-          </ol>
-        </nav>
-        <div class="category">
-          <ul class="category-list list">
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 3.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Крупная бытовая техника</h2>
-              <button name="household" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 4.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Встраиваемая техника</h2>
-              <button name="embedded" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 5.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">Уход за домом и одеждой</h2>
-              <button name="home" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-            <li class="category-list-item">
-              <img
-                src="./components/category/images/desktop/Rectangle 6.jpg"
-                alt="Бытовая техника"
-                width="100%"
-              />
-              <h2 class="category-title">
-                Техника для кухни &#160; &#160;&#160;&#160;
-              </h2>
-              <button name="kitchen" class="category-link button primary">
-                Купить
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="new-products">
-          <h2 class="np-title">Новые поступления</h2>
-        </div>
-      </div>
-      <div class="pagination-wrapper">
-        <ul class="pagination-list"></ul>
-        <p class="show-quantity"></p>
-      </div>
-
-
+      <div class="container main-container"></div>
     </main>
     <footer class="page-footer">
       <div class="container">
         <h2 class="page-footer__title">Есть к нам вопросы?</h2>
         <div class="footer-box">
           <div class="page-footer__phone-box">
-            <h3 class="page-footer__phone">Телефон</h3>
+            <p class="page-footer__phone">Телефон</p>
             <a class="page-footer__link" href="tel:+380503333796"
               >+38 (050) 333-37-96</a
             >
           </div>
           <address class="page-footer__address">
-            <h3 class="page-footer__phone">График работы CALL-центра</h3>
+            <p class="page-footer__phone">График работы CALL-центра</p>
             <p class="address-text">Пн - Пт: 09:00 - 18:00,</p>
             <p class="address-text">Сб - Вс: Выходной</p>
           </address>
@@ -165,63 +92,6 @@
         <p class="copyright">&copy; 2020 | GoIT</p>
       </div>
     </footer>
-    <section class="cart">
-
-    <div class="container">
-      <button class="cart-button">Open cart</button>
-      <div class="upper-wrapper">
-        <h2>Корзина</h2>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            fill="#53535C
-          "
-          />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </svg>
-      </div>
-    <ul class="cart-list">
-
-    </ul>
-
-      <p class="sum-text">Сумма <span class="sum">8499</span>₴</p>
-
-      <div class="result-wrapper">
-        <p class="result-text">Итого
-        <span class="result">8499</span>₴</p>
-      </div>
-      <div class="buttons">
-        <button class="order-button button">Оформить заказ</button>
-        <button class="back-button button">
-          <svg
-            class="back-icon"
-            width="27"
-            height="16"
-            viewBox="0 0 27 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M26 7C26.5523 7 27 7.44772 27 8C27 8.55228 26.5523 9 26 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM26 9H1V7H26V9Z"
-              fill="#6368E5"
-            />
-          </svg>
-          к покупкам
-        </button>
-        </div>
-      </section>
-
-    <button class="modalbtn">Press here</button>
-    <button class="authbtn">Form</button>
-
-    <div class="formsection"></div>
-
-
     <div class="lightbox">
       <div class="backdrop">
         <div class="modal">

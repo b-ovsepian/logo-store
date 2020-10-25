@@ -1,53 +1,51 @@
-{{#each this}} 
+{{#each this}}
 <section class="product-card">
-      <div class="container">
-        <div class="btn-exit"><a class="exit" href="/">Выход</a></div>
-        
-        <div class="product-card-name-container">
-          <h2 class="product-card-title">{{name}}</h2>
-          <p class="product-card-code"><span>Код: </span> {{ _id}}</p>
-        </div>
-        <div class="product-card-main-container">
+  <div class="btn-exit"><a class="exit" href="/">выход</a></div>
 
-          <div class="product-card-slider">
-            <div class="product-card-slider-big-photo"></div>
-            <div class="product-card-small-photo">
-              <ul class="product-card-slider-list">
-              </ul>
-            </div>
-          </div>
-          <div class="product-card-low-dange">
-            <h3 class="product-card-price">{{price}} ₴</h3>
-            <div class="product-card-price-button-div">
-              <button class="product-card-button-buy" type="button">КУПИТЬ</button>
-              <button class="product-card-button-bookmarks" type="button" data-id='{{_id}}'></button>
+  <div class="product-card-name-container">
+    <h2 class="product-card-title">{{name}}</h2>
+    <p class="product-card-code"><span>Код: </span> {{ _id}}</p>
+  </div>
+  <div class="product-card-main-container">
 
-              <p class="product-card-none">В избранное</p>
-            </div>
-          </div>
-  
-        </div>
-        <div class="product-card-main-list">
-          <ul class="product-card-list">
-            <li class="product-card-item">
-              <h3 class="product-card-item-title">Описание:
-              </h3>
-              <p class="product-card-item-description">
-                {{description}}
-              </p>
-            </li>
-            <li class="product-card-item">
-              <h3 class="product-card-item-title">Гарантия:
-              </h3>
-              <p class ="product-card-item-description">
-                12 месяцев официальной гарантии от производителя
-                Обмен/возврат товара в течение 14 дней
-                Продавец гарантирует упаковку заказанного товара, которая обеспечит целостность и сохранность его товарного вида
-               </p>
-            </li>
-          </ul>
-        </div>
+    <div class="product-card-slider">
+      <div class="product-card-slider-big-photo"></div>
+      <div class="product-card-small-photo">
+        <ul class="product-card-slider-list">
+        </ul>
       </div>
-    </section>
+    </div>
+    <div class="product-card-low-dange">
+      <h3 class="product-card-price">{{price}} ₴</h3>
+      <div class="product-card-price-button-div">
+        <button class="product-card-button-buy" type="button">КУПИТЬ</button>
+        <button class="product-card-button-bookmarks" type="button" data-id='{{_id}}'></button>
+        <p class="product-card-none">В избранное</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="product-card-main-list">
+    <ul class="product-card-list">
+      <li class="product-card-item">
+        <h3 class="product-card-item-title">Описание:
+        </h3>
+        <p class="product-card-item-description">
+          {{description}}
+        </p>
+      </li>
+      <li class="product-card-item">
+        <h3 class="product-card-item-title">Гарантия:
+        </h3>
+        <p class="product-card-item-description">
+          12 месяцев официальной гарантии от производителя
+          Обмен/возврат товара в течение 14 дней
+          Продавец гарантирует упаковку заказанного товара, которая обеспечит целостность и сохранность его товарного
+          вида
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
 
 {{/each}}

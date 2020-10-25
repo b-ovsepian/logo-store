@@ -7,7 +7,13 @@ ul {
 }
 a {
   text-decoration: none;
+  color: inherit;
 }
+
+.isHidden {
+  display: none;
+}
+
 .catalog-title {
   display: flex;
   flex-flow: row;
@@ -23,6 +29,7 @@ a {
 .catalog-list-item {
   font-size: 10px;
   line-height: 1.23;
+  cursor: pointer;
 }
 .catalog-list-item:not(:last-child) {
   margin-bottom: 7px;
@@ -34,6 +41,9 @@ a {
 
 .catalog {
   padding: 0 20px;
+  padding-top: 20px;
+  background-color: var(--second-bg-color);
+  border-radius: 10px;
 }
 
 .catalog-title span {
@@ -92,7 +102,7 @@ a {
   }
   .catalog-item div {
     display: flex;
-        height: 10%;
+    height: 10%;
   }
   .catalog-img {
     margin-bottom: 14px;
@@ -101,7 +111,7 @@ a {
   .catalog-title span {
     display: none;
   }
-  .catalog-title  {
+  .catalog-title {
     display: flex;
     text-align: start;
     vertical-align: middle;
