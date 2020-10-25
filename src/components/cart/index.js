@@ -13,6 +13,7 @@ export function renderArray() {
   cart.products = [
     ...store.cart.map(elem => ({
       id: elem._id,
+      name: elem.name,
       image: elem.images[0],
       price: elem.price,
       totalQuantity: elem.totalQuantity,
