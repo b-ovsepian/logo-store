@@ -200,3 +200,236 @@ transform: translate(-50%, -50%); */
   top: 2%;
   right: 2%;
 }
+
+p,h2{
+  margin: 0;
+}
+
+.authorization {
+  /* position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%); */
+  width: 342px;
+  height: 450px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 0;
+}
+
+.modal-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 280px;
+  height: 100px;
+  background: #ffffff;
+}
+
+.error-form {
+  height: 180px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .authorization {
+    width: 342px;
+    height: 450px;
+  }
+
+  .modal-form {
+    width: 342px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal-form {
+    width: 450px;
+    height: 200px;
+  }
+}
+
+.modal-form-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* @media screen and (min-width: 768px) {
+  .modal-form-title {
+    margin-top: 25px;
+  }
+
+  .error-title {
+    margin-top: 10px;
+  }
+} */
+
+/* @media screen and (min-width: 1200px) {
+  .modal-form-title {
+    font-size: 30px;
+    margin-top: 37px;
+  }
+
+  .error-title {
+    margin-top: 20px;
+  }
+} */
+
+.error-title {
+  color: red;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.error-text {
+  font-size: 15px;
+}
+
+.modal-form-text {
+  font-size: 15px;
+  text-align: center;
+}
+
+.error-icon {
+  text-align: center;
+  font-size: 20px;
+}
+
+.authtitle {
+  font-size: 18px;
+  font-weight: 600px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+
+.authspan {
+  color: red;
+}
+
+.password-hint,
+.email-hint {
+  display: none;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.authlabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+.authinput {
+  display: block;
+  width: 280px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #b3b3b3;
+  border-radius: 10px;
+}
+
+.email-section,
+.password-section {
+  margin-bottom: 20px;
+}
+
+.authradio {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #53535c;
+}
+
+.radiobutton {
+  margin-bottom: 20px;
+}
+
+.checkbutton {
+  margin-right: 10px;
+}
+
+.enterAccount,
+.registerAccount {
+  display: block;
+  width: 240px;
+  height: 44px;
+  margin: 0 auto;
+}
+
+.enterAccount {
+  color: white;
+  background: linear-gradient(47.73deg, #6368e5 15.48%, #b884f3 81.25%);
+  margin-bottom: 15px;
+}
+
+.enterAccount:disabled {
+  background: grey;
+}
+
+.registerAccount:disabled {
+  background-color: grey;
+  color: white;
+  border: none;
+}
+
+.registerAccount {
+  border: 2px solid #6368e5;
+  background-color: transparent;
+  padding: 0;
+  color: #6368e5;
+}
+
+.icon-auth {
+  font-size: 20px;
+}
+
+.auth-icon-wrapper {
+  margin: 0;
+}
+
+.icon-error {
+  top: 2%;
+  right: 2%;
+}
+
+
+.passw-label-wrapper{
+  display: flex;
+}
+
+.passw-valid-text{
+  font-size: 10px;
+    color: green;
+    margin-left: 10px;
+    display: none;
+}
+
+.passw-valid-text.is-open{
+  display: block;
+}
+.passw-label-wrapper{
+  display: flex;
+}
+
+.passw-valid-text{
+  font-size: 10px;
+    color: green;
+    margin-left: 10px;
+    display: none;
+}
+
+.passw-valid-text.is-open{
+  display: block;
+}

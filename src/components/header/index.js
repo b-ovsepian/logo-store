@@ -9,6 +9,10 @@ import { createSale } from '../salo';
 import renderInformation from '../information';
 import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
+import renderDevelopers from '../developers';
+import renderMainPage from '../mainPage';
+import { createSale } from '../createCards';
+import renderProfile from '../profile';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -67,6 +71,10 @@ function createModalMarkup() {
         </div>`;
   return modalMarkup;
 }
+document.querySelector('.js-logo').addEventListener('click', event => {
+  event.preventDefault();
+  renderMainPage();
+});
 
 refs.searchHeader.addEventListener('click', searchButtonHandler);
 
@@ -154,7 +162,7 @@ if (widthObject.isDesktop) {
                 </button>
         </li>
         <li class="a">
-          <a href="#" class="desktop-link js-contacts">Контакты</a>
+          <a href="#" class="desktop-link js-developers">Контакты</a>
         </li>
       </ul>
       <ul class="list account-list">
@@ -170,15 +178,13 @@ if (widthObject.isDesktop) {
         </li>
         <li class="a">
           <a href="#" class="likes-link js-likes">
-              <span class="likes-desktop-icon ">
-              <div class="likes-amount amount">0</div>
+              <span class="likes-desktop-icon">
               </span>
           </a>
         </li>
         <li class="a">
           <a href="#" class="js-cart">
               <span class="cart-icon">
-              <div class="items-amount amount">0</div>
               </span>
           </a>
         </li>
@@ -186,6 +192,7 @@ if (widthObject.isDesktop) {
   );
 
   renderInformation();
+  renderDevelopers();
 
   const catalogBtn = document.querySelector('.js-catalog');
   function createCatalogMarkup() {
@@ -198,30 +205,29 @@ if (widthObject.isDesktop) {
     modalModule(createCatalogMarkup, addListeners);
     createCatalogList();
   }
-
   document
-    .querySelector('.js-sale')
-    .addEventListener('click', () => createSale('sale'));
-
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
   document
     .querySelector('.js-search')
     .addEventListener('click', searchButtonHandler);
 
-  document
-    .querySelector('.js-profile')
-    .addEventListener('click', renderAuthMenu);
+  document.querySelector('.js-sale').addEventListener('click', event => {
+    event.preventDefault();
+    createSale('sale');
+  });
 
-  // createCatalogList();
-  // createCatalogList();
+  document.querySelector('.js-likes').addEventListener('click', event => {
+    event.preventDefault();
+    const local = localStorage.getItem('info');
+    if (local) {
+      refs.mainContainer.innerHTML = '';
+      renderProfile('favorites');
+    }
+  });
+
+  document.querySelector('.js-logo').addEventListener('click', event => {
+    event.preventDefault();
+    renderMainPage();
+  });
 }
-
-/*
-function userIgor() {
-  function div() {
-    return checkAuto();
-  }
-
-  modalModule(div, createListeners);
-}
-
-*/

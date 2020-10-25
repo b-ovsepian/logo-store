@@ -21,5 +21,5 @@ export default {
   modalHeader: document.querySelector('.modal'),
   modalWrapper: document.querySelector('.modal-wrapper'),
   modalBackdrop: document.querySelector('.backdrop'),
-  modalList: document.querySelector('.modal-list')
+  mainContainer: document.querySelector('.main-container'),
 };
