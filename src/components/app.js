@@ -20,7 +20,6 @@ import category from './category/category.js';
 
 loader.renderLoader();
 setTokenToStore();
-setCartToStore();
 
 function setTokenToStore() {
   const localToken = localStorage.getItem('user_token');
@@ -36,11 +35,6 @@ function setTokenToStore() {
     console.log('Нет токина, нужно залогиниться');
     store.auth.accces_token = '';
   }
-}
-
-function setCartToStore() {
-  const localCart = JSON.parse(localStorage.getItem('cart'));
-  store.cart = localCart;
 }
 
 services
