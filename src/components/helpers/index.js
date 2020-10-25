@@ -7,7 +7,7 @@ export function exitUser() {
   closeBackdrop();
 }
 
-function closeBackdrop() {
+export function closeBackdrop() {
   refs.lightbox.classList.remove('is-open');
   refs.body.style.overflow = 'visible';
   refs.backdrop.style.overflow = 'visible';
