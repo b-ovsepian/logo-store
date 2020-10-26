@@ -228,6 +228,12 @@ if (widthObject.isDesktop) {
     if (local) {
       refs.mainContainer.innerHTML = '';
       renderProfile('favorites');
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Авторизируйтесь на сайте</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
     }
   });
 
