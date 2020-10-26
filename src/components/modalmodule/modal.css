@@ -59,3 +59,9 @@
   font-size: 36px;
   line-height: 1.2;
 }
+
+@media screen and (max-width: 767px) {
+  .js-modal-info {
+    font-size: 18px;
+  }
+}
