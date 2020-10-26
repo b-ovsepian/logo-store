@@ -3,9 +3,9 @@ import refs from './refs';
 // import images from './images';
 import { modalModule } from '../modalmodule/modal.js';
 import widthObject from '../helpers';
-// import renderTelephoneTrigger from '../telephoneTrigger';
+import renderTelephoneTrigger from '../telephoneTrigger';
 import createCatalogList from '../catalog/catalog.js';
-import { createSale } from '../salo';
+// import { createSale } from '../salo';
 import renderInformation from '../information';
 import searchButtonHandler from '../search/search.js';
 import renderAuthMenu from '../AuthMenu';
@@ -62,7 +62,6 @@ function createModalMarkup() {
               <li class="modal-list-item">
                 <a href="#" class="likes-link modal-list-link js-likes">
                   <span class="likes-icon header-icon js-likes">
-                  <div class="likes-amount amount">0</div>
                   </span>
                   <span class="with-icons js-likes">Избранное</span>
                 </a>
@@ -89,39 +88,8 @@ function openModal() {
       .querySelector('.header-modal-close-btn')
       .addEventListener('click', (e) => {
         closeBackdrop();
-        // refs.modalHeader.classList.remove('change-modal');
-        renderInformation(e.target);
+        // renderInformation(e.target);
       });
-    // refs.modalBackdrop.addEventListener('click', e => {
-      // if (
-      //   e.target === e.currentTarget ||
-      //   e.target.classList.contains('close-icon') ||
-      //   e.target.classList.contains('icon-wrapper') ||
-      //   e.target.classList.contains('js-sale') ||
-      //   e.target.classList.contains('js-contacts') ||
-      //   e.target.classList.contains('js-likes')
-      //   // e.target.classList.contains('js-info')
-      // ) {
-      //   // refs.modalHeader.classList.remove('change-modal');
-      //   closeBackdrop();
-      // }
-      // if (e.target.classList.contains('js-info')) {
-      //   // closeBackdrop();
-      //   document
-      //     .querySelector('.header-modal')
-      //     .classList.add('visually-hidden');
-      //   renderInformation();
-      // //   // refs.modalHeader.classList.remove('change-modal');
-      // }
-    // });
-    // document.querySelector('.modal-list').addEventListener('click', e => {
-    //   console.log(e.target);
-    //   if (e.target.classList.contains('js-info')) {
-    //     // closeBackdrop();
-    //     // document.querySelector('.header-modal').classList.add('visually-hidden');
-    //     //   // refs.modalHeader.classList.remove('change-modal');
-    //   }
-    // });
   }
 
 

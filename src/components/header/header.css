@@ -257,16 +257,16 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 60px;
-    width: 100%;
+    width: 300px;
     height: 100%;
     position: relative;
   }
 
-  /* @media screen and (min-width: 768px) {
+  @media screen and (min-width: 400px) {
     .header-modal {
       width: 374px;
     }
-  } */
+  }
 
   .header-modal-close-btn {
     background-color: transparent;
@@ -310,7 +310,6 @@
   .likes-link {
     display: flex;
     align-items: center;
-    /* fill: var(--primary-text-color); */
   }
 
   .modal-inner-button {
