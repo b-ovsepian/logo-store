@@ -73,22 +73,22 @@ import getSlider from '../slider';
 // export default renderlastSeen;
 
 function renderNewProducts() {
-  const div = document.createElement('div');
-  div.classList.add('lastSeen');
-  const h2 = document.createElement('h2');
-  h2.classList.add('lastSeen-title');
-  h2.textContent = 'Недавно просматривали';
-  div.insertAdjacentElement('beforeend', h2);
-  refs.mainContainer.insertAdjacentElement('beforeend', div);
-
-  const npdiv = document.querySelector('.lastSeen');
-
   function getLocalStorage() {
     return JSON.parse(localStorage.getItem('lastSeen'));
   }
 
   const lastSeenArr = [...getLocalStorage('lastSeen')];
-  if (lastSeenArr.length > 0) {
+  if (lastSeenArr.length > 0 && lastSeenArr[0]._id) {
+    const div = document.createElement('div');
+    div.classList.add('lastSeen');
+    const h2 = document.createElement('h2');
+    h2.classList.add('lastSeen-title');
+    h2.textContent = 'Недавно просматривали';
+    div.insertAdjacentElement('beforeend', h2);
+    refs.mainContainer.insertAdjacentElement('beforeend', div);
+
+    const npdiv = document.querySelector('.lastSeen');
+
     getSlider(lastSeenArr, npdiv, 2, false, true);
 
     const sliderTrack = npdiv.querySelector('.slider-track');

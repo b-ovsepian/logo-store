@@ -1,6 +1,7 @@
 import { data } from 'autoprefixer';
 import Axios from 'axios';
 import store from '../store';
+import { modalModule } from '../modalmodule/modal.js';
 Axios.defaults.baseURL = 'https://back24.herokuapp.com/';
 Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
 
@@ -142,6 +143,12 @@ export default {
   // Create new product
   async createNewProduct(object) {
     Axios.defaults.headers.common['Authorization'] = store.auth.accces_token;
+
+    const markupSuccess = function () {
+      return `<div class='js-modal-info'><p>Товар успешно добавлен!</p></div>`;
+    };
+    const addListeners = function () {};
+
     try {
       const response = await Axios('products', {
         method: 'POST',
@@ -149,10 +156,16 @@ export default {
           'Content-Type': 'application/json',
         },
         data: JSON.stringify(object),
+      }).then(() => {
+        modalModule(markupSuccess, addListeners);
       });
 
       return response;
     } catch (error) {
+      const markupFail = function () {
+        return `<div class='js-modal-info'><p>${error}</p></div>`;
+      };
+      modalModule(markupFail, addListeners);
       throw error;
     }
   },
@@ -191,10 +204,25 @@ export default {
   },
   // Create new order
   async createNewOrder(productList) {
+    const userAddress = {
+      country: store.user.address.country,
+      city: store.user.address.city,
+      place: store.user.address.place,
+      street: store.user.address.street,
+      block: store.user.address.block,
+      building: store.user.address.building,
+      flat: store.user.address.flat,
+      zip: store.user.address.zip,
+    };
     const order = {
-      address: store.user.address,
+      address: userAddress,
       productList: productList,
     };
+    const markupSuccess = function () {
+      return `<div class='js-modal-info'><p>Заказ оформлен!</p></div>`;
+    };
+    const addListeners = function () {};
+
     try {
       const response = await Axios({
         url: 'orders',
@@ -204,9 +232,15 @@ export default {
           'Content-Type': 'application/json',
         },
         data: JSON.stringify(order),
+      }).then(() => {
+        modalModule(markupSuccess, addListeners);
       });
       return response;
     } catch (error) {
+      const markupFail = function () {
+        return `<div class='js-modal-info'><p>${error}</p></div>`;
+      };
+      modalModule(markupFail, addListeners);
       throw error;
     }
   },

@@ -6,6 +6,7 @@ import { commonRender } from '../cart/index.js';
 import services from '../services/index.js';
 import store from '../store/index.js';
 import renderMainPage from '../mainPage';
+import { modalModule } from '../modalmodule/modal.js';
 
 let main = refs.mainContainer;
 
@@ -21,18 +22,23 @@ export default {
     main.innerHTML = '';
     const items = template(data);
     main.insertAdjacentHTML('beforeend', items);
+
+    window.scroll({
+      top: 60,
+      left: 0,
+      behavior: 'smooth',
+    });
     // productCart.style.paddingtop = '100px'
 
     const localSeen = JSON.parse(localStorage.getItem('lastSeen'));
-    console.dir(localSeen);
     const productId = data[0]._id;
-    console.log(productId);
 
     if (localSeen) {
       const lastSeenArr = [...localSeen];
-      lastSeenArr.filter(item => productId !== item._id);
-      lastSeenArr.unshift(data[0]);
-      console.dir(lastSeenArr);
+      const existingProduct = lastSeenArr.find(item => productId === item._id);
+      if (!existingProduct) {
+        lastSeenArr.unshift(data[0]);
+      }
       localStorage.setItem('lastSeen', JSON.stringify(lastSeenArr));
     } else localStorage.setItem('lastSeen', JSON.stringify(data[0]));
 
@@ -50,7 +56,6 @@ export default {
 
   createModalImg(img) {
     img.forEach(el => {
-      console.log(el.category);
       for (const imageItem of el.images) {
         let li = document.createElement('li');
         li.setAttribute('class', 'product-card-slider-item');
@@ -99,5 +104,25 @@ export default {
       event.preventDefault();
       renderMainPage();
     });
+    buyButton.addEventListener('click', event => {
+      event.preventDefault();
+      addProductToCart(img);
+
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Товар добавлен в корзину!</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    });
   },
 };
+
+function addProductToCart(data) {
+  const localCart = JSON.parse(localStorage.getItem('cart'));
+
+  if (localCart) {
+    const cartArr = [...localCart];
+    cartArr.unshift(data[0]);
+    localStorage.setItem('cart', JSON.stringify(cartArr));
+  } else localStorage.setItem('cart', JSON.stringify(data));
+}

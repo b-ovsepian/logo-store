@@ -13,6 +13,11 @@ import renderDevelopers from '../developers';
 import renderMainPage from '../mainPage';
 import { createSale } from '../createCards';
 import renderProfile from '../profile';
+import { renderArray } from '../cart';
+import { createListeners } from '../cart';
+import { setCartToStore } from '../cart';
+import { closeBackdrop } from '../helpers';
+import store from '../store';
 
 function createModalMarkup() {
   const modalMarkup = `<div class="header-modal">
@@ -43,7 +48,7 @@ function createModalMarkup() {
                 </button>
               </li>
               <li class="modal-list-item">
-                <a href="#" class="modal-list-link js-contacts">Контакты</a>
+                <a href="#" class="modal-list-link js-developers">Контакты</a>
               </li>
               <li class="numbers-button modal-list-item">
                 <button class="modal-inner-button js-phone">
@@ -74,32 +79,59 @@ document.querySelector('.js-logo').addEventListener('click', event => {
   event.preventDefault();
   renderMainPage();
 });
-
+document.querySelector('.js-cart').addEventListener('click', event => {
+  event.preventDefault();
+  setCartToStore();
+  if (store.cart.length > 0) {
+    modalModule(renderArray, createListeners);
+  } else {
+    const markup = function () {
+      return `<div class='js-modal-info'><p>Корзина пустая</p></div>`;
+    };
+    const addListeners = function () {};
+    modalModule(markup, addListeners);
+  }
+});
 refs.searchHeader.addEventListener('click', searchButtonHandler);
 
 refs.modalBtn.addEventListener('click', openModal);
 
 function openModal() {
   // refs.modalHeader.classList.add('change-modal');
-  // console.dir(e.currentTarget)
-  // refs.modalWrapper.addEventListener('click')
-  function addListeners(closeBackdrop) {
-    document
-      .querySelector('.header-modal-close-btn')
-      .addEventListener('click', (e) => {
-        closeBackdrop();
-        // renderInformation(e.target);
-      });
-  }
-
-
+  function addListeners(closeBackdrop) {}
   modalModule(createModalMarkup, addListeners);
   renderInformation();
   createCatalogList();
+  renderDevelopers();
 
+  document.querySelector('.js-sale').addEventListener('click', event => {
+    event.preventDefault();
+    createSale('sale');
+    closeBackdrop();
+  });
   document
-    .querySelector('.js-sale')
-    .addEventListener('click', () => createSale('sale'));
+    .querySelector('.header-modal-close-btn')
+    .addEventListener('click', event => {
+      event.preventDefault();
+      closeBackdrop();
+    });
+  document
+    .querySelector('.js-profile')
+    .addEventListener('click', renderAuthMenu);
+  document.querySelector('.js-likes').addEventListener('click', event => {
+    event.preventDefault();
+    const local = localStorage.getItem('info');
+    if (local) {
+      refs.mainContainer.innerHTML = '';
+      renderProfile('favorites');
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Авторизируйтесь на сайте</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    }
+  });
 }
 
 if (widthObject.isDesktop) {
@@ -184,6 +216,19 @@ if (widthObject.isDesktop) {
     event.preventDefault();
     createSale('sale');
   });
+  document.querySelector('.js-cart').addEventListener('click', event => {
+    event.preventDefault();
+    setCartToStore();
+    if (store.cart.length > 0) {
+      modalModule(renderArray, createListeners);
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Корзина пустая</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    }
+  });
 
   document.querySelector('.js-likes').addEventListener('click', event => {
     event.preventDefault();
@@ -191,6 +236,12 @@ if (widthObject.isDesktop) {
     if (local) {
       refs.mainContainer.innerHTML = '';
       renderProfile('favorites');
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Авторизируйтесь на сайте</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
     }
   });
 
