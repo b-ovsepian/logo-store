@@ -2,6 +2,8 @@ import './styles.css';
 import template from './templates/shopping-cart-template.hbs';
 import store from '../store';
 import services from '../services';
+import { modalModule } from '../modalmodule/modal.js';
+
 const cart = {
   products: [],
   totalQuantity: 0,
@@ -43,12 +45,22 @@ export function createListeners(close) {
   });
 
   orderButton.addEventListener('click', () => {
-    const list = cart.products.map(product => product.id);
-    services.createNewOrder(list).then(res => {
-      localStorage.removeItem('cart');
-      store.cart = [];
-    });
-    close();
+    const local = localStorage.getItem('info');
+
+    if (local) {
+      const list = cart.products.map(product => product.id);
+      services.createNewOrder(list).then(res => {
+        localStorage.removeItem('cart');
+        store.cart = [];
+      });
+      close();
+    } else {
+      const markup = function () {
+        return `<div class='js-modal-info'><p>Авторизируйтесь на сайте</p></div>`;
+      };
+      const addListeners = function () {};
+      modalModule(markup, addListeners);
+    }
   });
   cartList.addEventListener('click', event => {
     const id = event.target.closest('[data-id]').dataset.id;
