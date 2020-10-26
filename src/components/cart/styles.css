@@ -13,7 +13,7 @@
   background: #e5e5e5;
   padding: 20px;
 }
-.wrapper {
+.cart-wrapper {
   background-color: #f4f4f4;
   padding: 22px 20px 20px;
   width: 310px;
@@ -157,7 +157,7 @@
   .cart {
     width: 648px;
   }
-  .wrapper {
+  .cart-wrapper {
     width: 648px;
   }
   .counter-wrapper {
@@ -176,7 +176,7 @@
   .cart-container {
     width: 1080px;
   }
-  .wrapper {
+  .cart-wrapper {
     width: 1080px;
     display: flex;
     justify-content: space-between;
