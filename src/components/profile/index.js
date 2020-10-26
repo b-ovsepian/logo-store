@@ -10,6 +10,11 @@ import store from '../store/index.js';
 import renderCreateAd from '../newADV/index.js';
 import renderMainPage from '../mainPage';
 
+import { renderArray } from '../cart';
+import { createListeners } from '../cart';
+import { setCartToStore } from '../cart';
+import { modalModule } from '../modalmodule/modal.js';
+
 // Функция, которая закрывает меню "Личный кабинет" по кнопке "Выход":
 const closeProfile = () => {
   //вызываю функцию рендеринга главной страницы:
@@ -237,7 +242,7 @@ const renderProfile = source => {
     profileMenuItemFavorites.after(profileSectionsDetails);
     profileSectionsDetails.insertAdjacentHTML(
       'beforeend',
-      "<ul class='profile-favorites__list list card-list'></ul>",
+      "<ul class='profile-favorites__list list card-list delete-padding'></ul>",
     );
     changeActiveItem(profileMenuItemFavorites);
     // Вызываю API (функция getCurrentUser) для заполнения деталей меню "Избранное":
@@ -278,6 +283,17 @@ const renderProfile = source => {
         });
         //Добавляю store.cart в localStorage:
         localStorage.setItem('cart', JSON.stringify(store.cart));
+
+        setCartToStore();
+        if (store.cart.length > 0) {
+          modalModule(renderArray, createListeners);
+        } else {
+          const markup = function () {
+            return `<div class='js-modal-info'><p>Корзина пустая</p></div>`;
+          };
+          const addListeners = function () {};
+          modalModule(markup, addListeners);
+        }
       });
     } else {
       notificationMessage(
