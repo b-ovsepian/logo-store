@@ -3,6 +3,10 @@
   padding-bottom: 20px;
 }
 
+.card-list.delete-padding {
+  padding-top: 0;
+}
+
 .profile-title {
   font-style: normal;
   font-weight: bold;
