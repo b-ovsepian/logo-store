@@ -49,12 +49,16 @@ function createItems(array, bool = false) {
 
   render(array, bool)
   function render(array, bool = false) {
-    document.querySelector('.sale-button').append(pages)
-    document.querySelector('.sale-text-page').append(buttons)
 
     [data, buttons, pages] = paginationModule.funkMark(array) //запустить Марка функцию и получить карточки для проресовки, кнопки и текст со страницами
     cardItem(data, list, bool)
     // cardItem(array, list, bool) // на случай, если Марка фукция не заработает!!!
+    let button = document.querySelector('.sale-button')
+    button.innerHTML = ""
+    button.append(buttons)
+    let text = document.querySelector('.sale-text-page')
+    text.insertAdjacentHTML = ""
+    text.append(pages)
   }
 
 
