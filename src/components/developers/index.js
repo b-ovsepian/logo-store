@@ -2,6 +2,7 @@ import './developers.css';
 import developersTmpl from '../../templates/developers.hbs';
 import devJson from './developers.json';
 import refs from '../../refs';
+import viewportFunction from '../helpers';
 
 function renderDevelopers() {
   function developersMarkup() {
@@ -15,6 +16,26 @@ function renderDevelopers() {
     div.insertAdjacentElement('beforeend', developersList);
     refs.mainContainer.innerHTML = '';
     refs.mainContainer.insertAdjacentElement('beforeend', div);
+
+    const photos = document.querySelectorAll('.image-box-photo');
+    if (viewportFunction.isMobile) {
+      photos.forEach(item => {
+        item.width = 85;
+        item.height = 85;
+      });
+    }
+    if (viewportFunction.isTablet) {
+      photos.forEach(item => {
+        item.width = 96;
+        item.height = 96;
+      });
+    }
+    if (viewportFunction.isDesktop) {
+      photos.forEach(item => {
+        item.width = 160;
+        item.height = 160;
+      });
+    }
   }
   const devBtn = document.querySelector('.js-developers');
   devBtn.addEventListener('click', event => {
